@@ -1,0 +1,68 @@
+<!-- ********* -->
+<!-- * Arena * -->
+<!-- ********* -->	
+	        <arena size="8521.0 " center="122.4154,153426.0">
+	        	           <box id="wall4" size="2,0.1,0.5" movable="false">
+	        	           	            <body position="0,1,0" orientation="0,0,0" /><box id="wall4" size="2,0.1,0.5" movable="false">
+	        	           	            <body position="0,1,0" orientation="0,0,0" /><box id="wall4" size="2,0.1,0.5" movable="false">
+	        	           	            <body position="0,1,0" orientation="0,0,0" /><box id="wall4" size="2,0.1,0.5" movable="false">
+	        	           	            <body position="0,1,0" orientation="0,0,0" /><box id="wall4" size="2,0.1,0.5" movable="false">
+	        	           	            <body position="0,1,0" orientation="0,0,0" />
+	        	           	          </box>
+	        	           </arena> 
+	      			 <distribute>
+	      				             <position method="uniform"  min="0,0,0" max="8548.0 " />
+	      				             <orientation method="uniform"  min="0,0,0" max="8548.0 " />
+	      				             <entity quantity="12" max_trials="100">
+	      				               <e-puck id="e-">
+	      				                 <controller  config="automode" />
+	      				               </e-puck >
+	      				            </entity>
+	      				           </distribute>  
+	      			<box id="wall72.1060544147332" size="8548.0 " movable="false">
+	      				            <body position="42.454,556.0" orientation="0,0,0" />
+	      				          </box>
+	      			<light id="light65.4339665434509" position="42.45,5563.0" orientation="0,0,0" color="red" intensity="0.0" medium="leds"/>
+	      			 <distribute>
+	      				             <position method="uniform"  min="0,0,0" max="8548.0 " />
+	      				             <orientation method="uniform"  min="0,0,0" max="8548.0 " />
+	      				             <entity quantity="4" max_trials="100">
+	      				                 <box id="b41.84740507241973" size="4.106420986648744,26.533964371326174,26.638538505214104" movable="false" />
+	      				            </entity>
+	      				           </distribute>  
+	      			 <distribute>
+	      				             <position method="gaussian"  mean="0,0,0" std_dev="360,0,0" />
+	      				             <orientation method="gaussian"  mean="0,0,0" std_dev="360,0,0" />
+	      				             <entity quantity="10" max_trials="100">
+	      				                 <box id="b10.46884896947704" size="8.031029925765951,12.906006200834824,10.455619278439912" movable="false" />
+	      				            </entity>
+	      				           </distribute>  
+	      			 <distribute>
+	      				             <position method="constant" 
+	      				             <orientation method="constant" 
+	      				             <entity quantity="22" max_trials="100">
+	      				                 <box id="b7.798891521297668" size="34.91736719770684,16.8116236293784,49.26676986874915" movable="false" />
+	      				            </entity>
+	      				           </distribute>  
+	      		  <!-- ******************* -->
+	      		  <!-- * Physics engines * -->
+	      		  <!-- ******************* -->
+	      		  <physics_engines>
+	      		    <dynamics2d id="dyn2d" />
+	      		  </physics_engines>
+	      		
+	      		  <!-- ********* -->
+	      		  <!-- * Media * -->
+	      		  <!-- ********* -->
+	      		  <media>
+	      		    <led id="leds" grid_size="1,1,1"/>
+	      		    <range_and_bearing id="ircom"/>
+	      		    <range_and_bearing id="rab"/>
+	      		  </media>
+	      		
+	      		  <!-- ***************** -->
+	      		  <!-- * Visualization * -->
+	      		  <!-- ***************** -->
+	      		  <visualization/>
+	      		
+	      		</argos-configuration>
