@@ -9,8 +9,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
+import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.Circle;
 import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.CompoundIndicator;
+import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
 import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
@@ -18,12 +23,18 @@ import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Mission;
+import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Penatly;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -31,8 +42,12 @@ import org.xtext.example.sml.sml.Range;
 import org.xtext.example.sml.sml.Rectangle;
 import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Reward;
+import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
+import org.xtext.example.sml.sml.Task;
+import org.xtext.example.sml.sml.Time;
 import org.xtext.example.sml.sml.Upperbound;
 import org.xtext.example.sml.sml.UpperorEqualbound;
 
@@ -124,6 +139,99 @@ public class SmlSwitch<T> extends Switch<T>
       {
         Swarmconf swarmconf = (Swarmconf)theEObject;
         T result = caseSwarmconf(swarmconf);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.MISSION_TIME:
+      {
+        MissionTime missionTime = (MissionTime)theEObject;
+        T result = caseMissionTime(missionTime);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.MISSION:
+      {
+        Mission mission = (Mission)theEObject;
+        T result = caseMission(mission);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.TASK:
+      {
+        Task task = (Task)theEObject;
+        T result = caseTask(task);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.MISSION_OBJECTIVE:
+      {
+        MissionObjective missionObjective = (MissionObjective)theEObject;
+        T result = caseMissionObjective(missionObjective);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.INDICATOR:
+      {
+        Indicator indicator = (Indicator)theEObject;
+        T result = caseIndicator(indicator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.ATOMIC_INDICATOR:
+      {
+        AtomicIndicator atomicIndicator = (AtomicIndicator)theEObject;
+        T result = caseAtomicIndicator(atomicIndicator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.COMPOUND_INDICATOR:
+      {
+        CompoundIndicator compoundIndicator = (CompoundIndicator)theEObject;
+        T result = caseCompoundIndicator(compoundIndicator);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.SCOPE:
+      {
+        Scope scope = (Scope)theEObject;
+        T result = caseScope(scope);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.OCCURENCE:
+      {
+        Occurence occurence = (Occurence)theEObject;
+        T result = caseOccurence(occurence);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.PENATLY:
+      {
+        Penatly penatly = (Penatly)theEObject;
+        T result = casePenatly(penatly);
+        if (result == null) result = caseOccurence(penatly);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.REWARD:
+      {
+        Reward reward = (Reward)theEObject;
+        T result = caseReward(reward);
+        if (result == null) result = caseOccurence(reward);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.TIME:
+      {
+        Time time = (Time)theEObject;
+        T result = caseTime(time);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -283,6 +391,21 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SmlPackage.ARITHMETIC_EXPRESSION:
+      {
+        ArithmeticExpression arithmeticExpression = (ArithmeticExpression)theEObject;
+        T result = caseArithmeticExpression(arithmeticExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.BOOL_LITERAL:
+      {
+        BoolLiteral boolLiteral = (BoolLiteral)theEObject;
+        T result = caseBoolLiteral(boolLiteral);
+        if (result == null) result = caseArithmeticExpression(boolLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SmlPackage.CIRCLE:
       {
         Circle circle = (Circle)theEObject;
@@ -371,6 +494,214 @@ public class SmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSwarmconf(Swarmconf object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mission Time</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mission Time</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMissionTime(MissionTime object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mission</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mission</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMission(Mission object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTask(Task object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mission Objective</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mission Objective</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMissionObjective(MissionObjective object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Indicator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIndicator(Indicator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Atomic Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Atomic Indicator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAtomicIndicator(AtomicIndicator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Compound Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Compound Indicator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompoundIndicator(CompoundIndicator object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scope</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scope</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScope(Scope object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Occurence</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Occurence</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOccurence(Occurence object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Penatly</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Penatly</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePenatly(Penatly object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reward</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reward</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReward(Reward object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Time</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Time</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTime(Time object)
   {
     return null;
   }
@@ -691,6 +1022,38 @@ public class SmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInterval(Interval object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Arithmetic Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Arithmetic Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArithmeticExpression(ArithmeticExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolLiteral(BoolLiteral object)
   {
     return null;
   }

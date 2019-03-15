@@ -60,6 +60,123 @@ public interface SmlFactory extends EFactory
   Swarmconf createSwarmconf();
 
   /**
+   * Returns a new object of class '<em>Mission Time</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mission Time</em>'.
+   * @generated
+   */
+  MissionTime createMissionTime();
+
+  /**
+   * Returns a new object of class '<em>Mission</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mission</em>'.
+   * @generated
+   */
+  Mission createMission();
+
+  /**
+   * Returns a new object of class '<em>Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Task</em>'.
+   * @generated
+   */
+  Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Mission Objective</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mission Objective</em>'.
+   * @generated
+   */
+  MissionObjective createMissionObjective();
+
+  /**
+   * Returns a new object of class '<em>Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Indicator</em>'.
+   * @generated
+   */
+  Indicator createIndicator();
+
+  /**
+   * Returns a new object of class '<em>Atomic Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Atomic Indicator</em>'.
+   * @generated
+   */
+  AtomicIndicator createAtomicIndicator();
+
+  /**
+   * Returns a new object of class '<em>Compound Indicator</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Compound Indicator</em>'.
+   * @generated
+   */
+  CompoundIndicator createCompoundIndicator();
+
+  /**
+   * Returns a new object of class '<em>Scope</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scope</em>'.
+   * @generated
+   */
+  Scope createScope();
+
+  /**
+   * Returns a new object of class '<em>Occurence</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Occurence</em>'.
+   * @generated
+   */
+  Occurence createOccurence();
+
+  /**
+   * Returns a new object of class '<em>Penatly</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Penatly</em>'.
+   * @generated
+   */
+  Penatly createPenatly();
+
+  /**
+   * Returns a new object of class '<em>Reward</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reward</em>'.
+   * @generated
+   */
+  Reward createReward();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Time</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Time</em>'.
+   * @generated
+   */
+  Time createTime();
+
+  /**
    * Returns a new object of class '<em>Environment Elements</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -238,6 +355,24 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Interval createInterval();
+
+  /**
+   * Returns a new object of class '<em>Arithmetic Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Arithmetic Expression</em>'.
+   * @generated
+   */
+  ArithmeticExpression createArithmeticExpression();
+
+  /**
+   * Returns a new object of class '<em>Bool Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Literal</em>'.
+   * @generated
+   */
+  BoolLiteral createBoolLiteral();
 
   /**
    * Returns a new object of class '<em>Circle</em>'.

@@ -11,8 +11,13 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
+import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.Circle;
 import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.CompoundIndicator;
+import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
 import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
@@ -20,12 +25,18 @@ import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Mission;
+import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Penatly;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -33,8 +44,12 @@ import org.xtext.example.sml.sml.Range;
 import org.xtext.example.sml.sml.Rectangle;
 import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Reward;
+import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
+import org.xtext.example.sml.sml.Task;
+import org.xtext.example.sml.sml.Time;
 import org.xtext.example.sml.sml.Upperbound;
 import org.xtext.example.sml.sml.UpperorEqualbound;
 
@@ -120,6 +135,71 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSwarmconf(Swarmconf object)
       {
         return createSwarmconfAdapter();
+      }
+      @Override
+      public Adapter caseMissionTime(MissionTime object)
+      {
+        return createMissionTimeAdapter();
+      }
+      @Override
+      public Adapter caseMission(Mission object)
+      {
+        return createMissionAdapter();
+      }
+      @Override
+      public Adapter caseTask(Task object)
+      {
+        return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseMissionObjective(MissionObjective object)
+      {
+        return createMissionObjectiveAdapter();
+      }
+      @Override
+      public Adapter caseIndicator(Indicator object)
+      {
+        return createIndicatorAdapter();
+      }
+      @Override
+      public Adapter caseAtomicIndicator(AtomicIndicator object)
+      {
+        return createAtomicIndicatorAdapter();
+      }
+      @Override
+      public Adapter caseCompoundIndicator(CompoundIndicator object)
+      {
+        return createCompoundIndicatorAdapter();
+      }
+      @Override
+      public Adapter caseScope(Scope object)
+      {
+        return createScopeAdapter();
+      }
+      @Override
+      public Adapter caseOccurence(Occurence object)
+      {
+        return createOccurenceAdapter();
+      }
+      @Override
+      public Adapter casePenatly(Penatly object)
+      {
+        return createPenatlyAdapter();
+      }
+      @Override
+      public Adapter caseReward(Reward object)
+      {
+        return createRewardAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseTime(Time object)
+      {
+        return createTimeAdapter();
       }
       @Override
       public Adapter caseEnvironmentElements(EnvironmentElements object)
@@ -222,6 +302,16 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createIntervalAdapter();
       }
       @Override
+      public Adapter caseArithmeticExpression(ArithmeticExpression object)
+      {
+        return createArithmeticExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBoolLiteral(BoolLiteral object)
+      {
+        return createBoolLiteralAdapter();
+      }
+      @Override
       public Adapter caseCircle(Circle object)
       {
         return createCircleAdapter();
@@ -314,6 +404,201 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSwarmconfAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.MissionTime <em>Mission Time</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.MissionTime
+   * @generated
+   */
+  public Adapter createMissionTimeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Mission <em>Mission</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Mission
+   * @generated
+   */
+  public Adapter createMissionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Task
+   * @generated
+   */
+  public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.MissionObjective <em>Mission Objective</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.MissionObjective
+   * @generated
+   */
+  public Adapter createMissionObjectiveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Indicator <em>Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Indicator
+   * @generated
+   */
+  public Adapter createIndicatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.AtomicIndicator <em>Atomic Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.AtomicIndicator
+   * @generated
+   */
+  public Adapter createAtomicIndicatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.CompoundIndicator <em>Compound Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.CompoundIndicator
+   * @generated
+   */
+  public Adapter createCompoundIndicatorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Scope <em>Scope</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Scope
+   * @generated
+   */
+  public Adapter createScopeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Occurence <em>Occurence</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Occurence
+   * @generated
+   */
+  public Adapter createOccurenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Penatly <em>Penatly</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Penatly
+   * @generated
+   */
+  public Adapter createPenatlyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Reward <em>Reward</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Reward
+   * @generated
+   */
+  public Adapter createRewardAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Time <em>Time</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Time
+   * @generated
+   */
+  public Adapter createTimeAdapter()
   {
     return null;
   }
@@ -614,6 +899,36 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntervalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.ArithmeticExpression <em>Arithmetic Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.ArithmeticExpression
+   * @generated
+   */
+  public Adapter createArithmeticExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.BoolLiteral <em>Bool Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.BoolLiteral
+   * @generated
+   */
+  public Adapter createBoolLiteralAdapter()
   {
     return null;
   }

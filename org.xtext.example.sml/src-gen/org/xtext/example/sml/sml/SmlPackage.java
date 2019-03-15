@@ -95,13 +95,22 @@ public interface SmlPackage extends EPackage
   int MODEL__SW = 2;
 
   /**
+   * The feature id for the '<em><b>Ob</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__OB = 3;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.EnvironmentImpl <em>Environment</em>}' class.
@@ -215,6 +224,442 @@ public interface SmlPackage extends EPackage
   int SWARMCONF_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.MissionTimeImpl <em>Mission Time</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.MissionTimeImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMissionTime()
+   * @generated
+   */
+  int MISSION_TIME = 4;
+
+  /**
+   * The feature id for the '<em><b>T</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION_TIME__T = 0;
+
+  /**
+   * The number of structural features of the '<em>Mission Time</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION_TIME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.MissionImpl <em>Mission</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.MissionImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMission()
+   * @generated
+   */
+  int MISSION = 5;
+
+  /**
+   * The feature id for the '<em><b>T</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION__T = 0;
+
+  /**
+   * The feature id for the '<em><b>M</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION__M = 1;
+
+  /**
+   * The number of structural features of the '<em>Mission</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.TaskImpl <em>Task</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.TaskImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getTask()
+   * @generated
+   */
+  int TASK = 6;
+
+  /**
+   * The feature id for the '<em><b>R</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK__R = 0;
+
+  /**
+   * The number of structural features of the '<em>Task</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TASK_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.MissionObjectiveImpl <em>Mission Objective</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.MissionObjectiveImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMissionObjective()
+   * @generated
+   */
+  int MISSION_OBJECTIVE = 7;
+
+  /**
+   * The feature id for the '<em><b>In</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION_OBJECTIVE__IN = 0;
+
+  /**
+   * The number of structural features of the '<em>Mission Objective</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MISSION_OBJECTIVE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.IndicatorImpl <em>Indicator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.IndicatorImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getIndicator()
+   * @generated
+   */
+  int INDICATOR = 8;
+
+  /**
+   * The feature id for the '<em><b>Sp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDICATOR__SP = 0;
+
+  /**
+   * The feature id for the '<em><b>Oc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDICATOR__OC = 1;
+
+  /**
+   * The number of structural features of the '<em>Indicator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INDICATOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.AtomicIndicatorImpl <em>Atomic Indicator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.AtomicIndicatorImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getAtomicIndicator()
+   * @generated
+   */
+  int ATOMIC_INDICATOR = 9;
+
+  /**
+   * The feature id for the '<em><b>Oc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATOMIC_INDICATOR__OC = 0;
+
+  /**
+   * The number of structural features of the '<em>Atomic Indicator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATOMIC_INDICATOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.CompoundIndicatorImpl <em>Compound Indicator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.CompoundIndicatorImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCompoundIndicator()
+   * @generated
+   */
+  int COMPOUND_INDICATOR = 10;
+
+  /**
+   * The feature id for the '<em><b>Oc</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOUND_INDICATOR__OC = 0;
+
+  /**
+   * The number of structural features of the '<em>Compound Indicator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPOUND_INDICATOR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ScopeImpl <em>Scope</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.ScopeImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getScope()
+   * @generated
+   */
+  int SCOPE = 11;
+
+  /**
+   * The feature id for the '<em><b>P</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__P = 0;
+
+  /**
+   * The feature id for the '<em><b>Q</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__Q = 1;
+
+  /**
+   * The feature id for the '<em><b>T</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE__T = 2;
+
+  /**
+   * The number of structural features of the '<em>Scope</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCOPE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.OccurenceImpl <em>Occurence</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.OccurenceImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getOccurence()
+   * @generated
+   */
+  int OCCURENCE = 12;
+
+  /**
+   * The feature id for the '<em><b>K</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCCURENCE__K = 0;
+
+  /**
+   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCCURENCE__C = 1;
+
+  /**
+   * The number of structural features of the '<em>Occurence</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCCURENCE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.PenatlyImpl <em>Penatly</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.PenatlyImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenatly()
+   * @generated
+   */
+  int PENATLY = 13;
+
+  /**
+   * The feature id for the '<em><b>K</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PENATLY__K = OCCURENCE__K;
+
+  /**
+   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PENATLY__C = OCCURENCE__C;
+
+  /**
+   * The number of structural features of the '<em>Penatly</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PENATLY_FEATURE_COUNT = OCCURENCE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.RewardImpl <em>Reward</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.RewardImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getReward()
+   * @generated
+   */
+  int REWARD = 14;
+
+  /**
+   * The feature id for the '<em><b>K</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REWARD__K = OCCURENCE__K;
+
+  /**
+   * The feature id for the '<em><b>C</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REWARD__C = OCCURENCE__C;
+
+  /**
+   * The number of structural features of the '<em>Reward</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REWARD_FEATURE_COUNT = OCCURENCE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.ConditionImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 15;
+
+  /**
+   * The feature id for the '<em><b>R</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__R = 0;
+
+  /**
+   * The feature id for the '<em><b>N</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__N = 1;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.TimeImpl <em>Time</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.TimeImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getTime()
+   * @generated
+   */
+  int TIME = 16;
+
+  /**
+   * The feature id for the '<em><b>X</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME__X = 0;
+
+  /**
+   * The number of structural features of the '<em>Time</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TIME_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.EnvironmentElementsImpl <em>Environment Elements</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -222,7 +667,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getEnvironmentElements()
    * @generated
    */
-  int ENVIRONMENT_ELEMENTS = 4;
+  int ENVIRONMENT_ELEMENTS = 17;
 
   /**
    * The number of structural features of the '<em>Environment Elements</em>' class.
@@ -241,7 +686,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getEnvironmentElement()
    * @generated
    */
-  int ENVIRONMENT_ELEMENT = 5;
+  int ENVIRONMENT_ELEMENT = 18;
 
   /**
    * The number of structural features of the '<em>Environment Element</em>' class.
@@ -260,7 +705,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getElementDescription()
    * @generated
    */
-  int ELEMENT_DESCRIPTION = 6;
+  int ELEMENT_DESCRIPTION = 19;
 
   /**
    * The feature id for the '<em><b>El</b></em>' attribute.
@@ -315,7 +760,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getObject()
    * @generated
    */
-  int OBJECT = 7;
+  int OBJECT = 20;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' attribute.
@@ -352,7 +797,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getObstacle()
    * @generated
    */
-  int OBSTACLE = 8;
+  int OBSTACLE = 21;
 
   /**
    * The feature id for the '<em><b>Obs</b></em>' attribute.
@@ -389,7 +834,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLight()
    * @generated
    */
-  int LIGHT = 9;
+  int LIGHT = 22;
 
   /**
    * The feature id for the '<em><b>L</b></em>' attribute.
@@ -435,7 +880,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPosition()
    * @generated
    */
-  int POSITION = 10;
+  int POSITION = 23;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference.
@@ -463,7 +908,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArena()
    * @generated
    */
-  int ARENA = 11;
+  int ARENA = 24;
 
   /**
    * The feature id for the '<em><b>S</b></em>' containment reference.
@@ -491,7 +936,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRegion()
    * @generated
    */
-  int REGION = 12;
+  int REGION = 25;
 
   /**
    * The feature id for the '<em><b>Colors</b></em>' attribute.
@@ -555,7 +1000,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension()
    * @generated
    */
-  int DIMENSION = 13;
+  int DIMENSION = 26;
 
   /**
    * The number of structural features of the '<em>Dimension</em>' class.
@@ -574,7 +1019,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCircleD()
    * @generated
    */
-  int CIRCLE_D = 14;
+  int CIRCLE_D = 27;
 
   /**
    * The feature id for the '<em><b>R</b></em>' attribute.
@@ -602,7 +1047,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRectangleD()
    * @generated
    */
-  int RECTANGLE_D = 15;
+  int RECTANGLE_D = 28;
 
   /**
    * The feature id for the '<em><b>L</b></em>' attribute.
@@ -648,7 +1093,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCoordinate()
    * @generated
    */
-  int COORDINATE = 16;
+  int COORDINATE = 29;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -685,7 +1130,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRange()
    * @generated
    */
-  int RANGE = 17;
+  int RANGE = 30;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -713,7 +1158,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getConstantSize()
    * @generated
    */
-  int CONSTANT_SIZE = 18;
+  int CONSTANT_SIZE = 31;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -741,7 +1186,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLowerbound()
    * @generated
    */
-  int LOWERBOUND = 19;
+  int LOWERBOUND = 32;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -769,7 +1214,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLowerorEqualbound()
    * @generated
    */
-  int LOWEROR_EQUALBOUND = 20;
+  int LOWEROR_EQUALBOUND = 33;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -797,7 +1242,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getUpperbound()
    * @generated
    */
-  int UPPERBOUND = 21;
+  int UPPERBOUND = 34;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -825,7 +1270,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getUpperorEqualbound()
    * @generated
    */
-  int UPPEROR_EQUALBOUND = 22;
+  int UPPEROR_EQUALBOUND = 35;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -853,7 +1298,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getInterval()
    * @generated
    */
-  int INTERVAL = 23;
+  int INTERVAL = 36;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -883,6 +1328,53 @@ public interface SmlPackage extends EPackage
   int INTERVAL_FEATURE_COUNT = RANGE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl <em>Arithmetic Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArithmeticExpression()
+   * @generated
+   */
+  int ARITHMETIC_EXPRESSION = 37;
+
+  /**
+   * The number of structural features of the '<em>Arithmetic Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARITHMETIC_EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.BoolLiteralImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getBoolLiteral()
+   * @generated
+   */
+  int BOOL_LITERAL = 38;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_LITERAL__VALUE = ARITHMETIC_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Bool Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_LITERAL_FEATURE_COUNT = ARITHMETIC_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.CircleImpl <em>Circle</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -890,7 +1382,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCircle()
    * @generated
    */
-  int CIRCLE = 24;
+  int CIRCLE = 39;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference.
@@ -918,7 +1410,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRectangle()
    * @generated
    */
-  int RECTANGLE = 25;
+  int RECTANGLE = 40;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference.
@@ -946,7 +1438,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPointD()
    * @generated
    */
-  int POINT_D = 26;
+  int POINT_D = 41;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference.
@@ -1009,6 +1501,17 @@ public interface SmlPackage extends EPackage
    * @generated
    */
   EReference getModel_Sw();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Model#getOb <em>Ob</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ob</em>'.
+   * @see org.xtext.example.sml.sml.Model#getOb()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Ob();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Environment <em>Environment</em>}'.
@@ -1105,6 +1608,323 @@ public interface SmlPackage extends EPackage
    * @generated
    */
   EReference getSwarmconf_Pr();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.MissionTime <em>Mission Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mission Time</em>'.
+   * @see org.xtext.example.sml.sml.MissionTime
+   * @generated
+   */
+  EClass getMissionTime();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.MissionTime#getT <em>T</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>T</em>'.
+   * @see org.xtext.example.sml.sml.MissionTime#getT()
+   * @see #getMissionTime()
+   * @generated
+   */
+  EReference getMissionTime_T();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Mission <em>Mission</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mission</em>'.
+   * @see org.xtext.example.sml.sml.Mission
+   * @generated
+   */
+  EClass getMission();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Mission#getT <em>T</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>T</em>'.
+   * @see org.xtext.example.sml.sml.Mission#getT()
+   * @see #getMission()
+   * @generated
+   */
+  EReference getMission_T();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Mission#getM <em>M</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>M</em>'.
+   * @see org.xtext.example.sml.sml.Mission#getM()
+   * @see #getMission()
+   * @generated
+   */
+  EAttribute getMission_M();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Task <em>Task</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Task</em>'.
+   * @see org.xtext.example.sml.sml.Task
+   * @generated
+   */
+  EClass getTask();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Task#getR <em>R</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>R</em>'.
+   * @see org.xtext.example.sml.sml.Task#getR()
+   * @see #getTask()
+   * @generated
+   */
+  EReference getTask_R();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.MissionObjective <em>Mission Objective</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mission Objective</em>'.
+   * @see org.xtext.example.sml.sml.MissionObjective
+   * @generated
+   */
+  EClass getMissionObjective();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.sml.sml.MissionObjective#getIn <em>In</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>In</em>'.
+   * @see org.xtext.example.sml.sml.MissionObjective#getIn()
+   * @see #getMissionObjective()
+   * @generated
+   */
+  EReference getMissionObjective_In();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Indicator <em>Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Indicator</em>'.
+   * @see org.xtext.example.sml.sml.Indicator
+   * @generated
+   */
+  EClass getIndicator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Indicator#getSp <em>Sp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sp</em>'.
+   * @see org.xtext.example.sml.sml.Indicator#getSp()
+   * @see #getIndicator()
+   * @generated
+   */
+  EReference getIndicator_Sp();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Indicator#getOc <em>Oc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Oc</em>'.
+   * @see org.xtext.example.sml.sml.Indicator#getOc()
+   * @see #getIndicator()
+   * @generated
+   */
+  EReference getIndicator_Oc();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.AtomicIndicator <em>Atomic Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Atomic Indicator</em>'.
+   * @see org.xtext.example.sml.sml.AtomicIndicator
+   * @generated
+   */
+  EClass getAtomicIndicator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.AtomicIndicator#getOc <em>Oc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Oc</em>'.
+   * @see org.xtext.example.sml.sml.AtomicIndicator#getOc()
+   * @see #getAtomicIndicator()
+   * @generated
+   */
+  EReference getAtomicIndicator_Oc();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.CompoundIndicator <em>Compound Indicator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Compound Indicator</em>'.
+   * @see org.xtext.example.sml.sml.CompoundIndicator
+   * @generated
+   */
+  EClass getCompoundIndicator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.CompoundIndicator#getOc <em>Oc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Oc</em>'.
+   * @see org.xtext.example.sml.sml.CompoundIndicator#getOc()
+   * @see #getCompoundIndicator()
+   * @generated
+   */
+  EReference getCompoundIndicator_Oc();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Scope <em>Scope</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scope</em>'.
+   * @see org.xtext.example.sml.sml.Scope
+   * @generated
+   */
+  EClass getScope();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Scope#getP <em>P</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>P</em>'.
+   * @see org.xtext.example.sml.sml.Scope#getP()
+   * @see #getScope()
+   * @generated
+   */
+  EAttribute getScope_P();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Scope#getQ <em>Q</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Q</em>'.
+   * @see org.xtext.example.sml.sml.Scope#getQ()
+   * @see #getScope()
+   * @generated
+   */
+  EAttribute getScope_Q();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Scope#getT <em>T</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>T</em>'.
+   * @see org.xtext.example.sml.sml.Scope#getT()
+   * @see #getScope()
+   * @generated
+   */
+  EReference getScope_T();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Occurence <em>Occurence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Occurence</em>'.
+   * @see org.xtext.example.sml.sml.Occurence
+   * @generated
+   */
+  EClass getOccurence();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Occurence#getK <em>K</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>K</em>'.
+   * @see org.xtext.example.sml.sml.Occurence#getK()
+   * @see #getOccurence()
+   * @generated
+   */
+  EAttribute getOccurence_K();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Occurence#getC <em>C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>C</em>'.
+   * @see org.xtext.example.sml.sml.Occurence#getC()
+   * @see #getOccurence()
+   * @generated
+   */
+  EReference getOccurence_C();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Penatly <em>Penatly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Penatly</em>'.
+   * @see org.xtext.example.sml.sml.Penatly
+   * @generated
+   */
+  EClass getPenatly();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Reward <em>Reward</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Reward</em>'.
+   * @see org.xtext.example.sml.sml.Reward
+   * @generated
+   */
+  EClass getReward();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see org.xtext.example.sml.sml.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Condition#getR <em>R</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>R</em>'.
+   * @see org.xtext.example.sml.sml.Condition#getR()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_R();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Condition#getN <em>N</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>N</em>'.
+   * @see org.xtext.example.sml.sml.Condition#getN()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_N();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Time <em>Time</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Time</em>'.
+   * @see org.xtext.example.sml.sml.Time
+   * @generated
+   */
+  EClass getTime();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Time#getX <em>X</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>X</em>'.
+   * @see org.xtext.example.sml.sml.Time#getX()
+   * @see #getTime()
+   * @generated
+   */
+  EReference getTime_X();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.EnvironmentElements <em>Environment Elements</em>}'.
@@ -1593,6 +2413,37 @@ public interface SmlPackage extends EPackage
   EAttribute getInterval_M();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.ArithmeticExpression <em>Arithmetic Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Arithmetic Expression</em>'.
+   * @see org.xtext.example.sml.sml.ArithmeticExpression
+   * @generated
+   */
+  EClass getArithmeticExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.BoolLiteral <em>Bool Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bool Literal</em>'.
+   * @see org.xtext.example.sml.sml.BoolLiteral
+   * @generated
+   */
+  EClass getBoolLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.BoolLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.sml.sml.BoolLiteral#getValue()
+   * @see #getBoolLiteral()
+   * @generated
+   */
+  EAttribute getBoolLiteral_Value();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Circle <em>Circle</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1680,6 +2531,14 @@ public interface SmlPackage extends EPackage
     EReference MODEL__SW = eINSTANCE.getModel_Sw();
 
     /**
+     * The meta object literal for the '<em><b>Ob</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__OB = eINSTANCE.getModel_Ob();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.EnvironmentImpl <em>Environment</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1756,6 +2615,272 @@ public interface SmlPackage extends EPackage
      * @generated
      */
     EReference SWARMCONF__PR = eINSTANCE.getSwarmconf_Pr();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.MissionTimeImpl <em>Mission Time</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.MissionTimeImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMissionTime()
+     * @generated
+     */
+    EClass MISSION_TIME = eINSTANCE.getMissionTime();
+
+    /**
+     * The meta object literal for the '<em><b>T</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MISSION_TIME__T = eINSTANCE.getMissionTime_T();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.MissionImpl <em>Mission</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.MissionImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMission()
+     * @generated
+     */
+    EClass MISSION = eINSTANCE.getMission();
+
+    /**
+     * The meta object literal for the '<em><b>T</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MISSION__T = eINSTANCE.getMission_T();
+
+    /**
+     * The meta object literal for the '<em><b>M</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MISSION__M = eINSTANCE.getMission_M();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.TaskImpl <em>Task</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.TaskImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getTask()
+     * @generated
+     */
+    EClass TASK = eINSTANCE.getTask();
+
+    /**
+     * The meta object literal for the '<em><b>R</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK__R = eINSTANCE.getTask_R();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.MissionObjectiveImpl <em>Mission Objective</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.MissionObjectiveImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getMissionObjective()
+     * @generated
+     */
+    EClass MISSION_OBJECTIVE = eINSTANCE.getMissionObjective();
+
+    /**
+     * The meta object literal for the '<em><b>In</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MISSION_OBJECTIVE__IN = eINSTANCE.getMissionObjective_In();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.IndicatorImpl <em>Indicator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.IndicatorImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getIndicator()
+     * @generated
+     */
+    EClass INDICATOR = eINSTANCE.getIndicator();
+
+    /**
+     * The meta object literal for the '<em><b>Sp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INDICATOR__SP = eINSTANCE.getIndicator_Sp();
+
+    /**
+     * The meta object literal for the '<em><b>Oc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INDICATOR__OC = eINSTANCE.getIndicator_Oc();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.AtomicIndicatorImpl <em>Atomic Indicator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.AtomicIndicatorImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getAtomicIndicator()
+     * @generated
+     */
+    EClass ATOMIC_INDICATOR = eINSTANCE.getAtomicIndicator();
+
+    /**
+     * The meta object literal for the '<em><b>Oc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATOMIC_INDICATOR__OC = eINSTANCE.getAtomicIndicator_Oc();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.CompoundIndicatorImpl <em>Compound Indicator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.CompoundIndicatorImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCompoundIndicator()
+     * @generated
+     */
+    EClass COMPOUND_INDICATOR = eINSTANCE.getCompoundIndicator();
+
+    /**
+     * The meta object literal for the '<em><b>Oc</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPOUND_INDICATOR__OC = eINSTANCE.getCompoundIndicator_Oc();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ScopeImpl <em>Scope</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.ScopeImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getScope()
+     * @generated
+     */
+    EClass SCOPE = eINSTANCE.getScope();
+
+    /**
+     * The meta object literal for the '<em><b>P</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOPE__P = eINSTANCE.getScope_P();
+
+    /**
+     * The meta object literal for the '<em><b>Q</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCOPE__Q = eINSTANCE.getScope_Q();
+
+    /**
+     * The meta object literal for the '<em><b>T</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCOPE__T = eINSTANCE.getScope_T();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.OccurenceImpl <em>Occurence</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.OccurenceImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getOccurence()
+     * @generated
+     */
+    EClass OCCURENCE = eINSTANCE.getOccurence();
+
+    /**
+     * The meta object literal for the '<em><b>K</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OCCURENCE__K = eINSTANCE.getOccurence_K();
+
+    /**
+     * The meta object literal for the '<em><b>C</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OCCURENCE__C = eINSTANCE.getOccurence_C();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.PenatlyImpl <em>Penatly</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.PenatlyImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenatly()
+     * @generated
+     */
+    EClass PENATLY = eINSTANCE.getPenatly();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.RewardImpl <em>Reward</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.RewardImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getReward()
+     * @generated
+     */
+    EClass REWARD = eINSTANCE.getReward();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.ConditionImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>R</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__R = eINSTANCE.getCondition_R();
+
+    /**
+     * The meta object literal for the '<em><b>N</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__N = eINSTANCE.getCondition_N();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.TimeImpl <em>Time</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.TimeImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getTime()
+     * @generated
+     */
+    EClass TIME = eINSTANCE.getTime();
+
+    /**
+     * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TIME__X = eINSTANCE.getTime_X();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.EnvironmentElementsImpl <em>Environment Elements</em>}' class.
@@ -2164,6 +3289,34 @@ public interface SmlPackage extends EPackage
      * @generated
      */
     EAttribute INTERVAL__M = eINSTANCE.getInterval_M();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl <em>Arithmetic Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArithmeticExpression()
+     * @generated
+     */
+    EClass ARITHMETIC_EXPRESSION = eINSTANCE.getArithmeticExpression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.BoolLiteralImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getBoolLiteral()
+     * @generated
+     */
+    EClass BOOL_LITERAL = eINSTANCE.getBoolLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_LITERAL__VALUE = eINSTANCE.getBoolLiteral_Value();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.CircleImpl <em>Circle</em>}' class.

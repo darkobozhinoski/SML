@@ -12,8 +12,13 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
+import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.Circle;
 import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.CompoundIndicator;
+import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
 import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
@@ -21,12 +26,18 @@ import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Mission;
+import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Penatly;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -34,9 +45,13 @@ import org.xtext.example.sml.sml.Range;
 import org.xtext.example.sml.sml.Rectangle;
 import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Reward;
+import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlFactory;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
+import org.xtext.example.sml.sml.Task;
+import org.xtext.example.sml.sml.Time;
 import org.xtext.example.sml.sml.Upperbound;
 import org.xtext.example.sml.sml.UpperorEqualbound;
 
@@ -96,6 +111,19 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.ENVIRONMENT: return createEnvironment();
       case SmlPackage.PROBABILISTIC_DECRIPTION: return createProbabilisticDecription();
       case SmlPackage.SWARMCONF: return createSwarmconf();
+      case SmlPackage.MISSION_TIME: return createMissionTime();
+      case SmlPackage.MISSION: return createMission();
+      case SmlPackage.TASK: return createTask();
+      case SmlPackage.MISSION_OBJECTIVE: return createMissionObjective();
+      case SmlPackage.INDICATOR: return createIndicator();
+      case SmlPackage.ATOMIC_INDICATOR: return createAtomicIndicator();
+      case SmlPackage.COMPOUND_INDICATOR: return createCompoundIndicator();
+      case SmlPackage.SCOPE: return createScope();
+      case SmlPackage.OCCURENCE: return createOccurence();
+      case SmlPackage.PENATLY: return createPenatly();
+      case SmlPackage.REWARD: return createReward();
+      case SmlPackage.CONDITION: return createCondition();
+      case SmlPackage.TIME: return createTime();
       case SmlPackage.ENVIRONMENT_ELEMENTS: return createEnvironmentElements();
       case SmlPackage.ENVIRONMENT_ELEMENT: return createEnvironmentElement();
       case SmlPackage.ELEMENT_DESCRIPTION: return createElementDescription();
@@ -116,6 +144,8 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.UPPERBOUND: return createUpperbound();
       case SmlPackage.UPPEROR_EQUALBOUND: return createUpperorEqualbound();
       case SmlPackage.INTERVAL: return createInterval();
+      case SmlPackage.ARITHMETIC_EXPRESSION: return createArithmeticExpression();
+      case SmlPackage.BOOL_LITERAL: return createBoolLiteral();
       case SmlPackage.CIRCLE: return createCircle();
       case SmlPackage.RECTANGLE: return createRectangle();
       case SmlPackage.POINT_D: return createPointD();
@@ -170,6 +200,162 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
   {
     SwarmconfImpl swarmconf = new SwarmconfImpl();
     return swarmconf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MissionTime createMissionTime()
+  {
+    MissionTimeImpl missionTime = new MissionTimeImpl();
+    return missionTime;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Mission createMission()
+  {
+    MissionImpl mission = new MissionImpl();
+    return mission;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Task createTask()
+  {
+    TaskImpl task = new TaskImpl();
+    return task;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MissionObjective createMissionObjective()
+  {
+    MissionObjectiveImpl missionObjective = new MissionObjectiveImpl();
+    return missionObjective;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Indicator createIndicator()
+  {
+    IndicatorImpl indicator = new IndicatorImpl();
+    return indicator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AtomicIndicator createAtomicIndicator()
+  {
+    AtomicIndicatorImpl atomicIndicator = new AtomicIndicatorImpl();
+    return atomicIndicator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CompoundIndicator createCompoundIndicator()
+  {
+    CompoundIndicatorImpl compoundIndicator = new CompoundIndicatorImpl();
+    return compoundIndicator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Scope createScope()
+  {
+    ScopeImpl scope = new ScopeImpl();
+    return scope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Occurence createOccurence()
+  {
+    OccurenceImpl occurence = new OccurenceImpl();
+    return occurence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Penatly createPenatly()
+  {
+    PenatlyImpl penatly = new PenatlyImpl();
+    return penatly;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Reward createReward()
+  {
+    RewardImpl reward = new RewardImpl();
+    return reward;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Time createTime()
+  {
+    TimeImpl time = new TimeImpl();
+    return time;
   }
 
   /**
@@ -410,6 +596,30 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
   {
     IntervalImpl interval = new IntervalImpl();
     return interval;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArithmeticExpression createArithmeticExpression()
+  {
+    ArithmeticExpressionImpl arithmeticExpression = new ArithmeticExpressionImpl();
+    return arithmeticExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BoolLiteral createBoolLiteral()
+  {
+    BoolLiteralImpl boolLiteral = new BoolLiteralImpl();
+    return boolLiteral;
   }
 
   /**

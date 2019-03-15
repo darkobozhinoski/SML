@@ -11,8 +11,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
+import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.Circle;
 import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.CompoundIndicator;
+import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
 import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
@@ -20,12 +25,18 @@ import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Mission;
+import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Penatly;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -33,9 +44,13 @@ import org.xtext.example.sml.sml.Range;
 import org.xtext.example.sml.sml.Rectangle;
 import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Reward;
+import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlFactory;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
+import org.xtext.example.sml.sml.Task;
+import org.xtext.example.sml.sml.Time;
 import org.xtext.example.sml.sml.Upperbound;
 import org.xtext.example.sml.sml.UpperorEqualbound;
 
@@ -74,6 +89,97 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   private EClass swarmconfEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass missionTimeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass missionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass taskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass missionObjectiveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass indicatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass atomicIndicatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compoundIndicatorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass scopeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass occurenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass penatlyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rewardEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass timeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -220,6 +326,20 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass arithmeticExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boolLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass circleEClass = null;
 
   /**
@@ -349,6 +469,17 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EReference getModel_Ob()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getEnvironment()
   {
     return environmentEClass;
@@ -440,6 +571,336 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   public EReference getSwarmconf_Pr()
   {
     return (EReference)swarmconfEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMissionTime()
+  {
+    return missionTimeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMissionTime_T()
+  {
+    return (EReference)missionTimeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMission()
+  {
+    return missionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMission_T()
+  {
+    return (EReference)missionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMission_M()
+  {
+    return (EAttribute)missionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTask()
+  {
+    return taskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTask_R()
+  {
+    return (EReference)taskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMissionObjective()
+  {
+    return missionObjectiveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMissionObjective_In()
+  {
+    return (EReference)missionObjectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getIndicator()
+  {
+    return indicatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIndicator_Sp()
+  {
+    return (EReference)indicatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getIndicator_Oc()
+  {
+    return (EReference)indicatorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAtomicIndicator()
+  {
+    return atomicIndicatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAtomicIndicator_Oc()
+  {
+    return (EReference)atomicIndicatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCompoundIndicator()
+  {
+    return compoundIndicatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCompoundIndicator_Oc()
+  {
+    return (EReference)compoundIndicatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getScope()
+  {
+    return scopeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScope_P()
+  {
+    return (EAttribute)scopeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getScope_Q()
+  {
+    return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getScope_T()
+  {
+    return (EReference)scopeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getOccurence()
+  {
+    return occurenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getOccurence_K()
+  {
+    return (EAttribute)occurenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getOccurence_C()
+  {
+    return (EReference)occurenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPenatly()
+  {
+    return penatlyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getReward()
+  {
+    return rewardEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition_R()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCondition_N()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTime()
+  {
+    return timeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTime_X()
+  {
+    return (EReference)timeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -954,6 +1415,39 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EClass getArithmeticExpression()
+  {
+    return arithmeticExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBoolLiteral()
+  {
+    return boolLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBoolLiteral_Value()
+  {
+    return (EAttribute)boolLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCircle()
   {
     return circleEClass;
@@ -1016,6 +1510,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEReference(modelEClass, MODEL__ARENAS);
     createEReference(modelEClass, MODEL__ENV);
     createEReference(modelEClass, MODEL__SW);
+    createEReference(modelEClass, MODEL__OB);
 
     environmentEClass = createEClass(ENVIRONMENT);
     createEReference(environmentEClass, ENVIRONMENT__ENVIRONMENT);
@@ -1028,6 +1523,49 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEReference(swarmconfEClass, SWARMCONF__X);
     createEAttribute(swarmconfEClass, SWARMCONF__R);
     createEReference(swarmconfEClass, SWARMCONF__PR);
+
+    missionTimeEClass = createEClass(MISSION_TIME);
+    createEReference(missionTimeEClass, MISSION_TIME__T);
+
+    missionEClass = createEClass(MISSION);
+    createEReference(missionEClass, MISSION__T);
+    createEAttribute(missionEClass, MISSION__M);
+
+    taskEClass = createEClass(TASK);
+    createEReference(taskEClass, TASK__R);
+
+    missionObjectiveEClass = createEClass(MISSION_OBJECTIVE);
+    createEReference(missionObjectiveEClass, MISSION_OBJECTIVE__IN);
+
+    indicatorEClass = createEClass(INDICATOR);
+    createEReference(indicatorEClass, INDICATOR__SP);
+    createEReference(indicatorEClass, INDICATOR__OC);
+
+    atomicIndicatorEClass = createEClass(ATOMIC_INDICATOR);
+    createEReference(atomicIndicatorEClass, ATOMIC_INDICATOR__OC);
+
+    compoundIndicatorEClass = createEClass(COMPOUND_INDICATOR);
+    createEReference(compoundIndicatorEClass, COMPOUND_INDICATOR__OC);
+
+    scopeEClass = createEClass(SCOPE);
+    createEAttribute(scopeEClass, SCOPE__P);
+    createEAttribute(scopeEClass, SCOPE__Q);
+    createEReference(scopeEClass, SCOPE__T);
+
+    occurenceEClass = createEClass(OCCURENCE);
+    createEAttribute(occurenceEClass, OCCURENCE__K);
+    createEReference(occurenceEClass, OCCURENCE__C);
+
+    penatlyEClass = createEClass(PENATLY);
+
+    rewardEClass = createEClass(REWARD);
+
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__R);
+    createEAttribute(conditionEClass, CONDITION__N);
+
+    timeEClass = createEClass(TIME);
+    createEReference(timeEClass, TIME__X);
 
     environmentElementsEClass = createEClass(ENVIRONMENT_ELEMENTS);
 
@@ -1095,6 +1633,11 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     intervalEClass = createEClass(INTERVAL);
     createEAttribute(intervalEClass, INTERVAL__M);
 
+    arithmeticExpressionEClass = createEClass(ARITHMETIC_EXPRESSION);
+
+    boolLiteralEClass = createEClass(BOOL_LITERAL);
+    createEAttribute(boolLiteralEClass, BOOL_LITERAL__VALUE);
+
     circleEClass = createEClass(CIRCLE);
 
     rectangleEClass = createEClass(RECTANGLE);
@@ -1131,6 +1674,8 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    penatlyEClass.getESuperTypes().add(this.getOccurence());
+    rewardEClass.getESuperTypes().add(this.getOccurence());
     environmentElementEClass.getESuperTypes().add(this.getEnvironmentElements());
     elementDescriptionEClass.getESuperTypes().add(this.getEnvironmentElements());
     objectEClass.getESuperTypes().add(this.getEnvironmentElement());
@@ -1144,6 +1689,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     upperboundEClass.getESuperTypes().add(this.getRange());
     upperorEqualboundEClass.getESuperTypes().add(this.getRange());
     intervalEClass.getESuperTypes().add(this.getRange());
+    boolLiteralEClass.getESuperTypes().add(this.getArithmeticExpression());
     circleEClass.getESuperTypes().add(this.getPosition());
     rectangleEClass.getESuperTypes().add(this.getPosition());
     pointDEClass.getESuperTypes().add(this.getPosition());
@@ -1153,6 +1699,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getModel_Arenas(), this.getArena(), null, "arenas", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Env(), this.getEnvironment(), null, "env", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Sw(), this.getSwarmconf(), null, "sw", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Ob(), this.getMissionObjective(), null, "ob", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnvironment_Environment(), this.getEnvironmentElements(), null, "environment", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1165,6 +1712,49 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getSwarmconf_X(), this.getRange(), null, "x", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSwarmconf_R(), ecorePackage.getEString(), "r", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSwarmconf_Pr(), this.getProbabilisticDecription(), null, "pr", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(missionTimeEClass, MissionTime.class, "MissionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMissionTime_T(), this.getRange(), null, "T", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(missionEClass, Mission.class, "Mission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMission_T(), this.getTask(), null, "t", null, 0, 1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMission_M(), ecorePackage.getEString(), "m", null, 0, 1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTask_R(), this.getRegion(), null, "r", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(missionObjectiveEClass, MissionObjective.class, "MissionObjective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMissionObjective_In(), this.getIndicator(), null, "in", null, 0, -1, MissionObjective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(indicatorEClass, Indicator.class, "Indicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIndicator_Sp(), this.getScope(), null, "sp", null, 0, 1, Indicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIndicator_Oc(), ecorePackage.getEObject(), null, "oc", null, 0, 1, Indicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(atomicIndicatorEClass, AtomicIndicator.class, "AtomicIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAtomicIndicator_Oc(), this.getOccurence(), null, "oc", null, 0, 1, AtomicIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compoundIndicatorEClass, CompoundIndicator.class, "CompoundIndicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCompoundIndicator_Oc(), this.getOccurence(), null, "oc", null, 0, 1, CompoundIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScope_P(), ecorePackage.getEString(), "p", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScope_Q(), ecorePackage.getEString(), "q", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScope_T(), this.getTime(), null, "t", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(occurenceEClass, Occurence.class, "Occurence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOccurence_K(), ecorePackage.getEString(), "k", null, 0, 1, Occurence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOccurence_C(), this.getCondition(), null, "c", null, 0, 1, Occurence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(penatlyEClass, Penatly.class, "Penatly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(rewardEClass, Reward.class, "Reward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_R(), this.getRegion(), null, "r", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_N(), ecorePackage.getEInt(), "n", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTime_X(), this.getArithmeticExpression(), null, "x", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentElementsEClass, EnvironmentElements.class, "EnvironmentElements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1231,6 +1821,11 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
 
     initEClass(intervalEClass, Interval.class, "Interval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInterval_M(), ecorePackage.getEInt(), "m", null, 0, 1, Interval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arithmeticExpressionEClass, ArithmeticExpression.class, "ArithmeticExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(boolLiteralEClass, BoolLiteral.class, "BoolLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(circleEClass, Circle.class, "Circle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

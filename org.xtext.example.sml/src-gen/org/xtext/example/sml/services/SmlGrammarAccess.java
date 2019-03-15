@@ -32,12 +32,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEnvEnvironmentParserRuleCall_1_0 = (RuleCall)cEnvAssignment_1.eContents().get(0);
 		private final Assignment cSwAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSwSwarmconfParserRuleCall_2_0 = (RuleCall)cSwAssignment_2.eContents().get(0);
+		private final Assignment cObAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cObMissionObjectiveParserRuleCall_3_0 = (RuleCall)cObAssignment_3.eContents().get(0);
 		
 		//Model:
-		//	arenas=Arena env=Environment sw=Swarmconf;
+		//	arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//arenas=Arena env=Environment sw=Swarmconf
+		//arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective
 		public Group getGroup() { return cGroup; }
 		
 		//arenas=Arena
@@ -57,6 +59,12 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Swarmconf
 		public RuleCall getSwSwarmconfParserRuleCall_2_0() { return cSwSwarmconfParserRuleCall_2_0; }
+		
+		//ob=MissionObjective
+		public Assignment getObAssignment_3() { return cObAssignment_3; }
+		
+		//MissionObjective
+		public RuleCall getObMissionObjectiveParserRuleCall_3_0() { return cObMissionObjectiveParserRuleCall_3_0; }
 	}
 	public class EnvironmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Environment");
@@ -216,6 +224,740 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ProbabilisticDecription
 		public RuleCall getPrProbabilisticDecriptionParserRuleCall_7_0() { return cPrProbabilisticDecriptionParserRuleCall_7_0; }
+	}
+	public class MissionTimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionTime");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTheKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cTotalKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTimeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cOfKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cTheKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cMissionKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cIsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTRangeParserRuleCall_7_0 = (RuleCall)cTAssignment_7.eContents().get(0);
+		
+		//MissionTime:
+		//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range
+		public Group getGroup() { return cGroup; }
+		
+		//'The'
+		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
+		
+		//'total'
+		public Keyword getTotalKeyword_1() { return cTotalKeyword_1; }
+		
+		//'time'
+		public Keyword getTimeKeyword_2() { return cTimeKeyword_2; }
+		
+		//'of'
+		public Keyword getOfKeyword_3() { return cOfKeyword_3; }
+		
+		//'the'
+		public Keyword getTheKeyword_4() { return cTheKeyword_4; }
+		
+		//'mission'
+		public Keyword getMissionKeyword_5() { return cMissionKeyword_5; }
+		
+		//'is'
+		public Keyword getIsKeyword_6() { return cIsKeyword_6; }
+		
+		//T=Range
+		public Assignment getTAssignment_7() { return cTAssignment_7; }
+		
+		//Range
+		public RuleCall getTRangeParserRuleCall_7_0() { return cTRangeParserRuleCall_7_0; }
+	}
+	public class MissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Mission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTheKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cMissionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cOfKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTheKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cRobotsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cIsKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cToKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTTaskParserRuleCall_7_0 = (RuleCall)cTAssignment_7.eContents().get(0);
+		private final Assignment cMAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cMMetricParserRuleCall_8_0 = (RuleCall)cMAssignment_8.eContents().get(0);
+		
+		//Mission:
+		//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric
+		public Group getGroup() { return cGroup; }
+		
+		//'The'
+		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
+		
+		//'mission'
+		public Keyword getMissionKeyword_1() { return cMissionKeyword_1; }
+		
+		//'of'
+		public Keyword getOfKeyword_2() { return cOfKeyword_2; }
+		
+		//'the'
+		public Keyword getTheKeyword_3() { return cTheKeyword_3; }
+		
+		//'robots'
+		public Keyword getRobotsKeyword_4() { return cRobotsKeyword_4; }
+		
+		//'is'
+		public Keyword getIsKeyword_5() { return cIsKeyword_5; }
+		
+		//'to'
+		public Keyword getToKeyword_6() { return cToKeyword_6; }
+		
+		//t=Task
+		public Assignment getTAssignment_7() { return cTAssignment_7; }
+		
+		//Task
+		public RuleCall getTTaskParserRuleCall_7_0() { return cTTaskParserRuleCall_7_0; }
+		
+		//m=Metric
+		public Assignment getMAssignment_8() { return cMAssignment_8; }
+		
+		//Metric
+		public RuleCall getMMetricParserRuleCall_8_0() { return cMMetricParserRuleCall_8_0; }
+	}
+	public class TaskElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Task");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAggregateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRRegionParserRuleCall_2_0 = (RuleCall)cRAssignment_2.eContents().get(0);
+		
+		//Task:
+		//	'aggregate' 'on' r=Region;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'aggregate' 'on' r=Region
+		public Group getGroup() { return cGroup; }
+		
+		//'aggregate'
+		public Keyword getAggregateKeyword_0() { return cAggregateKeyword_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
+		
+		//r=Region
+		public Assignment getRAssignment_2() { return cRAssignment_2; }
+		
+		//Region
+		public RuleCall getRRegionParserRuleCall_2_0() { return cRRegionParserRuleCall_2_0; }
+	}
+	public class MetricElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Metric");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cSecondsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cStepsKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//Metric:
+		//	'seconds' | 'steps';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'seconds' | 'steps'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'seconds'
+		public Keyword getSecondsKeyword_0() { return cSecondsKeyword_0; }
+		
+		//'steps'
+		public Keyword getStepsKeyword_1() { return cStepsKeyword_1; }
+	}
+	public class MissionObjectiveElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionObjective");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTheKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cPerformanceKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cMeasureKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cIsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cDefinedKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cInKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cTermsKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cOfKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cAnKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cObjectiveKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Keyword cFunctionKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cThatKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cMaximizesKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Keyword cTheKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cFollowingKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cScoreKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cColonKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Assignment cInAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cInIndicatorParserRuleCall_17_0 = (RuleCall)cInAssignment_17.eContents().get(0);
+		
+		//MissionObjective:
+		//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
+		//	'following' 'score' ':' in+=Indicator*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
+		//'following' 'score' ':' in+=Indicator*
+		public Group getGroup() { return cGroup; }
+		
+		//'The'
+		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
+		
+		//'performance'
+		public Keyword getPerformanceKeyword_1() { return cPerformanceKeyword_1; }
+		
+		//'measure'
+		public Keyword getMeasureKeyword_2() { return cMeasureKeyword_2; }
+		
+		//'is'
+		public Keyword getIsKeyword_3() { return cIsKeyword_3; }
+		
+		//'defined'
+		public Keyword getDefinedKeyword_4() { return cDefinedKeyword_4; }
+		
+		//'in'
+		public Keyword getInKeyword_5() { return cInKeyword_5; }
+		
+		//'terms'
+		public Keyword getTermsKeyword_6() { return cTermsKeyword_6; }
+		
+		//'of'
+		public Keyword getOfKeyword_7() { return cOfKeyword_7; }
+		
+		//'an'
+		public Keyword getAnKeyword_8() { return cAnKeyword_8; }
+		
+		//'objective'
+		public Keyword getObjectiveKeyword_9() { return cObjectiveKeyword_9; }
+		
+		//'function'
+		public Keyword getFunctionKeyword_10() { return cFunctionKeyword_10; }
+		
+		//'that'
+		public Keyword getThatKeyword_11() { return cThatKeyword_11; }
+		
+		//'maximizes'
+		public Keyword getMaximizesKeyword_12() { return cMaximizesKeyword_12; }
+		
+		//'the'
+		public Keyword getTheKeyword_13() { return cTheKeyword_13; }
+		
+		//'following'
+		public Keyword getFollowingKeyword_14() { return cFollowingKeyword_14; }
+		
+		//'score'
+		public Keyword getScoreKeyword_15() { return cScoreKeyword_15; }
+		
+		//':'
+		public Keyword getColonKeyword_16() { return cColonKeyword_16; }
+		
+		//in+=Indicator*
+		public Assignment getInAssignment_17() { return cInAssignment_17; }
+		
+		//Indicator
+		public RuleCall getInIndicatorParserRuleCall_17_0() { return cInIndicatorParserRuleCall_17_0; }
+	}
+	public class IndicatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Indicator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSpAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSpScopeParserRuleCall_0_0 = (RuleCall)cSpAssignment_0.eContents().get(0);
+		private final Assignment cOcAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cOcAlternatives_1_0 = (Alternatives)cOcAssignment_1.eContents().get(0);
+		private final RuleCall cOcAtomicIndicatorParserRuleCall_1_0_0 = (RuleCall)cOcAlternatives_1_0.eContents().get(0);
+		private final RuleCall cOcCompoundIndicatorParserRuleCall_1_0_1 = (RuleCall)cOcAlternatives_1_0.eContents().get(1);
+		
+		//Indicator:
+		//	sp=Scope oc=(AtomicIndicator | CompoundIndicator);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//sp=Scope oc=(AtomicIndicator | CompoundIndicator)
+		public Group getGroup() { return cGroup; }
+		
+		//sp=Scope
+		public Assignment getSpAssignment_0() { return cSpAssignment_0; }
+		
+		//Scope
+		public RuleCall getSpScopeParserRuleCall_0_0() { return cSpScopeParserRuleCall_0_0; }
+		
+		//oc=(AtomicIndicator | CompoundIndicator)
+		public Assignment getOcAssignment_1() { return cOcAssignment_1; }
+		
+		//(AtomicIndicator | CompoundIndicator)
+		public Alternatives getOcAlternatives_1_0() { return cOcAlternatives_1_0; }
+		
+		//AtomicIndicator
+		public RuleCall getOcAtomicIndicatorParserRuleCall_1_0_0() { return cOcAtomicIndicatorParserRuleCall_1_0_0; }
+		
+		//CompoundIndicator
+		public RuleCall getOcCompoundIndicatorParserRuleCall_1_0_1() { return cOcCompoundIndicatorParserRuleCall_1_0_1; }
+	}
+	public class AtomicIndicatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.AtomicIndicator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cEachKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cRobotKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cOcAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOcOccurenceParserRuleCall_2_0 = (RuleCall)cOcAssignment_2.eContents().get(0);
+		
+		//AtomicIndicator:
+		//	'each' 'robot' oc=Occurence;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'each' 'robot' oc=Occurence
+		public Group getGroup() { return cGroup; }
+		
+		//'each'
+		public Keyword getEachKeyword_0() { return cEachKeyword_0; }
+		
+		//'robot'
+		public Keyword getRobotKeyword_1() { return cRobotKeyword_1; }
+		
+		//oc=Occurence
+		public Assignment getOcAssignment_2() { return cOcAssignment_2; }
+		
+		//Occurence
+		public RuleCall getOcOccurenceParserRuleCall_2_0() { return cOcOccurenceParserRuleCall_2_0; }
+	}
+	public class CompoundIndicatorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.CompoundIndicator");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTheKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cSwarmKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cOcAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOcOccurenceParserRuleCall_2_0 = (RuleCall)cOcAssignment_2.eContents().get(0);
+		
+		//CompoundIndicator:
+		//	'the' 'swarm' oc=Occurence;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'the' 'swarm' oc=Occurence
+		public Group getGroup() { return cGroup; }
+		
+		//'the'
+		public Keyword getTheKeyword_0() { return cTheKeyword_0; }
+		
+		//'swarm'
+		public Keyword getSwarmKeyword_1() { return cSwarmKeyword_1; }
+		
+		//oc=Occurence
+		public Assignment getOcAssignment_2() { return cOcAssignment_2; }
+		
+		//Occurence
+		public RuleCall getOcOccurenceParserRuleCall_2_0() { return cOcOccurenceParserRuleCall_2_0; }
+	}
+	public class ScopeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Scope");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cAtKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cAnyKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cPointKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Keyword cOfKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Keyword cTimeKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cBeforeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cPAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cPAtomicEventParserRuleCall_1_1_0 = (RuleCall)cPAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cAfterKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cPAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cPAtomicEventParserRuleCall_2_1_0 = (RuleCall)cPAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Keyword cBetweenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cPAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cPAtomicEventParserRuleCall_3_1_0 = (RuleCall)cPAssignment_3_1.eContents().get(0);
+		private final Keyword cAndKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cQAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cQAtomicEventParserRuleCall_3_3_0 = (RuleCall)cQAssignment_3_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Keyword cAfterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cPAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cPAtomicEventParserRuleCall_4_1_0 = (RuleCall)cPAssignment_4_1.eContents().get(0);
+		private final Keyword cUntiiKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final Assignment cQAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
+		private final RuleCall cQAtomicEventParserRuleCall_4_3_0 = (RuleCall)cQAssignment_4_3.eContents().get(0);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cAtKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cTimeKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cTAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cTTimeParserRuleCall_5_2_0 = (RuleCall)cTAssignment_5_2.eContents().get(0);
+		
+		//Scope:
+		//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
+		//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
+		//q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'At' 'any' 'point' 'of' 'time'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'At'
+		public Keyword getAtKeyword_0_0() { return cAtKeyword_0_0; }
+		
+		//'any'
+		public Keyword getAnyKeyword_0_1() { return cAnyKeyword_0_1; }
+		
+		//'point'
+		public Keyword getPointKeyword_0_2() { return cPointKeyword_0_2; }
+		
+		//'of'
+		public Keyword getOfKeyword_0_3() { return cOfKeyword_0_3; }
+		
+		//'time'
+		public Keyword getTimeKeyword_0_4() { return cTimeKeyword_0_4; }
+		
+		//'Before' p=AtomicEvent
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'Before'
+		public Keyword getBeforeKeyword_1_0() { return cBeforeKeyword_1_0; }
+		
+		//p=AtomicEvent
+		public Assignment getPAssignment_1_1() { return cPAssignment_1_1; }
+		
+		//AtomicEvent
+		public RuleCall getPAtomicEventParserRuleCall_1_1_0() { return cPAtomicEventParserRuleCall_1_1_0; }
+		
+		//'After' p=AtomicEvent
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'After'
+		public Keyword getAfterKeyword_2_0() { return cAfterKeyword_2_0; }
+		
+		//p=AtomicEvent
+		public Assignment getPAssignment_2_1() { return cPAssignment_2_1; }
+		
+		//AtomicEvent
+		public RuleCall getPAtomicEventParserRuleCall_2_1_0() { return cPAtomicEventParserRuleCall_2_1_0; }
+		
+		//'Between' p=AtomicEvent 'and' q=AtomicEvent
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'Between'
+		public Keyword getBetweenKeyword_3_0() { return cBetweenKeyword_3_0; }
+		
+		//p=AtomicEvent
+		public Assignment getPAssignment_3_1() { return cPAssignment_3_1; }
+		
+		//AtomicEvent
+		public RuleCall getPAtomicEventParserRuleCall_3_1_0() { return cPAtomicEventParserRuleCall_3_1_0; }
+		
+		//'and'
+		public Keyword getAndKeyword_3_2() { return cAndKeyword_3_2; }
+		
+		//q=AtomicEvent
+		public Assignment getQAssignment_3_3() { return cQAssignment_3_3; }
+		
+		//AtomicEvent
+		public RuleCall getQAtomicEventParserRuleCall_3_3_0() { return cQAtomicEventParserRuleCall_3_3_0; }
+		
+		//'After' p=AtomicEvent 'Untii' q=AtomicEvent
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'After'
+		public Keyword getAfterKeyword_4_0() { return cAfterKeyword_4_0; }
+		
+		//p=AtomicEvent
+		public Assignment getPAssignment_4_1() { return cPAssignment_4_1; }
+		
+		//AtomicEvent
+		public RuleCall getPAtomicEventParserRuleCall_4_1_0() { return cPAtomicEventParserRuleCall_4_1_0; }
+		
+		//'Untii'
+		public Keyword getUntiiKeyword_4_2() { return cUntiiKeyword_4_2; }
+		
+		//q=AtomicEvent
+		public Assignment getQAssignment_4_3() { return cQAssignment_4_3; }
+		
+		//AtomicEvent
+		public RuleCall getQAtomicEventParserRuleCall_4_3_0() { return cQAtomicEventParserRuleCall_4_3_0; }
+		
+		//'at' 'time' t=Time
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'at'
+		public Keyword getAtKeyword_5_0() { return cAtKeyword_5_0; }
+		
+		//'time'
+		public Keyword getTimeKeyword_5_1() { return cTimeKeyword_5_1; }
+		
+		//t=Time
+		public Assignment getTAssignment_5_2() { return cTAssignment_5_2; }
+		
+		//Time
+		public RuleCall getTTimeParserRuleCall_5_2_0() { return cTTimeParserRuleCall_5_2_0; }
+	}
+	public class AtomicEventElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.AtomicEvent");
+		private final Keyword cWallsChangeColorKeyword = (Keyword)rule.eContents().get(1);
+		
+		//AtomicEvent:
+		//	'Walls change color';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Walls change color'
+		public Keyword getWallsChangeColorKeyword() { return cWallsChangeColorKeyword; }
+	}
+	public class OccurenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Occurence");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cRewardParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPenatlyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Occurence:
+		//	Reward | Penatly;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Reward | Penatly
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Reward
+		public RuleCall getRewardParserRuleCall_0() { return cRewardParserRuleCall_0; }
+		
+		//Penatly
+		public RuleCall getPenatlyParserRuleCall_1() { return cPenatlyParserRuleCall_1; }
+	}
+	public class PenatlyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Penatly");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGetsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cPenaltyKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cKAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cKDoubleParserRuleCall_3_0 = (RuleCall)cKAssignment_3.eContents().get(0);
+		private final Assignment cCAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCConditionParserRuleCall_4_0 = (RuleCall)cCAssignment_4.eContents().get(0);
+		
+		//Penatly:
+		//	'gets' 'a' 'penalty' k=Double c=Condition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'gets' 'a' 'penalty' k=Double c=Condition
+		public Group getGroup() { return cGroup; }
+		
+		//'gets'
+		public Keyword getGetsKeyword_0() { return cGetsKeyword_0; }
+		
+		//'a'
+		public Keyword getAKeyword_1() { return cAKeyword_1; }
+		
+		//'penalty'
+		public Keyword getPenaltyKeyword_2() { return cPenaltyKeyword_2; }
+		
+		//k=Double
+		public Assignment getKAssignment_3() { return cKAssignment_3; }
+		
+		//Double
+		public RuleCall getKDoubleParserRuleCall_3_0() { return cKDoubleParserRuleCall_3_0; }
+		
+		//c=Condition
+		public Assignment getCAssignment_4() { return cCAssignment_4; }
+		
+		//Condition
+		public RuleCall getCConditionParserRuleCall_4_0() { return cCConditionParserRuleCall_4_0; }
+	}
+	public class RewardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Reward");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cGetsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cAKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cRewardKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cKAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cKDoubleParserRuleCall_3_0 = (RuleCall)cKAssignment_3.eContents().get(0);
+		private final Assignment cCAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCConditionParserRuleCall_4_0 = (RuleCall)cCAssignment_4.eContents().get(0);
+		
+		//Reward:
+		//	'gets' 'a' 'reward' k=Double c=Condition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'gets' 'a' 'reward' k=Double c=Condition
+		public Group getGroup() { return cGroup; }
+		
+		//'gets'
+		public Keyword getGetsKeyword_0() { return cGetsKeyword_0; }
+		
+		//'a'
+		public Keyword getAKeyword_1() { return cAKeyword_1; }
+		
+		//'reward'
+		public Keyword getRewardKeyword_2() { return cRewardKeyword_2; }
+		
+		//k=Double
+		public Assignment getKAssignment_3() { return cKAssignment_3; }
+		
+		//Double
+		public RuleCall getKDoubleParserRuleCall_3_0() { return cKDoubleParserRuleCall_3_0; }
+		
+		//c=Condition
+		public Assignment getCAssignment_4() { return cCAssignment_4; }
+		
+		//Condition
+		public RuleCall getCConditionParserRuleCall_4_0() { return cCConditionParserRuleCall_4_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Condition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cItKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cIsKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Keyword cOnKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Keyword cTheKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Assignment cRAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
+		private final RuleCall cRRegionParserRuleCall_0_5_0 = (RuleCall)cRAssignment_0_5.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cIfKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cThereKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cAreKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Keyword cMoreKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Keyword cThanKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Assignment cNAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cNINTTerminalRuleCall_1_5_0 = (RuleCall)cNAssignment_1_5.eContents().get(0);
+		private final Keyword cRobotsKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Keyword cOnKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
+		private final Keyword cTheKeyword_1_8 = (Keyword)cGroup_1.eContents().get(8);
+		private final Assignment cRAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
+		private final RuleCall cRRegionParserRuleCall_1_9_0 = (RuleCall)cRAssignment_1_9.eContents().get(0);
+		
+		//Condition:
+		//	'if' 'it' 'is' 'on' 'the' r=Region |
+		//	'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'if' 'it' 'is' 'on' 'the' r=Region | 'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'if' 'it' 'is' 'on' 'the' r=Region
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+		
+		//'it'
+		public Keyword getItKeyword_0_1() { return cItKeyword_0_1; }
+		
+		//'is'
+		public Keyword getIsKeyword_0_2() { return cIsKeyword_0_2; }
+		
+		//'on'
+		public Keyword getOnKeyword_0_3() { return cOnKeyword_0_3; }
+		
+		//'the'
+		public Keyword getTheKeyword_0_4() { return cTheKeyword_0_4; }
+		
+		//r=Region
+		public Assignment getRAssignment_0_5() { return cRAssignment_0_5; }
+		
+		//Region
+		public RuleCall getRRegionParserRuleCall_0_5_0() { return cRRegionParserRuleCall_0_5_0; }
+		
+		//'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'if'
+		public Keyword getIfKeyword_1_0() { return cIfKeyword_1_0; }
+		
+		//'there'
+		public Keyword getThereKeyword_1_1() { return cThereKeyword_1_1; }
+		
+		//'are'
+		public Keyword getAreKeyword_1_2() { return cAreKeyword_1_2; }
+		
+		//'more'
+		public Keyword getMoreKeyword_1_3() { return cMoreKeyword_1_3; }
+		
+		//'than'
+		public Keyword getThanKeyword_1_4() { return cThanKeyword_1_4; }
+		
+		//n=INT
+		public Assignment getNAssignment_1_5() { return cNAssignment_1_5; }
+		
+		//INT
+		public RuleCall getNINTTerminalRuleCall_1_5_0() { return cNINTTerminalRuleCall_1_5_0; }
+		
+		//'robots'
+		public Keyword getRobotsKeyword_1_6() { return cRobotsKeyword_1_6; }
+		
+		//'on'
+		public Keyword getOnKeyword_1_7() { return cOnKeyword_1_7; }
+		
+		//'the'
+		public Keyword getTheKeyword_1_8() { return cTheKeyword_1_8; }
+		
+		//r=Region
+		public Assignment getRAssignment_1_9() { return cRAssignment_1_9; }
+		
+		//Region
+		public RuleCall getRRegionParserRuleCall_1_9_0() { return cRRegionParserRuleCall_1_9_0; }
+	}
+	public class TimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Time");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cXAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cXLiteralParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cBegginingKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cOfKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cTheKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Keyword cMissionKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cEndKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cOfKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cTheKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cMissionKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		
+		//Time:
+		//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//x=Literal
+		public Assignment getXAssignment_0() { return cXAssignment_0; }
+		
+		//Literal
+		public RuleCall getXLiteralParserRuleCall_0_0() { return cXLiteralParserRuleCall_0_0; }
+		
+		//'beggining' 'of' 'the' 'mission'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'beggining'
+		public Keyword getBegginingKeyword_1_0() { return cBegginingKeyword_1_0; }
+		
+		//'of'
+		public Keyword getOfKeyword_1_1() { return cOfKeyword_1_1; }
+		
+		//'the'
+		public Keyword getTheKeyword_1_2() { return cTheKeyword_1_2; }
+		
+		//'mission'
+		public Keyword getMissionKeyword_1_3() { return cMissionKeyword_1_3; }
+		
+		//'end' 'of' 'the' 'mission'
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'end'
+		public Keyword getEndKeyword_2_0() { return cEndKeyword_2_0; }
+		
+		//'of'
+		public Keyword getOfKeyword_2_1() { return cOfKeyword_2_1; }
+		
+		//'the'
+		public Keyword getTheKeyword_2_2() { return cTheKeyword_2_2; }
+		
+		//'mission'
+		public Keyword getMissionKeyword_2_3() { return cMissionKeyword_2_3; }
 	}
 	public class RobotElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Robot");
@@ -1121,12 +1863,77 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getNINTTerminalRuleCall_3_0() { return cNINTTerminalRuleCall_3_0; }
 	}
+	public class LiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Literal");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cIntLiteralKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cRealLiteralKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final RuleCall cBoolLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Literal ArithmeticExpression:
+		//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'IntLiteral' | 'RealLiteral' | BoolLiteral
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'IntLiteral'
+		public Keyword getIntLiteralKeyword_0() { return cIntLiteralKeyword_0; }
+		
+		//'RealLiteral'
+		public Keyword getRealLiteralKeyword_1() { return cRealLiteralKeyword_1; }
+		
+		//BoolLiteral
+		public RuleCall getBoolLiteralParserRuleCall_2() { return cBoolLiteralParserRuleCall_2; }
+	}
+	public class BoolLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.BoolLiteral");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
+		private final Keyword cValueTrueKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
+		private final Keyword cValueFalseKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
+		
+		////IntLiteral:
+		////value=SignedInt;
+		////RealLiteral:
+		////value=SignedReal;
+		//BoolLiteral:
+		//	value=('true' | 'false');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=('true' | 'false')
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//('true' | 'false')
+		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
+		
+		//'true'
+		public Keyword getValueTrueKeyword_0_0() { return cValueTrueKeyword_0_0; }
+		
+		//'false'
+		public Keyword getValueFalseKeyword_0_1() { return cValueFalseKeyword_0_1; }
+	}
 	
 	
 	private final ModelElements pModel;
 	private final EnvironmentElements pEnvironment;
 	private final ProbabilisticDecriptionElements pProbabilisticDecription;
 	private final SwarmconfElements pSwarmconf;
+	private final MissionTimeElements pMissionTime;
+	private final MissionElements pMission;
+	private final TaskElements pTask;
+	private final MetricElements pMetric;
+	private final MissionObjectiveElements pMissionObjective;
+	private final IndicatorElements pIndicator;
+	private final AtomicIndicatorElements pAtomicIndicator;
+	private final CompoundIndicatorElements pCompoundIndicator;
+	private final ScopeElements pScope;
+	private final AtomicEventElements pAtomicEvent;
+	private final OccurenceElements pOccurence;
+	private final PenatlyElements pPenatly;
+	private final RewardElements pReward;
+	private final ConditionElements pCondition;
+	private final TimeElements pTime;
 	private final RobotElements pRobot;
 	private final DistributionElements pDistribution;
 	private final EnvironmentElementsElements pEnvironmentElements;
@@ -1153,6 +1960,8 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final UpperboundElements pUpperbound;
 	private final UpperorEqualboundElements pUpperorEqualbound;
 	private final IntervalElements pInterval;
+	private final LiteralElements pLiteral;
+	private final BoolLiteralElements pBoolLiteral;
 	
 	private final Grammar grammar;
 	
@@ -1167,6 +1976,21 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnvironment = new EnvironmentElements();
 		this.pProbabilisticDecription = new ProbabilisticDecriptionElements();
 		this.pSwarmconf = new SwarmconfElements();
+		this.pMissionTime = new MissionTimeElements();
+		this.pMission = new MissionElements();
+		this.pTask = new TaskElements();
+		this.pMetric = new MetricElements();
+		this.pMissionObjective = new MissionObjectiveElements();
+		this.pIndicator = new IndicatorElements();
+		this.pAtomicIndicator = new AtomicIndicatorElements();
+		this.pCompoundIndicator = new CompoundIndicatorElements();
+		this.pScope = new ScopeElements();
+		this.pAtomicEvent = new AtomicEventElements();
+		this.pOccurence = new OccurenceElements();
+		this.pPenatly = new PenatlyElements();
+		this.pReward = new RewardElements();
+		this.pCondition = new ConditionElements();
+		this.pTime = new TimeElements();
 		this.pRobot = new RobotElements();
 		this.pDistribution = new DistributionElements();
 		this.pEnvironmentElements = new EnvironmentElementsElements();
@@ -1193,6 +2017,8 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUpperbound = new UpperboundElements();
 		this.pUpperorEqualbound = new UpperorEqualboundElements();
 		this.pInterval = new IntervalElements();
+		this.pLiteral = new LiteralElements();
+		this.pBoolLiteral = new BoolLiteralElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1223,7 +2049,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	arenas=Arena env=Environment sw=Swarmconf;
+	//	arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -1262,6 +2088,159 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSwarmconfRule() {
 		return getSwarmconfAccess().getRule();
+	}
+	
+	//MissionTime:
+	//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range;
+	public MissionTimeElements getMissionTimeAccess() {
+		return pMissionTime;
+	}
+	
+	public ParserRule getMissionTimeRule() {
+		return getMissionTimeAccess().getRule();
+	}
+	
+	//Mission:
+	//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric;
+	public MissionElements getMissionAccess() {
+		return pMission;
+	}
+	
+	public ParserRule getMissionRule() {
+		return getMissionAccess().getRule();
+	}
+	
+	//Task:
+	//	'aggregate' 'on' r=Region;
+	public TaskElements getTaskAccess() {
+		return pTask;
+	}
+	
+	public ParserRule getTaskRule() {
+		return getTaskAccess().getRule();
+	}
+	
+	//Metric:
+	//	'seconds' | 'steps';
+	public MetricElements getMetricAccess() {
+		return pMetric;
+	}
+	
+	public ParserRule getMetricRule() {
+		return getMetricAccess().getRule();
+	}
+	
+	//MissionObjective:
+	//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
+	//	'following' 'score' ':' in+=Indicator*;
+	public MissionObjectiveElements getMissionObjectiveAccess() {
+		return pMissionObjective;
+	}
+	
+	public ParserRule getMissionObjectiveRule() {
+		return getMissionObjectiveAccess().getRule();
+	}
+	
+	//Indicator:
+	//	sp=Scope oc=(AtomicIndicator | CompoundIndicator);
+	public IndicatorElements getIndicatorAccess() {
+		return pIndicator;
+	}
+	
+	public ParserRule getIndicatorRule() {
+		return getIndicatorAccess().getRule();
+	}
+	
+	//AtomicIndicator:
+	//	'each' 'robot' oc=Occurence;
+	public AtomicIndicatorElements getAtomicIndicatorAccess() {
+		return pAtomicIndicator;
+	}
+	
+	public ParserRule getAtomicIndicatorRule() {
+		return getAtomicIndicatorAccess().getRule();
+	}
+	
+	//CompoundIndicator:
+	//	'the' 'swarm' oc=Occurence;
+	public CompoundIndicatorElements getCompoundIndicatorAccess() {
+		return pCompoundIndicator;
+	}
+	
+	public ParserRule getCompoundIndicatorRule() {
+		return getCompoundIndicatorAccess().getRule();
+	}
+	
+	//Scope:
+	//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
+	//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+	public ScopeElements getScopeAccess() {
+		return pScope;
+	}
+	
+	public ParserRule getScopeRule() {
+		return getScopeAccess().getRule();
+	}
+	
+	//AtomicEvent:
+	//	'Walls change color';
+	public AtomicEventElements getAtomicEventAccess() {
+		return pAtomicEvent;
+	}
+	
+	public ParserRule getAtomicEventRule() {
+		return getAtomicEventAccess().getRule();
+	}
+	
+	//Occurence:
+	//	Reward | Penatly;
+	public OccurenceElements getOccurenceAccess() {
+		return pOccurence;
+	}
+	
+	public ParserRule getOccurenceRule() {
+		return getOccurenceAccess().getRule();
+	}
+	
+	//Penatly:
+	//	'gets' 'a' 'penalty' k=Double c=Condition;
+	public PenatlyElements getPenatlyAccess() {
+		return pPenatly;
+	}
+	
+	public ParserRule getPenatlyRule() {
+		return getPenatlyAccess().getRule();
+	}
+	
+	//Reward:
+	//	'gets' 'a' 'reward' k=Double c=Condition;
+	public RewardElements getRewardAccess() {
+		return pReward;
+	}
+	
+	public ParserRule getRewardRule() {
+		return getRewardAccess().getRule();
+	}
+	
+	//Condition:
+	//	'if' 'it' 'is' 'on' 'the' r=Region |
+	//	'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region;
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
+	}
+	
+	//Time:
+	//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+	public TimeElements getTimeAccess() {
+		return pTime;
+	}
+	
+	public ParserRule getTimeRule() {
+		return getTimeAccess().getRule();
 	}
 	
 	//Robot:
@@ -1534,6 +2513,30 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getIntervalRule() {
 		return getIntervalAccess().getRule();
+	}
+	
+	//Literal ArithmeticExpression:
+	//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
+	public LiteralElements getLiteralAccess() {
+		return pLiteral;
+	}
+	
+	public ParserRule getLiteralRule() {
+		return getLiteralAccess().getRule();
+	}
+	
+	////IntLiteral:
+	////value=SignedInt;
+	////RealLiteral:
+	////value=SignedReal;
+	//BoolLiteral:
+	//	value=('true' | 'false');
+	public BoolLiteralElements getBoolLiteralAccess() {
+		return pBoolLiteral;
+	}
+	
+	public ParserRule getBoolLiteralRule() {
+		return getBoolLiteralAccess().getRule();
 	}
 	
 	//terminal ID:
