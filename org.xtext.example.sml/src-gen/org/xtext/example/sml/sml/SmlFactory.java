@@ -141,13 +141,13 @@ public interface SmlFactory extends EFactory
   Occurence createOccurence();
 
   /**
-   * Returns a new object of class '<em>Penatly</em>'.
+   * Returns a new object of class '<em>Penalty</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Penatly</em>'.
+   * @return a new object of class '<em>Penalty</em>'.
    * @generated
    */
-  Penatly createPenatly();
+  Penalty createPenalty();
 
   /**
    * Returns a new object of class '<em>Reward</em>'.

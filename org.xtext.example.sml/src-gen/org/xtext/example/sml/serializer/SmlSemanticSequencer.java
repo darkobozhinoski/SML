@@ -36,7 +36,7 @@ import org.xtext.example.sml.sml.MissionObjective;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Rectangle;
@@ -131,8 +131,8 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmlPackage.OBSTACLE:
 				sequence_Obstacle(context, (Obstacle) semanticObject); 
 				return; 
-			case SmlPackage.PENATLY:
-				sequence_Penatly(context, (Penatly) semanticObject); 
+			case SmlPackage.PENALTY:
+				sequence_Penalty(context, (Penalty) semanticObject); 
 				return; 
 			case SmlPackage.POINT_D:
 				sequence_Position(context, (PointD) semanticObject); 
@@ -577,13 +577,13 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Occurence returns Penatly
-	 *     Penatly returns Penatly
+	 *     Occurence returns Penalty
+	 *     Penalty returns Penalty
 	 *
 	 * Constraint:
 	 *     (k=Double c=Condition)
 	 */
-	protected void sequence_Penatly(ISerializationContext context, Penatly semanticObject) {
+	protected void sequence_Penalty(ISerializationContext context, Penalty semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.OCCURENCE__K) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.OCCURENCE__K));
@@ -591,8 +591,8 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.OCCURENCE__C));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPenatlyAccess().getKDoubleParserRuleCall_3_0(), semanticObject.getK());
-		feeder.accept(grammarAccess.getPenatlyAccess().getCConditionParserRuleCall_4_0(), semanticObject.getC());
+		feeder.accept(grammarAccess.getPenaltyAccess().getKDoubleParserRuleCall_3_0(), semanticObject.getK());
+		feeder.accept(grammarAccess.getPenaltyAccess().getCConditionParserRuleCall_4_0(), semanticObject.getC());
 		feeder.finish();
 	}
 	
@@ -736,7 +736,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Scope returns Scope
 	 *
 	 * Constraint:
-	 *     (p=AtomicEvent | p=AtomicEvent | (p=AtomicEvent q=AtomicEvent) | (p=AtomicEvent q=AtomicEvent) | t=Time)
+	 *     (sp='At any point of time' | sp='At the end of the mission')
 	 */
 	protected void sequence_Scope(ISerializationContext context, Scope semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

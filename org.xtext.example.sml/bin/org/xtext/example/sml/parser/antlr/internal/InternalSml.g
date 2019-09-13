@@ -766,230 +766,31 @@ ruleScope returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='At'
-			{
-				newLeafNode(otherlv_0, grammarAccess.getScopeAccess().getAtKeyword_0_0());
-			}
-			otherlv_1='any'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getScopeAccess().getAnyKeyword_0_1());
-			}
-			otherlv_2='point'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getScopeAccess().getPointKeyword_0_2());
-			}
-			otherlv_3='of'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getScopeAccess().getOfKeyword_0_3());
-			}
-			otherlv_4='time'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getScopeAccess().getTimeKeyword_0_4());
-			}
-		)
-		    |
-		(
-			otherlv_5='Before'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getScopeAccess().getBeforeKeyword_1_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getPAtomicEventParserRuleCall_1_1_0());
+				lv_sp_0_1='At any point of time'
+				{
+					newLeafNode(lv_sp_0_1, grammarAccess.getScopeAccess().getSpAtAnyPointOfTimeKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getScopeRule());
 					}
-					lv_p_6_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"p",
-							lv_p_6_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
+					setWithLastConsumed($current, "sp", lv_sp_0_1, null);
+				}
+				    |
+				lv_sp_0_2='At the end of the mission'
+				{
+					newLeafNode(lv_sp_0_2, grammarAccess.getScopeAccess().getSpAtTheEndOfTheMissionKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getScopeRule());
 					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_7='After'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getScopeAccess().getAfterKeyword_2_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getPAtomicEventParserRuleCall_2_1_0());
-					}
-					lv_p_8_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"p",
-							lv_p_8_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_9='Between'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getScopeAccess().getBetweenKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getPAtomicEventParserRuleCall_3_1_0());
-					}
-					lv_p_10_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"p",
-							lv_p_10_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_11='and'
-			{
-				newLeafNode(otherlv_11, grammarAccess.getScopeAccess().getAndKeyword_3_2());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getQAtomicEventParserRuleCall_3_3_0());
-					}
-					lv_q_12_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"q",
-							lv_q_12_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_13='After'
-			{
-				newLeafNode(otherlv_13, grammarAccess.getScopeAccess().getAfterKeyword_4_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getPAtomicEventParserRuleCall_4_1_0());
-					}
-					lv_p_14_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"p",
-							lv_p_14_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_15='Untii'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getScopeAccess().getUntiiKeyword_4_2());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getQAtomicEventParserRuleCall_4_3_0());
-					}
-					lv_q_16_0=ruleAtomicEvent
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"q",
-							lv_q_16_0,
-							"org.xtext.example.sml.Sml.AtomicEvent");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)
-		    |
-		(
-			otherlv_17='at'
-			{
-				newLeafNode(otherlv_17, grammarAccess.getScopeAccess().getAtKeyword_5_0());
-			}
-			otherlv_18='time'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getScopeAccess().getTimeKeyword_5_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getScopeAccess().getTTimeParserRuleCall_5_2_0());
-					}
-					lv_t_19_0=ruleTime
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getScopeRule());
-						}
-						set(
-							$current,
-							"t",
-							lv_t_19_0,
-							"org.xtext.example.sml.Sml.Time");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					setWithLastConsumed($current, "sp", lv_sp_0_2, null);
+				}
 			)
 		)
 	)
-;
-
-// Entry rule entryRuleAtomicEvent
-entryRuleAtomicEvent returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getAtomicEventRule()); }
-	iv_ruleAtomicEvent=ruleAtomicEvent
-	{ $current=$iv_ruleAtomicEvent.current.getText(); }
-	EOF;
-
-// Rule AtomicEvent
-ruleAtomicEvent returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	kw='Walls change color'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getAtomicEventAccess().getWallsChangeColorKeyword());
-	}
 ;
 
 // Entry rule entryRuleOccurence
@@ -1018,25 +819,25 @@ ruleOccurence returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getOccurenceAccess().getPenatlyParserRuleCall_1());
+			newCompositeNode(grammarAccess.getOccurenceAccess().getPenaltyParserRuleCall_1());
 		}
-		this_Penatly_1=rulePenatly
+		this_Penalty_1=rulePenalty
 		{
-			$current = $this_Penatly_1.current;
+			$current = $this_Penalty_1.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
 ;
 
-// Entry rule entryRulePenatly
-entryRulePenatly returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getPenatlyRule()); }
-	iv_rulePenatly=rulePenatly
-	{ $current=$iv_rulePenatly.current; }
+// Entry rule entryRulePenalty
+entryRulePenalty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPenaltyRule()); }
+	iv_rulePenalty=rulePenalty
+	{ $current=$iv_rulePenalty.current; }
 	EOF;
 
-// Rule Penatly
-rulePenatly returns [EObject current=null]
+// Rule Penalty
+rulePenalty returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -1046,25 +847,25 @@ rulePenatly returns [EObject current=null]
 	(
 		otherlv_0='gets'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getPenatlyAccess().getGetsKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getPenaltyAccess().getGetsKeyword_0());
 		}
 		otherlv_1='a'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getPenatlyAccess().getAKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getPenaltyAccess().getAKeyword_1());
 		}
 		otherlv_2='penalty'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getPenatlyAccess().getPenaltyKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getPenaltyAccess().getPenaltyKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPenatlyAccess().getKDoubleParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPenaltyAccess().getKDoubleParserRuleCall_3_0());
 				}
 				lv_k_3_0=ruleDouble
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPenatlyRule());
+						$current = createModelElementForParent(grammarAccess.getPenaltyRule());
 					}
 					set(
 						$current,
@@ -1078,12 +879,12 @@ rulePenatly returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPenatlyAccess().getCConditionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getPenaltyAccess().getCConditionParserRuleCall_4_0());
 				}
 				lv_c_4_0=ruleCondition
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPenatlyRule());
+						$current = createModelElementForParent(grammarAccess.getPenaltyRule());
 					}
 					set(
 						$current,
@@ -1294,82 +1095,6 @@ ruleCondition returns [EObject current=null]
 					}
 				)
 			)
-		)
-	)
-;
-
-// Entry rule entryRuleTime
-entryRuleTime returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getTimeRule()); }
-	iv_ruleTime=ruleTime
-	{ $current=$iv_ruleTime.current; }
-	EOF;
-
-// Rule Time
-ruleTime returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTimeAccess().getXLiteralParserRuleCall_0_0());
-				}
-				lv_x_0_0=ruleLiteral
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTimeRule());
-					}
-					set(
-						$current,
-						"x",
-						lv_x_0_0,
-						"org.xtext.example.sml.Sml.Literal");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			otherlv_1='beggining'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getTimeAccess().getBegginingKeyword_1_0());
-			}
-			otherlv_2='of'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getTimeAccess().getOfKeyword_1_1());
-			}
-			otherlv_3='the'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getTimeAccess().getTheKeyword_1_2());
-			}
-			otherlv_4='mission'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getTimeAccess().getMissionKeyword_1_3());
-			}
-		)
-		    |
-		(
-			otherlv_5='end'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getTimeAccess().getEndKeyword_2_0());
-			}
-			otherlv_6='of'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getTimeAccess().getOfKeyword_2_1());
-			}
-			otherlv_7='the'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getTimeAccess().getTheKeyword_2_2());
-			}
-			otherlv_8='mission'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getTimeAccess().getMissionKeyword_2_3());
-			}
 		)
 	)
 ;

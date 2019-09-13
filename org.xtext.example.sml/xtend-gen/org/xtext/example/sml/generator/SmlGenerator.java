@@ -17,19 +17,28 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.AtomicIndicator;
 import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.CompoundIndicator;
+import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Light;
+import org.xtext.example.sml.sml.MissionObjective;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Reward;
+import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.Swarmconf;
 
 /**
@@ -47,6 +56,8 @@ public class SmlGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     final Model model = ((Model) _head);
+    EObject _head_1 = IterableExtensions.<EObject>head(resource.getContents());
+    Model model1 = ((Model) _head_1);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!-- ********* -->");
     _builder.newLine();
@@ -152,405 +163,137 @@ public class SmlGenerator extends AbstractGenerator {
     _builder.newLine();
     fsa.generateFile("setup.xml", _builder);
     StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append(" ");
+    _builder_1.append("#include \"mission.h\"");
     _builder_1.newLine();
-    _builder_1.append("#include \"ChocolateSPCLoopFunc.h\"");
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("ChocolateSPCLoopFunction::ChocolateSPCLoopFunction() {");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fSideSquare = 0.6;");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fRadiusCircle = 0.3;");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fRadiusRobot = 0.04;");
+    _builder_1.append(" ");
     _builder_1.newLine();
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_cCoordCircleSpot = CVector2(0.6, 0);");
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_cCoordSquareSpot = CVector2(-0.6, 0);");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_unNumberPoints = 1000;");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fObjectiveFunction = 0;");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fDoptA = 0.08;");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fDoptP = 0.06;");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("ChocolateSPCLoopFunction::ChocolateSPCLoopFunction(const ChocolateSPCLoopFunction& orig) {}");
+    _builder_1.append(" ");
+    _builder_1.append("ChocolateMission1LoopFunction::ChocolateMission1LoopFunction(const ChocolateMission1LoopFunction& orig) {}");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("ChocolateSPCLoopFunction::~ChocolateSPCLoopFunction() {}");
+    _builder_1.append(" ");
+    _builder_1.append("ChocolateMission1LoopFunction::~ChocolateMission1LoopFunction() {}");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("void ChocolateSPCLoopFunction::Destroy() {}");
+    _builder_1.append(" ");
+    _builder_1.append("void ChocolateMission1LoopFunction::Destroy() {}");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("void ChocolateSPCLoopFunction::Reset() {");
+    _builder_1.append(" ");
+    _builder_1.append("Real ChocolateMission1LoopFunction::GetObjectiveFunction() {}");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("CoreLoopFunctions::Reset();");
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("}");
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.append("/****************************************/");
     _builder_1.newLine();
+    _builder_1.append(" ");
     _builder_1.newLine();
-    _builder_1.append("argos::CColor ChocolateSPCLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {");
+    _builder_1.append(" ");
+    _builder_1.append("argos::CColor ChocolateMission1LoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("CVector2 cCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());");
+    _builder_1.append("   ");
+    _builder_1.append("CVector2 vCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());");
     _builder_1.newLine();
+    _builder_1.append("   ");
+    _builder_1.append("Real d = (m_cCoordBlackSpot - vCurrentPoint).Length();");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("if (IsOnSquareArea(cCurrentPoint)){");
+    _builder_1.append("   ");
+    _builder_1.append("if (d <= m_fRadius) {");
     _builder_1.newLine();
-    _builder_1.append("      ");
-    _builder_1.append("return CColor::WHITE;");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("} else if ((cCurrentPoint - m_cCoordCircleSpot).Length() < m_fRadiusCircle) {");
-    _builder_1.newLine();
-    _builder_1.append("      ");
+    _builder_1.append("     ");
     _builder_1.append("return CColor::BLACK;");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("} else{");
+    _builder_1.append("   ");
+    _builder_1.append("}");
     _builder_1.newLine();
-    _builder_1.append("      ");
+    _builder_1.append(" ");
+    _builder_1.newLine();
+    _builder_1.append("   ");
     _builder_1.append("return CColor::GRAY50;");
     _builder_1.newLine();
+    _builder_1.append(" ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    {
+      MissionObjective _ob = model1.getOb();
+      boolean _tripleNotEquals_3 = (_ob != null);
+      if (_tripleNotEquals_3) {
+        CharSequence _compile_3 = this.compile(model1.getOb());
+        _builder_1.append(_compile_3);
+      }
+    }
     _builder_1.append("  ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("void ChocolateSPCLoopFunction::PostExperiment() {");
-    _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("m_fObjectiveFunction = ComputeObjectiveFunction();");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("Real ChocolateSPCLoopFunction::GetObjectiveFunction() {");
+    _builder_1.newLineIfNotEmpty();
+    _builder_1.append("CVector3 ChocolateMission1LoopFunction::GetRandomPosition() {");
     _builder_1.newLine();
     _builder_1.append("  ");
-    _builder_1.append("return m_fObjectiveFunction;");
+    _builder_1.append("Real a;");
     _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("Real ChocolateSPCLoopFunction::ComputeObjectiveFunction() {");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CVector2 cRandomPoint;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("Real dA=0, dP=0;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CSpace::TMapPerType mEpucks = GetSpace().GetEntitiesByType(\"epuck\");");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CVector2 cEpuckPosition(0,0);");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("Real fDistanceToRandomPoint = 0;");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("// White square area");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("for(UInt32 i = 0; i < m_unNumberPoints; i++){");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("Real fMinDistanceOnSquare = 0.85;  // Correspond to the diagonal of the square area");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("cRandomPoint = RandomPointOnSquareArea();");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
-    _builder_1.newLine();
-    _builder_1.append("                               ");
-    _builder_1.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("if(IsOnSquareArea(cEpuckPosition)){");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("if(fDistanceToRandomPoint < fMinDistanceOnSquare){");
-    _builder_1.newLine();
-    _builder_1.append("                    ");
-    _builder_1.append("fMinDistanceOnSquare = fDistanceToRandomPoint;");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("dA += fMinDistanceOnSquare;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("dA /= m_unNumberPoints;");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("// Black circle area");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("for(UInt32 i = 0; i < m_unNumberPoints; ++i){");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("Real fMinDistanceOnCircle = 0.6; // Correspond to the diameter of the circular spot");
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("cRandomPoint = RandomPointOnCirclePerimeter();");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
-    _builder_1.newLine();
-    _builder_1.append("                               ");
-    _builder_1.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("if(IsOnCirclePerimeter(cEpuckPosition)){");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("if(fDistanceToRandomPoint < fMinDistanceOnCircle){");
-    _builder_1.newLine();
-    _builder_1.append("                    ");
-    _builder_1.append("fMinDistanceOnCircle = fDistanceToRandomPoint;");
-    _builder_1.newLine();
-    _builder_1.append("                ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("dP += fMinDistanceOnCircle;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("dP /= m_unNumberPoints;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("Real performance = (dA/m_fDoptA) + (dP/m_fDoptP);");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("return performance;");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("CVector2 ChocolateSPCLoopFunction::RandomPointOnSquareArea(){");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("return CVector2(m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f)),");
-    _builder_1.newLine();
-    _builder_1.append("                    ");
-    _builder_1.append("m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f)));");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("CVector2 ChocolateSPCLoopFunction::RandomPointOnCirclePerimeter(){");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CRadians cAngle = m_pcRng->Uniform(CRange<CRadians>(CRadians::ZERO,CRadians::TWO_PI));");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("return CVector2(m_cCoordCircleSpot.GetX() + Cos(cAngle) * m_fRadiusCircle, m_cCoordCircleSpot.GetY() + Sin(cAngle) * m_fRadiusCircle);");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&");
-    _builder_1.newLine();
-    _builder_1.append("            ");
-    _builder_1.append("cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {");
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("return true;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("return false;");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("bool ChocolateSPCLoopFunction::IsOnCirclePerimeter(CVector2 c_point) {");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("CRange<Real> cAcceptanceRange(m_fRadiusCircle - m_fRadiusRobot, m_fRadiusCircle + m_fRadiusRobot);");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("Real fDistanceFromCenter = (c_point - m_cCoordCircleSpot).Length();");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("if(cAcceptanceRange.WithinMinBoundIncludedMaxBoundIncluded(fDistanceFromCenter)){");
-    _builder_1.newLine();
-    _builder_1.append("        ");
-    _builder_1.append("return true;");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.append("    ");
-    _builder_1.append("return false;");
-    _builder_1.newLine();
-    _builder_1.append("}");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.append("/****************************************/");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("CVector3 ChocolateSPCLoopFunction::GetRandomPosition() {");
+    _builder_1.append("  ");
+    _builder_1.append("Real b;");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("Real temp;");
     _builder_1.newLine();
-    _builder_1.append("  ");
-    _builder_1.append("Real a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
     _builder_1.newLine();
     _builder_1.append("  ");
-    _builder_1.append("Real  b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
+    _builder_1.append("a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
     _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("// If b < a, swap them");
@@ -576,19 +319,12 @@ public class SmlGenerator extends AbstractGenerator {
     _builder_1.append("  ");
     _builder_1.append("Real fPosY = b * m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));");
     _builder_1.newLine();
-    _builder_1.newLine();
     _builder_1.append("  ");
     _builder_1.append("return CVector3(fPosX, fPosY, 0);");
     _builder_1.newLine();
     _builder_1.append("}");
     _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.append("REGISTER_LOOP_FUNCTIONS(ChocolateSPCLoopFunction, \"chocolate_spc_loop_functions\");");
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.newLine();
-    _builder_1.newLine();
+    _builder_1.append("REGISTER_LOOP_FUNCTIONS(ChocolateMission1LoopFunction, \"chocolate_mission1_loop_functions\");");
     _builder_1.newLine();
     fsa.generateFile("loopfunctions.cpp", _builder_1);
   }
@@ -1005,6 +741,303 @@ public class SmlGenerator extends AbstractGenerator {
         String _r = k.getR();
         _builder.append(_r);
         _builder.append(" ");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final MissionObjective ob) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Indicator> _in = ob.getIn();
+      for(final Indicator o : _in) {
+        CharSequence _compile = this.compile(o);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+        _builder.append("          ");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Indicator in) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("          ");
+    {
+      if ((in != null)) {
+        CharSequence _compile = this.compile(in.getSp());
+        _builder.append(_compile, "          ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EObject _oc = in.getOc();
+      if ((_oc instanceof AtomicIndicator)) {
+        EObject _oc_1 = in.getOc();
+        CharSequence _compile_1 = this.compile(((AtomicIndicator) _oc_1));
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      } else {
+        EObject _oc_2 = in.getOc();
+        if ((_oc_2 instanceof CompoundIndicator)) {
+          EObject _oc_3 = in.getOc();
+          CharSequence _compile_2 = this.compile(((CompoundIndicator) _oc_3));
+          _builder.append(_compile_2);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Scope s) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = s.getSp().length();
+      boolean _tripleEquals = (_length == 20);
+      if (_tripleEquals) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("void ChocolateMission1LoopFunction::PostStep() {");
+        _builder.newLine();
+        _builder.append("  ");
+        _builder.append("CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType(\"epuck\");");
+        _builder.newLine();
+        _builder.append("  ");
+        _builder.append("CVector2 cEpuckPosition(0,0);");
+        _builder.newLine();
+        _builder.append("  ");
+        _builder.append("for (CSpace::TMapPerType::iterator it = tEpuckMap.begin(); it != tEpuckMap.end(); ++it) {");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*>(it->second);");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
+        _builder.newLine();
+        _builder.append("                       ");
+        _builder.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("Real fDistanceSpot = (m_cCoordBlackSpot - cEpuckPosition).Length();");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("if (fDistanceSpot <= m_fRadius) {");
+        _builder.newLine();
+        _builder.append("      ");
+        _builder.append("m_unScoreSpot += reward;");
+        _builder.newLine();
+        _builder.append("    ");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("}\t       ");
+        _builder.newLine();
+      } else {
+        int _length_1 = s.getSp().length();
+        boolean _tripleEquals_1 = (_length_1 == 25);
+        if (_tripleEquals_1) {
+          _builder.append("void ChocolateSPCLoopFunction::PostExperiment() {");
+          _builder.newLine();
+          _builder.append("   ");
+          _builder.append("CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType(\"epuck\");");
+          _builder.newLine();
+          _builder.append("  \t         ");
+          _builder.append("CVector2 cEpuckPosition(0,0);");
+          _builder.newLine();
+          _builder.append("  \t         ");
+          _builder.append("for (CSpace::TMapPerType::iterator it = tEpuckMap.begin(); it != tEpuckMap.end(); ++it) {");
+          _builder.newLine();
+          _builder.append("  \t           ");
+          _builder.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*>(it->second);");
+          _builder.newLine();
+          _builder.append("  \t           ");
+          _builder.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
+          _builder.newLine();
+          _builder.append("  \t                              ");
+          _builder.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
+          _builder.newLine();
+          _builder.append("  \t           ");
+          _builder.append("Real fDistanceSpot = (m_cCoordBlackSpot - cEpuckPosition).Length();");
+          _builder.newLine();
+          _builder.append("  \t           ");
+          _builder.append("if(IsOnSquareArea(cEpuckPosition))  m_unScoreSpot += reward;");
+          _builder.newLine();
+          _builder.append("  \t           ");
+          _builder.newLine();
+          _builder.append("  \t         ");
+          _builder.newLine();
+          _builder.append("  \t ");
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append("\t      ");
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final AtomicIndicator ai) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((ai != null)) {
+        CharSequence _compile = this.compile(ai.getOc());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final CompoundIndicator ci) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((ci != null)) {
+        CharSequence _compile = this.compile(ci.getOc());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Occurence oc) {
+    CharSequence _xifexpression = null;
+    if ((oc instanceof Reward)) {
+      _xifexpression = this.compile(((Reward) oc));
+    } else {
+      CharSequence _xifexpression_1 = null;
+      if ((oc instanceof Penalty)) {
+        _xifexpression_1 = this.compile(((Penalty) oc));
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public CharSequence compile(final Reward r) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((r != null)) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("ChocolateMission1LoopFunction::ChocolateMission1LoopFunction() {");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("m_unScoreSpot = 0;");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("m_fObjectiveFunction = 0;");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("reward =");
+        String _k = r.getK();
+        _builder.append(_k, "\t\t\t\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        CharSequence _compile = this.compile(r.getC());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Penalty p) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((p != null)) {
+        _builder.newLineIfNotEmpty();
+        _builder.append("ChocolateMission1LoopFunction::ChocolateMission1LoopFunction() {");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("m_unScoreSpot = 0;");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("m_fObjectiveFunction = 0;");
+        _builder.newLine();
+        _builder.append("\t\t\t\t\t\t");
+        _builder.append("reward =");
+        String _k = p.getK();
+        _builder.append(_k, "\t\t\t\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        CharSequence _compile = this.compile(p.getC());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Condition c) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Dimension _dimensions = c.getR().getDimensions();
+      if ((_dimensions instanceof CircleD)) {
+        _builder.append("m_unScoreSpot = 0;");
+        _builder.newLine();
+        _builder.append("m_fRadius= ");
+        CharSequence _compile = this.compile(c.getR().getDimensions());
+        _builder.append(_compile);
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("m_cCoordBlackSport = CVector2(");
+        CharSequence _compile_1 = this.compile(c.getR().getReferencepoint());
+        _builder.append(_compile_1);
+        _builder.append(");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("            \t          \t\t\t\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t       \t       ");
+        _builder.append("bool ChocolateMission1LoopFunction::IsOnCircleArea(CVector2 c_point) {");
+        _builder.newLine();
+        _builder.append("\t       \t           ");
+        _builder.append("Real fDistanceSpot = (c_point - m_cCoordCircleSpot).Length();");
+        _builder.newLine();
+        _builder.append("\t       \t           ");
+        _builder.append("if (fDistanceSpot <= m_fRadius){");
+        _builder.newLine();
+        _builder.append("\t       \t               ");
+        _builder.append("return true;");
+        _builder.newLine();
+        _builder.append("\t       \t           ");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t       \t           ");
+        _builder.append("return false;");
+        _builder.newLine();
+        _builder.append("\t       \t       ");
+        _builder.append("}");
+        _builder.newLine();
+      } else {
+        Dimension _dimensions_1 = c.getR().getDimensions();
+        if ((_dimensions_1 instanceof RectangleD)) {
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append("bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){");
+          _builder.newLine();
+          _builder.append("    ");
+          _builder.append("CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);");
+          _builder.newLine();
+          _builder.append("    ");
+          _builder.append("CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);");
+          _builder.newLine();
+          _builder.append("    ");
+          _builder.append("if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&");
+          _builder.newLine();
+          _builder.append("            ");
+          _builder.append("cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {");
+          _builder.newLine();
+          _builder.append("        ");
+          _builder.append("return true;");
+          _builder.newLine();
+          _builder.append("    ");
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append("    ");
+          _builder.append("return false;");
+          _builder.newLine();
+          _builder.append("}");
+          _builder.newLine();
+          _builder.append(" ");
+        }
       }
     }
     return _builder;

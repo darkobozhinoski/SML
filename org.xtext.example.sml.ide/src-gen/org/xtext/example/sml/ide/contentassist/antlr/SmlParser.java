@@ -33,7 +33,7 @@ public class SmlParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SmlGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getMetricAccess().getAlternatives(), "rule__Metric__Alternatives");
 			builder.put(grammarAccess.getIndicatorAccess().getOcAlternatives_1_0(), "rule__Indicator__OcAlternatives_1_0");
-			builder.put(grammarAccess.getScopeAccess().getAlternatives(), "rule__Scope__Alternatives");
+			builder.put(grammarAccess.getScopeAccess().getSpAlternatives_0(), "rule__Scope__SpAlternatives_0");
 			builder.put(grammarAccess.getOccurenceAccess().getAlternatives(), "rule__Occurence__Alternatives");
 			builder.put(grammarAccess.getConditionAccess().getAlternatives(), "rule__Condition__Alternatives");
 			builder.put(grammarAccess.getTimeAccess().getAlternatives(), "rule__Time__Alternatives");
@@ -61,13 +61,7 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIndicatorAccess().getGroup(), "rule__Indicator__Group__0");
 			builder.put(grammarAccess.getAtomicIndicatorAccess().getGroup(), "rule__AtomicIndicator__Group__0");
 			builder.put(grammarAccess.getCompoundIndicatorAccess().getGroup(), "rule__CompoundIndicator__Group__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_0(), "rule__Scope__Group_0__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_1(), "rule__Scope__Group_1__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_2(), "rule__Scope__Group_2__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_3(), "rule__Scope__Group_3__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_4(), "rule__Scope__Group_4__0");
-			builder.put(grammarAccess.getScopeAccess().getGroup_5(), "rule__Scope__Group_5__0");
-			builder.put(grammarAccess.getPenatlyAccess().getGroup(), "rule__Penatly__Group__0");
+			builder.put(grammarAccess.getPenaltyAccess().getGroup(), "rule__Penalty__Group__0");
 			builder.put(grammarAccess.getRewardAccess().getGroup(), "rule__Reward__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_0(), "rule__Condition__Group_0__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_1(), "rule__Condition__Group_1__0");
@@ -113,15 +107,9 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getIndicatorAccess().getOcAssignment_1(), "rule__Indicator__OcAssignment_1");
 			builder.put(grammarAccess.getAtomicIndicatorAccess().getOcAssignment_2(), "rule__AtomicIndicator__OcAssignment_2");
 			builder.put(grammarAccess.getCompoundIndicatorAccess().getOcAssignment_2(), "rule__CompoundIndicator__OcAssignment_2");
-			builder.put(grammarAccess.getScopeAccess().getPAssignment_1_1(), "rule__Scope__PAssignment_1_1");
-			builder.put(grammarAccess.getScopeAccess().getPAssignment_2_1(), "rule__Scope__PAssignment_2_1");
-			builder.put(grammarAccess.getScopeAccess().getPAssignment_3_1(), "rule__Scope__PAssignment_3_1");
-			builder.put(grammarAccess.getScopeAccess().getQAssignment_3_3(), "rule__Scope__QAssignment_3_3");
-			builder.put(grammarAccess.getScopeAccess().getPAssignment_4_1(), "rule__Scope__PAssignment_4_1");
-			builder.put(grammarAccess.getScopeAccess().getQAssignment_4_3(), "rule__Scope__QAssignment_4_3");
-			builder.put(grammarAccess.getScopeAccess().getTAssignment_5_2(), "rule__Scope__TAssignment_5_2");
-			builder.put(grammarAccess.getPenatlyAccess().getKAssignment_3(), "rule__Penatly__KAssignment_3");
-			builder.put(grammarAccess.getPenatlyAccess().getCAssignment_4(), "rule__Penatly__CAssignment_4");
+			builder.put(grammarAccess.getScopeAccess().getSpAssignment(), "rule__Scope__SpAssignment");
+			builder.put(grammarAccess.getPenaltyAccess().getKAssignment_3(), "rule__Penalty__KAssignment_3");
+			builder.put(grammarAccess.getPenaltyAccess().getCAssignment_4(), "rule__Penalty__CAssignment_4");
 			builder.put(grammarAccess.getRewardAccess().getKAssignment_3(), "rule__Reward__KAssignment_3");
 			builder.put(grammarAccess.getRewardAccess().getCAssignment_4(), "rule__Reward__CAssignment_4");
 			builder.put(grammarAccess.getConditionAccess().getRAssignment_0_5(), "rule__Condition__RAssignment_0_5");

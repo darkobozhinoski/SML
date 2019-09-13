@@ -448,31 +448,13 @@ public interface SmlPackage extends EPackage
   int SCOPE = 11;
 
   /**
-   * The feature id for the '<em><b>P</b></em>' attribute.
+   * The feature id for the '<em><b>Sp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCOPE__P = 0;
-
-  /**
-   * The feature id for the '<em><b>Q</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCOPE__Q = 1;
-
-  /**
-   * The feature id for the '<em><b>T</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCOPE__T = 2;
+  int SCOPE__SP = 0;
 
   /**
    * The number of structural features of the '<em>Scope</em>' class.
@@ -481,7 +463,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCOPE_FEATURE_COUNT = 3;
+  int SCOPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.OccurenceImpl <em>Occurence</em>}' class.
@@ -521,14 +503,14 @@ public interface SmlPackage extends EPackage
   int OCCURENCE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.PenatlyImpl <em>Penatly</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.PenaltyImpl <em>Penalty</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.sml.sml.impl.PenatlyImpl
-   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenatly()
+   * @see org.xtext.example.sml.sml.impl.PenaltyImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenalty()
    * @generated
    */
-  int PENATLY = 13;
+  int PENALTY = 13;
 
   /**
    * The feature id for the '<em><b>K</b></em>' attribute.
@@ -537,7 +519,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PENATLY__K = OCCURENCE__K;
+  int PENALTY__K = OCCURENCE__K;
 
   /**
    * The feature id for the '<em><b>C</b></em>' containment reference.
@@ -546,16 +528,16 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PENATLY__C = OCCURENCE__C;
+  int PENALTY__C = OCCURENCE__C;
 
   /**
-   * The number of structural features of the '<em>Penatly</em>' class.
+   * The number of structural features of the '<em>Penalty</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PENATLY_FEATURE_COUNT = OCCURENCE_FEATURE_COUNT + 0;
+  int PENALTY_FEATURE_COUNT = OCCURENCE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.RewardImpl <em>Reward</em>}' class.
@@ -1789,37 +1771,15 @@ public interface SmlPackage extends EPackage
   EClass getScope();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Scope#getP <em>P</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Scope#getSp <em>Sp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>P</em>'.
-   * @see org.xtext.example.sml.sml.Scope#getP()
+   * @return the meta object for the attribute '<em>Sp</em>'.
+   * @see org.xtext.example.sml.sml.Scope#getSp()
    * @see #getScope()
    * @generated
    */
-  EAttribute getScope_P();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Scope#getQ <em>Q</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Q</em>'.
-   * @see org.xtext.example.sml.sml.Scope#getQ()
-   * @see #getScope()
-   * @generated
-   */
-  EAttribute getScope_Q();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Scope#getT <em>T</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>T</em>'.
-   * @see org.xtext.example.sml.sml.Scope#getT()
-   * @see #getScope()
-   * @generated
-   */
-  EReference getScope_T();
+  EAttribute getScope_Sp();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Occurence <em>Occurence</em>}'.
@@ -1854,14 +1814,14 @@ public interface SmlPackage extends EPackage
   EReference getOccurence_C();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Penatly <em>Penatly</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Penalty <em>Penalty</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Penatly</em>'.
-   * @see org.xtext.example.sml.sml.Penatly
+   * @return the meta object for class '<em>Penalty</em>'.
+   * @see org.xtext.example.sml.sml.Penalty
    * @generated
    */
-  EClass getPenatly();
+  EClass getPenalty();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Reward <em>Reward</em>}'.
@@ -2769,28 +2729,12 @@ public interface SmlPackage extends EPackage
     EClass SCOPE = eINSTANCE.getScope();
 
     /**
-     * The meta object literal for the '<em><b>P</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Sp</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SCOPE__P = eINSTANCE.getScope_P();
-
-    /**
-     * The meta object literal for the '<em><b>Q</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCOPE__Q = eINSTANCE.getScope_Q();
-
-    /**
-     * The meta object literal for the '<em><b>T</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SCOPE__T = eINSTANCE.getScope_T();
+    EAttribute SCOPE__SP = eINSTANCE.getScope_Sp();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.OccurenceImpl <em>Occurence</em>}' class.
@@ -2819,14 +2763,14 @@ public interface SmlPackage extends EPackage
     EReference OCCURENCE__C = eINSTANCE.getOccurence_C();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.PenatlyImpl <em>Penatly</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.PenaltyImpl <em>Penalty</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.sml.sml.impl.PenatlyImpl
-     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenatly()
+     * @see org.xtext.example.sml.sml.impl.PenaltyImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPenalty()
      * @generated
      */
-    EClass PENATLY = eINSTANCE.getPenatly();
+    EClass PENALTY = eINSTANCE.getPenalty();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.RewardImpl <em>Reward</em>}' class.

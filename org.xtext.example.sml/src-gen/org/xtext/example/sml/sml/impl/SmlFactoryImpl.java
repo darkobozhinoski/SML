@@ -37,7 +37,7 @@ import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -120,7 +120,7 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.COMPOUND_INDICATOR: return createCompoundIndicator();
       case SmlPackage.SCOPE: return createScope();
       case SmlPackage.OCCURENCE: return createOccurence();
-      case SmlPackage.PENATLY: return createPenatly();
+      case SmlPackage.PENALTY: return createPenalty();
       case SmlPackage.REWARD: return createReward();
       case SmlPackage.CONDITION: return createCondition();
       case SmlPackage.TIME: return createTime();
@@ -316,10 +316,10 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public Penatly createPenatly()
+  public Penalty createPenalty()
   {
-    PenatlyImpl penatly = new PenatlyImpl();
-    return penatly;
+    PenaltyImpl penalty = new PenaltyImpl();
+    return penalty;
   }
 
   /**

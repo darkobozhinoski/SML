@@ -41,18 +41,21 @@ CompoundIndicator:
 	'the' 'swarm' oc=Occurence 
 ;
 Scope:
-	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent| 'After' p=AtomicEvent | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time 
+	sp =("At any point of time" | "At the end of the mission")
+		
+		//| 'Before' p=AtomicEvent| 'After' p=(AtomicEvent) | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
+	
 ;
 
 AtomicEvent:
 	'Walls change color'
 ;
 Occurence:
-	Reward | Penatly
+	Reward | Penalty
 ;
 
 
-Penatly:
+Penalty:
 	'gets' 'a' 'penalty'  k=Double c=Condition
 ;
 

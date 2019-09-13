@@ -34,7 +34,7 @@ import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -205,11 +205,11 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.PENATLY:
+      case SmlPackage.PENALTY:
       {
-        Penatly penatly = (Penatly)theEObject;
-        T result = casePenatly(penatly);
-        if (result == null) result = caseOccurence(penatly);
+        Penalty penalty = (Penalty)theEObject;
+        T result = casePenalty(penalty);
+        if (result == null) result = caseOccurence(penalty);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -643,17 +643,17 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Penatly</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Penalty</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Penatly</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Penalty</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePenatly(Penatly object)
+  public T casePenalty(Penalty object)
   {
     return null;
   }

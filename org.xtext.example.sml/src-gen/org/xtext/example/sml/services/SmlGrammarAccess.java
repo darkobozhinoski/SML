@@ -553,148 +553,26 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Scope");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cAtKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cAnyKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cPointKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cOfKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final Keyword cTimeKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cBeforeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cPAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_1_1_0 = (RuleCall)cPAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cAfterKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cPAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_2_1_0 = (RuleCall)cPAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cBetweenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_3_1_0 = (RuleCall)cPAssignment_3_1.eContents().get(0);
-		private final Keyword cAndKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cQAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cQAtomicEventParserRuleCall_3_3_0 = (RuleCall)cQAssignment_3_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cAfterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cPAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_4_1_0 = (RuleCall)cPAssignment_4_1.eContents().get(0);
-		private final Keyword cUntiiKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cQAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final RuleCall cQAtomicEventParserRuleCall_4_3_0 = (RuleCall)cQAssignment_4_3.eContents().get(0);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cAtKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cTimeKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cTAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cTTimeParserRuleCall_5_2_0 = (RuleCall)cTAssignment_5_2.eContents().get(0);
+		private final Assignment cSpAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cSpAlternatives_0 = (Alternatives)cSpAssignment.eContents().get(0);
+		private final Keyword cSpAtAnyPointOfTimeKeyword_0_0 = (Keyword)cSpAlternatives_0.eContents().get(0);
+		private final Keyword cSpAtTheEndOfTheMissionKeyword_0_1 = (Keyword)cSpAlternatives_0.eContents().get(1);
 		
 		//Scope:
-		//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-		//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+		//	sp=("At any point of time" | "At the end of the mission");
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-		//q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//sp=("At any point of time" | "At the end of the mission")
+		public Assignment getSpAssignment() { return cSpAssignment; }
 		
-		//'At' 'any' 'point' 'of' 'time'
-		public Group getGroup_0() { return cGroup_0; }
+		//("At any point of time" | "At the end of the mission")
+		public Alternatives getSpAlternatives_0() { return cSpAlternatives_0; }
 		
-		//'At'
-		public Keyword getAtKeyword_0_0() { return cAtKeyword_0_0; }
+		//"At any point of time"
+		public Keyword getSpAtAnyPointOfTimeKeyword_0_0() { return cSpAtAnyPointOfTimeKeyword_0_0; }
 		
-		//'any'
-		public Keyword getAnyKeyword_0_1() { return cAnyKeyword_0_1; }
-		
-		//'point'
-		public Keyword getPointKeyword_0_2() { return cPointKeyword_0_2; }
-		
-		//'of'
-		public Keyword getOfKeyword_0_3() { return cOfKeyword_0_3; }
-		
-		//'time'
-		public Keyword getTimeKeyword_0_4() { return cTimeKeyword_0_4; }
-		
-		//'Before' p=AtomicEvent
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'Before'
-		public Keyword getBeforeKeyword_1_0() { return cBeforeKeyword_1_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_1_1() { return cPAssignment_1_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_1_1_0() { return cPAtomicEventParserRuleCall_1_1_0; }
-		
-		//'After' p=AtomicEvent
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'After'
-		public Keyword getAfterKeyword_2_0() { return cAfterKeyword_2_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_2_1() { return cPAssignment_2_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_2_1_0() { return cPAtomicEventParserRuleCall_2_1_0; }
-		
-		//'Between' p=AtomicEvent 'and' q=AtomicEvent
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'Between'
-		public Keyword getBetweenKeyword_3_0() { return cBetweenKeyword_3_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_3_1() { return cPAssignment_3_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_3_1_0() { return cPAtomicEventParserRuleCall_3_1_0; }
-		
-		//'and'
-		public Keyword getAndKeyword_3_2() { return cAndKeyword_3_2; }
-		
-		//q=AtomicEvent
-		public Assignment getQAssignment_3_3() { return cQAssignment_3_3; }
-		
-		//AtomicEvent
-		public RuleCall getQAtomicEventParserRuleCall_3_3_0() { return cQAtomicEventParserRuleCall_3_3_0; }
-		
-		//'After' p=AtomicEvent 'Untii' q=AtomicEvent
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'After'
-		public Keyword getAfterKeyword_4_0() { return cAfterKeyword_4_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_4_1() { return cPAssignment_4_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_4_1_0() { return cPAtomicEventParserRuleCall_4_1_0; }
-		
-		//'Untii'
-		public Keyword getUntiiKeyword_4_2() { return cUntiiKeyword_4_2; }
-		
-		//q=AtomicEvent
-		public Assignment getQAssignment_4_3() { return cQAssignment_4_3; }
-		
-		//AtomicEvent
-		public RuleCall getQAtomicEventParserRuleCall_4_3_0() { return cQAtomicEventParserRuleCall_4_3_0; }
-		
-		//'at' 'time' t=Time
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'at'
-		public Keyword getAtKeyword_5_0() { return cAtKeyword_5_0; }
-		
-		//'time'
-		public Keyword getTimeKeyword_5_1() { return cTimeKeyword_5_1; }
-		
-		//t=Time
-		public Assignment getTAssignment_5_2() { return cTAssignment_5_2; }
-		
-		//Time
-		public RuleCall getTTimeParserRuleCall_5_2_0() { return cTTimeParserRuleCall_5_2_0; }
+		//"At the end of the mission"
+		public Keyword getSpAtTheEndOfTheMissionKeyword_0_1() { return cSpAtTheEndOfTheMissionKeyword_0_1; }
 	}
 	public class AtomicEventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.AtomicEvent");
@@ -711,23 +589,23 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Occurence");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cRewardParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cPenatlyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPenaltyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Occurence:
-		//	Reward | Penatly;
+		//	Reward | Penalty;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Reward | Penatly
+		//Reward | Penalty
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Reward
 		public RuleCall getRewardParserRuleCall_0() { return cRewardParserRuleCall_0; }
 		
-		//Penatly
-		public RuleCall getPenatlyParserRuleCall_1() { return cPenatlyParserRuleCall_1; }
+		//Penalty
+		public RuleCall getPenaltyParserRuleCall_1() { return cPenaltyParserRuleCall_1; }
 	}
-	public class PenatlyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Penatly");
+	public class PenaltyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Penalty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGetsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cAKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -737,7 +615,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cCConditionParserRuleCall_4_0 = (RuleCall)cCAssignment_4.eContents().get(0);
 		
-		//Penatly:
+		//Penalty:
 		//	'gets' 'a' 'penalty' k=Double c=Condition;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1930,7 +1808,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final ScopeElements pScope;
 	private final AtomicEventElements pAtomicEvent;
 	private final OccurenceElements pOccurence;
-	private final PenatlyElements pPenatly;
+	private final PenaltyElements pPenalty;
 	private final RewardElements pReward;
 	private final ConditionElements pCondition;
 	private final TimeElements pTime;
@@ -1987,7 +1865,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pScope = new ScopeElements();
 		this.pAtomicEvent = new AtomicEventElements();
 		this.pOccurence = new OccurenceElements();
-		this.pPenatly = new PenatlyElements();
+		this.pPenalty = new PenaltyElements();
 		this.pReward = new RewardElements();
 		this.pCondition = new ConditionElements();
 		this.pTime = new TimeElements();
@@ -2172,8 +2050,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Scope:
-	//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-	//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+	//	sp=("At any point of time" | "At the end of the mission");
 	public ScopeElements getScopeAccess() {
 		return pScope;
 	}
@@ -2193,7 +2070,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Occurence:
-	//	Reward | Penatly;
+	//	Reward | Penalty;
 	public OccurenceElements getOccurenceAccess() {
 		return pOccurence;
 	}
@@ -2202,14 +2079,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getOccurenceAccess().getRule();
 	}
 	
-	//Penatly:
+	//Penalty:
 	//	'gets' 'a' 'penalty' k=Double c=Condition;
-	public PenatlyElements getPenatlyAccess() {
-		return pPenatly;
+	public PenaltyElements getPenaltyAccess() {
+		return pPenalty;
 	}
 	
-	public ParserRule getPenatlyRule() {
-		return getPenatlyAccess().getRule();
+	public ParserRule getPenaltyRule() {
+		return getPenaltyAccess().getRule();
 	}
 	
 	//Reward:

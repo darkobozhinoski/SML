@@ -48,15 +48,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//CompoundIndicator/oc"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Scope">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Scope/p"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Scope/q"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//Scope/t"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Scope/sp"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Occurence">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Occurence/k"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//Occurence/c"/>
     </genClasses>
-    <genClasses ecoreClass="Sml.ecore#//Penatly"/>
+    <genClasses ecoreClass="Sml.ecore#//Penalty"/>
     <genClasses ecoreClass="Sml.ecore#//Reward"/>
     <genClasses ecoreClass="Sml.ecore#//Condition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//Condition/r"/>

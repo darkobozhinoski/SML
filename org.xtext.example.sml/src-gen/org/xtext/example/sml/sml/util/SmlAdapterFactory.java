@@ -36,7 +36,7 @@ import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -182,9 +182,9 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createOccurenceAdapter();
       }
       @Override
-      public Adapter casePenatly(Penatly object)
+      public Adapter casePenalty(Penalty object)
       {
-        return createPenatlyAdapter();
+        return createPenaltyAdapter();
       }
       @Override
       public Adapter caseReward(Reward object)
@@ -544,16 +544,16 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Penatly <em>Penatly</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Penalty <em>Penalty</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Penatly
+   * @see org.xtext.example.sml.sml.Penalty
    * @generated
    */
-  public Adapter createPenatlyAdapter()
+  public Adapter createPenaltyAdapter()
   {
     return null;
   }

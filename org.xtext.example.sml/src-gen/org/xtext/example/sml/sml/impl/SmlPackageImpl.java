@@ -36,7 +36,7 @@ import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
@@ -158,7 +158,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass penatlyEClass = null;
+  private EClass penaltyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -766,31 +766,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getScope_P()
+  public EAttribute getScope_Sp()
   {
     return (EAttribute)scopeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getScope_Q()
-  {
-    return (EAttribute)scopeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getScope_T()
-  {
-    return (EReference)scopeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -832,9 +810,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getPenatly()
+  public EClass getPenalty()
   {
-    return penatlyEClass;
+    return penaltyEClass;
   }
 
   /**
@@ -1548,15 +1526,13 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEReference(compoundIndicatorEClass, COMPOUND_INDICATOR__OC);
 
     scopeEClass = createEClass(SCOPE);
-    createEAttribute(scopeEClass, SCOPE__P);
-    createEAttribute(scopeEClass, SCOPE__Q);
-    createEReference(scopeEClass, SCOPE__T);
+    createEAttribute(scopeEClass, SCOPE__SP);
 
     occurenceEClass = createEClass(OCCURENCE);
     createEAttribute(occurenceEClass, OCCURENCE__K);
     createEReference(occurenceEClass, OCCURENCE__C);
 
-    penatlyEClass = createEClass(PENATLY);
+    penaltyEClass = createEClass(PENALTY);
 
     rewardEClass = createEClass(REWARD);
 
@@ -1674,7 +1650,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    penatlyEClass.getESuperTypes().add(this.getOccurence());
+    penaltyEClass.getESuperTypes().add(this.getOccurence());
     rewardEClass.getESuperTypes().add(this.getOccurence());
     environmentElementEClass.getESuperTypes().add(this.getEnvironmentElements());
     elementDescriptionEClass.getESuperTypes().add(this.getEnvironmentElements());
@@ -1737,15 +1713,13 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getCompoundIndicator_Oc(), this.getOccurence(), null, "oc", null, 0, 1, CompoundIndicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(scopeEClass, Scope.class, "Scope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getScope_P(), ecorePackage.getEString(), "p", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getScope_Q(), ecorePackage.getEString(), "q", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getScope_T(), this.getTime(), null, "t", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScope_Sp(), ecorePackage.getEString(), "sp", null, 0, 1, Scope.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(occurenceEClass, Occurence.class, "Occurence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOccurence_K(), ecorePackage.getEString(), "k", null, 0, 1, Occurence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOccurence_C(), this.getCondition(), null, "c", null, 0, 1, Occurence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(penatlyEClass, Penatly.class, "Penatly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(penaltyEClass, Penalty.class, "Penalty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(rewardEClass, Reward.class, "Reward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -5,24 +5,24 @@ package org.xtext.example.sml.sml.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.Penalty;
 import org.xtext.example.sml.sml.SmlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Penatly</b></em>'.
+ * An implementation of the model object '<em><b>Penalty</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class PenatlyImpl extends OccurenceImpl implements Penatly
+public class PenaltyImpl extends OccurenceImpl implements Penalty
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PenatlyImpl()
+  protected PenaltyImpl()
   {
     super();
   }
@@ -35,7 +35,7 @@ public class PenatlyImpl extends OccurenceImpl implements Penatly
   @Override
   protected EClass eStaticClass()
   {
-    return SmlPackage.Literals.PENATLY;
+    return SmlPackage.Literals.PENALTY;
   }
 
-} //PenatlyImpl
+} //PenaltyImpl

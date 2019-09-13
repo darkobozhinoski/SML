@@ -31,6 +31,15 @@ import org.xtext.example.sml.sml.EnvironmentElements
 import org.xtext.example.sml.sml.ProbabilisticDecription
 import org.xtext.example.sml.sml.Environment
 import org.xtext.example.sml.sml.ElementDescription
+import org.xtext.example.sml.sml.MissionObjective
+import org.xtext.example.sml.sml.Reward
+import org.xtext.example.sml.sml.Indicator
+import org.xtext.example.sml.sml.AtomicIndicator
+import org.xtext.example.sml.sml.Scope
+import org.xtext.example.sml.sml.Occurence
+import org.xtext.example.sml.sml.Penalty
+import org.xtext.example.sml.sml.Condition
+import org.xtext.example.sml.sml.CompoundIndicator
 import java.util.Random;
 
 /**
@@ -48,6 +57,7 @@ class SmlGenerator extends AbstractGenerator {
 //				.join(', '))
 	
      val model = resource.contents.head as Model
+     var model1 =resource.contents.head as Model
 		fsa.generateFile('setup.xml', '''
 		  <!-- ********* -->
 		  <!-- * Arena * -->
@@ -79,207 +89,68 @@ class SmlGenerator extends AbstractGenerator {
 	      		</argos-configuration>
 	      		''')
 	          	
-	          	
-	          fsa.generateFile('loopfunctions.cpp', '''
-	          
-	          #include "ChocolateSPCLoopFunc.h"
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          ChocolateSPCLoopFunction::ChocolateSPCLoopFunction() {
-	            m_fSideSquare = 0.6;
-	            m_fRadiusCircle = 0.3;
-	            m_fRadiusRobot = 0.04;
-	          
-	            m_cCoordCircleSpot = CVector2(0.6, 0);
-	            m_cCoordSquareSpot = CVector2(-0.6, 0);
-	          
-	            m_unNumberPoints = 1000;
-	          
-	            m_fObjectiveFunction = 0;
-	            m_fDoptA = 0.08;
-	            m_fDoptP = 0.06;
-	          }
+	         
+	         
+	          fsa.generateFile('loopfunctions.cpp', ''' 
+	          #include "mission.h"
 	          
 	          /****************************************/
 	          /****************************************/
 	          
-	          ChocolateSPCLoopFunction::ChocolateSPCLoopFunction(const ChocolateSPCLoopFunction& orig) {}
+	         
 	          
 	          /****************************************/
 	          /****************************************/
 	          
-	          ChocolateSPCLoopFunction::~ChocolateSPCLoopFunction() {}
+	          ChocolateMission1LoopFunction::ChocolateMission1LoopFunction(const ChocolateMission1LoopFunction& orig) {}
 	          
 	          /****************************************/
 	          /****************************************/
 	          
-	          void ChocolateSPCLoopFunction::Destroy() {}
+	          ChocolateMission1LoopFunction::~ChocolateMission1LoopFunction() {}
 	          
 	          /****************************************/
 	          /****************************************/
 	          
-	          void ChocolateSPCLoopFunction::Reset() {
-	            CoreLoopFunctions::Reset();
-	          }
+	          void ChocolateMission1LoopFunction::Destroy() {}
 	          
 	          /****************************************/
 	          /****************************************/
 	          
-	          argos::CColor ChocolateSPCLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
-	            CVector2 cCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());
+	          Real ChocolateMission1LoopFunction::GetObjectiveFunction() {}
 	          
-	            if (IsOnSquareArea(cCurrentPoint)){
-	                return CColor::WHITE;
-	            } else if ((cCurrentPoint - m_cCoordCircleSpot).Length() < m_fRadiusCircle) {
-	                return CColor::BLACK;
-	            } else{
-	                return CColor::GRAY50;
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          argos::CColor ChocolateMission1LoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
+	            CVector2 vCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());
+	            Real d = (m_cCoordBlackSpot - vCurrentPoint).Length();
+	            if (d <= m_fRadius) {
+	              return CColor::BLACK;
 	            }
+	          
+	            return CColor::GRAY50;
 	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          void ChocolateSPCLoopFunction::PostExperiment() {
-	            m_fObjectiveFunction = ComputeObjectiveFunction();
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          Real ChocolateSPCLoopFunction::GetObjectiveFunction() {
-	            return m_fObjectiveFunction;
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          Real ChocolateSPCLoopFunction::ComputeObjectiveFunction() {
-	              CVector2 cRandomPoint;
-	              Real dA=0, dP=0;
-	              CSpace::TMapPerType mEpucks = GetSpace().GetEntitiesByType("epuck");
-	              CVector2 cEpuckPosition(0,0);
-	              Real fDistanceToRandomPoint = 0;
-	          
-	              // White square area
-	              for(UInt32 i = 0; i < m_unNumberPoints; i++){
-	          
-	                  Real fMinDistanceOnSquare = 0.85;  // Correspond to the diagonal of the square area
-	          
-	                  cRandomPoint = RandomPointOnSquareArea();
-	          
-	                  for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {
-	                      CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);
-	                      cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
-	                                         pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
-	                      if(IsOnSquareArea(cEpuckPosition)){
-	                          fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();
-	                          if(fDistanceToRandomPoint < fMinDistanceOnSquare){
-	                              fMinDistanceOnSquare = fDistanceToRandomPoint;
-	                          }
-	                      }
-	                  }
-	          
-	                  dA += fMinDistanceOnSquare;
-	              }
-	              dA /= m_unNumberPoints;
-	          
-	              // Black circle area
-	              for(UInt32 i = 0; i < m_unNumberPoints; ++i){
-	          
-	                  Real fMinDistanceOnCircle = 0.6; // Correspond to the diameter of the circular spot
-	                  cRandomPoint = RandomPointOnCirclePerimeter();
-	          
-	                  for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {
-	                      CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);
-	                      cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
-	                                         pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
-	                      if(IsOnCirclePerimeter(cEpuckPosition)){
-	                          fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();
-	                          if(fDistanceToRandomPoint < fMinDistanceOnCircle){
-	                              fMinDistanceOnCircle = fDistanceToRandomPoint;
-	                          }
-	                      }
-	                  }
-	          
-	                  dP += fMinDistanceOnCircle;
-	              }
-	          
-	              dP /= m_unNumberPoints;
-	              Real performance = (dA/m_fDoptA) + (dP/m_fDoptP);
-	          
-	              return performance;
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          CVector2 ChocolateSPCLoopFunction::RandomPointOnSquareArea(){
-	              return CVector2(m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f)),
-	                              m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f)));
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          CVector2 ChocolateSPCLoopFunction::RandomPointOnCirclePerimeter(){
-	              CRadians cAngle = m_pcRng->Uniform(CRange<CRadians>(CRadians::ZERO,CRadians::TWO_PI));
-	              return CVector2(m_cCoordCircleSpot.GetX() + Cos(cAngle) * m_fRadiusCircle, m_cCoordCircleSpot.GetY() + Sin(cAngle) * m_fRadiusCircle);
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){
-	              CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);
-	              CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);
-	          
-	              if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&
-	                      cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {
-	                  return true;
-	              }
-	              return false;
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          bool ChocolateSPCLoopFunction::IsOnCirclePerimeter(CVector2 c_point) {
-	              CRange<Real> cAcceptanceRange(m_fRadiusCircle - m_fRadiusRobot, m_fRadiusCircle + m_fRadiusRobot);
-	              Real fDistanceFromCenter = (c_point - m_cCoordCircleSpot).Length();
-	              if(cAcceptanceRange.WithinMinBoundIncludedMaxBoundIncluded(fDistanceFromCenter)){
-	                  return true;
-	              }
-	              return false;
-	          }
-	          
-	          /****************************************/
-	          /****************************************/
-	          
-	          CVector3 ChocolateSPCLoopFunction::GetRandomPosition() {
-	            Real temp;
-	            Real a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
-	            Real  b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
-	            // If b < a, swap them
-	            if (b < a) {
-	              temp = a;
-	              a = b;
-	              b = temp;
-	            }
-	            Real fPosX = b * m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
-	            Real fPosY = b * m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
-	          
-	            return CVector3(fPosX, fPosY, 0);
-	          }
-	          
-	          
-	          REGISTER_LOOP_FUNCTIONS(ChocolateSPCLoopFunction, "chocolate_spc_loop_functions");
-	          
-	          
-	          
-	          
+	         «IF model1.ob !== null»«model1.ob.compile»«ENDIF»  
+	         CVector3 ChocolateMission1LoopFunction::GetRandomPosition() {
+	           Real a;
+	           Real b;
+	           Real temp;
+	         
+	           a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
+	           b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
+	           // If b < a, swap them
+	           if (b < a) {
+	             temp = a;
+	             a = b;
+	             b = temp;
+	           }
+	           Real fPosX = b * m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
+	           Real fPosY = b * m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
+	           return CVector3(fPosX, fPosY, 0);
+	         }
+	         REGISTER_LOOP_FUNCTIONS(ChocolateMission1LoopFunction, "chocolate_mission1_loop_functions");
 	          ''')
 	             // for (e : resource.allContents.toIterable.filter(Entity)) {
 	               //   fsa.generateFile(
@@ -405,8 +276,123 @@ class SmlGenerator extends AbstractGenerator {
 	       def compile(CircleD k)'''«IF k !== null»«k.r» «ENDIF»'''
 	          
 	          
-	          
-	          
+	     
+	     
+          def compile(MissionObjective ob) '''«FOR o: ob.in»«o.compile»
+          «ENDFOR»'''
+          
+          
+           def compile(Indicator in)'''
+          «IF in !== null»«in.sp.compile»«ENDIF»
+	      «IF in.oc instanceof AtomicIndicator»
+	      	      	       	        «(in.oc as AtomicIndicator).compile»
+	      	      	       	        «ELSEIF in.oc instanceof CompoundIndicator»
+	      	      	       	        «(in.oc as CompoundIndicator).compile»
+	      	      	       	        «ENDIF»
+	      '''
+	      
+	     
+	       def compile(Scope s) '''«IF  s.sp.length === 20 »
+	       void ChocolateMission1LoopFunction::PostStep() {
+	         CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType("epuck");
+	         CVector2 cEpuckPosition(0,0);
+	         for (CSpace::TMapPerType::iterator it = tEpuckMap.begin(); it != tEpuckMap.end(); ++it) {
+	           CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*>(it->second);
+	           cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
+	                              pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
+	           Real fDistanceSpot = (m_cCoordBlackSpot - cEpuckPosition).Length();
+	           if (fDistanceSpot <= m_fRadius) {
+	             m_unScoreSpot += reward;
+	           }
+	       }	       
+	       «ELSEIF s.sp.length  === 25»
+	       void ChocolateSPCLoopFunction::PostExperiment() {
+	          CSpace::TMapPerType& tEpuckMap = GetSpace().GetEntitiesByType("epuck");
+	         	         CVector2 cEpuckPosition(0,0);
+	         	         for (CSpace::TMapPerType::iterator it = tEpuckMap.begin(); it != tEpuckMap.end(); ++it) {
+	         	           CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*>(it->second);
+	         	           cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
+	         	                              pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
+	         	           Real fDistanceSpot = (m_cCoordBlackSpot - cEpuckPosition).Length();
+	         	           if(IsOnSquareArea(cEpuckPosition))  m_unScoreSpot += reward;
+	         	           
+	         	         
+	         	 }
+	       }
+	      «ENDIF»'''
+	
+ 
+	      
+	      
+	      
+	      
+	      
+	      
+	       def compile(AtomicIndicator ai) '''«IF ai !== null»«ai.oc.compile»«ENDIF»'''
+	       
+	       
+	       def compile(CompoundIndicator ci) '''«IF ci !== null»«ci.oc.compile»«ENDIF»'''
+	       
+	       
+	        def compile(Occurence oc){
+	      	  if (oc instanceof Reward)
+	              	(oc as Reward).compile
+	             else if (oc instanceof Penalty)
+	                (oc as Penalty).compile
+	       }
+	      
+	       
+          
+          def compile(Reward r)
+          '''«IF r !== null»
+          ChocolateMission1LoopFunction::ChocolateMission1LoopFunction() {
+          						m_unScoreSpot = 0;
+          						m_fObjectiveFunction = 0;
+          						reward =«r.k»;
+          «r.c.compile»«ENDIF»'''
+          
+           def compile(Penalty p)
+          '''«IF p !== null»
+          ChocolateMission1LoopFunction::ChocolateMission1LoopFunction() {
+          						m_unScoreSpot = 0;
+          						m_fObjectiveFunction = 0;
+          						reward =«p.k»;
+          «p.c.compile»«ENDIF»'''
+          
+          
+          def compile(Condition c)
+            	'''                        	         
+            	«IF c.r.dimensions instanceof CircleD»
+            	          						m_unScoreSpot = 0;
+            	          						m_fRadius= «c.r.dimensions.compile»;
+            	          						m_cCoordBlackSport = CVector2(«c.r.referencepoint.compile»);
+            	          					}
+	       	       bool ChocolateMission1LoopFunction::IsOnCircleArea(CVector2 c_point) {
+	       	           Real fDistanceSpot = (c_point - m_cCoordCircleSpot).Length();
+	       	           if (fDistanceSpot <= m_fRadius){
+	       	               return true;
+	       	           }
+	       	           return false;
+	       	       }
+	       	       «ELSEIF c.r.dimensions instanceof RectangleD»
+	       	       }
+	       	       bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){
+	       	           CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);
+	       	           CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);
+	       	           if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&
+	       	                   cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {
+	       	               return true;
+	       	           }
+	       	           return false;
+	       	       }
+	       	        «ENDIF»'''
+	      
+	     
+	     }
+	     
+	         
+	     
+	  
 	      //    def compile(Entity e) ''' 
 	      
 	      
@@ -439,9 +425,7 @@ class SmlGenerator extends AbstractGenerator {
 	      //            this.«f.name» = «f.name»;
 	      //        }
 	      //    '''
-	      }
-	      
-	      
+
 	      //    ;
 	      
 	        
