@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.Mission#getT <em>T</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Mission#getM <em>M</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getMission()
@@ -49,31 +48,5 @@ public interface Mission extends EObject
    * @generated
    */
   void setT(Task value);
-
-  /**
-   * Returns the value of the '<em><b>M</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>M</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>M</em>' attribute.
-   * @see #setM(String)
-   * @see org.xtext.example.sml.sml.SmlPackage#getMission_M()
-   * @model
-   * @generated
-   */
-  String getM();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Mission#getM <em>M</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>M</em>' attribute.
-   * @see #getM()
-   * @generated
-   */
-  void setM(String value);
 
 } // Mission

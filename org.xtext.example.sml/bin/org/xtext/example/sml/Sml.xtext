@@ -4,31 +4,51 @@ grammar org.xtext.example.sml.Sml with org.eclipse.xtext.common.Terminals
 generate sml "http://www.xtext.org/example/sml/Sml"
 
 Model:
-	arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective;
+	arenas=Arena (env=Environment) (sw=Swarmconf)* (ms=MissionSpecification)*;
 	
 Environment:
 	('The' 'arena' 'contains' 'the' 'following' 'elements' ':')? (environment+=EnvironmentElements)*;
 
 	
 ProbabilisticDecription:
-	 'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' 'a' k=Region
-	
+	 'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k=[Region] 
 ;
 Swarmconf: 'The' 'robot' 'swarm' 'consists' 'of' x=Range r=Robot pr=ProbabilisticDecription
 //('distributed' 'in' dis=Distribution 'way' 'in' k=Region )*
 ;
 
-MissionTime: 'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range;
-Mission: 'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric;
+
+MissionSpecification: m=Mission mt=MissionTime ob=MissionObjective ;
+
+MissionTime: 'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range m=Metric;
+Mission: 'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task;
 Task:
-	'aggregate' 'on' r=Region
+    Aggregate | Migration | Foraging 
 ;
 
-Metric:
-	'seconds' | 'steps'
+Aggregate:
+	'aggregate' 'on' r+=[Region] (',' r+=[Region])*
 ;
+
+Migration:
+	'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*
+;
+
+Foraging:
+	'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region]  (',' source+=[Region])*
+;
+
+
+
+Metric:
+	'seconds' | 'steps' | 'm'
+;
+
+
 MissionObjective:
-	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the' 'following' 'score' ':' (in+=Indicator)*
+	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'to' 'be' Type=('maximized.' | 'minimized.')
+	'The' 'objective' 'function' 'is' 'computed' 'as' 'follows:' 	(in+=Indicator)*
+//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the' 'following' 'score' ':' 
 ;
 
 Indicator:
@@ -41,7 +61,7 @@ CompoundIndicator:
 	'the' 'swarm' oc=Occurence 
 ;
 Scope:
-	sp =("At any point of time" | "At the end of the mission")
+	sp =("At any point in time," | "At the end of the mission,") | Condition
 		
 		//| 'Before' p=AtomicEvent| 'After' p=(AtomicEvent) | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
 	
@@ -66,8 +86,9 @@ Reward:
 
 
 Condition:
-	'if' 'it' 'is' 'on' 'the' r=Region |
-	'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the'  r=Region 
+	('if' | 'If') 'it' 'is' ('on' | 'outside')  r=[Region] |
+	('if' | 'If')'there' 'are' 'more' 'than' n=INT 'robots'('on' | 'outside')   r=[Region] (",")*  |
+	('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region]
 ;
 
 Time:
@@ -80,21 +101,21 @@ Robot:
 ;
 
 Distribution:
-	'uniform' |'gaussian' | 'constant'
+	'Uniform' |'Gaussian' | 'Constant'
 ;
 EnvironmentElements:
 	EnvironmentElement | ElementDescription
 	;
 
 EnvironmentElement:
-	Obstacle | Light | Object
+	Obstacle | Light | Object | Patch  | 'A' Region
 ;
 
 ElementDescription:
 	el='There' 'are'  x=Range obj=Element r=ProbabilisticDecription
 ;
 Element:
-	'objects' | 'obstacles' | 'light' 'sources'
+	'objects' | 'obstacles' | 'light' 'sources' | 'patch'
 ;
 
 Object:
@@ -107,82 +128,124 @@ Obstacle:
 	obs='An' 'obstacle' 'as' 'a' r=Region
 ;
 
+Patch:
+	pt='A' c=Color 'patch' 'as' 'a' r=Region
+;
 
 Light:
-	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'in' 'a' p=Position
+	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'at' p=Position
 ;
 
 Position:
-	{Circle} 'center' point=Coordinate |
-	{Rectangle} 'reference point' point=Coordinate |
-	{PointD} 'point' point=Coordinate 
+	('center' 'at' |  'reference')?  'point' point=(Coordinate2D | Coordinate3D) 
 ;
 
-Shape:
-	 'Circle' | 'Polygon' | 'Triangle' | 'Rectangle'
+Shape2D:
+	 'Circle' | 'Polygon' | 'Triangle' | 'Rectangle' | 'Dodecagon' | 'Hexagon' | 'Square' | 'Region'
+;
+
+Shape3D:
+	'Rectangular cuboid' | 'Cube' | 'Cylinder' 
 ;
 	 
 Arena:
-	'The' 'arena' 'is' 'a' s=Region;
+	'The' 'arena' 'is' 'a' s=Region 'surrounded' 'by' 'walls' '.';
 	//. 'with' dimensions=Dimension;
 
 Color:
-	'red' | 'yellow' | 'green';
+	'red' | 'yellow' | 'green' |'gray' | 'black' | 'white';
 
 //Region:
 	// 'Circle' | 'Polygon';
 
 Region:
-	(colors=Color)? (shape=Shape)? (name=ID)  ('with' referencepoint=Position)? ('and' dimensions=Dimension)?;
+	(colors=Color)? (shape2d=Shape2D) (name=ID)  region=RegionDefinition; 
+
+RegionDefinition:
+	DefinitionOne | DefinitionTwo | DefinitionThree
+;	
+	
+DefinitionOne:
+	('with' referencepoint=Position)? ('and' dimensions=Dimension)?
+;
+
+DefinitionTwo:
+	'defined' 'through' 'the' 'following' 'Vertices' ':' (point+=Position) (';' point+=Position)*
+
+;	
+
+DefinitionThree:
+	'where' ax=Axis 'is' r=Range 
+	
+	;
+
+Axis:
+	'x' | 'y'
+;
 	
 //Type: 
 //	CircleD | RectangleD	
 //;
 
 Dimension:
-	CircleD | RectangleD	
+	'radius' r=Double m1=Metric  ('and' 'height' h=Double m2=Metric)? |  'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?  | 'side' s=Double m6=Metric
 ;
+
+//Dimension:
+	//CircleD | RectangleD | SquareD
+//;
 	//{CircleD} 'radius' r=Double | 
 	//{RectangleD} 'length' l=Double ',width' w=Double 'and' 'height' h=Double ; //|
 	//types=[CircleD | ]
 	//{SquareD} 'side' a=Double;
 
 
-CircleD:
-	'radius' r=Double
+//CircleD:
+//	'radius' r=Double
+//;
+//RectangleD:
+//	'length' l=Double ',width' w=Double 'and' 'height' h=Double 
+//;
+
+
+// SquareD:
+// 	'side' a=Double
+// ;
+
+Coordinate2D:
+	x=Double ',' y=Double 
 ;
-RectangleD:
-	'length' l=Double ',width' w=Double 'and' 'height' h=Double 
-;
-Coordinate:
-	x=Double y=Double
+
+
+Coordinate3D:
+	x=Double ',' y=Double ',' z=Double
 ;
 
 Double:
-    INT '.' INT;
+   ('-')? INT ('.' INT)?;
     
 Range:
 	Upperbound | Lowerbound | Interval | LowerorEqualbound | UpperorEqualbound | ConstantSize;
 	
 
 ConstantSize:
-	n=INT
+	n=Double
 ;	
 
 Lowerbound:
-	'less' 'than' n = INT;
+	'less' 'than' n = Double;
 
 LowerorEqualbound:
-	'less' 'or' 'equal' 'than' n = INT;
+	'less' 'or' 'equal' 'than' n = Double;
 
 Upperbound:
-	'more' 'than' n = INT;
+	'more' 'than' n = Double;
 
 UpperorEqualbound:
-	'more' 'or' 'equal' 'than' n=INT;
+	'more' 'or' 'equal' 'than' n=Double;
 //
 Interval:
-	'between' m=INT 'and' n=INT;
+	 m=Double 'to' n=Double;
 	
 	
 Literal returns ArithmeticExpression:

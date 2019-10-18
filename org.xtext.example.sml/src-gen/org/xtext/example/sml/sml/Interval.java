@@ -31,12 +31,12 @@ public interface Interval extends Range
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>M</em>' attribute.
-   * @see #setM(int)
+   * @see #setM(String)
    * @see org.xtext.example.sml.sml.SmlPackage#getInterval_M()
    * @model
    * @generated
    */
-  int getM();
+  String getM();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sml.sml.Interval#getM <em>M</em>}' attribute.
@@ -46,6 +46,6 @@ public interface Interval extends Range
    * @see #getM()
    * @generated
    */
-  void setM(int value);
+  void setM(String value);
 
 } // Interval

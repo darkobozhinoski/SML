@@ -60,6 +60,15 @@ public interface SmlFactory extends EFactory
   Swarmconf createSwarmconf();
 
   /**
+   * Returns a new object of class '<em>Mission Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mission Specification</em>'.
+   * @generated
+   */
+  MissionSpecification createMissionSpecification();
+
+  /**
    * Returns a new object of class '<em>Mission Time</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +94,33 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Aggregate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aggregate</em>'.
+   * @generated
+   */
+  Aggregate createAggregate();
+
+  /**
+   * Returns a new object of class '<em>Migration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Migration</em>'.
+   * @generated
+   */
+  Migration createMigration();
+
+  /**
+   * Returns a new object of class '<em>Foraging</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foraging</em>'.
+   * @generated
+   */
+  Foraging createForaging();
 
   /**
    * Returns a new object of class '<em>Mission Objective</em>'.
@@ -222,6 +258,15 @@ public interface SmlFactory extends EFactory
   Obstacle createObstacle();
 
   /**
+   * Returns a new object of class '<em>Patch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Patch</em>'.
+   * @generated
+   */
+  Patch createPatch();
+
+  /**
    * Returns a new object of class '<em>Light</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -258,6 +303,42 @@ public interface SmlFactory extends EFactory
   Region createRegion();
 
   /**
+   * Returns a new object of class '<em>Region Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Region Definition</em>'.
+   * @generated
+   */
+  RegionDefinition createRegionDefinition();
+
+  /**
+   * Returns a new object of class '<em>Definition One</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition One</em>'.
+   * @generated
+   */
+  DefinitionOne createDefinitionOne();
+
+  /**
+   * Returns a new object of class '<em>Definition Two</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Two</em>'.
+   * @generated
+   */
+  DefinitionTwo createDefinitionTwo();
+
+  /**
+   * Returns a new object of class '<em>Definition Three</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Three</em>'.
+   * @generated
+   */
+  DefinitionThree createDefinitionThree();
+
+  /**
    * Returns a new object of class '<em>Dimension</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -267,31 +348,22 @@ public interface SmlFactory extends EFactory
   Dimension createDimension();
 
   /**
-   * Returns a new object of class '<em>Circle D</em>'.
+   * Returns a new object of class '<em>Coordinate2 D</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Circle D</em>'.
+   * @return a new object of class '<em>Coordinate2 D</em>'.
    * @generated
    */
-  CircleD createCircleD();
+  Coordinate2D createCoordinate2D();
 
   /**
-   * Returns a new object of class '<em>Rectangle D</em>'.
+   * Returns a new object of class '<em>Coordinate3 D</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Rectangle D</em>'.
+   * @return a new object of class '<em>Coordinate3 D</em>'.
    * @generated
    */
-  RectangleD createRectangleD();
-
-  /**
-   * Returns a new object of class '<em>Coordinate</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Coordinate</em>'.
-   * @generated
-   */
-  Coordinate createCoordinate();
+  Coordinate3D createCoordinate3D();
 
   /**
    * Returns a new object of class '<em>Range</em>'.
@@ -373,33 +445,6 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   BoolLiteral createBoolLiteral();
-
-  /**
-   * Returns a new object of class '<em>Circle</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Circle</em>'.
-   * @generated
-   */
-  Circle createCircle();
-
-  /**
-   * Returns a new object of class '<em>Rectangle</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Rectangle</em>'.
-   * @generated
-   */
-  Rectangle createRectangle();
-
-  /**
-   * Returns a new object of class '<em>Point D</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Point D</em>'.
-   * @generated
-   */
-  PointD createPointD();
 
   /**
    * Returns the package supported by this factory.

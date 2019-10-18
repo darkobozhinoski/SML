@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Task</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.sml.sml.Task#getR <em>R</em>}</li>
- * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getTask()
  * @model
@@ -23,30 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Task extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>R</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>R</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>R</em>' containment reference.
-   * @see #setR(Region)
-   * @see org.xtext.example.sml.sml.SmlPackage#getTask_R()
-   * @model containment="true"
-   * @generated
-   */
-  Region getR();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Task#getR <em>R</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>R</em>' containment reference.
-   * @see #getR()
-   * @generated
-   */
-  void setR(Region value);
-
 } // Task

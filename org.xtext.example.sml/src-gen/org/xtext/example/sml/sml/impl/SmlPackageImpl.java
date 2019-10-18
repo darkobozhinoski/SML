@@ -10,40 +10,45 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
 import org.xtext.example.sml.sml.BoolLiteral;
-import org.xtext.example.sml.sml.Circle;
-import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
-import org.xtext.example.sml.sml.Coordinate;
+import org.xtext.example.sml.sml.Coordinate2D;
+import org.xtext.example.sml.sml.Coordinate3D;
+import org.xtext.example.sml.sml.DefinitionOne;
+import org.xtext.example.sml.sml.DefinitionThree;
+import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Foraging;
 import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Migration;
 import org.xtext.example.sml.sml.Mission;
 import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Patch;
 import org.xtext.example.sml.sml.Penalty;
-import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Range;
-import org.xtext.example.sml.sml.Rectangle;
-import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.RegionDefinition;
 import org.xtext.example.sml.sml.Reward;
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlFactory;
@@ -95,6 +100,13 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass missionSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass missionTimeEClass = null;
 
   /**
@@ -110,6 +122,27 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   private EClass taskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass aggregateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass migrationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass foragingEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -221,6 +254,13 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass patchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass lightEClass = null;
 
   /**
@@ -249,6 +289,34 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass regionDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionOneEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionTwoEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionThreeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass dimensionEClass = null;
 
   /**
@@ -256,21 +324,14 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass circleDEClass = null;
+  private EClass coordinate2DEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass rectangleDEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass coordinateEClass = null;
+  private EClass coordinate3DEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -334,27 +395,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   private EClass boolLiteralEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass circleEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass rectangleEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass pointDEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -469,7 +509,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EReference getModel_Ob()
+  public EReference getModel_Ms()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(3);
   }
@@ -579,6 +619,50 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EClass getMissionSpecification()
+  {
+    return missionSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMissionSpecification_M()
+  {
+    return (EReference)missionSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMissionSpecification_Mt()
+  {
+    return (EReference)missionSpecificationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMissionSpecification_Ob()
+  {
+    return (EReference)missionSpecificationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMissionTime()
   {
     return missionTimeEClass;
@@ -593,6 +677,17 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   public EReference getMissionTime_T()
   {
     return (EReference)missionTimeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMissionTime_M()
+  {
+    return (EAttribute)missionTimeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -623,17 +718,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getMission_M()
-  {
-    return (EAttribute)missionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getTask()
   {
     return taskEClass;
@@ -645,9 +729,86 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EReference getTask_R()
+  public EClass getAggregate()
   {
-    return (EReference)taskEClass.getEStructuralFeatures().get(0);
+    return aggregateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAggregate_R()
+  {
+    return (EReference)aggregateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMigration()
+  {
+    return migrationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMigration_R()
+  {
+    return (EReference)migrationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMigration_T()
+  {
+    return (EReference)migrationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getForaging()
+  {
+    return foragingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getForaging_Source()
+  {
+    return (EReference)foragingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getForaging_Nest()
+  {
+    return (EReference)foragingEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -667,9 +828,20 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EAttribute getMissionObjective_Type()
+  {
+    return (EAttribute)missionObjectiveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getMissionObjective_In()
   {
-    return (EReference)missionObjectiveEClass.getEStructuralFeatures().get(0);
+    return (EReference)missionObjectiveEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -865,6 +1037,17 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EReference getCondition_Nest()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getTime()
   {
     return timeEClass;
@@ -1030,6 +1213,50 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EClass getPatch()
+  {
+    return patchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPatch_Pt()
+  {
+    return (EAttribute)patchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPatch_C()
+  {
+    return (EAttribute)patchEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPatch_R()
+  {
+    return (EReference)patchEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getLight()
   {
     return lightEClass;
@@ -1140,7 +1367,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getRegion_Shape()
+  public EAttribute getRegion_Shape2d()
   {
     return (EAttribute)regionEClass.getEStructuralFeatures().get(1);
   }
@@ -1162,7 +1389,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EReference getRegion_Referencepoint()
+  public EReference getRegion_Region()
   {
     return (EReference)regionEClass.getEStructuralFeatures().get(3);
   }
@@ -1173,9 +1400,97 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EReference getRegion_Dimensions()
+  public EClass getRegionDefinition()
   {
-    return (EReference)regionEClass.getEStructuralFeatures().get(4);
+    return regionDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefinitionOne()
+  {
+    return definitionOneEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionOne_Referencepoint()
+  {
+    return (EReference)definitionOneEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionOne_Dimensions()
+  {
+    return (EReference)definitionOneEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefinitionTwo()
+  {
+    return definitionTwoEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionTwo_Point()
+  {
+    return (EReference)definitionTwoEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDefinitionThree()
+  {
+    return definitionThreeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDefinitionThree_Ax()
+  {
+    return (EAttribute)definitionThreeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDefinitionThree_R()
+  {
+    return (EReference)definitionThreeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1195,9 +1510,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getCircleD()
+  public EAttribute getDimension_R()
   {
-    return circleDEClass;
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1206,9 +1521,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getCircleD_R()
+  public EAttribute getDimension_M1()
   {
-    return (EAttribute)circleDEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1217,9 +1532,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getRectangleD()
+  public EAttribute getDimension_H()
   {
-    return rectangleDEClass;
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1228,9 +1543,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getRectangleD_L()
+  public EAttribute getDimension_M2()
   {
-    return (EAttribute)rectangleDEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1239,9 +1554,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getRectangleD_W()
+  public EAttribute getDimension_L()
   {
-    return (EAttribute)rectangleDEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1250,9 +1565,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getRectangleD_H()
+  public EAttribute getDimension_M3()
   {
-    return (EAttribute)rectangleDEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1261,9 +1576,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getCoordinate()
+  public EAttribute getDimension_W()
   {
-    return coordinateEClass;
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1272,9 +1587,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getCoordinate_X()
+  public EAttribute getDimension_M4()
   {
-    return (EAttribute)coordinateEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1283,9 +1598,108 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getCoordinate_Y()
+  public EAttribute getDimension_M5()
   {
-    return (EAttribute)coordinateEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDimension_S()
+  {
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDimension_M6()
+  {
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCoordinate2D()
+  {
+    return coordinate2DEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoordinate2D_X()
+  {
+    return (EAttribute)coordinate2DEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoordinate2D_Y()
+  {
+    return (EAttribute)coordinate2DEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCoordinate3D()
+  {
+    return coordinate3DEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoordinate3D_X()
+  {
+    return (EAttribute)coordinate3DEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoordinate3D_Y()
+  {
+    return (EAttribute)coordinate3DEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCoordinate3D_Z()
+  {
+    return (EAttribute)coordinate3DEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1426,39 +1840,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getCircle()
-  {
-    return circleEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getRectangle()
-  {
-    return rectangleEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getPointD()
-  {
-    return pointDEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public SmlFactory getSmlFactory()
   {
     return (SmlFactory)getEFactoryInstance();
@@ -1488,7 +1869,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEReference(modelEClass, MODEL__ARENAS);
     createEReference(modelEClass, MODEL__ENV);
     createEReference(modelEClass, MODEL__SW);
-    createEReference(modelEClass, MODEL__OB);
+    createEReference(modelEClass, MODEL__MS);
 
     environmentEClass = createEClass(ENVIRONMENT);
     createEReference(environmentEClass, ENVIRONMENT__ENVIRONMENT);
@@ -1502,17 +1883,33 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEAttribute(swarmconfEClass, SWARMCONF__R);
     createEReference(swarmconfEClass, SWARMCONF__PR);
 
+    missionSpecificationEClass = createEClass(MISSION_SPECIFICATION);
+    createEReference(missionSpecificationEClass, MISSION_SPECIFICATION__M);
+    createEReference(missionSpecificationEClass, MISSION_SPECIFICATION__MT);
+    createEReference(missionSpecificationEClass, MISSION_SPECIFICATION__OB);
+
     missionTimeEClass = createEClass(MISSION_TIME);
     createEReference(missionTimeEClass, MISSION_TIME__T);
+    createEAttribute(missionTimeEClass, MISSION_TIME__M);
 
     missionEClass = createEClass(MISSION);
     createEReference(missionEClass, MISSION__T);
-    createEAttribute(missionEClass, MISSION__M);
 
     taskEClass = createEClass(TASK);
-    createEReference(taskEClass, TASK__R);
+
+    aggregateEClass = createEClass(AGGREGATE);
+    createEReference(aggregateEClass, AGGREGATE__R);
+
+    migrationEClass = createEClass(MIGRATION);
+    createEReference(migrationEClass, MIGRATION__R);
+    createEReference(migrationEClass, MIGRATION__T);
+
+    foragingEClass = createEClass(FORAGING);
+    createEReference(foragingEClass, FORAGING__SOURCE);
+    createEReference(foragingEClass, FORAGING__NEST);
 
     missionObjectiveEClass = createEClass(MISSION_OBJECTIVE);
+    createEAttribute(missionObjectiveEClass, MISSION_OBJECTIVE__TYPE);
     createEReference(missionObjectiveEClass, MISSION_OBJECTIVE__IN);
 
     indicatorEClass = createEClass(INDICATOR);
@@ -1539,6 +1936,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     conditionEClass = createEClass(CONDITION);
     createEReference(conditionEClass, CONDITION__R);
     createEAttribute(conditionEClass, CONDITION__N);
+    createEReference(conditionEClass, CONDITION__NEST);
 
     timeEClass = createEClass(TIME);
     createEReference(timeEClass, TIME__X);
@@ -1561,6 +1959,11 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEAttribute(obstacleEClass, OBSTACLE__OBS);
     createEReference(obstacleEClass, OBSTACLE__R);
 
+    patchEClass = createEClass(PATCH);
+    createEAttribute(patchEClass, PATCH__PT);
+    createEAttribute(patchEClass, PATCH__C);
+    createEReference(patchEClass, PATCH__R);
+
     lightEClass = createEClass(LIGHT);
     createEAttribute(lightEClass, LIGHT__L);
     createEAttribute(lightEClass, LIGHT__C);
@@ -1574,24 +1977,44 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
 
     regionEClass = createEClass(REGION);
     createEAttribute(regionEClass, REGION__COLORS);
-    createEAttribute(regionEClass, REGION__SHAPE);
+    createEAttribute(regionEClass, REGION__SHAPE2D);
     createEAttribute(regionEClass, REGION__NAME);
-    createEReference(regionEClass, REGION__REFERENCEPOINT);
-    createEReference(regionEClass, REGION__DIMENSIONS);
+    createEReference(regionEClass, REGION__REGION);
+
+    regionDefinitionEClass = createEClass(REGION_DEFINITION);
+
+    definitionOneEClass = createEClass(DEFINITION_ONE);
+    createEReference(definitionOneEClass, DEFINITION_ONE__REFERENCEPOINT);
+    createEReference(definitionOneEClass, DEFINITION_ONE__DIMENSIONS);
+
+    definitionTwoEClass = createEClass(DEFINITION_TWO);
+    createEReference(definitionTwoEClass, DEFINITION_TWO__POINT);
+
+    definitionThreeEClass = createEClass(DEFINITION_THREE);
+    createEAttribute(definitionThreeEClass, DEFINITION_THREE__AX);
+    createEReference(definitionThreeEClass, DEFINITION_THREE__R);
 
     dimensionEClass = createEClass(DIMENSION);
+    createEAttribute(dimensionEClass, DIMENSION__R);
+    createEAttribute(dimensionEClass, DIMENSION__M1);
+    createEAttribute(dimensionEClass, DIMENSION__H);
+    createEAttribute(dimensionEClass, DIMENSION__M2);
+    createEAttribute(dimensionEClass, DIMENSION__L);
+    createEAttribute(dimensionEClass, DIMENSION__M3);
+    createEAttribute(dimensionEClass, DIMENSION__W);
+    createEAttribute(dimensionEClass, DIMENSION__M4);
+    createEAttribute(dimensionEClass, DIMENSION__M5);
+    createEAttribute(dimensionEClass, DIMENSION__S);
+    createEAttribute(dimensionEClass, DIMENSION__M6);
 
-    circleDEClass = createEClass(CIRCLE_D);
-    createEAttribute(circleDEClass, CIRCLE_D__R);
+    coordinate2DEClass = createEClass(COORDINATE2_D);
+    createEAttribute(coordinate2DEClass, COORDINATE2_D__X);
+    createEAttribute(coordinate2DEClass, COORDINATE2_D__Y);
 
-    rectangleDEClass = createEClass(RECTANGLE_D);
-    createEAttribute(rectangleDEClass, RECTANGLE_D__L);
-    createEAttribute(rectangleDEClass, RECTANGLE_D__W);
-    createEAttribute(rectangleDEClass, RECTANGLE_D__H);
-
-    coordinateEClass = createEClass(COORDINATE);
-    createEAttribute(coordinateEClass, COORDINATE__X);
-    createEAttribute(coordinateEClass, COORDINATE__Y);
+    coordinate3DEClass = createEClass(COORDINATE3_D);
+    createEAttribute(coordinate3DEClass, COORDINATE3_D__X);
+    createEAttribute(coordinate3DEClass, COORDINATE3_D__Y);
+    createEAttribute(coordinate3DEClass, COORDINATE3_D__Z);
 
     rangeEClass = createEClass(RANGE);
     createEAttribute(rangeEClass, RANGE__N);
@@ -1613,12 +2036,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
 
     boolLiteralEClass = createEClass(BOOL_LITERAL);
     createEAttribute(boolLiteralEClass, BOOL_LITERAL__VALUE);
-
-    circleEClass = createEClass(CIRCLE);
-
-    rectangleEClass = createEClass(RECTANGLE);
-
-    pointDEClass = createEClass(POINT_D);
   }
 
   /**
@@ -1650,15 +2067,22 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    aggregateEClass.getESuperTypes().add(this.getTask());
+    migrationEClass.getESuperTypes().add(this.getTask());
+    foragingEClass.getESuperTypes().add(this.getTask());
     penaltyEClass.getESuperTypes().add(this.getOccurence());
     rewardEClass.getESuperTypes().add(this.getOccurence());
+    conditionEClass.getESuperTypes().add(this.getScope());
     environmentElementEClass.getESuperTypes().add(this.getEnvironmentElements());
     elementDescriptionEClass.getESuperTypes().add(this.getEnvironmentElements());
     objectEClass.getESuperTypes().add(this.getEnvironmentElement());
     obstacleEClass.getESuperTypes().add(this.getEnvironmentElement());
+    patchEClass.getESuperTypes().add(this.getEnvironmentElement());
     lightEClass.getESuperTypes().add(this.getEnvironmentElement());
-    circleDEClass.getESuperTypes().add(this.getDimension());
-    rectangleDEClass.getESuperTypes().add(this.getDimension());
+    regionEClass.getESuperTypes().add(this.getEnvironmentElement());
+    definitionOneEClass.getESuperTypes().add(this.getRegionDefinition());
+    definitionTwoEClass.getESuperTypes().add(this.getRegionDefinition());
+    definitionThreeEClass.getESuperTypes().add(this.getRegionDefinition());
     constantSizeEClass.getESuperTypes().add(this.getRange());
     lowerboundEClass.getESuperTypes().add(this.getRange());
     lowerorEqualboundEClass.getESuperTypes().add(this.getRange());
@@ -1666,40 +2090,53 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     upperorEqualboundEClass.getESuperTypes().add(this.getRange());
     intervalEClass.getESuperTypes().add(this.getRange());
     boolLiteralEClass.getESuperTypes().add(this.getArithmeticExpression());
-    circleEClass.getESuperTypes().add(this.getPosition());
-    rectangleEClass.getESuperTypes().add(this.getPosition());
-    pointDEClass.getESuperTypes().add(this.getPosition());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Arenas(), this.getArena(), null, "arenas", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Env(), this.getEnvironment(), null, "env", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Sw(), this.getSwarmconf(), null, "sw", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Ob(), this.getMissionObjective(), null, "ob", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Ms(), this.getMissionSpecification(), null, "ms", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEnvironment_Environment(), this.getEnvironmentElements(), null, "environment", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(probabilisticDecriptionEClass, ProbabilisticDecription.class, "ProbabilisticDecription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProbabilisticDecription_Dis(), ecorePackage.getEString(), "dis", null, 0, 1, ProbabilisticDecription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProbabilisticDecription_K(), this.getRegion(), null, "k", null, 0, 1, ProbabilisticDecription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProbabilisticDecription_K(), this.getRegion(), null, "k", null, 0, 1, ProbabilisticDecription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(swarmconfEClass, Swarmconf.class, "Swarmconf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSwarmconf_X(), this.getRange(), null, "x", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSwarmconf_R(), ecorePackage.getEString(), "r", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSwarmconf_Pr(), this.getProbabilisticDecription(), null, "pr", null, 0, 1, Swarmconf.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(missionSpecificationEClass, MissionSpecification.class, "MissionSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMissionSpecification_M(), this.getMission(), null, "m", null, 0, 1, MissionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMissionSpecification_Mt(), this.getMissionTime(), null, "mt", null, 0, 1, MissionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMissionSpecification_Ob(), this.getMissionObjective(), null, "ob", null, 0, 1, MissionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(missionTimeEClass, MissionTime.class, "MissionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMissionTime_T(), this.getRange(), null, "T", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMissionTime_M(), ecorePackage.getEString(), "m", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(missionEClass, Mission.class, "Mission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMission_T(), this.getTask(), null, "t", null, 0, 1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMission_M(), ecorePackage.getEString(), "m", null, 0, 1, Mission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTask_R(), this.getRegion(), null, "r", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(aggregateEClass, Aggregate.class, "Aggregate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAggregate_R(), this.getRegion(), null, "r", null, 0, -1, Aggregate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(migrationEClass, Migration.class, "Migration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMigration_R(), this.getRegion(), null, "r", null, 0, -1, Migration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMigration_T(), this.getRegion(), null, "t", null, 0, -1, Migration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(foragingEClass, Foraging.class, "Foraging", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForaging_Source(), this.getRegion(), null, "source", null, 0, -1, Foraging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForaging_Nest(), this.getRegion(), null, "nest", null, 0, 1, Foraging.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(missionObjectiveEClass, MissionObjective.class, "MissionObjective", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMissionObjective_Type(), ecorePackage.getEString(), "Type", null, 0, 1, MissionObjective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMissionObjective_In(), this.getIndicator(), null, "in", null, 0, -1, MissionObjective.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(indicatorEClass, Indicator.class, "Indicator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1724,8 +2161,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEClass(rewardEClass, Reward.class, "Reward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCondition_R(), this.getRegion(), null, "r", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_R(), this.getRegion(), null, "r", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCondition_N(), ecorePackage.getEInt(), "n", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCondition_Nest(), this.getRegion(), null, "nest", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTime_X(), this.getArithmeticExpression(), null, "x", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1748,40 +2186,65 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEAttribute(getObstacle_Obs(), ecorePackage.getEString(), "obs", null, 0, 1, Obstacle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getObstacle_R(), this.getRegion(), null, "r", null, 0, 1, Obstacle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(patchEClass, Patch.class, "Patch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPatch_Pt(), ecorePackage.getEString(), "pt", null, 0, 1, Patch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPatch_C(), ecorePackage.getEString(), "c", null, 0, 1, Patch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPatch_R(), this.getRegion(), null, "r", null, 0, 1, Patch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(lightEClass, Light.class, "Light", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLight_L(), ecorePackage.getEString(), "l", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getLight_C(), ecorePackage.getEString(), "c", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLight_P(), this.getPosition(), null, "p", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPosition_Point(), this.getCoordinate(), null, "point", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPosition_Point(), ecorePackage.getEObject(), null, "point", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arenaEClass, Arena.class, "Arena", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getArena_S(), this.getRegion(), null, "s", null, 0, 1, Arena.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(regionEClass, Region.class, "Region", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRegion_Colors(), ecorePackage.getEString(), "colors", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRegion_Shape(), ecorePackage.getEString(), "shape", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRegion_Shape2d(), ecorePackage.getEString(), "shape2d", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getRegion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRegion_Referencepoint(), this.getPosition(), null, "referencepoint", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRegion_Dimensions(), this.getDimension(), null, "dimensions", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRegion_Region(), this.getRegionDefinition(), null, "region", null, 0, 1, Region.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(regionDefinitionEClass, RegionDefinition.class, "RegionDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(definitionOneEClass, DefinitionOne.class, "DefinitionOne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefinitionOne_Referencepoint(), this.getPosition(), null, "referencepoint", null, 0, 1, DefinitionOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionOne_Dimensions(), this.getDimension(), null, "dimensions", null, 0, 1, DefinitionOne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionTwoEClass, DefinitionTwo.class, "DefinitionTwo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDefinitionTwo_Point(), this.getPosition(), null, "point", null, 0, -1, DefinitionTwo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionThreeEClass, DefinitionThree.class, "DefinitionThree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefinitionThree_Ax(), ecorePackage.getEString(), "ax", null, 0, 1, DefinitionThree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefinitionThree_R(), this.getRange(), null, "r", null, 0, 1, DefinitionThree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDimension_R(), ecorePackage.getEString(), "r", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M1(), ecorePackage.getEString(), "m1", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_H(), ecorePackage.getEString(), "h", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M2(), ecorePackage.getEString(), "m2", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_L(), ecorePackage.getEString(), "l", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M3(), ecorePackage.getEString(), "m3", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_W(), ecorePackage.getEString(), "w", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M4(), ecorePackage.getEString(), "m4", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M5(), ecorePackage.getEString(), "m5", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_S(), ecorePackage.getEString(), "s", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M6(), ecorePackage.getEString(), "m6", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(circleDEClass, CircleD.class, "CircleD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCircleD_R(), ecorePackage.getEString(), "r", null, 0, 1, CircleD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(coordinate2DEClass, Coordinate2D.class, "Coordinate2D", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCoordinate2D_X(), ecorePackage.getEString(), "x", null, 0, 1, Coordinate2D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCoordinate2D_Y(), ecorePackage.getEString(), "y", null, 0, 1, Coordinate2D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(rectangleDEClass, RectangleD.class, "RectangleD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRectangleD_L(), ecorePackage.getEString(), "l", null, 0, 1, RectangleD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRectangleD_W(), ecorePackage.getEString(), "w", null, 0, 1, RectangleD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRectangleD_H(), ecorePackage.getEString(), "h", null, 0, 1, RectangleD.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(coordinateEClass, Coordinate.class, "Coordinate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCoordinate_X(), ecorePackage.getEString(), "x", null, 0, 1, Coordinate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCoordinate_Y(), ecorePackage.getEString(), "y", null, 0, 1, Coordinate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(coordinate3DEClass, Coordinate3D.class, "Coordinate3D", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCoordinate3D_X(), ecorePackage.getEString(), "x", null, 0, 1, Coordinate3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCoordinate3D_Y(), ecorePackage.getEString(), "y", null, 0, 1, Coordinate3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCoordinate3D_Z(), ecorePackage.getEString(), "z", null, 0, 1, Coordinate3D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRange_N(), ecorePackage.getEInt(), "n", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRange_N(), ecorePackage.getEString(), "n", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constantSizeEClass, ConstantSize.class, "ConstantSize", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1794,18 +2257,12 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEClass(upperorEqualboundEClass, UpperorEqualbound.class, "UpperorEqualbound", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(intervalEClass, Interval.class, "Interval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInterval_M(), ecorePackage.getEInt(), "m", null, 0, 1, Interval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getInterval_M(), ecorePackage.getEString(), "m", null, 0, 1, Interval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arithmeticExpressionEClass, ArithmeticExpression.class, "ArithmeticExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(boolLiteralEClass, BoolLiteral.class, "BoolLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBoolLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(circleEClass, Circle.class, "Circle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(pointDEClass, PointD.class, "PointD", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

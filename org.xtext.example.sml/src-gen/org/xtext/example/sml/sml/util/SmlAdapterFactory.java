@@ -10,40 +10,45 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
 import org.xtext.example.sml.sml.BoolLiteral;
-import org.xtext.example.sml.sml.Circle;
-import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
-import org.xtext.example.sml.sml.Coordinate;
+import org.xtext.example.sml.sml.Coordinate2D;
+import org.xtext.example.sml.sml.Coordinate3D;
+import org.xtext.example.sml.sml.DefinitionOne;
+import org.xtext.example.sml.sml.DefinitionThree;
+import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Foraging;
 import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Migration;
 import org.xtext.example.sml.sml.Mission;
 import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
+import org.xtext.example.sml.sml.Patch;
 import org.xtext.example.sml.sml.Penalty;
-import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Range;
-import org.xtext.example.sml.sml.Rectangle;
-import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.RegionDefinition;
 import org.xtext.example.sml.sml.Reward;
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
@@ -137,6 +142,11 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createSwarmconfAdapter();
       }
       @Override
+      public Adapter caseMissionSpecification(MissionSpecification object)
+      {
+        return createMissionSpecificationAdapter();
+      }
+      @Override
       public Adapter caseMissionTime(MissionTime object)
       {
         return createMissionTimeAdapter();
@@ -150,6 +160,21 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTask(Task object)
       {
         return createTaskAdapter();
+      }
+      @Override
+      public Adapter caseAggregate(Aggregate object)
+      {
+        return createAggregateAdapter();
+      }
+      @Override
+      public Adapter caseMigration(Migration object)
+      {
+        return createMigrationAdapter();
+      }
+      @Override
+      public Adapter caseForaging(Foraging object)
+      {
+        return createForagingAdapter();
       }
       @Override
       public Adapter caseMissionObjective(MissionObjective object)
@@ -227,6 +252,11 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createObstacleAdapter();
       }
       @Override
+      public Adapter casePatch(Patch object)
+      {
+        return createPatchAdapter();
+      }
+      @Override
       public Adapter caseLight(Light object)
       {
         return createLightAdapter();
@@ -247,24 +277,39 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createRegionAdapter();
       }
       @Override
+      public Adapter caseRegionDefinition(RegionDefinition object)
+      {
+        return createRegionDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseDefinitionOne(DefinitionOne object)
+      {
+        return createDefinitionOneAdapter();
+      }
+      @Override
+      public Adapter caseDefinitionTwo(DefinitionTwo object)
+      {
+        return createDefinitionTwoAdapter();
+      }
+      @Override
+      public Adapter caseDefinitionThree(DefinitionThree object)
+      {
+        return createDefinitionThreeAdapter();
+      }
+      @Override
       public Adapter caseDimension(Dimension object)
       {
         return createDimensionAdapter();
       }
       @Override
-      public Adapter caseCircleD(CircleD object)
+      public Adapter caseCoordinate2D(Coordinate2D object)
       {
-        return createCircleDAdapter();
+        return createCoordinate2DAdapter();
       }
       @Override
-      public Adapter caseRectangleD(RectangleD object)
+      public Adapter caseCoordinate3D(Coordinate3D object)
       {
-        return createRectangleDAdapter();
-      }
-      @Override
-      public Adapter caseCoordinate(Coordinate object)
-      {
-        return createCoordinateAdapter();
+        return createCoordinate3DAdapter();
       }
       @Override
       public Adapter caseRange(Range object)
@@ -310,21 +355,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBoolLiteral(BoolLiteral object)
       {
         return createBoolLiteralAdapter();
-      }
-      @Override
-      public Adapter caseCircle(Circle object)
-      {
-        return createCircleAdapter();
-      }
-      @Override
-      public Adapter caseRectangle(Rectangle object)
-      {
-        return createRectangleAdapter();
-      }
-      @Override
-      public Adapter casePointD(PointD object)
-      {
-        return createPointDAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -409,6 +439,21 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.MissionSpecification <em>Mission Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.MissionSpecification
+   * @generated
+   */
+  public Adapter createMissionSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.MissionTime <em>Mission Time</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -449,6 +494,51 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Aggregate <em>Aggregate</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Aggregate
+   * @generated
+   */
+  public Adapter createAggregateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Migration <em>Migration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Migration
+   * @generated
+   */
+  public Adapter createMigrationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Foraging <em>Foraging</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Foraging
+   * @generated
+   */
+  public Adapter createForagingAdapter()
   {
     return null;
   }
@@ -679,6 +769,21 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Patch <em>Patch</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.Patch
+   * @generated
+   */
+  public Adapter createPatchAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Light <em>Light</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -739,6 +844,66 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.RegionDefinition <em>Region Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.RegionDefinition
+   * @generated
+   */
+  public Adapter createRegionDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.DefinitionOne <em>Definition One</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.DefinitionOne
+   * @generated
+   */
+  public Adapter createDefinitionOneAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.DefinitionTwo <em>Definition Two</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.DefinitionTwo
+   * @generated
+   */
+  public Adapter createDefinitionTwoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.DefinitionThree <em>Definition Three</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.DefinitionThree
+   * @generated
+   */
+  public Adapter createDefinitionThreeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Dimension <em>Dimension</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -754,46 +919,31 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.CircleD <em>Circle D</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Coordinate2D <em>Coordinate2 D</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.sml.sml.CircleD
+   * @see org.xtext.example.sml.sml.Coordinate2D
    * @generated
    */
-  public Adapter createCircleDAdapter()
+  public Adapter createCoordinate2DAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.RectangleD <em>Rectangle D</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Coordinate3D <em>Coordinate3 D</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.sml.sml.RectangleD
+   * @see org.xtext.example.sml.sml.Coordinate3D
    * @generated
    */
-  public Adapter createRectangleDAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Coordinate <em>Coordinate</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Coordinate
-   * @generated
-   */
-  public Adapter createCoordinateAdapter()
+  public Adapter createCoordinate3DAdapter()
   {
     return null;
   }
@@ -929,51 +1079,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBoolLiteralAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Circle <em>Circle</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Circle
-   * @generated
-   */
-  public Adapter createCircleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Rectangle <em>Rectangle</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Rectangle
-   * @generated
-   */
-  public Adapter createRectangleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.PointD <em>Point D</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.PointD
-   * @generated
-   */
-  public Adapter createPointDAdapter()
   {
     return null;
   }

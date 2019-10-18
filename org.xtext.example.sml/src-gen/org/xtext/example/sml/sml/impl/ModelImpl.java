@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.Environment;
-import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
@@ -30,7 +30,7 @@ import org.xtext.example.sml.sml.Swarmconf;
  *   <li>{@link org.xtext.example.sml.sml.impl.ModelImpl#getArenas <em>Arenas</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ModelImpl#getEnv <em>Env</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ModelImpl#getSw <em>Sw</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.impl.ModelImpl#getOb <em>Ob</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ModelImpl#getMs <em>Ms</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,14 +68,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected Swarmconf sw;
 
   /**
-   * The cached value of the '{@link #getOb() <em>Ob</em>}' containment reference.
+   * The cached value of the '{@link #getMs() <em>Ms</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOb()
+   * @see #getMs()
    * @generated
    * @ordered
    */
-  protected MissionObjective ob;
+  protected MissionSpecification ms;
 
   /**
    * <!-- begin-user-doc -->
@@ -254,9 +254,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public MissionObjective getOb()
+  public MissionSpecification getMs()
   {
-    return ob;
+    return ms;
   }
 
   /**
@@ -264,13 +264,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOb(MissionObjective newOb, NotificationChain msgs)
+  public NotificationChain basicSetMs(MissionSpecification newMs, NotificationChain msgs)
   {
-    MissionObjective oldOb = ob;
-    ob = newOb;
+    MissionSpecification oldMs = ms;
+    ms = newMs;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.MODEL__OB, oldOb, newOb);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.MODEL__MS, oldMs, newMs);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -282,20 +282,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public void setOb(MissionObjective newOb)
+  public void setMs(MissionSpecification newMs)
   {
-    if (newOb != ob)
+    if (newMs != ms)
     {
       NotificationChain msgs = null;
-      if (ob != null)
-        msgs = ((InternalEObject)ob).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.MODEL__OB, null, msgs);
-      if (newOb != null)
-        msgs = ((InternalEObject)newOb).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.MODEL__OB, null, msgs);
-      msgs = basicSetOb(newOb, msgs);
+      if (ms != null)
+        msgs = ((InternalEObject)ms).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.MODEL__MS, null, msgs);
+      if (newMs != null)
+        msgs = ((InternalEObject)newMs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.MODEL__MS, null, msgs);
+      msgs = basicSetMs(newMs, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.MODEL__OB, newOb, newOb));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.MODEL__MS, newMs, newMs));
   }
 
   /**
@@ -314,8 +314,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetEnv(null, msgs);
       case SmlPackage.MODEL__SW:
         return basicSetSw(null, msgs);
-      case SmlPackage.MODEL__OB:
-        return basicSetOb(null, msgs);
+      case SmlPackage.MODEL__MS:
+        return basicSetMs(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -336,8 +336,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getEnv();
       case SmlPackage.MODEL__SW:
         return getSw();
-      case SmlPackage.MODEL__OB:
-        return getOb();
+      case SmlPackage.MODEL__MS:
+        return getMs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -361,8 +361,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case SmlPackage.MODEL__SW:
         setSw((Swarmconf)newValue);
         return;
-      case SmlPackage.MODEL__OB:
-        setOb((MissionObjective)newValue);
+      case SmlPackage.MODEL__MS:
+        setMs((MissionSpecification)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -387,8 +387,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case SmlPackage.MODEL__SW:
         setSw((Swarmconf)null);
         return;
-      case SmlPackage.MODEL__OB:
-        setOb((MissionObjective)null);
+      case SmlPackage.MODEL__MS:
+        setMs((MissionSpecification)null);
         return;
     }
     super.eUnset(featureID);
@@ -410,8 +410,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return env != null;
       case SmlPackage.MODEL__SW:
         return sw != null;
-      case SmlPackage.MODEL__OB:
-        return ob != null;
+      case SmlPackage.MODEL__MS:
+        return ms != null;
     }
     return super.eIsSet(featureID);
   }

@@ -10,11 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.sml.sml.Dimension;
-import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.RegionDefinition;
 import org.xtext.example.sml.sml.SmlPackage;
 
 /**
@@ -26,15 +24,14 @@ import org.xtext.example.sml.sml.SmlPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getColors <em>Colors</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getShape <em>Shape</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getShape2d <em>Shape2d</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getReferencepoint <em>Referencepoint</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getDimensions <em>Dimensions</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.RegionImpl#getRegion <em>Region</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RegionImpl extends MinimalEObjectImpl.Container implements Region
+public class RegionImpl extends EnvironmentElementImpl implements Region
 {
   /**
    * The default value of the '{@link #getColors() <em>Colors</em>}' attribute.
@@ -57,24 +54,24 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
   protected String colors = COLORS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getShape() <em>Shape</em>}' attribute.
+   * The default value of the '{@link #getShape2d() <em>Shape2d</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getShape()
+   * @see #getShape2d()
    * @generated
    * @ordered
    */
-  protected static final String SHAPE_EDEFAULT = null;
+  protected static final String SHAPE2D_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.
+   * The cached value of the '{@link #getShape2d() <em>Shape2d</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getShape()
+   * @see #getShape2d()
    * @generated
    * @ordered
    */
-  protected String shape = SHAPE_EDEFAULT;
+  protected String shape2d = SHAPE2D_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -97,24 +94,14 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getReferencepoint() <em>Referencepoint</em>}' containment reference.
+   * The cached value of the '{@link #getRegion() <em>Region</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReferencepoint()
+   * @see #getRegion()
    * @generated
    * @ordered
    */
-  protected Position referencepoint;
-
-  /**
-   * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDimensions()
-   * @generated
-   * @ordered
-   */
-  protected Dimension dimensions;
+  protected RegionDefinition region;
 
   /**
    * <!-- begin-user-doc -->
@@ -168,9 +155,9 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
    * @generated
    */
   @Override
-  public String getShape()
+  public String getShape2d()
   {
-    return shape;
+    return shape2d;
   }
 
   /**
@@ -179,12 +166,12 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
    * @generated
    */
   @Override
-  public void setShape(String newShape)
+  public void setShape2d(String newShape2d)
   {
-    String oldShape = shape;
-    shape = newShape;
+    String oldShape2d = shape2d;
+    shape2d = newShape2d;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__SHAPE, oldShape, shape));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__SHAPE2D, oldShape2d, shape2d));
   }
 
   /**
@@ -218,9 +205,9 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
    * @generated
    */
   @Override
-  public Position getReferencepoint()
+  public RegionDefinition getRegion()
   {
-    return referencepoint;
+    return region;
   }
 
   /**
@@ -228,13 +215,13 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReferencepoint(Position newReferencepoint, NotificationChain msgs)
+  public NotificationChain basicSetRegion(RegionDefinition newRegion, NotificationChain msgs)
   {
-    Position oldReferencepoint = referencepoint;
-    referencepoint = newReferencepoint;
+    RegionDefinition oldRegion = region;
+    region = newRegion;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__REFERENCEPOINT, oldReferencepoint, newReferencepoint);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__REGION, oldRegion, newRegion);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -246,70 +233,20 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
    * @generated
    */
   @Override
-  public void setReferencepoint(Position newReferencepoint)
+  public void setRegion(RegionDefinition newRegion)
   {
-    if (newReferencepoint != referencepoint)
+    if (newRegion != region)
     {
       NotificationChain msgs = null;
-      if (referencepoint != null)
-        msgs = ((InternalEObject)referencepoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__REFERENCEPOINT, null, msgs);
-      if (newReferencepoint != null)
-        msgs = ((InternalEObject)newReferencepoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__REFERENCEPOINT, null, msgs);
-      msgs = basicSetReferencepoint(newReferencepoint, msgs);
+      if (region != null)
+        msgs = ((InternalEObject)region).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__REGION, null, msgs);
+      if (newRegion != null)
+        msgs = ((InternalEObject)newRegion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__REGION, null, msgs);
+      msgs = basicSetRegion(newRegion, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__REFERENCEPOINT, newReferencepoint, newReferencepoint));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Dimension getDimensions()
-  {
-    return dimensions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDimensions(Dimension newDimensions, NotificationChain msgs)
-  {
-    Dimension oldDimensions = dimensions;
-    dimensions = newDimensions;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__DIMENSIONS, oldDimensions, newDimensions);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDimensions(Dimension newDimensions)
-  {
-    if (newDimensions != dimensions)
-    {
-      NotificationChain msgs = null;
-      if (dimensions != null)
-        msgs = ((InternalEObject)dimensions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__DIMENSIONS, null, msgs);
-      if (newDimensions != null)
-        msgs = ((InternalEObject)newDimensions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.REGION__DIMENSIONS, null, msgs);
-      msgs = basicSetDimensions(newDimensions, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__DIMENSIONS, newDimensions, newDimensions));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.REGION__REGION, newRegion, newRegion));
   }
 
   /**
@@ -322,10 +259,8 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
   {
     switch (featureID)
     {
-      case SmlPackage.REGION__REFERENCEPOINT:
-        return basicSetReferencepoint(null, msgs);
-      case SmlPackage.REGION__DIMENSIONS:
-        return basicSetDimensions(null, msgs);
+      case SmlPackage.REGION__REGION:
+        return basicSetRegion(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -342,14 +277,12 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
     {
       case SmlPackage.REGION__COLORS:
         return getColors();
-      case SmlPackage.REGION__SHAPE:
-        return getShape();
+      case SmlPackage.REGION__SHAPE2D:
+        return getShape2d();
       case SmlPackage.REGION__NAME:
         return getName();
-      case SmlPackage.REGION__REFERENCEPOINT:
-        return getReferencepoint();
-      case SmlPackage.REGION__DIMENSIONS:
-        return getDimensions();
+      case SmlPackage.REGION__REGION:
+        return getRegion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -367,17 +300,14 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
       case SmlPackage.REGION__COLORS:
         setColors((String)newValue);
         return;
-      case SmlPackage.REGION__SHAPE:
-        setShape((String)newValue);
+      case SmlPackage.REGION__SHAPE2D:
+        setShape2d((String)newValue);
         return;
       case SmlPackage.REGION__NAME:
         setName((String)newValue);
         return;
-      case SmlPackage.REGION__REFERENCEPOINT:
-        setReferencepoint((Position)newValue);
-        return;
-      case SmlPackage.REGION__DIMENSIONS:
-        setDimensions((Dimension)newValue);
+      case SmlPackage.REGION__REGION:
+        setRegion((RegionDefinition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -396,17 +326,14 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
       case SmlPackage.REGION__COLORS:
         setColors(COLORS_EDEFAULT);
         return;
-      case SmlPackage.REGION__SHAPE:
-        setShape(SHAPE_EDEFAULT);
+      case SmlPackage.REGION__SHAPE2D:
+        setShape2d(SHAPE2D_EDEFAULT);
         return;
       case SmlPackage.REGION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case SmlPackage.REGION__REFERENCEPOINT:
-        setReferencepoint((Position)null);
-        return;
-      case SmlPackage.REGION__DIMENSIONS:
-        setDimensions((Dimension)null);
+      case SmlPackage.REGION__REGION:
+        setRegion((RegionDefinition)null);
         return;
     }
     super.eUnset(featureID);
@@ -424,14 +351,12 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
     {
       case SmlPackage.REGION__COLORS:
         return COLORS_EDEFAULT == null ? colors != null : !COLORS_EDEFAULT.equals(colors);
-      case SmlPackage.REGION__SHAPE:
-        return SHAPE_EDEFAULT == null ? shape != null : !SHAPE_EDEFAULT.equals(shape);
+      case SmlPackage.REGION__SHAPE2D:
+        return SHAPE2D_EDEFAULT == null ? shape2d != null : !SHAPE2D_EDEFAULT.equals(shape2d);
       case SmlPackage.REGION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case SmlPackage.REGION__REFERENCEPOINT:
-        return referencepoint != null;
-      case SmlPackage.REGION__DIMENSIONS:
-        return dimensions != null;
+      case SmlPackage.REGION__REGION:
+        return region != null;
     }
     return super.eIsSet(featureID);
   }
@@ -449,8 +374,8 @@ public class RegionImpl extends MinimalEObjectImpl.Container implements Region
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (colors: ");
     result.append(colors);
-    result.append(", shape: ");
-    result.append(shape);
+    result.append(", shape2d: ");
+    result.append(shape2d);
     result.append(", name: ");
     result.append(name);
     result.append(')');
