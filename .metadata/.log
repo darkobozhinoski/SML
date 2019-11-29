@@ -3250,3 +3250,140 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.core 4 0 2019-11-29 20:51:12.310
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-11-29 20:51:12.313
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.core 4 0 2019-11-29 20:52:03.481
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-11-29 20:52:03.482
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-11-29 21:01:03.307
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 5 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 9 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-11-29 21:10:29.319
+!MESSAGE darkobozhinoski@github.com:darkobozhinoski/SwarmLanguageRep.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: darkobozhinoski@github.com:darkobozhinoski/SwarmLanguageRep.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.clone.SourceBranchPage$8.run(SourceBranchPage.java:340)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.eclipse.jgit.errors.TransportException: darkobozhinoski@github.com:darkobozhinoski/SwarmLanguageRep.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 8 more
+
+!ENTRY org.eclipse.ui 4 0 2019-11-29 21:17:02.093
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.jgit.errors.RevisionSyntaxException: Invalid ref name: refs/remotes/./SMLdev:refs/remotes/./SMLdev
+	at org.eclipse.jgit.lib.Repository.resolve(Repository.java:818)
+	at org.eclipse.jgit.lib.Repository.resolve(Repository.java:490)
+	at org.eclipse.egit.core.synchronize.dto.GitSynchronizeData.getCommit(GitSynchronizeData.java:334)
+	at org.eclipse.egit.core.synchronize.dto.GitSynchronizeData.updateRevs(GitSynchronizeData.java:173)
+	at org.eclipse.egit.core.synchronize.dto.GitSynchronizeData.<init>(GitSynchronizeData.java:161)
+	at org.eclipse.egit.core.synchronize.dto.GitSynchronizeData.<init>(GitSynchronizeData.java:107)
+	at org.eclipse.egit.ui.internal.actions.SynchronizeWorkspaceActionHandler.execute(SynchronizeWorkspaceActionHandler.java:68)
+	at org.eclipse.egit.ui.internal.actions.RepositoryAction.run(RepositoryAction.java:81)
+	at org.eclipse.ui.internal.PluginAction.runWithEvent(PluginAction.java:250)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:568)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:400)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1055)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3944)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3547)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
