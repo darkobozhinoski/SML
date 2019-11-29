@@ -78,30 +78,30 @@ public interface ElementDescription extends EnvironmentElements
   void setX(Range value);
 
   /**
-   * Returns the value of the '<em><b>Obj</b></em>' attribute.
+   * Returns the value of the '<em><b>Obj</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Obj</em>' attribute isn't clear,
+   * If the meaning of the '<em>Obj</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Obj</em>' attribute.
-   * @see #setObj(String)
+   * @return the value of the '<em>Obj</em>' containment reference.
+   * @see #setObj(Element)
    * @see org.xtext.example.sml.sml.SmlPackage#getElementDescription_Obj()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getObj();
+  Element getObj();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.ElementDescription#getObj <em>Obj</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.ElementDescription#getObj <em>Obj</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Obj</em>' attribute.
+   * @param value the new value of the '<em>Obj</em>' containment reference.
    * @see #getObj()
    * @generated
    */
-  void setObj(String value);
+  void setObj(Element value);
 
   /**
    * Returns the value of the '<em><b>R</b></em>' containment reference.

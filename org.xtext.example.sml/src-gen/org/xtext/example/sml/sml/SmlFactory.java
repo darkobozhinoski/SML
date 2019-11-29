@@ -240,6 +240,15 @@ public interface SmlFactory extends EFactory
   ElementDescription createElementDescription();
 
   /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
    * Returns a new object of class '<em>Object</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -348,6 +357,33 @@ public interface SmlFactory extends EFactory
   Dimension createDimension();
 
   /**
+   * Returns a new object of class '<em>Dimension1</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dimension1</em>'.
+   * @generated
+   */
+  Dimension1 createDimension1();
+
+  /**
+   * Returns a new object of class '<em>Dimension2</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dimension2</em>'.
+   * @generated
+   */
+  Dimension2 createDimension2();
+
+  /**
+   * Returns a new object of class '<em>Dimension3</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dimension3</em>'.
+   * @generated
+   */
+  Dimension3 createDimension3();
+
+  /**
    * Returns a new object of class '<em>Coordinate2 D</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -427,24 +463,6 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Interval createInterval();
-
-  /**
-   * Returns a new object of class '<em>Arithmetic Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arithmetic Expression</em>'.
-   * @generated
-   */
-  ArithmeticExpression createArithmeticExpression();
-
-  /**
-   * Returns a new object of class '<em>Bool Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bool Literal</em>'.
-   * @generated
-   */
-  BoolLiteral createBoolLiteral();
 
   /**
    * Returns the package supported by this factory.

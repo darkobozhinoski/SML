@@ -29,7 +29,6 @@ public class SmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Condition_OnKeyword_0_3_0_or_OutsideKeyword_0_3_1;
 	protected AbstractElementAlias match_Condition_OnKeyword_1_7_0_or_OutsideKeyword_1_7_1;
 	protected AbstractElementAlias match_Environment___TheKeyword_0_0_ArenaKeyword_0_1_ContainsKeyword_0_2_TheKeyword_0_3_FollowingKeyword_0_4_ElementsKeyword_0_5_ColonKeyword_0_6__q;
-	protected AbstractElementAlias match_Literal_IntLiteralKeyword_0_or_RealLiteralKeyword_1;
 	protected AbstractElementAlias match_Position___ReferenceKeyword_0_1_or___CenterKeyword_0_0_0_AtKeyword_0_0_1____q;
 	protected AbstractElementAlias match_Time___BegginingKeyword_1_0_OfKeyword_1_1_TheKeyword_1_2_MissionKeyword_1_3___or___EndKeyword_2_0_OfKeyword_2_1_TheKeyword_2_2_MissionKeyword_2_3__;
 	
@@ -43,7 +42,6 @@ public class SmlSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Condition_OnKeyword_0_3_0_or_OutsideKeyword_0_3_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getOnKeyword_0_3_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getOutsideKeyword_0_3_1()));
 		match_Condition_OnKeyword_1_7_0_or_OutsideKeyword_1_7_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getOnKeyword_1_7_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getOutsideKeyword_1_7_1()));
 		match_Environment___TheKeyword_0_0_ArenaKeyword_0_1_ContainsKeyword_0_2_TheKeyword_0_3_FollowingKeyword_0_4_ElementsKeyword_0_5_ColonKeyword_0_6__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getTheKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getArenaKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getContainsKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getTheKeyword_0_3()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getFollowingKeyword_0_4()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getElementsKeyword_0_5()), new TokenAlias(false, false, grammarAccess.getEnvironmentAccess().getColonKeyword_0_6()));
-		match_Literal_IntLiteralKeyword_0_or_RealLiteralKeyword_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLiteralAccess().getIntLiteralKeyword_0()), new TokenAlias(false, false, grammarAccess.getLiteralAccess().getRealLiteralKeyword_1()));
 		match_Position___ReferenceKeyword_0_1_or___CenterKeyword_0_0_0_AtKeyword_0_0_1____q = new AlternativeAlias(false, true, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getPositionAccess().getCenterKeyword_0_0_0()), new TokenAlias(false, false, grammarAccess.getPositionAccess().getAtKeyword_0_0_1())), new TokenAlias(false, false, grammarAccess.getPositionAccess().getReferenceKeyword_0_1()));
 		match_Time___BegginingKeyword_1_0_OfKeyword_1_1_TheKeyword_1_2_MissionKeyword_1_3___or___EndKeyword_2_0_OfKeyword_2_1_TheKeyword_2_2_MissionKeyword_2_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getTimeAccess().getBegginingKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getOfKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getTheKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getMissionKeyword_1_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getTimeAccess().getEndKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getOfKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getTheKeyword_2_2()), new TokenAlias(false, false, grammarAccess.getTimeAccess().getMissionKeyword_2_3())));
 	}
@@ -74,8 +72,6 @@ public class SmlSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Condition_OnKeyword_1_7_0_or_OutsideKeyword_1_7_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Environment___TheKeyword_0_0_ArenaKeyword_0_1_ContainsKeyword_0_2_TheKeyword_0_3_FollowingKeyword_0_4_ElementsKeyword_0_5_ColonKeyword_0_6__q.equals(syntax))
 				emit_Environment___TheKeyword_0_0_ArenaKeyword_0_1_ContainsKeyword_0_2_TheKeyword_0_3_FollowingKeyword_0_4_ElementsKeyword_0_5_ColonKeyword_0_6__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Literal_IntLiteralKeyword_0_or_RealLiteralKeyword_1.equals(syntax))
-				emit_Literal_IntLiteralKeyword_0_or_RealLiteralKeyword_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Position___ReferenceKeyword_0_1_or___CenterKeyword_0_0_0_AtKeyword_0_0_1____q.equals(syntax))
 				emit_Position___ReferenceKeyword_0_1_or___CenterKeyword_0_0_0_AtKeyword_0_0_1____q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Time___BegginingKeyword_1_0_OfKeyword_1_1_TheKeyword_1_2_MissionKeyword_1_3___or___EndKeyword_2_0_OfKeyword_2_1_TheKeyword_2_2_MissionKeyword_2_3__.equals(syntax))
@@ -167,17 +163,6 @@ public class SmlSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) environment+=EnvironmentElements
 	 */
 	protected void emit_Environment___TheKeyword_0_0_ArenaKeyword_0_1_ContainsKeyword_0_2_TheKeyword_0_3_FollowingKeyword_0_4_ElementsKeyword_0_5_ColonKeyword_0_6__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'IntLiteral' | 'RealLiteral'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Literal_IntLiteralKeyword_0_or_RealLiteralKeyword_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -276,10 +276,10 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMMetricParserRuleCall_8_0 = (RuleCall)cMAssignment_8.eContents().get(0);
 		
 		//MissionTime:
-		//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range m=Metric;
+		//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range m=Metric
+		//'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric
 		public Group getGroup() { return cGroup; }
 		
 		//'The'
@@ -303,7 +303,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'is'
 		public Keyword getIsKeyword_6() { return cIsKeyword_6; }
 		
-		//T=Range
+		//t=Range
 		public Assignment getTAssignment_7() { return cTAssignment_7; }
 		
 		//Range
@@ -1202,7 +1202,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Time");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cXAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cXLiteralParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
+		private final RuleCall cXRangeParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cBegginingKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cOfKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -1215,17 +1215,17 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMissionKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		//Time:
-		//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+		//	x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission'
+		//x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//x=Literal
+		//x=Range
 		public Assignment getXAssignment_0() { return cXAssignment_0; }
 		
-		//Literal
-		public RuleCall getXLiteralParserRuleCall_0_0() { return cXLiteralParserRuleCall_0_0; }
+		//Range
+		public RuleCall getXRangeParserRuleCall_0_0() { return cXRangeParserRuleCall_0_0; }
 		
 		//'beggining' 'of' 'the' 'mission'
 		public Group getGroup_1() { return cGroup_1; }
@@ -1406,6 +1406,45 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Element");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cObAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cObElParserRuleCall_0_0 = (RuleCall)cObAssignment_0.eContents().get(0);
+		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cDimensionsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDDimension2ParserRuleCall_4_0 = (RuleCall)cDAssignment_4.eContents().get(0);
+		
+		//Element:
+		//	ob=El 'with' 'dimensions' ':' d=Dimension2;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ob=El 'with' 'dimensions' ':' d=Dimension2
+		public Group getGroup() { return cGroup; }
+		
+		//ob=El
+		public Assignment getObAssignment_0() { return cObAssignment_0; }
+		
+		//El
+		public RuleCall getObElParserRuleCall_0_0() { return cObElParserRuleCall_0_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
+		
+		//'dimensions'
+		public Keyword getDimensionsKeyword_2() { return cDimensionsKeyword_2; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//d=Dimension2
+		public Assignment getDAssignment_4() { return cDAssignment_4; }
+		
+		//Dimension2
+		public RuleCall getDDimension2ParserRuleCall_4_0() { return cDDimension2ParserRuleCall_4_0; }
+	}
+	public class ElElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.El");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cObjectsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cObstaclesKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
@@ -1414,7 +1453,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSourcesKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		private final Keyword cPatchKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
-		//Element:
+		//El:
 		//	'objects' | 'obstacles' | 'light' 'sources' | 'patch';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -2068,166 +2107,197 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class DimensionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cRadiusKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cRAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cRDoubleParserRuleCall_0_1_0 = (RuleCall)cRAssignment_0_1.eContents().get(0);
-		private final Assignment cM1Assignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cM1MetricParserRuleCall_0_2_0 = (RuleCall)cM1Assignment_0_2.eContents().get(0);
-		private final Group cGroup_0_3 = (Group)cGroup_0.eContents().get(3);
-		private final Keyword cAndKeyword_0_3_0 = (Keyword)cGroup_0_3.eContents().get(0);
-		private final Keyword cHeightKeyword_0_3_1 = (Keyword)cGroup_0_3.eContents().get(1);
-		private final Assignment cHAssignment_0_3_2 = (Assignment)cGroup_0_3.eContents().get(2);
-		private final RuleCall cHDoubleParserRuleCall_0_3_2_0 = (RuleCall)cHAssignment_0_3_2.eContents().get(0);
-		private final Assignment cM2Assignment_0_3_3 = (Assignment)cGroup_0_3.eContents().get(3);
-		private final RuleCall cM2MetricParserRuleCall_0_3_3_0 = (RuleCall)cM2Assignment_0_3_3.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cLengthKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cLAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cLDoubleParserRuleCall_1_1_0 = (RuleCall)cLAssignment_1_1.eContents().get(0);
-		private final Assignment cM3Assignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cM3MetricParserRuleCall_1_2_0 = (RuleCall)cM3Assignment_1_2.eContents().get(0);
-		private final Keyword cWidthKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cWAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
-		private final RuleCall cWDoubleParserRuleCall_1_4_0 = (RuleCall)cWAssignment_1_4.eContents().get(0);
-		private final Assignment cM4Assignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
-		private final RuleCall cM4MetricParserRuleCall_1_5_0 = (RuleCall)cM4Assignment_1_5.eContents().get(0);
-		private final Group cGroup_1_6 = (Group)cGroup_1.eContents().get(6);
-		private final Keyword cAndKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
-		private final Keyword cHeightKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
-		private final Assignment cHAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
-		private final RuleCall cHDoubleParserRuleCall_1_6_2_0 = (RuleCall)cHAssignment_1_6_2.eContents().get(0);
-		private final Assignment cM5Assignment_1_6_3 = (Assignment)cGroup_1_6.eContents().get(3);
-		private final RuleCall cM5MetricParserRuleCall_1_6_3_0 = (RuleCall)cM5Assignment_1_6_3.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cSideKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cSDoubleParserRuleCall_2_1_0 = (RuleCall)cSAssignment_2_1.eContents().get(0);
-		private final Assignment cM6Assignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cM6MetricParserRuleCall_2_2_0 = (RuleCall)cM6Assignment_2_2.eContents().get(0);
+		private final RuleCall cDimension1ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDimension2ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDimension3ParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		////Type: 
 		////	CircleD | RectangleD	
 		////;
 		//Dimension:
-		//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)? | 'length' l=Double m3=Metric ',width' w=Double
-		//	m4=Metric ('and' 'height' h=Double m5=Metric)? | 'side' s=Double m6=Metric;
+		//	Dimension1 | Dimension2 | Dimension3;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)? | 'length' l=Double m3=Metric ',width' w=Double
-		//m4=Metric ('and' 'height' h=Double m5=Metric)? | 'side' s=Double m6=Metric
+		//Dimension1 | Dimension2 | Dimension3
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//Dimension1
+		public RuleCall getDimension1ParserRuleCall_0() { return cDimension1ParserRuleCall_0; }
+		
+		//Dimension2
+		public RuleCall getDimension2ParserRuleCall_1() { return cDimension2ParserRuleCall_1; }
+		
+		//Dimension3
+		public RuleCall getDimension3ParserRuleCall_2() { return cDimension3ParserRuleCall_2; }
+	}
+	public class Dimension1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension1");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRadiusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRDoubleParserRuleCall_1_0 = (RuleCall)cRAssignment_1.eContents().get(0);
+		private final Assignment cM1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM1MetricParserRuleCall_2_0 = (RuleCall)cM1Assignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cHeightKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cHAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cHDoubleParserRuleCall_3_2_0 = (RuleCall)cHAssignment_3_2.eContents().get(0);
+		private final Assignment cM2Assignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cM2MetricParserRuleCall_3_3_0 = (RuleCall)cM2Assignment_3_3.eContents().get(0);
+		
+		//Dimension1:
+		//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
+		@Override public ParserRule getRule() { return rule; }
+		
 		//'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?
-		public Group getGroup_0() { return cGroup_0; }
+		public Group getGroup() { return cGroup; }
 		
 		//'radius'
-		public Keyword getRadiusKeyword_0_0() { return cRadiusKeyword_0_0; }
+		public Keyword getRadiusKeyword_0() { return cRadiusKeyword_0; }
 		
 		//r=Double
-		public Assignment getRAssignment_0_1() { return cRAssignment_0_1; }
+		public Assignment getRAssignment_1() { return cRAssignment_1; }
 		
 		//Double
-		public RuleCall getRDoubleParserRuleCall_0_1_0() { return cRDoubleParserRuleCall_0_1_0; }
+		public RuleCall getRDoubleParserRuleCall_1_0() { return cRDoubleParserRuleCall_1_0; }
 		
 		//m1=Metric
-		public Assignment getM1Assignment_0_2() { return cM1Assignment_0_2; }
+		public Assignment getM1Assignment_2() { return cM1Assignment_2; }
 		
 		//Metric
-		public RuleCall getM1MetricParserRuleCall_0_2_0() { return cM1MetricParserRuleCall_0_2_0; }
+		public RuleCall getM1MetricParserRuleCall_2_0() { return cM1MetricParserRuleCall_2_0; }
 		
 		//('and' 'height' h=Double m2=Metric)?
-		public Group getGroup_0_3() { return cGroup_0_3; }
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'and'
-		public Keyword getAndKeyword_0_3_0() { return cAndKeyword_0_3_0; }
+		public Keyword getAndKeyword_3_0() { return cAndKeyword_3_0; }
 		
 		//'height'
-		public Keyword getHeightKeyword_0_3_1() { return cHeightKeyword_0_3_1; }
+		public Keyword getHeightKeyword_3_1() { return cHeightKeyword_3_1; }
 		
 		//h=Double
-		public Assignment getHAssignment_0_3_2() { return cHAssignment_0_3_2; }
+		public Assignment getHAssignment_3_2() { return cHAssignment_3_2; }
 		
 		//Double
-		public RuleCall getHDoubleParserRuleCall_0_3_2_0() { return cHDoubleParserRuleCall_0_3_2_0; }
+		public RuleCall getHDoubleParserRuleCall_3_2_0() { return cHDoubleParserRuleCall_3_2_0; }
 		
 		//m2=Metric
-		public Assignment getM2Assignment_0_3_3() { return cM2Assignment_0_3_3; }
+		public Assignment getM2Assignment_3_3() { return cM2Assignment_3_3; }
 		
 		//Metric
-		public RuleCall getM2MetricParserRuleCall_0_3_3_0() { return cM2MetricParserRuleCall_0_3_3_0; }
+		public RuleCall getM2MetricParserRuleCall_3_3_0() { return cM2MetricParserRuleCall_3_3_0; }
+	}
+	public class Dimension2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLengthKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLDoubleParserRuleCall_1_0 = (RuleCall)cLAssignment_1.eContents().get(0);
+		private final Assignment cM3Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM3MetricParserRuleCall_2_0 = (RuleCall)cM3Assignment_2.eContents().get(0);
+		private final Keyword cWidthKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cWAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWDoubleParserRuleCall_4_0 = (RuleCall)cWAssignment_4.eContents().get(0);
+		private final Assignment cM4Assignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cM4MetricParserRuleCall_5_0 = (RuleCall)cM4Assignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cAndKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cHeightKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cHAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cHDoubleParserRuleCall_6_2_0 = (RuleCall)cHAssignment_6_2.eContents().get(0);
+		private final Assignment cM5Assignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cM5MetricParserRuleCall_6_3_0 = (RuleCall)cM5Assignment_6_3.eContents().get(0);
+		
+		//Dimension2:
+		//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+		@Override public ParserRule getRule() { return rule; }
 		
 		//'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup() { return cGroup; }
 		
 		//'length'
-		public Keyword getLengthKeyword_1_0() { return cLengthKeyword_1_0; }
+		public Keyword getLengthKeyword_0() { return cLengthKeyword_0; }
 		
 		//l=Double
-		public Assignment getLAssignment_1_1() { return cLAssignment_1_1; }
+		public Assignment getLAssignment_1() { return cLAssignment_1; }
 		
 		//Double
-		public RuleCall getLDoubleParserRuleCall_1_1_0() { return cLDoubleParserRuleCall_1_1_0; }
+		public RuleCall getLDoubleParserRuleCall_1_0() { return cLDoubleParserRuleCall_1_0; }
 		
 		//m3=Metric
-		public Assignment getM3Assignment_1_2() { return cM3Assignment_1_2; }
+		public Assignment getM3Assignment_2() { return cM3Assignment_2; }
 		
 		//Metric
-		public RuleCall getM3MetricParserRuleCall_1_2_0() { return cM3MetricParserRuleCall_1_2_0; }
+		public RuleCall getM3MetricParserRuleCall_2_0() { return cM3MetricParserRuleCall_2_0; }
 		
 		//',width'
-		public Keyword getWidthKeyword_1_3() { return cWidthKeyword_1_3; }
+		public Keyword getWidthKeyword_3() { return cWidthKeyword_3; }
 		
 		//w=Double
-		public Assignment getWAssignment_1_4() { return cWAssignment_1_4; }
+		public Assignment getWAssignment_4() { return cWAssignment_4; }
 		
 		//Double
-		public RuleCall getWDoubleParserRuleCall_1_4_0() { return cWDoubleParserRuleCall_1_4_0; }
+		public RuleCall getWDoubleParserRuleCall_4_0() { return cWDoubleParserRuleCall_4_0; }
 		
 		//m4=Metric
-		public Assignment getM4Assignment_1_5() { return cM4Assignment_1_5; }
+		public Assignment getM4Assignment_5() { return cM4Assignment_5; }
 		
 		//Metric
-		public RuleCall getM4MetricParserRuleCall_1_5_0() { return cM4MetricParserRuleCall_1_5_0; }
+		public RuleCall getM4MetricParserRuleCall_5_0() { return cM4MetricParserRuleCall_5_0; }
 		
 		//('and' 'height' h=Double m5=Metric)?
-		public Group getGroup_1_6() { return cGroup_1_6; }
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'and'
-		public Keyword getAndKeyword_1_6_0() { return cAndKeyword_1_6_0; }
+		public Keyword getAndKeyword_6_0() { return cAndKeyword_6_0; }
 		
 		//'height'
-		public Keyword getHeightKeyword_1_6_1() { return cHeightKeyword_1_6_1; }
+		public Keyword getHeightKeyword_6_1() { return cHeightKeyword_6_1; }
 		
 		//h=Double
-		public Assignment getHAssignment_1_6_2() { return cHAssignment_1_6_2; }
+		public Assignment getHAssignment_6_2() { return cHAssignment_6_2; }
 		
 		//Double
-		public RuleCall getHDoubleParserRuleCall_1_6_2_0() { return cHDoubleParserRuleCall_1_6_2_0; }
+		public RuleCall getHDoubleParserRuleCall_6_2_0() { return cHDoubleParserRuleCall_6_2_0; }
 		
 		//m5=Metric
-		public Assignment getM5Assignment_1_6_3() { return cM5Assignment_1_6_3; }
+		public Assignment getM5Assignment_6_3() { return cM5Assignment_6_3; }
 		
 		//Metric
-		public RuleCall getM5MetricParserRuleCall_1_6_3_0() { return cM5MetricParserRuleCall_1_6_3_0; }
+		public RuleCall getM5MetricParserRuleCall_6_3_0() { return cM5MetricParserRuleCall_6_3_0; }
+	}
+	public class Dimension3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSideKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSDoubleParserRuleCall_1_0 = (RuleCall)cSAssignment_1.eContents().get(0);
+		private final Assignment cM6Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM6MetricParserRuleCall_2_0 = (RuleCall)cM6Assignment_2.eContents().get(0);
+		
+		//Dimension3:
+		//	'side' s=Double m6=Metric;
+		@Override public ParserRule getRule() { return rule; }
 		
 		//'side' s=Double m6=Metric
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup() { return cGroup; }
 		
 		//'side'
-		public Keyword getSideKeyword_2_0() { return cSideKeyword_2_0; }
+		public Keyword getSideKeyword_0() { return cSideKeyword_0; }
 		
 		//s=Double
-		public Assignment getSAssignment_2_1() { return cSAssignment_2_1; }
+		public Assignment getSAssignment_1() { return cSAssignment_1; }
 		
 		//Double
-		public RuleCall getSDoubleParserRuleCall_2_1_0() { return cSDoubleParserRuleCall_2_1_0; }
+		public RuleCall getSDoubleParserRuleCall_1_0() { return cSDoubleParserRuleCall_1_0; }
 		
 		//m6=Metric
-		public Assignment getM6Assignment_2_2() { return cM6Assignment_2_2; }
+		public Assignment getM6Assignment_2() { return cM6Assignment_2; }
 		
 		//Metric
-		public RuleCall getM6MetricParserRuleCall_2_2_0() { return cM6MetricParserRuleCall_2_2_0; }
+		public RuleCall getM6MetricParserRuleCall_2_0() { return cM6MetricParserRuleCall_2_0; }
 	}
 	public class Coordinate2DElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Coordinate2D");
@@ -2527,84 +2597,34 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class IntervalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Interval");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cMAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cMDoubleParserRuleCall_0_0 = (RuleCall)cMAssignment_0.eContents().get(0);
+		private final Assignment cNAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_0_0 = (RuleCall)cNAssignment_0.eContents().get(0);
 		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNDoubleParserRuleCall_2_0 = (RuleCall)cNAssignment_2.eContents().get(0);
+		private final Assignment cMAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMDoubleParserRuleCall_2_0 = (RuleCall)cMAssignment_2.eContents().get(0);
 		
 		////
 		//Interval:
-		//	m=Double 'to' n=Double;
+		//	n=Double 'to' m=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//m=Double 'to' n=Double
+		//n=Double 'to' m=Double
 		public Group getGroup() { return cGroup; }
 		
-		//m=Double
-		public Assignment getMAssignment_0() { return cMAssignment_0; }
+		//n=Double
+		public Assignment getNAssignment_0() { return cNAssignment_0; }
 		
 		//Double
-		public RuleCall getMDoubleParserRuleCall_0_0() { return cMDoubleParserRuleCall_0_0; }
+		public RuleCall getNDoubleParserRuleCall_0_0() { return cNDoubleParserRuleCall_0_0; }
 		
 		//'to'
 		public Keyword getToKeyword_1() { return cToKeyword_1; }
 		
-		//n=Double
-		public Assignment getNAssignment_2() { return cNAssignment_2; }
+		//m=Double
+		public Assignment getMAssignment_2() { return cMAssignment_2; }
 		
 		//Double
-		public RuleCall getNDoubleParserRuleCall_2_0() { return cNDoubleParserRuleCall_2_0; }
-	}
-	public class LiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Literal");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cIntLiteralKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cRealLiteralKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final RuleCall cBoolLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		
-		//Literal ArithmeticExpression:
-		//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'IntLiteral' | 'RealLiteral' | BoolLiteral
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'IntLiteral'
-		public Keyword getIntLiteralKeyword_0() { return cIntLiteralKeyword_0; }
-		
-		//'RealLiteral'
-		public Keyword getRealLiteralKeyword_1() { return cRealLiteralKeyword_1; }
-		
-		//BoolLiteral
-		public RuleCall getBoolLiteralParserRuleCall_2() { return cBoolLiteralParserRuleCall_2; }
-	}
-	public class BoolLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.BoolLiteral");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
-		private final Keyword cValueTrueKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
-		private final Keyword cValueFalseKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
-		
-		////IntLiteral:
-		////value=SignedInt;
-		////RealLiteral:
-		////value=SignedReal;
-		//BoolLiteral:
-		//	value=('true' | 'false');
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value=('true' | 'false')
-		public Assignment getValueAssignment() { return cValueAssignment; }
-		
-		//('true' | 'false')
-		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
-		
-		//'true'
-		public Keyword getValueTrueKeyword_0_0() { return cValueTrueKeyword_0_0; }
-		
-		//'false'
-		public Keyword getValueFalseKeyword_0_1() { return cValueFalseKeyword_0_1; }
+		public RuleCall getMDoubleParserRuleCall_2_0() { return cMDoubleParserRuleCall_2_0; }
 	}
 	
 	
@@ -2637,6 +2657,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final EnvironmentElementElements pEnvironmentElement;
 	private final ElementDescriptionElements pElementDescription;
 	private final ElementElements pElement;
+	private final ElElements pEl;
 	private final ObjectElements pObject;
 	private final ObstacleElements pObstacle;
 	private final PatchElements pPatch;
@@ -2653,6 +2674,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final DefinitionThreeElements pDefinitionThree;
 	private final AxisElements pAxis;
 	private final DimensionElements pDimension;
+	private final Dimension1Elements pDimension1;
+	private final Dimension2Elements pDimension2;
+	private final Dimension3Elements pDimension3;
 	private final Coordinate2DElements pCoordinate2D;
 	private final Coordinate3DElements pCoordinate3D;
 	private final DoubleElements pDouble;
@@ -2663,8 +2687,6 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final UpperboundElements pUpperbound;
 	private final UpperorEqualboundElements pUpperorEqualbound;
 	private final IntervalElements pInterval;
-	private final LiteralElements pLiteral;
-	private final BoolLiteralElements pBoolLiteral;
 	
 	private final Grammar grammar;
 	
@@ -2704,6 +2726,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnvironmentElement = new EnvironmentElementElements();
 		this.pElementDescription = new ElementDescriptionElements();
 		this.pElement = new ElementElements();
+		this.pEl = new ElElements();
 		this.pObject = new ObjectElements();
 		this.pObstacle = new ObstacleElements();
 		this.pPatch = new PatchElements();
@@ -2720,6 +2743,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDefinitionThree = new DefinitionThreeElements();
 		this.pAxis = new AxisElements();
 		this.pDimension = new DimensionElements();
+		this.pDimension1 = new Dimension1Elements();
+		this.pDimension2 = new Dimension2Elements();
+		this.pDimension3 = new Dimension3Elements();
 		this.pCoordinate2D = new Coordinate2DElements();
 		this.pCoordinate3D = new Coordinate3DElements();
 		this.pDouble = new DoubleElements();
@@ -2730,8 +2756,6 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUpperbound = new UpperboundElements();
 		this.pUpperorEqualbound = new UpperorEqualboundElements();
 		this.pInterval = new IntervalElements();
-		this.pLiteral = new LiteralElements();
-		this.pBoolLiteral = new BoolLiteralElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2814,7 +2838,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MissionTime:
-	//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range m=Metric;
+	//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
 	public MissionTimeElements getMissionTimeAccess() {
 		return pMissionTime;
 	}
@@ -2992,7 +3016,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Time:
-	//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+	//	x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
 	public TimeElements getTimeAccess() {
 		return pTime;
 	}
@@ -3052,13 +3076,23 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	'objects' | 'obstacles' | 'light' 'sources' | 'patch';
+	//	ob=El 'with' 'dimensions' ':' d=Dimension2;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
 	
 	public ParserRule getElementRule() {
 		return getElementAccess().getRule();
+	}
+	
+	//El:
+	//	'objects' | 'obstacles' | 'light' 'sources' | 'patch';
+	public ElElements getElAccess() {
+		return pEl;
+	}
+	
+	public ParserRule getElRule() {
+		return getElAccess().getRule();
 	}
 	
 	//Object:
@@ -3218,14 +3252,43 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	////	CircleD | RectangleD	
 	////;
 	//Dimension:
-	//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)? | 'length' l=Double m3=Metric ',width' w=Double
-	//	m4=Metric ('and' 'height' h=Double m5=Metric)? | 'side' s=Double m6=Metric;
+	//	Dimension1 | Dimension2 | Dimension3;
 	public DimensionElements getDimensionAccess() {
 		return pDimension;
 	}
 	
 	public ParserRule getDimensionRule() {
 		return getDimensionAccess().getRule();
+	}
+	
+	//Dimension1:
+	//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
+	public Dimension1Elements getDimension1Access() {
+		return pDimension1;
+	}
+	
+	public ParserRule getDimension1Rule() {
+		return getDimension1Access().getRule();
+	}
+	
+	//Dimension2:
+	//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+	public Dimension2Elements getDimension2Access() {
+		return pDimension2;
+	}
+	
+	public ParserRule getDimension2Rule() {
+		return getDimension2Access().getRule();
+	}
+	
+	//Dimension3:
+	//	'side' s=Double m6=Metric;
+	public Dimension3Elements getDimension3Access() {
+		return pDimension3;
+	}
+	
+	public ParserRule getDimension3Rule() {
+		return getDimension3Access().getRule();
 	}
 	
 	////Dimension:
@@ -3336,37 +3399,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////
 	//Interval:
-	//	m=Double 'to' n=Double;
+	//	n=Double 'to' m=Double;
 	public IntervalElements getIntervalAccess() {
 		return pInterval;
 	}
 	
 	public ParserRule getIntervalRule() {
 		return getIntervalAccess().getRule();
-	}
-	
-	//Literal ArithmeticExpression:
-	//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
-	public LiteralElements getLiteralAccess() {
-		return pLiteral;
-	}
-	
-	public ParserRule getLiteralRule() {
-		return getLiteralAccess().getRule();
-	}
-	
-	////IntLiteral:
-	////value=SignedInt;
-	////RealLiteral:
-	////value=SignedReal;
-	//BoolLiteral:
-	//	value=('true' | 'false');
-	public BoolLiteralElements getBoolLiteralAccess() {
-		return pBoolLiteral;
-	}
-	
-	public ParserRule getBoolLiteralRule() {
-		return getBoolLiteralAccess().getRule();
 	}
 	
 	//terminal ID:

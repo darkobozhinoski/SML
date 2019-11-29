@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.sml.sml.ArithmeticExpression;
+import org.xtext.example.sml.sml.Range;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Time;
 
@@ -39,7 +39,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    * @ordered
    */
-  protected ArithmeticExpression x;
+  protected Range x;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    */
   @Override
-  public ArithmeticExpression getX()
+  public Range getX()
   {
     return x;
   }
@@ -78,9 +78,9 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetX(ArithmeticExpression newX, NotificationChain msgs)
+  public NotificationChain basicSetX(Range newX, NotificationChain msgs)
   {
-    ArithmeticExpression oldX = x;
+    Range oldX = x;
     x = newX;
     if (eNotificationRequired())
     {
@@ -96,7 +96,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
    * @generated
    */
   @Override
-  public void setX(ArithmeticExpression newX)
+  public void setX(Range newX)
   {
     if (newX != x)
     {
@@ -155,7 +155,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
     switch (featureID)
     {
       case SmlPackage.TIME__X:
-        setX((ArithmeticExpression)newValue);
+        setX((Range)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +172,7 @@ public class TimeImpl extends MinimalEObjectImpl.Container implements Time
     switch (featureID)
     {
       case SmlPackage.TIME__X:
-        setX((ArithmeticExpression)null);
+        setX((Range)null);
         return;
     }
     super.eUnset(featureID);

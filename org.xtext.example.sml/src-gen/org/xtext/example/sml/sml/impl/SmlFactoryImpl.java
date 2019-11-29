@@ -13,9 +13,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
-import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
-import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
@@ -25,6 +23,10 @@ import org.xtext.example.sml.sml.DefinitionOne;
 import org.xtext.example.sml.sml.DefinitionThree;
 import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
+import org.xtext.example.sml.sml.Dimension1;
+import org.xtext.example.sml.sml.Dimension2;
+import org.xtext.example.sml.sml.Dimension3;
+import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
@@ -136,6 +138,7 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.ENVIRONMENT_ELEMENTS: return createEnvironmentElements();
       case SmlPackage.ENVIRONMENT_ELEMENT: return createEnvironmentElement();
       case SmlPackage.ELEMENT_DESCRIPTION: return createElementDescription();
+      case SmlPackage.ELEMENT: return createElement();
       case SmlPackage.OBJECT: return createObject();
       case SmlPackage.OBSTACLE: return createObstacle();
       case SmlPackage.PATCH: return createPatch();
@@ -148,6 +151,9 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.DEFINITION_TWO: return createDefinitionTwo();
       case SmlPackage.DEFINITION_THREE: return createDefinitionThree();
       case SmlPackage.DIMENSION: return createDimension();
+      case SmlPackage.DIMENSION1: return createDimension1();
+      case SmlPackage.DIMENSION2: return createDimension2();
+      case SmlPackage.DIMENSION3: return createDimension3();
       case SmlPackage.COORDINATE2_D: return createCoordinate2D();
       case SmlPackage.COORDINATE3_D: return createCoordinate3D();
       case SmlPackage.RANGE: return createRange();
@@ -157,8 +163,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.UPPERBOUND: return createUpperbound();
       case SmlPackage.UPPEROR_EQUALBOUND: return createUpperorEqualbound();
       case SmlPackage.INTERVAL: return createInterval();
-      case SmlPackage.ARITHMETIC_EXPRESSION: return createArithmeticExpression();
-      case SmlPackage.BOOL_LITERAL: return createBoolLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -458,6 +462,18 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public org.xtext.example.sml.sml.Object createObject()
   {
     ObjectImpl object = new ObjectImpl();
@@ -602,6 +618,42 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
+  public Dimension1 createDimension1()
+  {
+    Dimension1Impl dimension1 = new Dimension1Impl();
+    return dimension1;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Dimension2 createDimension2()
+  {
+    Dimension2Impl dimension2 = new Dimension2Impl();
+    return dimension2;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Dimension3 createDimension3()
+  {
+    Dimension3Impl dimension3 = new Dimension3Impl();
+    return dimension3;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Coordinate2D createCoordinate2D()
   {
     Coordinate2DImpl coordinate2D = new Coordinate2DImpl();
@@ -702,30 +754,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
   {
     IntervalImpl interval = new IntervalImpl();
     return interval;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ArithmeticExpression createArithmeticExpression()
-  {
-    ArithmeticExpressionImpl arithmeticExpression = new ArithmeticExpressionImpl();
-    return arithmeticExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public BoolLiteral createBoolLiteral()
-  {
-    BoolLiteralImpl boolLiteral = new BoolLiteralImpl();
-    return boolLiteral;
   }
 
   /**

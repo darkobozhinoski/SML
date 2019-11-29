@@ -49,7 +49,7 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDistributionAccess().getAlternatives(), "rule__Distribution__Alternatives");
 			builder.put(grammarAccess.getEnvironmentElementsAccess().getAlternatives(), "rule__EnvironmentElements__Alternatives");
 			builder.put(grammarAccess.getEnvironmentElementAccess().getAlternatives(), "rule__EnvironmentElement__Alternatives");
-			builder.put(grammarAccess.getElementAccess().getAlternatives(), "rule__Element__Alternatives");
+			builder.put(grammarAccess.getElAccess().getAlternatives(), "rule__El__Alternatives");
 			builder.put(grammarAccess.getPositionAccess().getAlternatives_0(), "rule__Position__Alternatives_0");
 			builder.put(grammarAccess.getPositionAccess().getPointAlternatives_2_0(), "rule__Position__PointAlternatives_2_0");
 			builder.put(grammarAccess.getShape2DAccess().getAlternatives(), "rule__Shape2D__Alternatives");
@@ -59,8 +59,6 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAxisAccess().getAlternatives(), "rule__Axis__Alternatives");
 			builder.put(grammarAccess.getDimensionAccess().getAlternatives(), "rule__Dimension__Alternatives");
 			builder.put(grammarAccess.getRangeAccess().getAlternatives(), "rule__Range__Alternatives");
-			builder.put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
-			builder.put(grammarAccess.getBoolLiteralAccess().getValueAlternatives_0(), "rule__BoolLiteral__ValueAlternatives_0");
 			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup(), "rule__Environment__Group__0");
 			builder.put(grammarAccess.getEnvironmentAccess().getGroup_0(), "rule__Environment__Group_0__0");
@@ -90,7 +88,8 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTimeAccess().getGroup_2(), "rule__Time__Group_2__0");
 			builder.put(grammarAccess.getEnvironmentElementAccess().getGroup_4(), "rule__EnvironmentElement__Group_4__0");
 			builder.put(grammarAccess.getElementDescriptionAccess().getGroup(), "rule__ElementDescription__Group__0");
-			builder.put(grammarAccess.getElementAccess().getGroup_2(), "rule__Element__Group_2__0");
+			builder.put(grammarAccess.getElementAccess().getGroup(), "rule__Element__Group__0");
+			builder.put(grammarAccess.getElAccess().getGroup_2(), "rule__El__Group_2__0");
 			builder.put(grammarAccess.getObjectAccess().getGroup(), "rule__Object__Group__0");
 			builder.put(grammarAccess.getObstacleAccess().getGroup(), "rule__Obstacle__Group__0");
 			builder.put(grammarAccess.getPatchAccess().getGroup(), "rule__Patch__Group__0");
@@ -105,11 +104,11 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDefinitionTwoAccess().getGroup(), "rule__DefinitionTwo__Group__0");
 			builder.put(grammarAccess.getDefinitionTwoAccess().getGroup_7(), "rule__DefinitionTwo__Group_7__0");
 			builder.put(grammarAccess.getDefinitionThreeAccess().getGroup(), "rule__DefinitionThree__Group__0");
-			builder.put(grammarAccess.getDimensionAccess().getGroup_0(), "rule__Dimension__Group_0__0");
-			builder.put(grammarAccess.getDimensionAccess().getGroup_0_3(), "rule__Dimension__Group_0_3__0");
-			builder.put(grammarAccess.getDimensionAccess().getGroup_1(), "rule__Dimension__Group_1__0");
-			builder.put(grammarAccess.getDimensionAccess().getGroup_1_6(), "rule__Dimension__Group_1_6__0");
-			builder.put(grammarAccess.getDimensionAccess().getGroup_2(), "rule__Dimension__Group_2__0");
+			builder.put(grammarAccess.getDimension1Access().getGroup(), "rule__Dimension1__Group__0");
+			builder.put(grammarAccess.getDimension1Access().getGroup_3(), "rule__Dimension1__Group_3__0");
+			builder.put(grammarAccess.getDimension2Access().getGroup(), "rule__Dimension2__Group__0");
+			builder.put(grammarAccess.getDimension2Access().getGroup_6(), "rule__Dimension2__Group_6__0");
+			builder.put(grammarAccess.getDimension3Access().getGroup(), "rule__Dimension3__Group__0");
 			builder.put(grammarAccess.getCoordinate2DAccess().getGroup(), "rule__Coordinate2D__Group__0");
 			builder.put(grammarAccess.getCoordinate3DAccess().getGroup(), "rule__Coordinate3D__Group__0");
 			builder.put(grammarAccess.getDoubleAccess().getGroup(), "rule__Double__Group__0");
@@ -166,6 +165,8 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementDescriptionAccess().getXAssignment_2(), "rule__ElementDescription__XAssignment_2");
 			builder.put(grammarAccess.getElementDescriptionAccess().getObjAssignment_3(), "rule__ElementDescription__ObjAssignment_3");
 			builder.put(grammarAccess.getElementDescriptionAccess().getRAssignment_4(), "rule__ElementDescription__RAssignment_4");
+			builder.put(grammarAccess.getElementAccess().getObAssignment_0(), "rule__Element__ObAssignment_0");
+			builder.put(grammarAccess.getElementAccess().getDAssignment_4(), "rule__Element__DAssignment_4");
 			builder.put(grammarAccess.getObjectAccess().getObjAssignment_0(), "rule__Object__ObjAssignment_0");
 			builder.put(grammarAccess.getObjectAccess().getRAssignment_4(), "rule__Object__RAssignment_4");
 			builder.put(grammarAccess.getObstacleAccess().getObsAssignment_0(), "rule__Obstacle__ObsAssignment_0");
@@ -188,18 +189,18 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDefinitionTwoAccess().getPointAssignment_7_1(), "rule__DefinitionTwo__PointAssignment_7_1");
 			builder.put(grammarAccess.getDefinitionThreeAccess().getAxAssignment_1(), "rule__DefinitionThree__AxAssignment_1");
 			builder.put(grammarAccess.getDefinitionThreeAccess().getRAssignment_3(), "rule__DefinitionThree__RAssignment_3");
-			builder.put(grammarAccess.getDimensionAccess().getRAssignment_0_1(), "rule__Dimension__RAssignment_0_1");
-			builder.put(grammarAccess.getDimensionAccess().getM1Assignment_0_2(), "rule__Dimension__M1Assignment_0_2");
-			builder.put(grammarAccess.getDimensionAccess().getHAssignment_0_3_2(), "rule__Dimension__HAssignment_0_3_2");
-			builder.put(grammarAccess.getDimensionAccess().getM2Assignment_0_3_3(), "rule__Dimension__M2Assignment_0_3_3");
-			builder.put(grammarAccess.getDimensionAccess().getLAssignment_1_1(), "rule__Dimension__LAssignment_1_1");
-			builder.put(grammarAccess.getDimensionAccess().getM3Assignment_1_2(), "rule__Dimension__M3Assignment_1_2");
-			builder.put(grammarAccess.getDimensionAccess().getWAssignment_1_4(), "rule__Dimension__WAssignment_1_4");
-			builder.put(grammarAccess.getDimensionAccess().getM4Assignment_1_5(), "rule__Dimension__M4Assignment_1_5");
-			builder.put(grammarAccess.getDimensionAccess().getHAssignment_1_6_2(), "rule__Dimension__HAssignment_1_6_2");
-			builder.put(grammarAccess.getDimensionAccess().getM5Assignment_1_6_3(), "rule__Dimension__M5Assignment_1_6_3");
-			builder.put(grammarAccess.getDimensionAccess().getSAssignment_2_1(), "rule__Dimension__SAssignment_2_1");
-			builder.put(grammarAccess.getDimensionAccess().getM6Assignment_2_2(), "rule__Dimension__M6Assignment_2_2");
+			builder.put(grammarAccess.getDimension1Access().getRAssignment_1(), "rule__Dimension1__RAssignment_1");
+			builder.put(grammarAccess.getDimension1Access().getM1Assignment_2(), "rule__Dimension1__M1Assignment_2");
+			builder.put(grammarAccess.getDimension1Access().getHAssignment_3_2(), "rule__Dimension1__HAssignment_3_2");
+			builder.put(grammarAccess.getDimension1Access().getM2Assignment_3_3(), "rule__Dimension1__M2Assignment_3_3");
+			builder.put(grammarAccess.getDimension2Access().getLAssignment_1(), "rule__Dimension2__LAssignment_1");
+			builder.put(grammarAccess.getDimension2Access().getM3Assignment_2(), "rule__Dimension2__M3Assignment_2");
+			builder.put(grammarAccess.getDimension2Access().getWAssignment_4(), "rule__Dimension2__WAssignment_4");
+			builder.put(grammarAccess.getDimension2Access().getM4Assignment_5(), "rule__Dimension2__M4Assignment_5");
+			builder.put(grammarAccess.getDimension2Access().getHAssignment_6_2(), "rule__Dimension2__HAssignment_6_2");
+			builder.put(grammarAccess.getDimension2Access().getM5Assignment_6_3(), "rule__Dimension2__M5Assignment_6_3");
+			builder.put(grammarAccess.getDimension3Access().getSAssignment_1(), "rule__Dimension3__SAssignment_1");
+			builder.put(grammarAccess.getDimension3Access().getM6Assignment_2(), "rule__Dimension3__M6Assignment_2");
 			builder.put(grammarAccess.getCoordinate2DAccess().getXAssignment_0(), "rule__Coordinate2D__XAssignment_0");
 			builder.put(grammarAccess.getCoordinate2DAccess().getYAssignment_2(), "rule__Coordinate2D__YAssignment_2");
 			builder.put(grammarAccess.getCoordinate3DAccess().getXAssignment_0(), "rule__Coordinate3D__XAssignment_0");
@@ -210,9 +211,8 @@ public class SmlParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLowerorEqualboundAccess().getNAssignment_4(), "rule__LowerorEqualbound__NAssignment_4");
 			builder.put(grammarAccess.getUpperboundAccess().getNAssignment_2(), "rule__Upperbound__NAssignment_2");
 			builder.put(grammarAccess.getUpperorEqualboundAccess().getNAssignment_4(), "rule__UpperorEqualbound__NAssignment_4");
-			builder.put(grammarAccess.getIntervalAccess().getMAssignment_0(), "rule__Interval__MAssignment_0");
-			builder.put(grammarAccess.getIntervalAccess().getNAssignment_2(), "rule__Interval__NAssignment_2");
-			builder.put(grammarAccess.getBoolLiteralAccess().getValueAssignment(), "rule__BoolLiteral__ValueAssignment");
+			builder.put(grammarAccess.getIntervalAccess().getNAssignment_0(), "rule__Interval__NAssignment_0");
+			builder.put(grammarAccess.getIntervalAccess().getMAssignment_2(), "rule__Interval__MAssignment_2");
 		}
 	}
 	
