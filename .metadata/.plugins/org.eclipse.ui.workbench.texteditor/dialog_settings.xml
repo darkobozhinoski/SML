@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Region" key="selection"/>
+		<item value="Distribution" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Region"/>
-			<item value="Swarm"/>
-			<item value="ProbabilisticDecription"/>
 			<item value="Distribution"/>
-			<item value="Light"/>
-			<item value="Encvironment"/>
-			<item value="Environment"/>
-			<item value="Envirfo"/>
-			<item value="Coord"/>
-			<item value="Position"/>
-			<item value="Time"/>
-			<item value="Literal"/>
-			<item value="MissionTime"/>
-			<item value="MissionSpecification"/>
-			<item value="Range"/>
+			<item value="distributed"/>
+			<item value="gaus"/>
+			<item value="gassu"/>
+			<item value="task"/>
+			<item value="Task"/>
+			<item value="less"/>
+			<item value="Region"/>
+			<item value="Reg"/>
+			<item value="Shape"/>
+			<item value="Objective"/>
+			<item value="model1"/>
+			<item value="element"/>
+			<item value="e-puck"/>
+			<item value="oc"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1403" key="DIALOG_X_ORIGIN"/>
-		<item value="657" key="DIALOG_Y_ORIGIN"/>
+		<item value="1148" key="DIALOG_X_ORIGIN"/>
+		<item value="132" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

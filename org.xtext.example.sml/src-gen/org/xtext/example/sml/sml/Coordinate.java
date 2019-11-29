@@ -7,22 +7,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Coordinate2 D</b></em>'.
+ * A representation of the model object '<em><b>Coordinate</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.Coordinate2D#getX <em>X</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Coordinate2D#getY <em>Y</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Coordinate#getX <em>X</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Coordinate#getY <em>Y</em>}</li>
  * </ul>
  *
- * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate2D()
+ * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate()
  * @model
  * @generated
  */
-public interface Coordinate2D extends EObject
+public interface Coordinate extends EObject
 {
   /**
    * Returns the value of the '<em><b>X</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface Coordinate2D extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>X</em>' attribute.
    * @see #setX(String)
-   * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate2D_X()
+   * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate_X()
    * @model
    * @generated
    */
   String getX();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Coordinate2D#getX <em>X</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Coordinate#getX <em>X</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>X</em>' attribute.
@@ -60,14 +60,14 @@ public interface Coordinate2D extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Y</em>' attribute.
    * @see #setY(String)
-   * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate2D_Y()
+   * @see org.xtext.example.sml.sml.SmlPackage#getCoordinate_Y()
    * @model
    * @generated
    */
   String getY();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Coordinate2D#getY <em>Y</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Coordinate#getY <em>Y</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Y</em>' attribute.
@@ -76,4 +76,4 @@ public interface Coordinate2D extends EObject
    */
   void setY(String value);
 
-} // Coordinate2D
+} // Coordinate

@@ -3,53 +3,56 @@
  */
 package org.xtext.example.sml.sml.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.sml.sml.DefinitionTwo;
-import org.xtext.example.sml.sml.Position;
+import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.SmlPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Definition Two</b></em>'.
+ * An implementation of the model object '<em><b>Circle D</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.impl.DefinitionTwoImpl#getPoint <em>Point</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.CircleDImpl#getR <em>R</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DefinitionTwoImpl extends RegionDefinitionImpl implements DefinitionTwo
+public class CircleDImpl extends DimensionImpl implements CircleD
 {
   /**
-   * The cached value of the '{@link #getPoint() <em>Point</em>}' containment reference list.
+   * The default value of the '{@link #getR() <em>R</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPoint()
+   * @see #getR()
    * @generated
    * @ordered
    */
-  protected EList<Position> point;
+  protected static final String R_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getR() <em>R</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getR()
+   * @generated
+   * @ordered
+   */
+  protected String r = R_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefinitionTwoImpl()
+  protected CircleDImpl()
   {
     super();
   }
@@ -62,7 +65,7 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
   @Override
   protected EClass eStaticClass()
   {
-    return SmlPackage.Literals.DEFINITION_TWO;
+    return SmlPackage.Literals.CIRCLE_D;
   }
 
   /**
@@ -71,13 +74,9 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
    * @generated
    */
   @Override
-  public EList<Position> getPoint()
+  public String getR()
   {
-    if (point == null)
-    {
-      point = new EObjectContainmentEList<Position>(Position.class, this, SmlPackage.DEFINITION_TWO__POINT);
-    }
-    return point;
+    return r;
   }
 
   /**
@@ -86,14 +85,12 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setR(String newR)
   {
-    switch (featureID)
-    {
-      case SmlPackage.DEFINITION_TWO__POINT:
-        return ((InternalEList<?>)getPoint()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldR = r;
+    r = newR;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.CIRCLE_D__R, oldR, r));
   }
 
   /**
@@ -106,8 +103,8 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
   {
     switch (featureID)
     {
-      case SmlPackage.DEFINITION_TWO__POINT:
-        return getPoint();
+      case SmlPackage.CIRCLE_D__R:
+        return getR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +114,13 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SmlPackage.DEFINITION_TWO__POINT:
-        getPoint().clear();
-        getPoint().addAll((Collection<? extends Position>)newValue);
+      case SmlPackage.CIRCLE_D__R:
+        setR((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +136,8 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
   {
     switch (featureID)
     {
-      case SmlPackage.DEFINITION_TWO__POINT:
-        getPoint().clear();
+      case SmlPackage.CIRCLE_D__R:
+        setR(R_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +153,27 @@ public class DefinitionTwoImpl extends RegionDefinitionImpl implements Definitio
   {
     switch (featureID)
     {
-      case SmlPackage.DEFINITION_TWO__POINT:
-        return point != null && !point.isEmpty();
+      case SmlPackage.CIRCLE_D__R:
+        return R_EDEFAULT == null ? r != null : !R_EDEFAULT.equals(r);
     }
     return super.eIsSet(featureID);
   }
 
-} //DefinitionTwoImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (r: ");
+    result.append(r);
+    result.append(')');
+    return result.toString();
+  }
+
+} //CircleDImpl
