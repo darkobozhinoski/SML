@@ -32,12 +32,12 @@ public interface Time extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>X</em>' containment reference.
-   * @see #setX(Range)
+   * @see #setX(ArithmeticExpression)
    * @see org.xtext.example.sml.sml.SmlPackage#getTime_X()
    * @model containment="true"
    * @generated
    */
-  Range getX();
+  ArithmeticExpression getX();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sml.sml.Time#getX <em>X</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface Time extends EObject
    * @see #getX()
    * @generated
    */
-  void setX(Range value);
+  void setX(ArithmeticExpression value);
 
 } // Time

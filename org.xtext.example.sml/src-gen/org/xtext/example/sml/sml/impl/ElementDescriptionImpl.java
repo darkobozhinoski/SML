@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Range;
@@ -66,14 +65,24 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   protected Range x;
 
   /**
-   * The cached value of the '{@link #getObj() <em>Obj</em>}' containment reference.
+   * The default value of the '{@link #getObj() <em>Obj</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getObj()
    * @generated
    * @ordered
    */
-  protected Element obj;
+  protected static final String OBJ_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getObj() <em>Obj</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObj()
+   * @generated
+   * @ordered
+   */
+  protected String obj = OBJ_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getR() <em>R</em>}' containment reference.
@@ -187,7 +196,7 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
    * @generated
    */
   @Override
-  public Element getObj()
+  public String getObj()
   {
     return obj;
   }
@@ -197,38 +206,13 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetObj(Element newObj, NotificationChain msgs)
+  @Override
+  public void setObj(String newObj)
   {
-    Element oldObj = obj;
+    String oldObj = obj;
     obj = newObj;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT_DESCRIPTION__OBJ, oldObj, newObj);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setObj(Element newObj)
-  {
-    if (newObj != obj)
-    {
-      NotificationChain msgs = null;
-      if (obj != null)
-        msgs = ((InternalEObject)obj).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.ELEMENT_DESCRIPTION__OBJ, null, msgs);
-      if (newObj != null)
-        msgs = ((InternalEObject)newObj).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.ELEMENT_DESCRIPTION__OBJ, null, msgs);
-      msgs = basicSetObj(newObj, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT_DESCRIPTION__OBJ, newObj, newObj));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT_DESCRIPTION__OBJ, oldObj, obj));
   }
 
   /**
@@ -293,8 +277,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
     {
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         return basicSetX(null, msgs);
-      case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
-        return basicSetObj(null, msgs);
       case SmlPackage.ELEMENT_DESCRIPTION__R:
         return basicSetR(null, msgs);
     }
@@ -340,7 +322,7 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
         setX((Range)newValue);
         return;
       case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
-        setObj((Element)newValue);
+        setObj((String)newValue);
         return;
       case SmlPackage.ELEMENT_DESCRIPTION__R:
         setR((ProbabilisticDecription)newValue);
@@ -366,7 +348,7 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
         setX((Range)null);
         return;
       case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
-        setObj((Element)null);
+        setObj(OBJ_EDEFAULT);
         return;
       case SmlPackage.ELEMENT_DESCRIPTION__R:
         setR((ProbabilisticDecription)null);
@@ -390,7 +372,7 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         return x != null;
       case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
-        return obj != null;
+        return OBJ_EDEFAULT == null ? obj != null : !OBJ_EDEFAULT.equals(obj);
       case SmlPackage.ELEMENT_DESCRIPTION__R:
         return r != null;
     }
@@ -410,6 +392,8 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (el: ");
     result.append(el);
+    result.append(", obj: ");
+    result.append(obj);
     result.append(')');
     return result.toString();
   }

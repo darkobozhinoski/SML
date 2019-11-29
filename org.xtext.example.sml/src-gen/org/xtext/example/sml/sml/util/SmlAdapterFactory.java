@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
@@ -22,10 +24,6 @@ import org.xtext.example.sml.sml.DefinitionOne;
 import org.xtext.example.sml.sml.DefinitionThree;
 import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
-import org.xtext.example.sml.sml.Dimension1;
-import org.xtext.example.sml.sml.Dimension2;
-import org.xtext.example.sml.sml.Dimension3;
-import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
@@ -244,11 +242,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createElementDescriptionAdapter();
       }
       @Override
-      public Adapter caseElement(Element object)
-      {
-        return createElementAdapter();
-      }
-      @Override
       public Adapter caseObject(org.xtext.example.sml.sml.Object object)
       {
         return createObjectAdapter();
@@ -309,21 +302,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
         return createDimensionAdapter();
       }
       @Override
-      public Adapter caseDimension1(Dimension1 object)
-      {
-        return createDimension1Adapter();
-      }
-      @Override
-      public Adapter caseDimension2(Dimension2 object)
-      {
-        return createDimension2Adapter();
-      }
-      @Override
-      public Adapter caseDimension3(Dimension3 object)
-      {
-        return createDimension3Adapter();
-      }
-      @Override
       public Adapter caseCoordinate2D(Coordinate2D object)
       {
         return createCoordinate2DAdapter();
@@ -367,6 +345,16 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
       public Adapter caseInterval(Interval object)
       {
         return createIntervalAdapter();
+      }
+      @Override
+      public Adapter caseArithmeticExpression(ArithmeticExpression object)
+      {
+        return createArithmeticExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBoolLiteral(BoolLiteral object)
+      {
+        return createBoolLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -751,21 +739,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Element <em>Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Element
-   * @generated
-   */
-  public Adapter createElementAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Object <em>Object</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -946,51 +919,6 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Dimension1 <em>Dimension1</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Dimension1
-   * @generated
-   */
-  public Adapter createDimension1Adapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Dimension2 <em>Dimension2</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Dimension2
-   * @generated
-   */
-  public Adapter createDimension2Adapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Dimension3 <em>Dimension3</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.sml.sml.Dimension3
-   * @generated
-   */
-  public Adapter createDimension3Adapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.Coordinate2D <em>Coordinate2 D</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1121,6 +1049,36 @@ public class SmlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIntervalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.ArithmeticExpression <em>Arithmetic Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.ArithmeticExpression
+   * @generated
+   */
+  public Adapter createArithmeticExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sml.sml.BoolLiteral <em>Bool Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sml.sml.BoolLiteral
+   * @generated
+   */
+  public Adapter createBoolLiteralAdapter()
   {
     return null;
   }

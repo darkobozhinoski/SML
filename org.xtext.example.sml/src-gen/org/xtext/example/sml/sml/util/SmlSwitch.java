@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
@@ -20,10 +22,6 @@ import org.xtext.example.sml.sml.DefinitionOne;
 import org.xtext.example.sml.sml.DefinitionThree;
 import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
-import org.xtext.example.sml.sml.Dimension1;
-import org.xtext.example.sml.sml.Dimension2;
-import org.xtext.example.sml.sml.Dimension3;
-import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
@@ -297,13 +295,6 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.ELEMENT:
-      {
-        Element element = (Element)theEObject;
-        T result = caseElement(element);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SmlPackage.OBJECT:
       {
         org.xtext.example.sml.sml.Object object = (org.xtext.example.sml.sml.Object)theEObject;
@@ -401,30 +392,6 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.DIMENSION1:
-      {
-        Dimension1 dimension1 = (Dimension1)theEObject;
-        T result = caseDimension1(dimension1);
-        if (result == null) result = caseDimension(dimension1);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.DIMENSION2:
-      {
-        Dimension2 dimension2 = (Dimension2)theEObject;
-        T result = caseDimension2(dimension2);
-        if (result == null) result = caseDimension(dimension2);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.DIMENSION3:
-      {
-        Dimension3 dimension3 = (Dimension3)theEObject;
-        T result = caseDimension3(dimension3);
-        if (result == null) result = caseDimension(dimension3);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SmlPackage.COORDINATE2_D:
       {
         Coordinate2D coordinate2D = (Coordinate2D)theEObject;
@@ -491,6 +458,21 @@ public class SmlSwitch<T> extends Switch<T>
         Interval interval = (Interval)theEObject;
         T result = caseInterval(interval);
         if (result == null) result = caseRange(interval);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.ARITHMETIC_EXPRESSION:
+      {
+        ArithmeticExpression arithmeticExpression = (ArithmeticExpression)theEObject;
+        T result = caseArithmeticExpression(arithmeticExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.BOOL_LITERAL:
+      {
+        BoolLiteral boolLiteral = (BoolLiteral)theEObject;
+        T result = caseBoolLiteral(boolLiteral);
+        if (result == null) result = caseArithmeticExpression(boolLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -883,22 +865,6 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseElement(Element object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Object</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1091,54 +1057,6 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Dimension1</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dimension1</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDimension1(Dimension1 object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dimension2</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dimension2</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDimension2(Dimension2 object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dimension3</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dimension3</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDimension3(Dimension3 object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Coordinate2 D</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1278,6 +1196,38 @@ public class SmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseInterval(Interval object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Arithmetic Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Arithmetic Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArithmeticExpression(ArithmeticExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Bool Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bool Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoolLiteral(BoolLiteral object)
   {
     return null;
   }

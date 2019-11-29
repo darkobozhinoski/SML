@@ -874,7 +874,7 @@ public interface SmlPackage extends EPackage
   int ELEMENT_DESCRIPTION__X = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Obj</b></em>' containment reference.
+   * The feature id for the '<em><b>Obj</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -901,43 +901,6 @@ public interface SmlPackage extends EPackage
   int ELEMENT_DESCRIPTION_FEATURE_COUNT = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 4;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ElementImpl <em>Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.sml.sml.impl.ElementImpl
-   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getElement()
-   * @generated
-   */
-  int ELEMENT = 24;
-
-  /**
-   * The feature id for the '<em><b>Ob</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT__OB = 0;
-
-  /**
-   * The feature id for the '<em><b>D</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT__D = 1;
-
-  /**
-   * The number of structural features of the '<em>Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ObjectImpl <em>Object</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -945,7 +908,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getObject()
    * @generated
    */
-  int OBJECT = 25;
+  int OBJECT = 24;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' attribute.
@@ -982,7 +945,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getObstacle()
    * @generated
    */
-  int OBSTACLE = 26;
+  int OBSTACLE = 25;
 
   /**
    * The feature id for the '<em><b>Obs</b></em>' attribute.
@@ -1019,7 +982,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPatch()
    * @generated
    */
-  int PATCH = 27;
+  int PATCH = 26;
 
   /**
    * The feature id for the '<em><b>Pt</b></em>' attribute.
@@ -1065,7 +1028,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLight()
    * @generated
    */
-  int LIGHT = 28;
+  int LIGHT = 27;
 
   /**
    * The feature id for the '<em><b>L</b></em>' attribute.
@@ -1111,7 +1074,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getPosition()
    * @generated
    */
-  int POSITION = 29;
+  int POSITION = 28;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference.
@@ -1139,7 +1102,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArena()
    * @generated
    */
-  int ARENA = 30;
+  int ARENA = 29;
 
   /**
    * The feature id for the '<em><b>S</b></em>' containment reference.
@@ -1167,7 +1130,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRegion()
    * @generated
    */
-  int REGION = 31;
+  int REGION = 30;
 
   /**
    * The feature id for the '<em><b>Colors</b></em>' attribute.
@@ -1222,7 +1185,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRegionDefinition()
    * @generated
    */
-  int REGION_DEFINITION = 32;
+  int REGION_DEFINITION = 31;
 
   /**
    * The number of structural features of the '<em>Region Definition</em>' class.
@@ -1241,7 +1204,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDefinitionOne()
    * @generated
    */
-  int DEFINITION_ONE = 33;
+  int DEFINITION_ONE = 32;
 
   /**
    * The feature id for the '<em><b>Referencepoint</b></em>' containment reference.
@@ -1278,7 +1241,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDefinitionTwo()
    * @generated
    */
-  int DEFINITION_TWO = 34;
+  int DEFINITION_TWO = 33;
 
   /**
    * The feature id for the '<em><b>Point</b></em>' containment reference list.
@@ -1306,7 +1269,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDefinitionThree()
    * @generated
    */
-  int DEFINITION_THREE = 35;
+  int DEFINITION_THREE = 34;
 
   /**
    * The feature id for the '<em><b>Ax</b></em>' attribute.
@@ -1343,26 +1306,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension()
    * @generated
    */
-  int DIMENSION = 36;
-
-  /**
-   * The number of structural features of the '<em>Dimension</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIMENSION_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.Dimension1Impl <em>Dimension1</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.sml.sml.impl.Dimension1Impl
-   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension1()
-   * @generated
-   */
-  int DIMENSION1 = 37;
+  int DIMENSION = 35;
 
   /**
    * The feature id for the '<em><b>R</b></em>' attribute.
@@ -1371,7 +1315,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION1__R = DIMENSION_FEATURE_COUNT + 0;
+  int DIMENSION__R = 0;
 
   /**
    * The feature id for the '<em><b>M1</b></em>' attribute.
@@ -1380,7 +1324,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION1__M1 = DIMENSION_FEATURE_COUNT + 1;
+  int DIMENSION__M1 = 1;
 
   /**
    * The feature id for the '<em><b>H</b></em>' attribute.
@@ -1389,7 +1333,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION1__H = DIMENSION_FEATURE_COUNT + 2;
+  int DIMENSION__H = 2;
 
   /**
    * The feature id for the '<em><b>M2</b></em>' attribute.
@@ -1398,26 +1342,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION1__M2 = DIMENSION_FEATURE_COUNT + 3;
-
-  /**
-   * The number of structural features of the '<em>Dimension1</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIMENSION1_FEATURE_COUNT = DIMENSION_FEATURE_COUNT + 4;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.Dimension2Impl <em>Dimension2</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.sml.sml.impl.Dimension2Impl
-   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension2()
-   * @generated
-   */
-  int DIMENSION2 = 38;
+  int DIMENSION__M2 = 3;
 
   /**
    * The feature id for the '<em><b>L</b></em>' attribute.
@@ -1426,7 +1351,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION2__L = DIMENSION_FEATURE_COUNT + 0;
+  int DIMENSION__L = 4;
 
   /**
    * The feature id for the '<em><b>M3</b></em>' attribute.
@@ -1435,7 +1360,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION2__M3 = DIMENSION_FEATURE_COUNT + 1;
+  int DIMENSION__M3 = 5;
 
   /**
    * The feature id for the '<em><b>W</b></em>' attribute.
@@ -1444,7 +1369,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION2__W = DIMENSION_FEATURE_COUNT + 2;
+  int DIMENSION__W = 6;
 
   /**
    * The feature id for the '<em><b>M4</b></em>' attribute.
@@ -1453,16 +1378,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION2__M4 = DIMENSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>H</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIMENSION2__H = DIMENSION_FEATURE_COUNT + 4;
+  int DIMENSION__M4 = 7;
 
   /**
    * The feature id for the '<em><b>M5</b></em>' attribute.
@@ -1471,26 +1387,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION2__M5 = DIMENSION_FEATURE_COUNT + 5;
-
-  /**
-   * The number of structural features of the '<em>Dimension2</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIMENSION2_FEATURE_COUNT = DIMENSION_FEATURE_COUNT + 6;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.Dimension3Impl <em>Dimension3</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.sml.sml.impl.Dimension3Impl
-   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension3()
-   * @generated
-   */
-  int DIMENSION3 = 39;
+  int DIMENSION__M5 = 8;
 
   /**
    * The feature id for the '<em><b>S</b></em>' attribute.
@@ -1499,7 +1396,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION3__S = DIMENSION_FEATURE_COUNT + 0;
+  int DIMENSION__S = 9;
 
   /**
    * The feature id for the '<em><b>M6</b></em>' attribute.
@@ -1508,16 +1405,16 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIMENSION3__M6 = DIMENSION_FEATURE_COUNT + 1;
+  int DIMENSION__M6 = 10;
 
   /**
-   * The number of structural features of the '<em>Dimension3</em>' class.
+   * The number of structural features of the '<em>Dimension</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DIMENSION3_FEATURE_COUNT = DIMENSION_FEATURE_COUNT + 2;
+  int DIMENSION_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.Coordinate2DImpl <em>Coordinate2 D</em>}' class.
@@ -1527,7 +1424,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCoordinate2D()
    * @generated
    */
-  int COORDINATE2_D = 40;
+  int COORDINATE2_D = 36;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -1564,7 +1461,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getCoordinate3D()
    * @generated
    */
-  int COORDINATE3_D = 41;
+  int COORDINATE3_D = 37;
 
   /**
    * The feature id for the '<em><b>X</b></em>' attribute.
@@ -1610,7 +1507,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getRange()
    * @generated
    */
-  int RANGE = 42;
+  int RANGE = 38;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1638,7 +1535,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getConstantSize()
    * @generated
    */
-  int CONSTANT_SIZE = 43;
+  int CONSTANT_SIZE = 39;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1666,7 +1563,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLowerbound()
    * @generated
    */
-  int LOWERBOUND = 44;
+  int LOWERBOUND = 40;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1694,7 +1591,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getLowerorEqualbound()
    * @generated
    */
-  int LOWEROR_EQUALBOUND = 45;
+  int LOWEROR_EQUALBOUND = 41;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1722,7 +1619,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getUpperbound()
    * @generated
    */
-  int UPPERBOUND = 46;
+  int UPPERBOUND = 42;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1750,7 +1647,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getUpperorEqualbound()
    * @generated
    */
-  int UPPEROR_EQUALBOUND = 47;
+  int UPPEROR_EQUALBOUND = 43;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1778,7 +1675,7 @@ public interface SmlPackage extends EPackage
    * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getInterval()
    * @generated
    */
-  int INTERVAL = 48;
+  int INTERVAL = 44;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -1806,6 +1703,53 @@ public interface SmlPackage extends EPackage
    * @ordered
    */
   int INTERVAL_FEATURE_COUNT = RANGE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl <em>Arithmetic Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArithmeticExpression()
+   * @generated
+   */
+  int ARITHMETIC_EXPRESSION = 45;
+
+  /**
+   * The number of structural features of the '<em>Arithmetic Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARITHMETIC_EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.sml.sml.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sml.sml.impl.BoolLiteralImpl
+   * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getBoolLiteral()
+   * @generated
+   */
+  int BOOL_LITERAL = 46;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_LITERAL__VALUE = ARITHMETIC_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Bool Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_LITERAL_FEATURE_COUNT = ARITHMETIC_EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -2445,15 +2389,15 @@ public interface SmlPackage extends EPackage
   EReference getElementDescription_X();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.ElementDescription#getObj <em>Obj</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.ElementDescription#getObj <em>Obj</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Obj</em>'.
+   * @return the meta object for the attribute '<em>Obj</em>'.
    * @see org.xtext.example.sml.sml.ElementDescription#getObj()
    * @see #getElementDescription()
    * @generated
    */
-  EReference getElementDescription_Obj();
+  EAttribute getElementDescription_Obj();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.ElementDescription#getR <em>R</em>}'.
@@ -2465,38 +2409,6 @@ public interface SmlPackage extends EPackage
    * @generated
    */
   EReference getElementDescription_R();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Element <em>Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Element</em>'.
-   * @see org.xtext.example.sml.sml.Element
-   * @generated
-   */
-  EClass getElement();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Element#getOb <em>Ob</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Ob</em>'.
-   * @see org.xtext.example.sml.sml.Element#getOb()
-   * @see #getElement()
-   * @generated
-   */
-  EAttribute getElement_Ob();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.Element#getD <em>D</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>D</em>'.
-   * @see org.xtext.example.sml.sml.Element#getD()
-   * @see #getElement()
-   * @generated
-   */
-  EReference getElement_D();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Object <em>Object</em>}'.
@@ -2850,166 +2762,125 @@ public interface SmlPackage extends EPackage
   EClass getDimension();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Dimension1 <em>Dimension1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dimension1</em>'.
-   * @see org.xtext.example.sml.sml.Dimension1
-   * @generated
-   */
-  EClass getDimension1();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension1#getR <em>R</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getR <em>R</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>R</em>'.
-   * @see org.xtext.example.sml.sml.Dimension1#getR()
-   * @see #getDimension1()
+   * @see org.xtext.example.sml.sml.Dimension#getR()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension1_R();
+  EAttribute getDimension_R();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension1#getM1 <em>M1</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM1 <em>M1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M1</em>'.
-   * @see org.xtext.example.sml.sml.Dimension1#getM1()
-   * @see #getDimension1()
+   * @see org.xtext.example.sml.sml.Dimension#getM1()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension1_M1();
+  EAttribute getDimension_M1();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension1#getH <em>H</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getH <em>H</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>H</em>'.
-   * @see org.xtext.example.sml.sml.Dimension1#getH()
-   * @see #getDimension1()
+   * @see org.xtext.example.sml.sml.Dimension#getH()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension1_H();
+  EAttribute getDimension_H();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension1#getM2 <em>M2</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM2 <em>M2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M2</em>'.
-   * @see org.xtext.example.sml.sml.Dimension1#getM2()
-   * @see #getDimension1()
+   * @see org.xtext.example.sml.sml.Dimension#getM2()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension1_M2();
+  EAttribute getDimension_M2();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Dimension2 <em>Dimension2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dimension2</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2
-   * @generated
-   */
-  EClass getDimension2();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getL <em>L</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getL <em>L</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>L</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getL()
-   * @see #getDimension2()
+   * @see org.xtext.example.sml.sml.Dimension#getL()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension2_L();
+  EAttribute getDimension_L();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getM3 <em>M3</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM3 <em>M3</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M3</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getM3()
-   * @see #getDimension2()
+   * @see org.xtext.example.sml.sml.Dimension#getM3()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension2_M3();
+  EAttribute getDimension_M3();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getW <em>W</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getW <em>W</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>W</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getW()
-   * @see #getDimension2()
+   * @see org.xtext.example.sml.sml.Dimension#getW()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension2_W();
+  EAttribute getDimension_W();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getM4 <em>M4</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM4 <em>M4</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M4</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getM4()
-   * @see #getDimension2()
+   * @see org.xtext.example.sml.sml.Dimension#getM4()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension2_M4();
+  EAttribute getDimension_M4();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getH <em>H</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>H</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getH()
-   * @see #getDimension2()
-   * @generated
-   */
-  EAttribute getDimension2_H();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension2#getM5 <em>M5</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM5 <em>M5</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M5</em>'.
-   * @see org.xtext.example.sml.sml.Dimension2#getM5()
-   * @see #getDimension2()
+   * @see org.xtext.example.sml.sml.Dimension#getM5()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension2_M5();
+  EAttribute getDimension_M5();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.sml.sml.Dimension3 <em>Dimension3</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dimension3</em>'.
-   * @see org.xtext.example.sml.sml.Dimension3
-   * @generated
-   */
-  EClass getDimension3();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension3#getS <em>S</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getS <em>S</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>S</em>'.
-   * @see org.xtext.example.sml.sml.Dimension3#getS()
-   * @see #getDimension3()
+   * @see org.xtext.example.sml.sml.Dimension#getS()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension3_S();
+  EAttribute getDimension_S();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension3#getM6 <em>M6</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Dimension#getM6 <em>M6</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>M6</em>'.
-   * @see org.xtext.example.sml.sml.Dimension3#getM6()
-   * @see #getDimension3()
+   * @see org.xtext.example.sml.sml.Dimension#getM6()
+   * @see #getDimension()
    * @generated
    */
-  EAttribute getDimension3_M6();
+  EAttribute getDimension_M6();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Coordinate2D <em>Coordinate2 D</em>}'.
@@ -3177,6 +3048,37 @@ public interface SmlPackage extends EPackage
    * @generated
    */
   EAttribute getInterval_M();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.ArithmeticExpression <em>Arithmetic Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Arithmetic Expression</em>'.
+   * @see org.xtext.example.sml.sml.ArithmeticExpression
+   * @generated
+   */
+  EClass getArithmeticExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sml.sml.BoolLiteral <em>Bool Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Bool Literal</em>'.
+   * @see org.xtext.example.sml.sml.BoolLiteral
+   * @generated
+   */
+  EClass getBoolLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.BoolLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.example.sml.sml.BoolLiteral#getValue()
+   * @see #getBoolLiteral()
+   * @generated
+   */
+  EAttribute getBoolLiteral_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3730,12 +3632,12 @@ public interface SmlPackage extends EPackage
     EReference ELEMENT_DESCRIPTION__X = eINSTANCE.getElementDescription_X();
 
     /**
-     * The meta object literal for the '<em><b>Obj</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Obj</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ELEMENT_DESCRIPTION__OBJ = eINSTANCE.getElementDescription_Obj();
+    EAttribute ELEMENT_DESCRIPTION__OBJ = eINSTANCE.getElementDescription_Obj();
 
     /**
      * The meta object literal for the '<em><b>R</b></em>' containment reference feature.
@@ -3744,32 +3646,6 @@ public interface SmlPackage extends EPackage
      * @generated
      */
     EReference ELEMENT_DESCRIPTION__R = eINSTANCE.getElementDescription_R();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ElementImpl <em>Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.sml.sml.impl.ElementImpl
-     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getElement()
-     * @generated
-     */
-    EClass ELEMENT = eINSTANCE.getElement();
-
-    /**
-     * The meta object literal for the '<em><b>Ob</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENT__OB = eINSTANCE.getElement_Ob();
-
-    /**
-     * The meta object literal for the '<em><b>D</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ELEMENT__D = eINSTANCE.getElement_D();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ObjectImpl <em>Object</em>}' class.
@@ -4060,22 +3936,12 @@ public interface SmlPackage extends EPackage
     EClass DIMENSION = eINSTANCE.getDimension();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.Dimension1Impl <em>Dimension1</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.sml.sml.impl.Dimension1Impl
-     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension1()
-     * @generated
-     */
-    EClass DIMENSION1 = eINSTANCE.getDimension1();
-
-    /**
      * The meta object literal for the '<em><b>R</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION1__R = eINSTANCE.getDimension1_R();
+    EAttribute DIMENSION__R = eINSTANCE.getDimension_R();
 
     /**
      * The meta object literal for the '<em><b>M1</b></em>' attribute feature.
@@ -4083,7 +3949,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION1__M1 = eINSTANCE.getDimension1_M1();
+    EAttribute DIMENSION__M1 = eINSTANCE.getDimension_M1();
 
     /**
      * The meta object literal for the '<em><b>H</b></em>' attribute feature.
@@ -4091,7 +3957,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION1__H = eINSTANCE.getDimension1_H();
+    EAttribute DIMENSION__H = eINSTANCE.getDimension_H();
 
     /**
      * The meta object literal for the '<em><b>M2</b></em>' attribute feature.
@@ -4099,17 +3965,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION1__M2 = eINSTANCE.getDimension1_M2();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.Dimension2Impl <em>Dimension2</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.sml.sml.impl.Dimension2Impl
-     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension2()
-     * @generated
-     */
-    EClass DIMENSION2 = eINSTANCE.getDimension2();
+    EAttribute DIMENSION__M2 = eINSTANCE.getDimension_M2();
 
     /**
      * The meta object literal for the '<em><b>L</b></em>' attribute feature.
@@ -4117,7 +3973,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION2__L = eINSTANCE.getDimension2_L();
+    EAttribute DIMENSION__L = eINSTANCE.getDimension_L();
 
     /**
      * The meta object literal for the '<em><b>M3</b></em>' attribute feature.
@@ -4125,7 +3981,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION2__M3 = eINSTANCE.getDimension2_M3();
+    EAttribute DIMENSION__M3 = eINSTANCE.getDimension_M3();
 
     /**
      * The meta object literal for the '<em><b>W</b></em>' attribute feature.
@@ -4133,7 +3989,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION2__W = eINSTANCE.getDimension2_W();
+    EAttribute DIMENSION__W = eINSTANCE.getDimension_W();
 
     /**
      * The meta object literal for the '<em><b>M4</b></em>' attribute feature.
@@ -4141,15 +3997,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION2__M4 = eINSTANCE.getDimension2_M4();
-
-    /**
-     * The meta object literal for the '<em><b>H</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DIMENSION2__H = eINSTANCE.getDimension2_H();
+    EAttribute DIMENSION__M4 = eINSTANCE.getDimension_M4();
 
     /**
      * The meta object literal for the '<em><b>M5</b></em>' attribute feature.
@@ -4157,17 +4005,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION2__M5 = eINSTANCE.getDimension2_M5();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.Dimension3Impl <em>Dimension3</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.sml.sml.impl.Dimension3Impl
-     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getDimension3()
-     * @generated
-     */
-    EClass DIMENSION3 = eINSTANCE.getDimension3();
+    EAttribute DIMENSION__M5 = eINSTANCE.getDimension_M5();
 
     /**
      * The meta object literal for the '<em><b>S</b></em>' attribute feature.
@@ -4175,7 +4013,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION3__S = eINSTANCE.getDimension3_S();
+    EAttribute DIMENSION__S = eINSTANCE.getDimension_S();
 
     /**
      * The meta object literal for the '<em><b>M6</b></em>' attribute feature.
@@ -4183,7 +4021,7 @@ public interface SmlPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIMENSION3__M6 = eINSTANCE.getDimension3_M6();
+    EAttribute DIMENSION__M6 = eINSTANCE.getDimension_M6();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.Coordinate2DImpl <em>Coordinate2 D</em>}' class.
@@ -4330,6 +4168,34 @@ public interface SmlPackage extends EPackage
      * @generated
      */
     EAttribute INTERVAL__M = eINSTANCE.getInterval_M();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl <em>Arithmetic Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.ArithmeticExpressionImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getArithmeticExpression()
+     * @generated
+     */
+    EClass ARITHMETIC_EXPRESSION = eINSTANCE.getArithmeticExpression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sml.sml.impl.BoolLiteralImpl
+     * @see org.xtext.example.sml.sml.impl.SmlPackageImpl#getBoolLiteral()
+     * @generated
+     */
+    EClass BOOL_LITERAL = eINSTANCE.getBoolLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOL_LITERAL__VALUE = eINSTANCE.getBoolLiteral_Value();
 
   }
 

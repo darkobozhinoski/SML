@@ -30,7 +30,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//MissionSpecification/ob"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//MissionTime">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//MissionTime/t"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//MissionTime/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//MissionTime/m"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Mission">
@@ -84,12 +84,8 @@
     <genClasses ecoreClass="Sml.ecore#//ElementDescription">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//ElementDescription/el"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/x"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/obj"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//ElementDescription/obj"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/r"/>
-    </genClasses>
-    <genClasses ecoreClass="Sml.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Element/ob"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//Element/d"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Object">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Object/obj"/>
@@ -133,24 +129,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//DefinitionThree/ax"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//DefinitionThree/r"/>
     </genClasses>
-    <genClasses ecoreClass="Sml.ecore#//Dimension"/>
-    <genClasses ecoreClass="Sml.ecore#//Dimension1">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension1/r"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension1/m1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension1/h"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension1/m2"/>
-    </genClasses>
-    <genClasses ecoreClass="Sml.ecore#//Dimension2">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/l"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/m3"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/w"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/m4"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/h"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension2/m5"/>
-    </genClasses>
-    <genClasses ecoreClass="Sml.ecore#//Dimension3">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension3/s"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension3/m6"/>
+    <genClasses ecoreClass="Sml.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/r"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/h"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/l"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/w"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m4"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m5"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/s"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Dimension/m6"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Coordinate2D">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Coordinate2D/x"/>
@@ -171,6 +161,10 @@
     <genClasses ecoreClass="Sml.ecore#//UpperorEqualbound"/>
     <genClasses ecoreClass="Sml.ecore#//Interval">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Interval/m"/>
+    </genClasses>
+    <genClasses ecoreClass="Sml.ecore#//ArithmeticExpression"/>
+    <genClasses ecoreClass="Sml.ecore#//BoolLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//BoolLiteral/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

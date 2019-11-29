@@ -20,7 +20,7 @@ Swarmconf: 'The' 'robot' 'swarm' 'consists' 'of' x=Range r=Robot pr=Probabilisti
 
 MissionSpecification: m=Mission mt=MissionTime ob=MissionObjective ;
 
-MissionTime: 'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
+MissionTime: 'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range m=Metric;
 Mission: 'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task;
 Task:
     Aggregate | Migration | Foraging 
@@ -92,7 +92,7 @@ Condition:
 ;
 
 Time:
-	x=Range | 'beggining' 'of' 'the' 'mission' |'end' 'of' 'the' 'mission'
+	x=Literal | 'beggining' 'of' 'the' 'mission' |'end' 'of' 'the' 'mission'
 ;
 
 
@@ -115,12 +115,9 @@ ElementDescription:
 	el='There' 'are'  x=Range obj=Element r=ProbabilisticDecription
 ;
 Element:
-	ob=El 'with' 'dimensions' ':' d=Dimension2
-;
-
-El:
 	'objects' | 'obstacles' | 'light' 'sources' | 'patch'
 ;
+
 Object:
 	obj='An' 'object' 'as' 'a' r=Region
 ;
@@ -191,20 +188,8 @@ Axis:
 //;
 
 Dimension:
-	Dimension1 | Dimension2 | Dimension3
+	'radius' r=Double m1=Metric  ('and' 'height' h=Double m2=Metric)? |  'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?  | 'side' s=Double m6=Metric
 ;
-
-
-Dimension1: 
-	'radius' r=Double m1=Metric  ('and' 'height' h=Double m2=Metric)?
-;
- 
-Dimension2:
- 'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
-
- Dimension3:    
-  	'side' s=Double m6=Metric
-  ;
 
 //Dimension:
 	//CircleD | RectangleD | SquareD
@@ -260,11 +245,11 @@ UpperorEqualbound:
 	'more' 'or' 'equal' 'than' n=Double;
 //
 Interval:
-	 n=Double 'to' m=Double;
+	 m=Double 'to' n=Double;
 	
 	
-//Literal returns ArithmeticExpression:
-	//'IntLiteral' | 'RealLiteral'  | BoolLiteral;
+Literal returns ArithmeticExpression:
+	'IntLiteral' | 'RealLiteral'  | BoolLiteral;
 
 //IntLiteral:
 	//value=SignedInt;
@@ -273,8 +258,8 @@ Interval:
 	//value=SignedReal;
 	
 	
-//BoolLiteral:
-	//value=('true'|'false');
+BoolLiteral:
+	value=('true'|'false');
 
 //SignedInt returns ecore::EInt:
 	//'-'? INT;

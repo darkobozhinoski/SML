@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
+import org.xtext.example.sml.sml.BoolLiteral;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
@@ -22,10 +24,6 @@ import org.xtext.example.sml.sml.DefinitionOne;
 import org.xtext.example.sml.sml.DefinitionThree;
 import org.xtext.example.sml.sml.DefinitionTwo;
 import org.xtext.example.sml.sml.Dimension;
-import org.xtext.example.sml.sml.Dimension1;
-import org.xtext.example.sml.sml.Dimension2;
-import org.xtext.example.sml.sml.Dimension3;
-import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
@@ -242,13 +240,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass elementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass objectEClass = null;
 
   /**
@@ -333,27 +324,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass dimension1EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dimension2EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass dimension3EClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass coordinate2DEClass = null;
 
   /**
@@ -411,6 +381,20 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   private EClass intervalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arithmeticExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boolLiteralEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1141,9 +1125,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EReference getElementDescription_Obj()
+  public EAttribute getElementDescription_Obj()
   {
-    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)elementDescriptionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1155,39 +1139,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   public EReference getElementDescription_R()
   {
     return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getElement()
-  {
-    return elementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getElement_Ob()
-  {
-    return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getElement_D()
-  {
-    return (EReference)elementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1559,9 +1510,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getDimension1()
+  public EAttribute getDimension_R()
   {
-    return dimension1EClass;
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1570,9 +1521,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension1_R()
+  public EAttribute getDimension_M1()
   {
-    return (EAttribute)dimension1EClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1581,9 +1532,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension1_M1()
+  public EAttribute getDimension_H()
   {
-    return (EAttribute)dimension1EClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1592,9 +1543,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension1_H()
+  public EAttribute getDimension_M2()
   {
-    return (EAttribute)dimension1EClass.getEStructuralFeatures().get(2);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1603,9 +1554,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension1_M2()
+  public EAttribute getDimension_L()
   {
-    return (EAttribute)dimension1EClass.getEStructuralFeatures().get(3);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1614,9 +1565,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EClass getDimension2()
+  public EAttribute getDimension_M3()
   {
-    return dimension2EClass;
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1625,9 +1576,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension2_L()
+  public EAttribute getDimension_W()
   {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(0);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1636,9 +1587,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension2_M3()
+  public EAttribute getDimension_M4()
   {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1647,9 +1598,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension2_W()
+  public EAttribute getDimension_M5()
   {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(2);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1658,9 +1609,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension2_M4()
+  public EAttribute getDimension_S()
   {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(3);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -1669,53 +1620,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getDimension2_H()
+  public EAttribute getDimension_M6()
   {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDimension2_M5()
-  {
-    return (EAttribute)dimension2EClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getDimension3()
-  {
-    return dimension3EClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDimension3_S()
-  {
-    return (EAttribute)dimension3EClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getDimension3_M6()
-  {
-    return (EAttribute)dimension3EClass.getEStructuralFeatures().get(1);
+    return (EAttribute)dimensionEClass.getEStructuralFeatures().get(10);
   }
 
   /**
@@ -1900,6 +1807,39 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
+  public EClass getArithmeticExpression()
+  {
+    return arithmeticExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBoolLiteral()
+  {
+    return boolLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBoolLiteral_Value()
+  {
+    return (EAttribute)boolLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SmlFactory getSmlFactory()
   {
     return (SmlFactory)getEFactoryInstance();
@@ -2008,12 +1948,8 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     elementDescriptionEClass = createEClass(ELEMENT_DESCRIPTION);
     createEAttribute(elementDescriptionEClass, ELEMENT_DESCRIPTION__EL);
     createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__X);
-    createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__OBJ);
+    createEAttribute(elementDescriptionEClass, ELEMENT_DESCRIPTION__OBJ);
     createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__R);
-
-    elementEClass = createEClass(ELEMENT);
-    createEAttribute(elementEClass, ELEMENT__OB);
-    createEReference(elementEClass, ELEMENT__D);
 
     objectEClass = createEClass(OBJECT);
     createEAttribute(objectEClass, OBJECT__OBJ);
@@ -2059,24 +1995,17 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     createEReference(definitionThreeEClass, DEFINITION_THREE__R);
 
     dimensionEClass = createEClass(DIMENSION);
-
-    dimension1EClass = createEClass(DIMENSION1);
-    createEAttribute(dimension1EClass, DIMENSION1__R);
-    createEAttribute(dimension1EClass, DIMENSION1__M1);
-    createEAttribute(dimension1EClass, DIMENSION1__H);
-    createEAttribute(dimension1EClass, DIMENSION1__M2);
-
-    dimension2EClass = createEClass(DIMENSION2);
-    createEAttribute(dimension2EClass, DIMENSION2__L);
-    createEAttribute(dimension2EClass, DIMENSION2__M3);
-    createEAttribute(dimension2EClass, DIMENSION2__W);
-    createEAttribute(dimension2EClass, DIMENSION2__M4);
-    createEAttribute(dimension2EClass, DIMENSION2__H);
-    createEAttribute(dimension2EClass, DIMENSION2__M5);
-
-    dimension3EClass = createEClass(DIMENSION3);
-    createEAttribute(dimension3EClass, DIMENSION3__S);
-    createEAttribute(dimension3EClass, DIMENSION3__M6);
+    createEAttribute(dimensionEClass, DIMENSION__R);
+    createEAttribute(dimensionEClass, DIMENSION__M1);
+    createEAttribute(dimensionEClass, DIMENSION__H);
+    createEAttribute(dimensionEClass, DIMENSION__M2);
+    createEAttribute(dimensionEClass, DIMENSION__L);
+    createEAttribute(dimensionEClass, DIMENSION__M3);
+    createEAttribute(dimensionEClass, DIMENSION__W);
+    createEAttribute(dimensionEClass, DIMENSION__M4);
+    createEAttribute(dimensionEClass, DIMENSION__M5);
+    createEAttribute(dimensionEClass, DIMENSION__S);
+    createEAttribute(dimensionEClass, DIMENSION__M6);
 
     coordinate2DEClass = createEClass(COORDINATE2_D);
     createEAttribute(coordinate2DEClass, COORDINATE2_D__X);
@@ -2102,6 +2031,11 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
 
     intervalEClass = createEClass(INTERVAL);
     createEAttribute(intervalEClass, INTERVAL__M);
+
+    arithmeticExpressionEClass = createEClass(ARITHMETIC_EXPRESSION);
+
+    boolLiteralEClass = createEClass(BOOL_LITERAL);
+    createEAttribute(boolLiteralEClass, BOOL_LITERAL__VALUE);
   }
 
   /**
@@ -2149,15 +2083,13 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     definitionOneEClass.getESuperTypes().add(this.getRegionDefinition());
     definitionTwoEClass.getESuperTypes().add(this.getRegionDefinition());
     definitionThreeEClass.getESuperTypes().add(this.getRegionDefinition());
-    dimension1EClass.getESuperTypes().add(this.getDimension());
-    dimension2EClass.getESuperTypes().add(this.getDimension());
-    dimension3EClass.getESuperTypes().add(this.getDimension());
     constantSizeEClass.getESuperTypes().add(this.getRange());
     lowerboundEClass.getESuperTypes().add(this.getRange());
     lowerorEqualboundEClass.getESuperTypes().add(this.getRange());
     upperboundEClass.getESuperTypes().add(this.getRange());
     upperorEqualboundEClass.getESuperTypes().add(this.getRange());
     intervalEClass.getESuperTypes().add(this.getRange());
+    boolLiteralEClass.getESuperTypes().add(this.getArithmeticExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2184,7 +2116,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getMissionSpecification_Ob(), this.getMissionObjective(), null, "ob", null, 0, 1, MissionSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(missionTimeEClass, MissionTime.class, "MissionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMissionTime_T(), this.getRange(), null, "t", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMissionTime_T(), this.getRange(), null, "T", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMissionTime_M(), ecorePackage.getEString(), "m", null, 0, 1, MissionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(missionEClass, Mission.class, "Mission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2234,7 +2166,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getCondition_Nest(), this.getRegion(), null, "nest", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTime_X(), this.getRange(), null, "x", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTime_X(), this.getArithmeticExpression(), null, "x", null, 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(environmentElementsEClass, EnvironmentElements.class, "EnvironmentElements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2243,12 +2175,8 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEClass(elementDescriptionEClass, ElementDescription.class, "ElementDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElementDescription_El(), ecorePackage.getEString(), "el", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDescription_X(), this.getRange(), null, "x", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElementDescription_Obj(), this.getElement(), null, "obj", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElementDescription_Obj(), ecorePackage.getEString(), "obj", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDescription_R(), this.getProbabilisticDecription(), null, "r", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElement_Ob(), ecorePackage.getEString(), "ob", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getElement_D(), this.getDimension2(), null, "d", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(objectEClass, org.xtext.example.sml.sml.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getObject_Obj(), ecorePackage.getEString(), "obj", null, 0, 1, org.xtext.example.sml.sml.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2294,24 +2222,17 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEReference(getDefinitionThree_R(), this.getRange(), null, "r", null, 0, 1, DefinitionThree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(dimension1EClass, Dimension1.class, "Dimension1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDimension1_R(), ecorePackage.getEString(), "r", null, 0, 1, Dimension1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension1_M1(), ecorePackage.getEString(), "m1", null, 0, 1, Dimension1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension1_H(), ecorePackage.getEString(), "h", null, 0, 1, Dimension1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension1_M2(), ecorePackage.getEString(), "m2", null, 0, 1, Dimension1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dimension2EClass, Dimension2.class, "Dimension2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDimension2_L(), ecorePackage.getEString(), "l", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension2_M3(), ecorePackage.getEString(), "m3", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension2_W(), ecorePackage.getEString(), "w", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension2_M4(), ecorePackage.getEString(), "m4", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension2_H(), ecorePackage.getEString(), "h", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension2_M5(), ecorePackage.getEString(), "m5", null, 0, 1, Dimension2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(dimension3EClass, Dimension3.class, "Dimension3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDimension3_S(), ecorePackage.getEString(), "s", null, 0, 1, Dimension3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDimension3_M6(), ecorePackage.getEString(), "m6", null, 0, 1, Dimension3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_R(), ecorePackage.getEString(), "r", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M1(), ecorePackage.getEString(), "m1", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_H(), ecorePackage.getEString(), "h", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M2(), ecorePackage.getEString(), "m2", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_L(), ecorePackage.getEString(), "l", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M3(), ecorePackage.getEString(), "m3", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_W(), ecorePackage.getEString(), "w", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M4(), ecorePackage.getEString(), "m4", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M5(), ecorePackage.getEString(), "m5", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_S(), ecorePackage.getEString(), "s", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDimension_M6(), ecorePackage.getEString(), "m6", null, 0, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(coordinate2DEClass, Coordinate2D.class, "Coordinate2D", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCoordinate2D_X(), ecorePackage.getEString(), "x", null, 0, 1, Coordinate2D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2337,6 +2258,11 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
 
     initEClass(intervalEClass, Interval.class, "Interval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInterval_M(), ecorePackage.getEString(), "m", null, 0, 1, Interval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arithmeticExpressionEClass, ArithmeticExpression.class, "ArithmeticExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(boolLiteralEClass, BoolLiteral.class, "BoolLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoolLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
