@@ -407,10 +407,7 @@ public class SmlGenerator extends AbstractGenerator {
     _builder.append("\" max_trials=\"100\">");
     _builder.newLineIfNotEmpty();
     _builder.append("\t                 ");
-    _builder.append("<box  \"");
-    String _string = Boolean.valueOf(this.check(ed.getObj().getOb())).toString();
-    _builder.append(_string, "\t                 ");
-    _builder.append("\" id=\"b");
+    _builder.append("<box   id=\"b");
     double _random = Math.random();
     double _multiply = (_random * 100);
     _builder.append(_multiply, "\t                 ");
@@ -421,10 +418,13 @@ public class SmlGenerator extends AbstractGenerator {
         RegionDefinition _region_3 = ed.getR().getK().getRegion();
         CharSequence _compile_2 = this.compile(((DefinitionOne) _region_3), false);
         _builder.append(_compile_2, "\t                 ");
-        _builder.append(" ");
+        _builder.append("   ");
       }
     }
-    _builder.append("\" movable= />");
+    _builder.append("\" movable=\"");
+    String _string = Boolean.valueOf(this.check(ed.getObj().getOb())).toString();
+    _builder.append(_string, "\t                 ");
+    _builder.append("\" />");
     _builder.newLineIfNotEmpty();
     _builder.append("\t            ");
     _builder.append("</entity>");

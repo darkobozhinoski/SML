@@ -180,7 +180,7 @@ class SmlGenerator extends AbstractGenerator {
 	             " />«ELSEIF ed.r.dis  == "Gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
 	             <orientation method="«ed.r.dis»" «IF ed.r.dis == "uniform"» min="0,0,0" max="«ed.r.k.compile»" />«ELSEIF ed.r.dis  == "Gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
 	             <entity quantity="«ed.x.n»" max_trials="100">
-	                 <box  "«check(ed.obj.ob).toString()»" id="b«Math.random() *100»" size="«IF ed.r.k.region instanceof DefinitionOne»«(ed.r.k.region as DefinitionOne).compile(false)» «ENDIF»" movable= />
+	                 <box   id="b«Math.random() *100»" size="«IF ed.r.k.region instanceof DefinitionOne»«(ed.r.k.region as DefinitionOne).compile(false)»   «ENDIF»" movable="«check(ed.obj.ob).toString()»" />
 	            </entity>
 	           </distribute>  
 	         '''
