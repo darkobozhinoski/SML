@@ -968,6 +968,12 @@ ruleMetric returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getMetricAccess().getMKeyword_2());
 		}
+		    |
+		kw='kg'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getMetricAccess().getKgKeyword_3());
+		}
 	)
 ;
 
@@ -1901,20 +1907,10 @@ ruleElementDescription returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				lv_el_0_0='There'
-				{
-					newLeafNode(lv_el_0_0, grammarAccess.getElementDescriptionAccess().getElThereKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getElementDescriptionRule());
-					}
-					setWithLastConsumed($current, "el", lv_el_0_0, "There");
-				}
-			)
-		)
+		otherlv_0='There'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getElementDescriptionAccess().getThereKeyword_0());
+		}
 		otherlv_1='are'
 		{
 			newLeafNode(otherlv_1, grammarAccess.getElementDescriptionAccess().getAreKeyword_1());
@@ -2045,6 +2041,54 @@ ruleElement returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_5='and'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getElementAccess().getAndKeyword_5_0());
+			}
+			otherlv_6='weight'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getElementAccess().getWeightKeyword_5_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElementAccess().getWDoubleParserRuleCall_5_2_0());
+					}
+					lv_w_7_0=ruleDouble
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElementRule());
+						}
+						set(
+							$current,
+							"w",
+							lv_w_7_0,
+							"org.xtext.example.sml.Sml.Double");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getElementAccess().getSmMetricParserRuleCall_5_3_0());
+					}
+					lv_sm_8_0=ruleMetric
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getElementRule());
+						}
+						set(
+							$current,
+							"sm",
+							lv_sm_8_0,
+							"org.xtext.example.sml.Sml.Metric");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 
@@ -3172,9 +3216,9 @@ ruleDimension1 returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_3='and'
+			otherlv_3=','
 			{
-				newLeafNode(otherlv_3, grammarAccess.getDimension1Access().getAndKeyword_3_0());
+				newLeafNode(otherlv_3, grammarAccess.getDimension1Access().getCommaKeyword_3_0());
 			}
 			otherlv_4='height'
 			{
@@ -3323,9 +3367,9 @@ ruleDimension2 returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_6='and'
+			otherlv_6=','
 			{
-				newLeafNode(otherlv_6, grammarAccess.getDimension2Access().getAndKeyword_6_0());
+				newLeafNode(otherlv_6, grammarAccess.getDimension2Access().getCommaKeyword_6_0());
 			}
 			otherlv_7='height'
 			{

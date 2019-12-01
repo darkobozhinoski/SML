@@ -642,12 +642,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSecondsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cStepsKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cMKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cKgKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
 		//Metric:
-		//	'seconds' | 'steps' | 'm';
+		//	'seconds' | 'steps' | 'm' | 'kg';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'seconds' | 'steps' | 'm'
+		//'seconds' | 'steps' | 'm' | 'kg'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'seconds'
@@ -658,6 +659,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'m'
 		public Keyword getMKeyword_2() { return cMKeyword_2; }
+		
+		//'kg'
+		public Keyword getKgKeyword_3() { return cKgKeyword_3; }
 	}
 	public class MissionObjectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionObjective");
@@ -1360,8 +1364,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ElementDescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.ElementDescription");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cElAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cElThereKeyword_0_0 = (Keyword)cElAssignment_0.eContents().get(0);
+		private final Keyword cThereKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cAreKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cXAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cXRangeParserRuleCall_2_0 = (RuleCall)cXAssignment_2.eContents().get(0);
@@ -1371,17 +1374,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRProbabilisticDecriptionParserRuleCall_4_0 = (RuleCall)cRAssignment_4.eContents().get(0);
 		
 		//ElementDescription:
-		//	el='There' 'are' x=Range obj=Element r=ProbabilisticDecription;
+		//	'There' 'are' x=Range obj=Element r=ProbabilisticDecription;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//el='There' 'are' x=Range obj=Element r=ProbabilisticDecription
+		//'There' 'are' x=Range obj=Element r=ProbabilisticDecription
 		public Group getGroup() { return cGroup; }
 		
-		//el='There'
-		public Assignment getElAssignment_0() { return cElAssignment_0; }
-		
 		//'There'
-		public Keyword getElThereKeyword_0_0() { return cElThereKeyword_0_0; }
+		public Keyword getThereKeyword_0() { return cThereKeyword_0; }
 		
 		//'are'
 		public Keyword getAreKeyword_1() { return cAreKeyword_1; }
@@ -1414,12 +1414,19 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cDAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDDimension2ParserRuleCall_4_0 = (RuleCall)cDAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cAndKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Keyword cWeightKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cWAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
+		private final RuleCall cWDoubleParserRuleCall_5_2_0 = (RuleCall)cWAssignment_5_2.eContents().get(0);
+		private final Assignment cSmAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cSmMetricParserRuleCall_5_3_0 = (RuleCall)cSmAssignment_5_3.eContents().get(0);
 		
 		//Element:
-		//	ob=El 'with' 'dimensions' ':' d=Dimension2;
+		//	ob=El 'with' 'dimensions' ':' d=Dimension2 ('and' 'weight' w=Double sm=Metric)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ob=El 'with' 'dimensions' ':' d=Dimension2
+		//ob=El 'with' 'dimensions' ':' d=Dimension2 ('and' 'weight' w=Double sm=Metric)?
 		public Group getGroup() { return cGroup; }
 		
 		//ob=El
@@ -1442,6 +1449,27 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Dimension2
 		public RuleCall getDDimension2ParserRuleCall_4_0() { return cDDimension2ParserRuleCall_4_0; }
+		
+		//('and' 'weight' w=Double sm=Metric)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'and'
+		public Keyword getAndKeyword_5_0() { return cAndKeyword_5_0; }
+		
+		//'weight'
+		public Keyword getWeightKeyword_5_1() { return cWeightKeyword_5_1; }
+		
+		//w=Double
+		public Assignment getWAssignment_5_2() { return cWAssignment_5_2; }
+		
+		//Double
+		public RuleCall getWDoubleParserRuleCall_5_2_0() { return cWDoubleParserRuleCall_5_2_0; }
+		
+		//sm=Metric
+		public Assignment getSmAssignment_5_3() { return cSmAssignment_5_3; }
+		
+		//Metric
+		public RuleCall getSmMetricParserRuleCall_5_3_0() { return cSmMetricParserRuleCall_5_3_0; }
 	}
 	public class ElElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.El");
@@ -2139,7 +2167,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cM1Assignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cM1MetricParserRuleCall_2_0 = (RuleCall)cM1Assignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cAndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cHeightKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cHAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cHDoubleParserRuleCall_3_2_0 = (RuleCall)cHAssignment_3_2.eContents().get(0);
@@ -2147,10 +2175,10 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cM2MetricParserRuleCall_3_3_0 = (RuleCall)cM2Assignment_3_3.eContents().get(0);
 		
 		//Dimension1:
-		//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
+		//	'radius' r=Double m1=Metric (',' 'height' h=Double m2=Metric)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?
+		//'radius' r=Double m1=Metric (',' 'height' h=Double m2=Metric)?
 		public Group getGroup() { return cGroup; }
 		
 		//'radius'
@@ -2168,11 +2196,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Metric
 		public RuleCall getM1MetricParserRuleCall_2_0() { return cM1MetricParserRuleCall_2_0; }
 		
-		//('and' 'height' h=Double m2=Metric)?
+		//(',' 'height' h=Double m2=Metric)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'and'
-		public Keyword getAndKeyword_3_0() { return cAndKeyword_3_0; }
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
 		
 		//'height'
 		public Keyword getHeightKeyword_3_1() { return cHeightKeyword_3_1; }
@@ -2203,7 +2231,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cM4Assignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cM4MetricParserRuleCall_5_0 = (RuleCall)cM4Assignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cAndKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cCommaKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cHeightKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
 		private final Assignment cHAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
 		private final RuleCall cHDoubleParserRuleCall_6_2_0 = (RuleCall)cHAssignment_6_2.eContents().get(0);
@@ -2211,10 +2239,10 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cM5MetricParserRuleCall_6_3_0 = (RuleCall)cM5Assignment_6_3.eContents().get(0);
 		
 		//Dimension2:
-		//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+		//	'length' l=Double m3=Metric ',width' w=Double m4=Metric (',' 'height' h=Double m5=Metric)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?
+		//'length' l=Double m3=Metric ',width' w=Double m4=Metric (',' 'height' h=Double m5=Metric)?
 		public Group getGroup() { return cGroup; }
 		
 		//'length'
@@ -2247,11 +2275,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Metric
 		public RuleCall getM4MetricParserRuleCall_5_0() { return cM4MetricParserRuleCall_5_0; }
 		
-		//('and' 'height' h=Double m5=Metric)?
+		//(',' 'height' h=Double m5=Metric)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'and'
-		public Keyword getAndKeyword_6_0() { return cAndKeyword_6_0; }
+		//','
+		public Keyword getCommaKeyword_6_0() { return cCommaKeyword_6_0; }
 		
 		//'height'
 		public Keyword getHeightKeyword_6_1() { return cHeightKeyword_6_1; }
@@ -2899,7 +2927,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Metric:
-	//	'seconds' | 'steps' | 'm';
+	//	'seconds' | 'steps' | 'm' | 'kg';
 	public MetricElements getMetricAccess() {
 		return pMetric;
 	}
@@ -3066,7 +3094,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElementDescription:
-	//	el='There' 'are' x=Range obj=Element r=ProbabilisticDecription;
+	//	'There' 'are' x=Range obj=Element r=ProbabilisticDecription;
 	public ElementDescriptionElements getElementDescriptionAccess() {
 		return pElementDescription;
 	}
@@ -3076,7 +3104,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	ob=El 'with' 'dimensions' ':' d=Dimension2;
+	//	ob=El 'with' 'dimensions' ':' d=Dimension2 ('and' 'weight' w=Double sm=Metric)?;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
@@ -3262,7 +3290,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Dimension1:
-	//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
+	//	'radius' r=Double m1=Metric (',' 'height' h=Double m2=Metric)?;
 	public Dimension1Elements getDimension1Access() {
 		return pDimension1;
 	}
@@ -3272,7 +3300,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Dimension2:
-	//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+	//	'length' l=Double m3=Metric ',width' w=Double m4=Metric (',' 'height' h=Double m5=Metric)?;
 	public Dimension2Elements getDimension2Access() {
 		return pDimension2;
 	}

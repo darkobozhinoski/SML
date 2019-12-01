@@ -26,6 +26,8 @@ import org.xtext.example.sml.sml.SmlPackage;
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.impl.ElementImpl#getOb <em>Ob</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ElementImpl#getD <em>D</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ElementImpl#getW <em>W</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ElementImpl#getSm <em>Sm</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +63,46 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * @ordered
    */
   protected Dimension2 d;
+
+  /**
+   * The default value of the '{@link #getW() <em>W</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getW()
+   * @generated
+   * @ordered
+   */
+  protected static final String W_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getW() <em>W</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getW()
+   * @generated
+   * @ordered
+   */
+  protected String w = W_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSm() <em>Sm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSm()
+   * @generated
+   * @ordered
+   */
+  protected static final String SM_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSm() <em>Sm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSm()
+   * @generated
+   * @ordered
+   */
+  protected String sm = SM_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,6 +206,56 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
    * @generated
    */
   @Override
+  public String getW()
+  {
+    return w;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setW(String newW)
+  {
+    String oldW = w;
+    w = newW;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT__W, oldW, w));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSm()
+  {
+    return sm;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSm(String newSm)
+  {
+    String oldSm = sm;
+    sm = newSm;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT__SM, oldSm, sm));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -188,6 +280,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
         return getOb();
       case SmlPackage.ELEMENT__D:
         return getD();
+      case SmlPackage.ELEMENT__W:
+        return getW();
+      case SmlPackage.ELEMENT__SM:
+        return getSm();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -207,6 +303,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
         return;
       case SmlPackage.ELEMENT__D:
         setD((Dimension2)newValue);
+        return;
+      case SmlPackage.ELEMENT__W:
+        setW((String)newValue);
+        return;
+      case SmlPackage.ELEMENT__SM:
+        setSm((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -228,6 +330,12 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
       case SmlPackage.ELEMENT__D:
         setD((Dimension2)null);
         return;
+      case SmlPackage.ELEMENT__W:
+        setW(W_EDEFAULT);
+        return;
+      case SmlPackage.ELEMENT__SM:
+        setSm(SM_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -246,6 +354,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
         return OB_EDEFAULT == null ? ob != null : !OB_EDEFAULT.equals(ob);
       case SmlPackage.ELEMENT__D:
         return d != null;
+      case SmlPackage.ELEMENT__W:
+        return W_EDEFAULT == null ? w != null : !W_EDEFAULT.equals(w);
+      case SmlPackage.ELEMENT__SM:
+        return SM_EDEFAULT == null ? sm != null : !SM_EDEFAULT.equals(sm);
     }
     return super.eIsSet(featureID);
   }
@@ -263,6 +375,10 @@ public class ElementImpl extends MinimalEObjectImpl.Container implements Element
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (ob: ");
     result.append(ob);
+    result.append(", w: ");
+    result.append(w);
+    result.append(", sm: ");
+    result.append(sm);
     result.append(')');
     return result.toString();
   }

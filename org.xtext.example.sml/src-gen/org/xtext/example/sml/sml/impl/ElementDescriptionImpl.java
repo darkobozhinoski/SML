@@ -25,7 +25,6 @@ import org.xtext.example.sml.sml.SmlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.impl.ElementDescriptionImpl#getEl <em>El</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ElementDescriptionImpl#getX <em>X</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ElementDescriptionImpl#getObj <em>Obj</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ElementDescriptionImpl#getR <em>R</em>}</li>
@@ -35,26 +34,6 @@ import org.xtext.example.sml.sml.SmlPackage;
  */
 public class ElementDescriptionImpl extends EnvironmentElementsImpl implements ElementDescription
 {
-  /**
-   * The default value of the '{@link #getEl() <em>El</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEl()
-   * @generated
-   * @ordered
-   */
-  protected static final String EL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getEl() <em>El</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEl()
-   * @generated
-   * @ordered
-   */
-  protected String el = EL_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getX() <em>X</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -104,31 +83,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   protected EClass eStaticClass()
   {
     return SmlPackage.Literals.ELEMENT_DESCRIPTION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getEl()
-  {
-    return el;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setEl(String newEl)
-  {
-    String oldEl = el;
-    el = newEl;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.ELEMENT_DESCRIPTION__EL, oldEl, el));
   }
 
   /**
@@ -311,8 +265,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   {
     switch (featureID)
     {
-      case SmlPackage.ELEMENT_DESCRIPTION__EL:
-        return getEl();
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         return getX();
       case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
@@ -333,9 +285,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   {
     switch (featureID)
     {
-      case SmlPackage.ELEMENT_DESCRIPTION__EL:
-        setEl((String)newValue);
-        return;
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         setX((Range)newValue);
         return;
@@ -359,9 +308,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   {
     switch (featureID)
     {
-      case SmlPackage.ELEMENT_DESCRIPTION__EL:
-        setEl(EL_EDEFAULT);
-        return;
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         setX((Range)null);
         return;
@@ -385,8 +331,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
   {
     switch (featureID)
     {
-      case SmlPackage.ELEMENT_DESCRIPTION__EL:
-        return EL_EDEFAULT == null ? el != null : !EL_EDEFAULT.equals(el);
       case SmlPackage.ELEMENT_DESCRIPTION__X:
         return x != null;
       case SmlPackage.ELEMENT_DESCRIPTION__OBJ:
@@ -395,23 +339,6 @@ public class ElementDescriptionImpl extends EnvironmentElementsImpl implements E
         return r != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (el: ");
-    result.append(el);
-    result.append(')');
-    return result.toString();
   }
 
 } //ElementDescriptionImpl

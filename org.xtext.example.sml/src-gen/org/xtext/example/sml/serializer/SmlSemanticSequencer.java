@@ -449,12 +449,10 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ElementDescription returns ElementDescription
 	 *
 	 * Constraint:
-	 *     (el='There' x=Range obj=Element r=ProbabilisticDecription)
+	 *     (x=Range obj=Element r=ProbabilisticDecription)
 	 */
 	protected void sequence_ElementDescription(ISerializationContext context, ElementDescription semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__EL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__EL));
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__X) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__X));
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__OBJ) == ValueTransient.YES)
@@ -463,7 +461,6 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT_DESCRIPTION__R));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementDescriptionAccess().getElThereKeyword_0_0(), semanticObject.getEl());
 		feeder.accept(grammarAccess.getElementDescriptionAccess().getXRangeParserRuleCall_2_0(), semanticObject.getX());
 		feeder.accept(grammarAccess.getElementDescriptionAccess().getObjElementParserRuleCall_3_0(), semanticObject.getObj());
 		feeder.accept(grammarAccess.getElementDescriptionAccess().getRProbabilisticDecriptionParserRuleCall_4_0(), semanticObject.getR());
@@ -476,19 +473,10 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Element returns Element
 	 *
 	 * Constraint:
-	 *     (ob=El d=Dimension2)
+	 *     (ob=El d=Dimension2 (w=Double sm=Metric)?)
 	 */
 	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT__OB) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT__OB));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT__D) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT__D));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementAccess().getObElParserRuleCall_0_0(), semanticObject.getOb());
-		feeder.accept(grammarAccess.getElementAccess().getDDimension2ParserRuleCall_4_0(), semanticObject.getD());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

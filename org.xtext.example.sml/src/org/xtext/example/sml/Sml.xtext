@@ -11,7 +11,7 @@ Environment:
 
 	
 ProbabilisticDecription:
-	 'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k=[Region] 
+	 'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k= [Region] 
 ;
 Swarmconf: 'The' 'robot' 'swarm' 'consists' 'of' x=Range r=Robot pr=ProbabilisticDecription
 //('distributed' 'in' dis=Distribution 'way' 'in' k=Region )*
@@ -41,7 +41,7 @@ Foraging:
 
 
 Metric:
-	'seconds' | 'steps' | 'm'
+	'seconds' | 'steps' | 'm' | 'kg'
 ;
 
 
@@ -112,10 +112,10 @@ EnvironmentElement:
 ;
 
 ElementDescription:
-	el='There' 'are'  x=Range obj=Element r=ProbabilisticDecription
+	'There' 'are'  x=Range obj=Element r=ProbabilisticDecription
 ;
 Element:
-	ob=El 'with' 'dimensions' ':' d=Dimension2
+	ob=El 'with' 'dimensions' ':' d=Dimension2 ('and' 'weight' w=Double sm=Metric)?
 ;
 
 El:
@@ -196,11 +196,12 @@ Dimension:
 
 
 Dimension1: 
-	'radius' r=Double m1=Metric  ('and' 'height' h=Double m2=Metric)?
+	'radius' r=Double m1=Metric  (',' 'height' h=Double m2=Metric)?
 ;
  
 Dimension2:
- 'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+ 'length' l=Double m3=Metric ',width' w=Double m4=Metric (',' 'height' h=Double m5=Metric)?
+ ;
 
  Dimension3:    
   	'side' s=Double m6=Metric

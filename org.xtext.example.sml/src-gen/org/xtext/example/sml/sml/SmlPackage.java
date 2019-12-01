@@ -856,22 +856,13 @@ public interface SmlPackage extends EPackage
   int ELEMENT_DESCRIPTION = 23;
 
   /**
-   * The feature id for the '<em><b>El</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_DESCRIPTION__EL = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>X</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT_DESCRIPTION__X = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 1;
+  int ELEMENT_DESCRIPTION__X = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Obj</b></em>' containment reference.
@@ -880,7 +871,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_DESCRIPTION__OBJ = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 2;
+  int ELEMENT_DESCRIPTION__OBJ = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>R</b></em>' containment reference.
@@ -889,7 +880,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_DESCRIPTION__R = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 3;
+  int ELEMENT_DESCRIPTION__R = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Element Description</em>' class.
@@ -898,7 +889,7 @@ public interface SmlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ELEMENT_DESCRIPTION_FEATURE_COUNT = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 4;
+  int ELEMENT_DESCRIPTION_FEATURE_COUNT = ENVIRONMENT_ELEMENTS_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ElementImpl <em>Element</em>}' class.
@@ -929,13 +920,31 @@ public interface SmlPackage extends EPackage
   int ELEMENT__D = 1;
 
   /**
+   * The feature id for the '<em><b>W</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__W = 2;
+
+  /**
+   * The feature id for the '<em><b>Sm</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__SM = 3;
+
+  /**
    * The number of structural features of the '<em>Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ELEMENT_FEATURE_COUNT = 2;
+  int ELEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.example.sml.sml.impl.ObjectImpl <em>Object</em>}' class.
@@ -2423,17 +2432,6 @@ public interface SmlPackage extends EPackage
   EClass getElementDescription();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.ElementDescription#getEl <em>El</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>El</em>'.
-   * @see org.xtext.example.sml.sml.ElementDescription#getEl()
-   * @see #getElementDescription()
-   * @generated
-   */
-  EAttribute getElementDescription_El();
-
-  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.sml.sml.ElementDescription#getX <em>X</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2497,6 +2495,28 @@ public interface SmlPackage extends EPackage
    * @generated
    */
   EReference getElement_D();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Element#getW <em>W</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>W</em>'.
+   * @see org.xtext.example.sml.sml.Element#getW()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_W();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.sml.sml.Element#getSm <em>Sm</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sm</em>'.
+   * @see org.xtext.example.sml.sml.Element#getSm()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Sm();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sml.sml.Object <em>Object</em>}'.
@@ -3714,14 +3734,6 @@ public interface SmlPackage extends EPackage
     EClass ELEMENT_DESCRIPTION = eINSTANCE.getElementDescription();
 
     /**
-     * The meta object literal for the '<em><b>El</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENT_DESCRIPTION__EL = eINSTANCE.getElementDescription_El();
-
-    /**
      * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3770,6 +3782,22 @@ public interface SmlPackage extends EPackage
      * @generated
      */
     EReference ELEMENT__D = eINSTANCE.getElement_D();
+
+    /**
+     * The meta object literal for the '<em><b>W</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__W = eINSTANCE.getElement_W();
+
+    /**
+     * The meta object literal for the '<em><b>Sm</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__SM = eINSTANCE.getElement_Sm();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.sml.sml.impl.ObjectImpl <em>Object</em>}' class.

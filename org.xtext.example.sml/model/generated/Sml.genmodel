@@ -82,7 +82,6 @@
     <genClasses ecoreClass="Sml.ecore#//EnvironmentElements"/>
     <genClasses ecoreClass="Sml.ecore#//EnvironmentElement"/>
     <genClasses ecoreClass="Sml.ecore#//ElementDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//ElementDescription/el"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/x"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/obj"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//ElementDescription/r"/>
@@ -90,6 +89,8 @@
     <genClasses ecoreClass="Sml.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Element/ob"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sml.ecore#//Element/d"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Element/w"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Element/sm"/>
     </genClasses>
     <genClasses ecoreClass="Sml.ecore#//Object">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sml.ecore#//Object/obj"/>

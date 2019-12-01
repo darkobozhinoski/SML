@@ -1119,20 +1119,9 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
    * @generated
    */
   @Override
-  public EAttribute getElementDescription_El()
-  {
-    return (EAttribute)elementDescriptionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getElementDescription_X()
   {
-    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(1);
+    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1143,7 +1132,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   @Override
   public EReference getElementDescription_Obj()
   {
-    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(2);
+    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1154,7 +1143,7 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   @Override
   public EReference getElementDescription_R()
   {
-    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(3);
+    return (EReference)elementDescriptionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1188,6 +1177,28 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
   public EReference getElement_D()
   {
     return (EReference)elementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getElement_W()
+  {
+    return (EAttribute)elementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getElement_Sm()
+  {
+    return (EAttribute)elementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2006,7 +2017,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     environmentElementEClass = createEClass(ENVIRONMENT_ELEMENT);
 
     elementDescriptionEClass = createEClass(ELEMENT_DESCRIPTION);
-    createEAttribute(elementDescriptionEClass, ELEMENT_DESCRIPTION__EL);
     createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__X);
     createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__OBJ);
     createEReference(elementDescriptionEClass, ELEMENT_DESCRIPTION__R);
@@ -2014,6 +2024,8 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     elementEClass = createEClass(ELEMENT);
     createEAttribute(elementEClass, ELEMENT__OB);
     createEReference(elementEClass, ELEMENT__D);
+    createEAttribute(elementEClass, ELEMENT__W);
+    createEAttribute(elementEClass, ELEMENT__SM);
 
     objectEClass = createEClass(OBJECT);
     createEAttribute(objectEClass, OBJECT__OBJ);
@@ -2241,7 +2253,6 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEClass(environmentElementEClass, EnvironmentElement.class, "EnvironmentElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(elementDescriptionEClass, ElementDescription.class, "ElementDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElementDescription_El(), ecorePackage.getEString(), "el", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDescription_X(), this.getRange(), null, "x", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDescription_Obj(), this.getElement(), null, "obj", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElementDescription_R(), this.getProbabilisticDecription(), null, "r", null, 0, 1, ElementDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2249,6 +2260,8 @@ public class SmlPackageImpl extends EPackageImpl implements SmlPackage
     initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getElement_Ob(), ecorePackage.getEString(), "ob", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getElement_D(), this.getDimension2(), null, "d", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElement_W(), ecorePackage.getEString(), "w", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElement_Sm(), ecorePackage.getEString(), "sm", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(objectEClass, org.xtext.example.sml.sml.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getObject_Obj(), ecorePackage.getEString(), "obj", null, 0, 1, org.xtext.example.sml.sml.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

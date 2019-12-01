@@ -94,7 +94,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="EnvironmentElements"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnvironmentElement" eSuperTypes="#//EnvironmentElements"/>
   <eClassifiers xsi:type="ecore:EClass" name="ElementDescription" eSuperTypes="#//EnvironmentElements">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="el" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="x" eType="#//Range" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="obj" eType="#//Element"
         containment="true"/>
@@ -105,6 +104,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ob" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="d" eType="#//Dimension2"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="w" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//EnvironmentElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="obj" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

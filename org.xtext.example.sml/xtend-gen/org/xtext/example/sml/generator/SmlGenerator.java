@@ -24,6 +24,7 @@ import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.Dimension1;
 import org.xtext.example.sml.sml.Dimension2;
 import org.xtext.example.sml.sml.Dimension3;
+import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
@@ -105,8 +106,15 @@ public class SmlGenerator extends AbstractGenerator {
     String _n = model.getSw().getX().getN();
     _builder.append(_n, "          ");
     _builder.append("\" m_min_robots=\"");
-    CharSequence _compile_1 = this.compile(model.getSw().getX());
-    _builder.append(_compile_1, "          ");
+    {
+      Range _x = model.getSw().getX();
+      if ((_x instanceof Interval)) {
+        Range _x_1 = model.getSw().getX();
+        String _m = ((Interval) _x_1).getM();
+        _builder.append(_m, "          ");
+        _builder.append(" ");
+      }
+    }
     _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
     _builder.append("         ");
@@ -216,8 +224,8 @@ public class SmlGenerator extends AbstractGenerator {
       Arena _arenas = model.getArenas();
       boolean _tripleNotEquals = (_arenas != null);
       if (_tripleNotEquals) {
-        CharSequence _compile_2 = this.compile(model.getEnv());
-        _builder.append(_compile_2, "      ");
+        CharSequence _compile_1 = this.compile(model.getEnv());
+        _builder.append(_compile_1, "      ");
         _builder.append(" ");
       }
     }
@@ -227,8 +235,8 @@ public class SmlGenerator extends AbstractGenerator {
       Arena _arenas_1 = model.getArenas();
       boolean _tripleNotEquals_1 = (_arenas_1 != null);
       if (_tripleNotEquals_1) {
-        CharSequence _compile_3 = this.compile(model.getSw());
-        _builder.append(_compile_3, "      ");
+        CharSequence _compile_2 = this.compile(model.getSw());
+        _builder.append(_compile_2, "      ");
         _builder.append(" ");
       }
     }
@@ -412,16 +420,20 @@ public class SmlGenerator extends AbstractGenerator {
     double _multiply = (_random * 100);
     _builder.append(_multiply, "\t                 ");
     _builder.append("\" size=\"");
+    CharSequence _compile_2 = this.compile(ed.getObj().getD());
+    _builder.append(_compile_2, "\t                 ");
+    _builder.append("\" \'");
     {
-      RegionDefinition _region_2 = ed.getR().getK().getRegion();
-      if ((_region_2 instanceof DefinitionOne)) {
-        RegionDefinition _region_3 = ed.getR().getK().getRegion();
-        CharSequence _compile_2 = this.compile(((DefinitionOne) _region_3), false);
-        _builder.append(_compile_2, "\t                 ");
-        _builder.append("   ");
+      Element _obj = ed.getObj();
+      boolean _tripleNotEquals = (_obj != null);
+      if (_tripleNotEquals) {
+        _builder.append(" mass=\"");
+        String _w = ed.getObj().getW();
+        _builder.append(_w, "\t                 ");
+        _builder.append("\"");
       }
     }
-    _builder.append("\" movable=\"");
+    _builder.append(" movable=\"");
     String _string = Boolean.valueOf(this.check(ed.getObj().getOb())).toString();
     _builder.append(_string, "\t                 ");
     _builder.append("\" />");
@@ -464,14 +476,39 @@ public class SmlGenerator extends AbstractGenerator {
   public CharSequence compile(final DefinitionOne defone, final boolean referencepoint) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      if (referencepoint) {
+      if ((referencepoint == true)) {
         Position _referencepoint = defone.getReferencepoint();
         _builder.append(_referencepoint);
         _builder.newLineIfNotEmpty();
         _builder.append("\t \t ");
       } else {
-        Dimension _dimensions = defone.getDimensions();
-        _builder.append(_dimensions);
+        CharSequence _compile = this.compile(defone.getDimensions());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Dimension en) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((en instanceof Dimension3)) {
+        _builder.newLineIfNotEmpty();
+        CharSequence _compile = this.compile(((Dimension3) en));
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((en instanceof Dimension2)) {
+          CharSequence _compile_1 = this.compile(((Dimension2) en));
+          _builder.append(_compile_1);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((en instanceof Dimension1)) {
+            CharSequence _compile_2 = this.compile(((Dimension1) en));
+            _builder.append(_compile_2);
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     return _builder;

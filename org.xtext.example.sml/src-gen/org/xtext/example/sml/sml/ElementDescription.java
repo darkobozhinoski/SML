@@ -13,7 +13,6 @@ package org.xtext.example.sml.sml;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.ElementDescription#getEl <em>El</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.ElementDescription#getX <em>X</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.ElementDescription#getObj <em>Obj</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.ElementDescription#getR <em>R</em>}</li>
@@ -25,32 +24,6 @@ package org.xtext.example.sml.sml;
  */
 public interface ElementDescription extends EnvironmentElements
 {
-  /**
-   * Returns the value of the '<em><b>El</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>El</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>El</em>' attribute.
-   * @see #setEl(String)
-   * @see org.xtext.example.sml.sml.SmlPackage#getElementDescription_El()
-   * @model
-   * @generated
-   */
-  String getEl();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.ElementDescription#getEl <em>El</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>El</em>' attribute.
-   * @see #getEl()
-   * @generated
-   */
-  void setEl(String value);
-
   /**
    * Returns the value of the '<em><b>X</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -90,7 +90,7 @@ class SmlGenerator extends AbstractGenerator {
          <!-- * Loop functions * -->
          <!-- ****************** -->
          <loop_functions library="PATH_TO_LIB/libchocolate_mission1_loopfunc.dylib" label="chocolate_mission1_loop_functions">
-          <params dist_radius="1.2" number_robots="«model.sw.x.n»" m_min_robots="«model.sw.x.compile»"/>
+          <params dist_radius="1.2" number_robots="«model.sw.x.n»" m_min_robots="«IF model.sw.x instanceof Interval»«(model.sw.x as Interval).m» «ENDIF»"/>
          </loop_functions>
        
          <!-- *************** -->
@@ -180,7 +180,7 @@ class SmlGenerator extends AbstractGenerator {
 	             " />«ELSEIF ed.r.dis  == "Gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
 	             <orientation method="«ed.r.dis»" «IF ed.r.dis == "uniform"» min="0,0,0" max="«ed.r.k.compile»" />«ELSEIF ed.r.dis  == "Gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
 	             <entity quantity="«ed.x.n»" max_trials="100">
-	                 <box   id="b«Math.random() *100»" size="«IF ed.r.k.region instanceof DefinitionOne»«(ed.r.k.region as DefinitionOne).compile(false)»   «ENDIF»" movable="«check(ed.obj.ob).toString()»" />
+	                 <box   id="b«Math.random() *100»" size="«ed.obj.d.compile»" '«IF ed.obj !== null» mass="«ed.obj.w»"«ENDIF» movable="«check(ed.obj.ob).toString()»" />
 	            </entity>
 	           </distribute>  
 	         '''
@@ -200,9 +200,21 @@ class SmlGenerator extends AbstractGenerator {
 	  
 	     
 	 def compile(DefinitionOne defone,boolean referencepoint)	  
-	  '''«IF referencepoint»«defone.referencepoint»
-	 	 «ELSE»«defone.dimensions»«ENDIF»'''      
-	       	     
+	  '''«IF referencepoint==true»«defone.referencepoint»
+	 	 «ELSE»«defone.dimensions.compile»«ENDIF»'''      
+	 
+	 
+	 
+	   def compile(Dimension en) {
+	       	'''«IF en instanceof Dimension3»
+	       		       	  «(en as Dimension3).compile»
+	       		       	   «ELSEIF en instanceof Dimension2»
+	       		       	   «(en as Dimension2).compile»
+	       		       	   «ELSEIF en instanceof Dimension1»
+	       		       	 «(en as Dimension1).compile»
+	       		       	   «ENDIF»
+	       	   '''
+	       }   	     
 
 	 def compile(Arena A) 
 	           '''«IF A !== null»<arena size= center=2.0">

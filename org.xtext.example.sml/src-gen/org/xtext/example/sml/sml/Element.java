@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.Element#getOb <em>Ob</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.Element#getD <em>D</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Element#getW <em>W</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Element#getSm <em>Sm</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getElement()
@@ -75,5 +77,57 @@ public interface Element extends EObject
    * @generated
    */
   void setD(Dimension2 value);
+
+  /**
+   * Returns the value of the '<em><b>W</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>W</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>W</em>' attribute.
+   * @see #setW(String)
+   * @see org.xtext.example.sml.sml.SmlPackage#getElement_W()
+   * @model
+   * @generated
+   */
+  String getW();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Element#getW <em>W</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>W</em>' attribute.
+   * @see #getW()
+   * @generated
+   */
+  void setW(String value);
+
+  /**
+   * Returns the value of the '<em><b>Sm</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Sm</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sm</em>' attribute.
+   * @see #setSm(String)
+   * @see org.xtext.example.sml.sml.SmlPackage#getElement_Sm()
+   * @model
+   * @generated
+   */
+  String getSm();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Element#getSm <em>Sm</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sm</em>' attribute.
+   * @see #getSm()
+   * @generated
+   */
+  void setSm(String value);
 
 } // Element
