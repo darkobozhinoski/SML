@@ -3,16 +3,33 @@
  */
 package org.xtext.example.sml.generator;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.example.sml.sml.Arena;
+import org.xtext.example.sml.sml.CircleD;
+import org.xtext.example.sml.sml.Coordinate;
+import org.xtext.example.sml.sml.Dimension;
+import org.xtext.example.sml.sml.ElementDescription;
+import org.xtext.example.sml.sml.Environment;
+import org.xtext.example.sml.sml.EnvironmentElement;
+import org.xtext.example.sml.sml.EnvironmentElements;
+import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Model;
+import org.xtext.example.sml.sml.Obstacle;
+import org.xtext.example.sml.sml.Position;
+import org.xtext.example.sml.sml.Region;
+import org.xtext.example.sml.sml.Swarmconf;
 
 /**
  * Generates code from your model files on save.
@@ -29,7 +46,903 @@ public class SmlGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     final Model model = ((Model) _head);
-    EObject _head_1 = IterableExtensions.<EObject>head(resource.getContents());
-    Model model1 = ((Model) _head_1);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<!-- ********* -->");
+    _builder.newLine();
+    _builder.append("<!-- * Arena * -->");
+    _builder.newLine();
+    _builder.append("<!-- ********* -->\t");
+    _builder.newLine();
+    _builder.append("\t        ");
+    {
+      Arena _arenas = model.getArenas();
+      boolean _tripleNotEquals = (_arenas != null);
+      if (_tripleNotEquals) {
+        CharSequence _compile = this.compile(model.getArenas());
+        _builder.append(_compile, "\t        ");
+        _builder.append(" ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t      \t\t\t");
+    {
+      Swarmconf _sw = model.getSw();
+      boolean _tripleNotEquals_1 = (_sw != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _compile_1 = this.compile(model.getSw());
+        _builder.append(_compile_1, "\t      \t\t\t");
+        _builder.append(" ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t      \t\t\t");
+    {
+      Environment _env = model.getEnv();
+      boolean _tripleNotEquals_2 = (_env != null);
+      if (_tripleNotEquals_2) {
+        CharSequence _compile_2 = this.compile(model.getEnv());
+        _builder.append(_compile_2, "\t      \t\t\t");
+        _builder.append(" ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ******************* -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- * Physics engines * -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ******************* -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<physics_engines>");
+    _builder.newLine();
+    _builder.append("\t      \t\t    ");
+    _builder.append("<dynamics2d id=\"dyn2d\" />");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("</physics_engines>");
+    _builder.newLine();
+    _builder.append("\t      \t\t");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ********* -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- * Media * -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ********* -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<media>");
+    _builder.newLine();
+    _builder.append("\t      \t\t    ");
+    _builder.append("<led id=\"leds\" grid_size=\"1,1,1\"/>");
+    _builder.newLine();
+    _builder.append("\t      \t\t    ");
+    _builder.append("<range_and_bearing id=\"ircom\"/>");
+    _builder.newLine();
+    _builder.append("\t      \t\t    ");
+    _builder.append("<range_and_bearing id=\"rab\"/>");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("</media>");
+    _builder.newLine();
+    _builder.append("\t      \t\t");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ***************** -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- * Visualization * -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<!-- ***************** -->");
+    _builder.newLine();
+    _builder.append("\t      \t\t  ");
+    _builder.append("<visualization/>");
+    _builder.newLine();
+    _builder.append("\t      \t\t");
+    _builder.newLine();
+    _builder.append("\t      \t\t");
+    _builder.append("</argos-configuration>");
+    _builder.newLine();
+    fsa.generateFile("setup.xml", _builder);
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.newLine();
+    _builder_1.append("#include \"ChocolateSPCLoopFunc.h\"");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("ChocolateSPCLoopFunction::ChocolateSPCLoopFunction() {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fSideSquare = 0.6;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fRadiusCircle = 0.3;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fRadiusRobot = 0.04;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_cCoordCircleSpot = CVector2(0.6, 0);");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_cCoordSquareSpot = CVector2(-0.6, 0);");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_unNumberPoints = 1000;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fObjectiveFunction = 0;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fDoptA = 0.08;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fDoptP = 0.06;");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("ChocolateSPCLoopFunction::ChocolateSPCLoopFunction(const ChocolateSPCLoopFunction& orig) {}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("ChocolateSPCLoopFunction::~ChocolateSPCLoopFunction() {}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("void ChocolateSPCLoopFunction::Destroy() {}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("void ChocolateSPCLoopFunction::Reset() {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("CoreLoopFunctions::Reset();");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("argos::CColor ChocolateSPCLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("CVector2 cCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("if (IsOnSquareArea(cCurrentPoint)){");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("return CColor::WHITE;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("} else if ((cCurrentPoint - m_cCoordCircleSpot).Length() < m_fRadiusCircle) {");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("return CColor::BLACK;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("} else{");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("return CColor::GRAY50;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("void ChocolateSPCLoopFunction::PostExperiment() {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("m_fObjectiveFunction = ComputeObjectiveFunction();");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("Real ChocolateSPCLoopFunction::GetObjectiveFunction() {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("return m_fObjectiveFunction;");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("Real ChocolateSPCLoopFunction::ComputeObjectiveFunction() {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CVector2 cRandomPoint;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Real dA=0, dP=0;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CSpace::TMapPerType mEpucks = GetSpace().GetEntitiesByType(\"epuck\");");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CVector2 cEpuckPosition(0,0);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Real fDistanceToRandomPoint = 0;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("// White square area");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("for(UInt32 i = 0; i < m_unNumberPoints; i++){");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("Real fMinDistanceOnSquare = 0.85;  // Correspond to the diagonal of the square area");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("cRandomPoint = RandomPointOnSquareArea();");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
+    _builder_1.newLine();
+    _builder_1.append("                               ");
+    _builder_1.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("if(IsOnSquareArea(cEpuckPosition)){");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("if(fDistanceToRandomPoint < fMinDistanceOnSquare){");
+    _builder_1.newLine();
+    _builder_1.append("                    ");
+    _builder_1.append("fMinDistanceOnSquare = fDistanceToRandomPoint;");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("dA += fMinDistanceOnSquare;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("dA /= m_unNumberPoints;");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("// Black circle area");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("for(UInt32 i = 0; i < m_unNumberPoints; ++i){");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("Real fMinDistanceOnCircle = 0.6; // Correspond to the diameter of the circular spot");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("cRandomPoint = RandomPointOnCirclePerimeter();");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),");
+    _builder_1.newLine();
+    _builder_1.append("                               ");
+    _builder_1.append("pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("if(IsOnCirclePerimeter(cEpuckPosition)){");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("if(fDistanceToRandomPoint < fMinDistanceOnCircle){");
+    _builder_1.newLine();
+    _builder_1.append("                    ");
+    _builder_1.append("fMinDistanceOnCircle = fDistanceToRandomPoint;");
+    _builder_1.newLine();
+    _builder_1.append("                ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("dP += fMinDistanceOnCircle;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("dP /= m_unNumberPoints;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Real performance = (dA/m_fDoptA) + (dP/m_fDoptP);");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return performance;");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("CVector2 ChocolateSPCLoopFunction::RandomPointOnSquareArea(){");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return CVector2(m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f)),");
+    _builder_1.newLine();
+    _builder_1.append("                    ");
+    _builder_1.append("m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f)));");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("CVector2 ChocolateSPCLoopFunction::RandomPointOnCirclePerimeter(){");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CRadians cAngle = m_pcRng->Uniform(CRange<CRadians>(CRadians::ZERO,CRadians::TWO_PI));");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return CVector2(m_cCoordCircleSpot.GetX() + Cos(cAngle) * m_fRadiusCircle, m_cCoordCircleSpot.GetY() + Sin(cAngle) * m_fRadiusCircle);");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&");
+    _builder_1.newLine();
+    _builder_1.append("            ");
+    _builder_1.append("cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("return true;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return false;");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("bool ChocolateSPCLoopFunction::IsOnCirclePerimeter(CVector2 c_point) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("CRange<Real> cAcceptanceRange(m_fRadiusCircle - m_fRadiusRobot, m_fRadiusCircle + m_fRadiusRobot);");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("Real fDistanceFromCenter = (c_point - m_cCoordCircleSpot).Length();");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("if(cAcceptanceRange.WithinMinBoundIncludedMaxBoundIncluded(fDistanceFromCenter)){");
+    _builder_1.newLine();
+    _builder_1.append("        ");
+    _builder_1.append("return true;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("return false;");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.append("/****************************************/");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("CVector3 ChocolateSPCLoopFunction::GetRandomPosition() {");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("Real temp;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("Real a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("Real  b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("// If b < a, swap them");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("if (b < a) {");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("temp = a;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("a = b;");
+    _builder_1.newLine();
+    _builder_1.append("    ");
+    _builder_1.append("b = temp;");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("Real fPosX = b * m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));");
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("Real fPosY = b * m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("  ");
+    _builder_1.append("return CVector3(fPosX, fPosY, 0);");
+    _builder_1.newLine();
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.append("REGISTER_LOOP_FUNCTIONS(ChocolateSPCLoopFunction, \"chocolate_spc_loop_functions\");");
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.newLine();
+    _builder_1.newLine();
+    fsa.generateFile("loopfunctions.cpp", _builder_1);
+  }
+  
+  public CharSequence compile(final Arena A) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field dimensions is undefined for the type Region"
+      + "\nThe method or field referencepoint is undefined for the type Region"
+      + "\ncompile cannot be resolved"
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final Region d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field dimensions is undefined for the type Region"
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final Environment en) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<EnvironmentElements> _environment = en.getEnvironment();
+      for(final EnvironmentElements e : _environment) {
+        _builder.append(" ");
+        _builder.newLineIfNotEmpty();
+        {
+          if ((e instanceof ElementDescription)) {
+            CharSequence _compile = this.compile(((ElementDescription) e));
+            _builder.append(_compile);
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((e instanceof EnvironmentElement)) {
+              CharSequence _compile_1 = this.compile(((EnvironmentElement) e));
+              _builder.append(_compile_1);
+            }
+          }
+        }
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t       \t        ");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Swarmconf sw) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("<distribute>");
+    _builder.newLine();
+    _builder.append("\t             ");
+    _builder.append("<position method=\"");
+    String _dis = sw.getPr().getDis();
+    _builder.append(_dis, "\t             ");
+    _builder.append("\" ");
+    {
+      String _dis_1 = sw.getPr().getDis();
+      boolean _equals = Objects.equal(_dis_1, "uniform");
+      if (_equals) {
+        _builder.append(" min=\"0,0,0\" max=\"");
+        CharSequence _compile = this.compile(sw.getPr().getK());
+        _builder.append(_compile, "\t             ");
+        _builder.append("\" />");
+      } else {
+        String _dis_2 = sw.getPr().getDis();
+        boolean _equals_1 = Objects.equal(_dis_2, "gaussian");
+        if (_equals_1) {
+          _builder.append(" mean=\"0,0,0\" std_dev=\"360,0,0\" />");
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t             ");
+    _builder.append("<orientation method=\"");
+    String _dis_3 = sw.getPr().getDis();
+    _builder.append(_dis_3, "\t             ");
+    _builder.append("\" ");
+    {
+      String _dis_4 = sw.getPr().getDis();
+      boolean _equals_2 = Objects.equal(_dis_4, "uniform");
+      if (_equals_2) {
+        _builder.append(" min=\"0,0,0\" max=\"");
+        CharSequence _compile_1 = this.compile(sw.getPr().getK());
+        _builder.append(_compile_1, "\t             ");
+        _builder.append("\" />");
+      } else {
+        String _dis_5 = sw.getPr().getDis();
+        boolean _equals_3 = Objects.equal(_dis_5, "gaussian");
+        if (_equals_3) {
+          _builder.append(" mean=\"0,0,0\" std_dev=\"360,0,0\" />");
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t             ");
+    _builder.append("<entity quantity=\"");
+    int _n = sw.getX().getN();
+    _builder.append(_n, "\t             ");
+    _builder.append("\" max_trials=\"100\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t               ");
+    _builder.append("<");
+    String _r = sw.getR();
+    _builder.append(_r, "\t               ");
+    _builder.append(" id=\"");
+    String _substring = sw.getR().toString().substring(0, 2);
+    _builder.append(_substring, "\t               ");
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t                 ");
+    _builder.append("<controller ");
+    {
+      String _r_1 = sw.getR();
+      boolean _equals_4 = Objects.equal(_r_1, "foot-boot");
+      if (_equals_4) {
+        _builder.append(" config=\"fdc\"");
+      } else {
+        String _r_2 = sw.getR();
+        boolean _equals_5 = Objects.equal(_r_2, "e-puck");
+        if (_equals_5) {
+          _builder.append(" config=\"automode\"");
+        }
+      }
+    }
+    _builder.append(" />");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t               ");
+    _builder.append("</");
+    String _r_3 = sw.getR();
+    _builder.append(_r_3, "\t               ");
+    _builder.append(" >");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t            ");
+    _builder.append("</entity>");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("</distribute>  ");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Coordinate n) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((n != null)) {
+        String _x = n.getX();
+        _builder.append(_x);
+        _builder.append(",");
+        String _y = n.getY();
+        _builder.append(_y);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileWalls(final Integer n) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      IntegerRange _upTo = new IntegerRange(0, (n).intValue());
+      for(final Integer i : _upTo) {
+        _builder.append("<box id=\"wall");
+        _builder.append(n);
+        _builder.append("\" size=\"2,0.1,0.5\" movable=\"false\">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t            ");
+        _builder.append("<body position=\"0,1,0\" orientation=\"0,0,0\" />");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t          ");
+    _builder.append("</box>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final ElementDescription ed) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("<distribute>");
+    _builder.newLine();
+    _builder.append("\t             ");
+    _builder.append("<position method=\"");
+    String _dis = ed.getR().getDis();
+    _builder.append(_dis, "\t             ");
+    _builder.append("\" ");
+    {
+      String _dis_1 = ed.getR().getDis();
+      boolean _equals = Objects.equal(_dis_1, "uniform");
+      if (_equals) {
+        _builder.append(" min=\"0,0,0\" max=\"");
+        CharSequence _compile = this.compile(ed.getR().getK());
+        _builder.append(_compile, "\t             ");
+        _builder.append("\" />");
+      } else {
+        String _dis_2 = ed.getR().getDis();
+        boolean _equals_1 = Objects.equal(_dis_2, "gaussian");
+        if (_equals_1) {
+          _builder.append(" mean=\"0,0,0\" std_dev=\"360,0,0\" />");
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t             ");
+    _builder.append("<orientation method=\"");
+    String _dis_3 = ed.getR().getDis();
+    _builder.append(_dis_3, "\t             ");
+    _builder.append("\" ");
+    {
+      String _dis_4 = ed.getR().getDis();
+      boolean _equals_2 = Objects.equal(_dis_4, "uniform");
+      if (_equals_2) {
+        _builder.append(" min=\"0,0,0\" max=\"");
+        CharSequence _compile_1 = this.compile(ed.getR().getK());
+        _builder.append(_compile_1, "\t             ");
+        _builder.append("\" />");
+      } else {
+        String _dis_5 = ed.getR().getDis();
+        boolean _equals_3 = Objects.equal(_dis_5, "gaussian");
+        if (_equals_3) {
+          _builder.append(" mean=\"0,0,0\" std_dev=\"360,0,0\" />");
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t             ");
+    _builder.append("<entity quantity=\"");
+    int _n = ed.getX().getN();
+    _builder.append(_n, "\t             ");
+    _builder.append("\" max_trials=\"100\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t                 ");
+    _builder.append("<box id=\"b");
+    double _random = Math.random();
+    double _multiply = (_random * 100);
+    _builder.append(_multiply, "\t                 ");
+    _builder.append("\" size=\"");
+    double _random_1 = Math.random();
+    double _multiply_1 = (_random_1 * 49);
+    double _plus = (_multiply_1 + 1);
+    _builder.append(_plus, "\t                 ");
+    _builder.append(",");
+    double _random_2 = Math.random();
+    double _multiply_2 = (_random_2 * 49);
+    double _plus_1 = (_multiply_2 + 1);
+    _builder.append(_plus_1, "\t                 ");
+    _builder.append(",");
+    double _random_3 = Math.random();
+    double _multiply_3 = (_random_3 * 49);
+    double _plus_2 = (_multiply_3 + 1);
+    _builder.append(_plus_2, "\t                 ");
+    _builder.append("\" movable=\"false\" />");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t            ");
+    _builder.append("</entity>");
+    _builder.newLine();
+    _builder.append("\t           ");
+    _builder.append("</distribute>  ");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final EnvironmentElement en) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((en instanceof Obstacle)) {
+        _builder.newLineIfNotEmpty();
+        CharSequence _compile = this.compile(((Obstacle) en));
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((en instanceof org.xtext.example.sml.sml.Object)) {
+          CharSequence _compile_1 = this.compile(((org.xtext.example.sml.sml.Object) en));
+          _builder.append(_compile_1);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((en instanceof Light)) {
+            CharSequence _compile_2 = this.compile(((Light) en));
+            _builder.append(_compile_2);
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t       \t        ");
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Obstacle ob) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field dimensions is undefined for the type Region"
+      + "\nThe method or field referencepoint is undefined for the type Region"
+      + "\ncompile cannot be resolved"
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final org.xtext.example.sml.sml.Object ob) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field dimensions is undefined for the type Region"
+      + "\nThe method or field referencepoint is undefined for the type Region"
+      + "\ncompile cannot be resolved"
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final Light l) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<light id=\"light");
+    double _random = Math.random();
+    double _multiply = (_random * 100);
+    _builder.append(_multiply);
+    _builder.append("\" position=\"");
+    CharSequence _compile = this.compile(l.getP());
+    _builder.append(_compile);
+    _builder.append("\" orientation=\"0,0,0\" color=\"");
+    String _c = l.getC();
+    _builder.append(_c);
+    _builder.append("\" intensity=\"0.0\" medium=\"leds\"/>");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public Object compile(final Dimension d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nRectangleD cannot be resolved to a type."
+      + "\nRectangleD cannot be resolved to a type."
+      + "\nUnreachable code: The if condition can never match. It is already handled by a previous condition."
+      + "\ncompile cannot be resolved");
+  }
+  
+  public CharSequence compile(final Position pt) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((pt != null)) {
+        CharSequence _compile = this.compile(pt.getPoint());
+        _builder.append(_compile);
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final /* RectangleD */Object k) {
+    throw new Error("Unresolved compilation problems:"
+      + "\n!== cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\nw cannot be resolved"
+      + "\nh cannot be resolved");
+  }
+  
+  public CharSequence compile(final CircleD k) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((k != null)) {
+        String _r = k.getR();
+        _builder.append(_r);
+        _builder.append(" ");
+      }
+    }
+    return _builder;
   }
 }

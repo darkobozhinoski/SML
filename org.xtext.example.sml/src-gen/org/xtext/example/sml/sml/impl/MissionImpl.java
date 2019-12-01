@@ -25,6 +25,7 @@ import org.xtext.example.sml.sml.Task;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.impl.MissionImpl#getT <em>T</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.MissionImpl#getM <em>M</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +41,26 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
    * @ordered
    */
   protected Task t;
+
+  /**
+   * The default value of the '{@link #getM() <em>M</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getM()
+   * @generated
+   * @ordered
+   */
+  protected static final String M_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getM() <em>M</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getM()
+   * @generated
+   * @ordered
+   */
+  protected String m = M_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,6 +139,31 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
    * @generated
    */
   @Override
+  public String getM()
+  {
+    return m;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setM(String newM)
+  {
+    String oldM = m;
+    m = newM;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.MISSION__M, oldM, m));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -140,6 +186,8 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
     {
       case SmlPackage.MISSION__T:
         return getT();
+      case SmlPackage.MISSION__M:
+        return getM();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -156,6 +204,9 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
     {
       case SmlPackage.MISSION__T:
         setT((Task)newValue);
+        return;
+      case SmlPackage.MISSION__M:
+        setM((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -174,6 +225,9 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
       case SmlPackage.MISSION__T:
         setT((Task)null);
         return;
+      case SmlPackage.MISSION__M:
+        setM(M_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -190,8 +244,27 @@ public class MissionImpl extends MinimalEObjectImpl.Container implements Mission
     {
       case SmlPackage.MISSION__T:
         return t != null;
+      case SmlPackage.MISSION__M:
+        return M_EDEFAULT == null ? m != null : !M_EDEFAULT.equals(m);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (m: ");
+    result.append(m);
+    result.append(')');
+    return result.toString();
   }
 
 } //MissionImpl

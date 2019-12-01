@@ -4,14 +4,17 @@
 package org.xtext.example.sml.sml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
+import org.xtext.example.sml.sml.Time;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +24,9 @@ import org.xtext.example.sml.sml.SmlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.impl.ScopeImpl#getSp <em>Sp</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ScopeImpl#getP <em>P</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ScopeImpl#getQ <em>Q</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ScopeImpl#getT <em>T</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +34,54 @@ import org.xtext.example.sml.sml.SmlPackage;
 public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
 {
   /**
-   * The default value of the '{@link #getSp() <em>Sp</em>}' attribute.
+   * The default value of the '{@link #getP() <em>P</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSp()
+   * @see #getP()
    * @generated
    * @ordered
    */
-  protected static final String SP_EDEFAULT = null;
+  protected static final String P_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getSp() <em>Sp</em>}' attribute.
+   * The cached value of the '{@link #getP() <em>P</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSp()
+   * @see #getP()
    * @generated
    * @ordered
    */
-  protected String sp = SP_EDEFAULT;
+  protected String p = P_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getQ() <em>Q</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQ()
+   * @generated
+   * @ordered
+   */
+  protected static final String Q_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getQ() <em>Q</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQ()
+   * @generated
+   * @ordered
+   */
+  protected String q = Q_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getT() <em>T</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getT()
+   * @generated
+   * @ordered
+   */
+  protected Time t;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +110,9 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
    * @generated
    */
   @Override
-  public String getSp()
+  public String getP()
   {
-    return sp;
+    return p;
   }
 
   /**
@@ -86,12 +121,103 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
    * @generated
    */
   @Override
-  public void setSp(String newSp)
+  public void setP(String newP)
   {
-    String oldSp = sp;
-    sp = newSp;
+    String oldP = p;
+    p = newP;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.SCOPE__SP, oldSp, sp));
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.SCOPE__P, oldP, p));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getQ()
+  {
+    return q;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setQ(String newQ)
+  {
+    String oldQ = q;
+    q = newQ;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.SCOPE__Q, oldQ, q));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Time getT()
+  {
+    return t;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetT(Time newT, NotificationChain msgs)
+  {
+    Time oldT = t;
+    t = newT;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.SCOPE__T, oldT, newT);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setT(Time newT)
+  {
+    if (newT != t)
+    {
+      NotificationChain msgs = null;
+      if (t != null)
+        msgs = ((InternalEObject)t).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.SCOPE__T, null, msgs);
+      if (newT != null)
+        msgs = ((InternalEObject)newT).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.SCOPE__T, null, msgs);
+      msgs = basicSetT(newT, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.SCOPE__T, newT, newT));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.SCOPE__T:
+        return basicSetT(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +230,12 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
   {
     switch (featureID)
     {
-      case SmlPackage.SCOPE__SP:
-        return getSp();
+      case SmlPackage.SCOPE__P:
+        return getP();
+      case SmlPackage.SCOPE__Q:
+        return getQ();
+      case SmlPackage.SCOPE__T:
+        return getT();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +250,14 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
   {
     switch (featureID)
     {
-      case SmlPackage.SCOPE__SP:
-        setSp((String)newValue);
+      case SmlPackage.SCOPE__P:
+        setP((String)newValue);
+        return;
+      case SmlPackage.SCOPE__Q:
+        setQ((String)newValue);
+        return;
+      case SmlPackage.SCOPE__T:
+        setT((Time)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +273,14 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
   {
     switch (featureID)
     {
-      case SmlPackage.SCOPE__SP:
-        setSp(SP_EDEFAULT);
+      case SmlPackage.SCOPE__P:
+        setP(P_EDEFAULT);
+        return;
+      case SmlPackage.SCOPE__Q:
+        setQ(Q_EDEFAULT);
+        return;
+      case SmlPackage.SCOPE__T:
+        setT((Time)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +296,12 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
   {
     switch (featureID)
     {
-      case SmlPackage.SCOPE__SP:
-        return SP_EDEFAULT == null ? sp != null : !SP_EDEFAULT.equals(sp);
+      case SmlPackage.SCOPE__P:
+        return P_EDEFAULT == null ? p != null : !P_EDEFAULT.equals(p);
+      case SmlPackage.SCOPE__Q:
+        return Q_EDEFAULT == null ? q != null : !Q_EDEFAULT.equals(q);
+      case SmlPackage.SCOPE__T:
+        return t != null;
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +317,10 @@ public class ScopeImpl extends MinimalEObjectImpl.Container implements Scope
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (sp: ");
-    result.append(sp);
+    result.append(" (p: ");
+    result.append(p);
+    result.append(", q: ");
+    result.append(q);
     result.append(')');
     return result.toString();
   }

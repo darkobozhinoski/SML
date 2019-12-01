@@ -11,45 +11,40 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
 import org.xtext.example.sml.sml.BoolLiteral;
+import org.xtext.example.sml.sml.Circle;
+import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
-import org.xtext.example.sml.sml.Coordinate2D;
-import org.xtext.example.sml.sml.Coordinate3D;
-import org.xtext.example.sml.sml.DefinitionOne;
-import org.xtext.example.sml.sml.DefinitionThree;
-import org.xtext.example.sml.sml.DefinitionTwo;
+import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
-import org.xtext.example.sml.sml.Foraging;
 import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
-import org.xtext.example.sml.sml.Migration;
 import org.xtext.example.sml.sml.Mission;
 import org.xtext.example.sml.sml.MissionObjective;
-import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Patch;
-import org.xtext.example.sml.sml.Penalty;
+import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Range;
+import org.xtext.example.sml.sml.Rectangle;
+import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
-import org.xtext.example.sml.sml.RegionDefinition;
 import org.xtext.example.sml.sml.Reward;
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlFactory;
@@ -116,20 +111,16 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.ENVIRONMENT: return createEnvironment();
       case SmlPackage.PROBABILISTIC_DECRIPTION: return createProbabilisticDecription();
       case SmlPackage.SWARMCONF: return createSwarmconf();
-      case SmlPackage.MISSION_SPECIFICATION: return createMissionSpecification();
       case SmlPackage.MISSION_TIME: return createMissionTime();
       case SmlPackage.MISSION: return createMission();
       case SmlPackage.TASK: return createTask();
-      case SmlPackage.AGGREGATE: return createAggregate();
-      case SmlPackage.MIGRATION: return createMigration();
-      case SmlPackage.FORAGING: return createForaging();
       case SmlPackage.MISSION_OBJECTIVE: return createMissionObjective();
       case SmlPackage.INDICATOR: return createIndicator();
       case SmlPackage.ATOMIC_INDICATOR: return createAtomicIndicator();
       case SmlPackage.COMPOUND_INDICATOR: return createCompoundIndicator();
       case SmlPackage.SCOPE: return createScope();
       case SmlPackage.OCCURENCE: return createOccurence();
-      case SmlPackage.PENALTY: return createPenalty();
+      case SmlPackage.PENATLY: return createPenatly();
       case SmlPackage.REWARD: return createReward();
       case SmlPackage.CONDITION: return createCondition();
       case SmlPackage.TIME: return createTime();
@@ -138,18 +129,14 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.ELEMENT_DESCRIPTION: return createElementDescription();
       case SmlPackage.OBJECT: return createObject();
       case SmlPackage.OBSTACLE: return createObstacle();
-      case SmlPackage.PATCH: return createPatch();
       case SmlPackage.LIGHT: return createLight();
       case SmlPackage.POSITION: return createPosition();
       case SmlPackage.ARENA: return createArena();
       case SmlPackage.REGION: return createRegion();
-      case SmlPackage.REGION_DEFINITION: return createRegionDefinition();
-      case SmlPackage.DEFINITION_ONE: return createDefinitionOne();
-      case SmlPackage.DEFINITION_TWO: return createDefinitionTwo();
-      case SmlPackage.DEFINITION_THREE: return createDefinitionThree();
       case SmlPackage.DIMENSION: return createDimension();
-      case SmlPackage.COORDINATE2_D: return createCoordinate2D();
-      case SmlPackage.COORDINATE3_D: return createCoordinate3D();
+      case SmlPackage.CIRCLE_D: return createCircleD();
+      case SmlPackage.RECTANGLE_D: return createRectangleD();
+      case SmlPackage.COORDINATE: return createCoordinate();
       case SmlPackage.RANGE: return createRange();
       case SmlPackage.CONSTANT_SIZE: return createConstantSize();
       case SmlPackage.LOWERBOUND: return createLowerbound();
@@ -159,6 +146,9 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
       case SmlPackage.INTERVAL: return createInterval();
       case SmlPackage.ARITHMETIC_EXPRESSION: return createArithmeticExpression();
       case SmlPackage.BOOL_LITERAL: return createBoolLiteral();
+      case SmlPackage.CIRCLE: return createCircle();
+      case SmlPackage.RECTANGLE: return createRectangle();
+      case SmlPackage.POINT_D: return createPointD();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -218,18 +208,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public MissionSpecification createMissionSpecification()
-  {
-    MissionSpecificationImpl missionSpecification = new MissionSpecificationImpl();
-    return missionSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public MissionTime createMissionTime()
   {
     MissionTimeImpl missionTime = new MissionTimeImpl();
@@ -258,42 +236,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
   {
     TaskImpl task = new TaskImpl();
     return task;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Aggregate createAggregate()
-  {
-    AggregateImpl aggregate = new AggregateImpl();
-    return aggregate;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Migration createMigration()
-  {
-    MigrationImpl migration = new MigrationImpl();
-    return migration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Foraging createForaging()
-  {
-    ForagingImpl foraging = new ForagingImpl();
-    return foraging;
   }
 
   /**
@@ -374,10 +316,10 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public Penalty createPenalty()
+  public Penatly createPenatly()
   {
-    PenaltyImpl penalty = new PenaltyImpl();
-    return penalty;
+    PenatlyImpl penatly = new PenatlyImpl();
+    return penatly;
   }
 
   /**
@@ -482,18 +424,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public Patch createPatch()
-  {
-    PatchImpl patch = new PatchImpl();
-    return patch;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Light createLight()
   {
     LightImpl light = new LightImpl();
@@ -542,54 +472,6 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public RegionDefinition createRegionDefinition()
-  {
-    RegionDefinitionImpl regionDefinition = new RegionDefinitionImpl();
-    return regionDefinition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DefinitionOne createDefinitionOne()
-  {
-    DefinitionOneImpl definitionOne = new DefinitionOneImpl();
-    return definitionOne;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DefinitionTwo createDefinitionTwo()
-  {
-    DefinitionTwoImpl definitionTwo = new DefinitionTwoImpl();
-    return definitionTwo;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public DefinitionThree createDefinitionThree()
-  {
-    DefinitionThreeImpl definitionThree = new DefinitionThreeImpl();
-    return definitionThree;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Dimension createDimension()
   {
     DimensionImpl dimension = new DimensionImpl();
@@ -602,10 +484,10 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public Coordinate2D createCoordinate2D()
+  public CircleD createCircleD()
   {
-    Coordinate2DImpl coordinate2D = new Coordinate2DImpl();
-    return coordinate2D;
+    CircleDImpl circleD = new CircleDImpl();
+    return circleD;
   }
 
   /**
@@ -614,10 +496,22 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
    * @generated
    */
   @Override
-  public Coordinate3D createCoordinate3D()
+  public RectangleD createRectangleD()
   {
-    Coordinate3DImpl coordinate3D = new Coordinate3DImpl();
-    return coordinate3D;
+    RectangleDImpl rectangleD = new RectangleDImpl();
+    return rectangleD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Coordinate createCoordinate()
+  {
+    CoordinateImpl coordinate = new CoordinateImpl();
+    return coordinate;
   }
 
   /**
@@ -726,6 +620,42 @@ public class SmlFactoryImpl extends EFactoryImpl implements SmlFactory
   {
     BoolLiteralImpl boolLiteral = new BoolLiteralImpl();
     return boolLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Circle createCircle()
+  {
+    CircleImpl circle = new CircleImpl();
+    return circle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Rectangle createRectangle()
+  {
+    RectangleImpl rectangle = new RectangleImpl();
+    return rectangle;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PointD createPointD()
+  {
+    PointDImpl pointD = new PointDImpl();
+    return pointD;
   }
 
   /**

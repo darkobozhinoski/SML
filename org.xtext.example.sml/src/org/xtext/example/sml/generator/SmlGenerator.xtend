@@ -14,17 +14,15 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 import com.google.inject.Inject
 import org.xtext.example.sml.sml.Model
 import org.xtext.example.sml.sml.Arena
-import org.xtext.example.sml.sml.Coordinate2D
-import org.xtext.example.sml.sml.Coordinate3D
-
+import org.xtext.example.sml.sml.Coordinate
 import org.xtext.example.sml.sml.Dimension
 //import org.xtext.example.sml.sml.RectnagleD
 import org.xtext.example.sml.sml.Region
 import org.xtext.example.sml.sml.Arena
 import org.xtext.example.sml.sml.Position
-
+import org.xtext.example.sml.sml.RectangleD
 import org.xtext.example.sml.sml.Swarmconf
-
+import org.xtext.example.sml.sml.CircleD
 import org.xtext.example.sml.sml.Light
 import org.xtext.example.sml.sml.Obstacle
 import org.xtext.example.sml.sml.Object
@@ -33,15 +31,6 @@ import org.xtext.example.sml.sml.EnvironmentElements
 import org.xtext.example.sml.sml.ProbabilisticDecription
 import org.xtext.example.sml.sml.Environment
 import org.xtext.example.sml.sml.ElementDescription
-import org.xtext.example.sml.sml.MissionObjective
-import org.xtext.example.sml.sml.Reward
-import org.xtext.example.sml.sml.Indicator
-import org.xtext.example.sml.sml.AtomicIndicator
-import org.xtext.example.sml.sml.Scope
-import org.xtext.example.sml.sml.Occurence
-import org.xtext.example.sml.sml.Penalty
-import org.xtext.example.sml.sml.Condition
-import org.xtext.example.sml.sml.CompoundIndicator
 import java.util.Random;
 
 /**
@@ -57,10 +46,403 @@ class SmlGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-
-
+	
      val model = resource.contents.head as Model
-     var model1 =resource.contents.head as Model
-	}
-	}
-      
+		fsa.generateFile('setup.xml', '''
+		  <!-- ********* -->
+		  <!-- * Arena * -->
+		  <!-- ********* -->	
+	        «IF model.arenas !== null»«model.arenas.compile» «ENDIF»
+	      			«IF model.sw !== null»«model.sw.compile» «ENDIF»
+	      			«IF model.env !== null»«model.env.compile» «ENDIF»
+	      		  <!-- ******************* -->
+	      		  <!-- * Physics engines * -->
+	      		  <!-- ******************* -->
+	      		  <physics_engines>
+	      		    <dynamics2d id="dyn2d" />
+	      		  </physics_engines>
+	      		
+	      		  <!-- ********* -->
+	      		  <!-- * Media * -->
+	      		  <!-- ********* -->
+	      		  <media>
+	      		    <led id="leds" grid_size="1,1,1"/>
+	      		    <range_and_bearing id="ircom"/>
+	      		    <range_and_bearing id="rab"/>
+	      		  </media>
+	      		
+	      		  <!-- ***************** -->
+	      		  <!-- * Visualization * -->
+	      		  <!-- ***************** -->
+	      		  <visualization/>
+	      		
+	      		</argos-configuration>
+	      		''')
+	          	
+	          	
+	          fsa.generateFile('loopfunctions.cpp', '''
+	          
+	          #include "ChocolateSPCLoopFunc.h"
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          ChocolateSPCLoopFunction::ChocolateSPCLoopFunction() {
+	            m_fSideSquare = 0.6;
+	            m_fRadiusCircle = 0.3;
+	            m_fRadiusRobot = 0.04;
+	          
+	            m_cCoordCircleSpot = CVector2(0.6, 0);
+	            m_cCoordSquareSpot = CVector2(-0.6, 0);
+	          
+	            m_unNumberPoints = 1000;
+	          
+	            m_fObjectiveFunction = 0;
+	            m_fDoptA = 0.08;
+	            m_fDoptP = 0.06;
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          ChocolateSPCLoopFunction::ChocolateSPCLoopFunction(const ChocolateSPCLoopFunction& orig) {}
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          ChocolateSPCLoopFunction::~ChocolateSPCLoopFunction() {}
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          void ChocolateSPCLoopFunction::Destroy() {}
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          void ChocolateSPCLoopFunction::Reset() {
+	            CoreLoopFunctions::Reset();
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          argos::CColor ChocolateSPCLoopFunction::GetFloorColor(const argos::CVector2& c_position_on_plane) {
+	            CVector2 cCurrentPoint(c_position_on_plane.GetX(), c_position_on_plane.GetY());
+	          
+	            if (IsOnSquareArea(cCurrentPoint)){
+	                return CColor::WHITE;
+	            } else if ((cCurrentPoint - m_cCoordCircleSpot).Length() < m_fRadiusCircle) {
+	                return CColor::BLACK;
+	            } else{
+	                return CColor::GRAY50;
+	            }
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          void ChocolateSPCLoopFunction::PostExperiment() {
+	            m_fObjectiveFunction = ComputeObjectiveFunction();
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          Real ChocolateSPCLoopFunction::GetObjectiveFunction() {
+	            return m_fObjectiveFunction;
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          Real ChocolateSPCLoopFunction::ComputeObjectiveFunction() {
+	              CVector2 cRandomPoint;
+	              Real dA=0, dP=0;
+	              CSpace::TMapPerType mEpucks = GetSpace().GetEntitiesByType("epuck");
+	              CVector2 cEpuckPosition(0,0);
+	              Real fDistanceToRandomPoint = 0;
+	          
+	              // White square area
+	              for(UInt32 i = 0; i < m_unNumberPoints; i++){
+	          
+	                  Real fMinDistanceOnSquare = 0.85;  // Correspond to the diagonal of the square area
+	          
+	                  cRandomPoint = RandomPointOnSquareArea();
+	          
+	                  for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {
+	                      CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);
+	                      cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
+	                                         pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
+	                      if(IsOnSquareArea(cEpuckPosition)){
+	                          fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();
+	                          if(fDistanceToRandomPoint < fMinDistanceOnSquare){
+	                              fMinDistanceOnSquare = fDistanceToRandomPoint;
+	                          }
+	                      }
+	                  }
+	          
+	                  dA += fMinDistanceOnSquare;
+	              }
+	              dA /= m_unNumberPoints;
+	          
+	              // Black circle area
+	              for(UInt32 i = 0; i < m_unNumberPoints; ++i){
+	          
+	                  Real fMinDistanceOnCircle = 0.6; // Correspond to the diameter of the circular spot
+	                  cRandomPoint = RandomPointOnCirclePerimeter();
+	          
+	                  for (CSpace::TMapPerType::iterator it = mEpucks.begin(); it != mEpucks.end(); ++it) {
+	                      CEPuckEntity* pcEpuck = any_cast<CEPuckEntity*> ((*it).second);
+	                      cEpuckPosition.Set(pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetX(),
+	                                         pcEpuck->GetEmbodiedEntity().GetOriginAnchor().Position.GetY());
+	                      if(IsOnCirclePerimeter(cEpuckPosition)){
+	                          fDistanceToRandomPoint = (cRandomPoint - cEpuckPosition).Length();
+	                          if(fDistanceToRandomPoint < fMinDistanceOnCircle){
+	                              fMinDistanceOnCircle = fDistanceToRandomPoint;
+	                          }
+	                      }
+	                  }
+	          
+	                  dP += fMinDistanceOnCircle;
+	              }
+	          
+	              dP /= m_unNumberPoints;
+	              Real performance = (dA/m_fDoptA) + (dP/m_fDoptP);
+	          
+	              return performance;
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          CVector2 ChocolateSPCLoopFunction::RandomPointOnSquareArea(){
+	              return CVector2(m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f)),
+	                              m_pcRng->Uniform(CRange<Real>(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f)));
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          CVector2 ChocolateSPCLoopFunction::RandomPointOnCirclePerimeter(){
+	              CRadians cAngle = m_pcRng->Uniform(CRange<CRadians>(CRadians::ZERO,CRadians::TWO_PI));
+	              return CVector2(m_cCoordCircleSpot.GetX() + Cos(cAngle) * m_fRadiusCircle, m_cCoordCircleSpot.GetY() + Sin(cAngle) * m_fRadiusCircle);
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          bool ChocolateSPCLoopFunction::IsOnSquareArea(CVector2 c_point){
+	              CRange<Real> cRangeSquareX(m_cCoordSquareSpot.GetX() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetX() + m_fSideSquare/2.0f);
+	              CRange<Real> cRangeSquareY(m_cCoordSquareSpot.GetY() - m_fSideSquare/2.0f, m_cCoordSquareSpot.GetY() + m_fSideSquare/2.0f);
+	          
+	              if (cRangeSquareX.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetX()) &&
+	                      cRangeSquareY.WithinMinBoundIncludedMaxBoundIncluded(c_point.GetY())) {
+	                  return true;
+	              }
+	              return false;
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          bool ChocolateSPCLoopFunction::IsOnCirclePerimeter(CVector2 c_point) {
+	              CRange<Real> cAcceptanceRange(m_fRadiusCircle - m_fRadiusRobot, m_fRadiusCircle + m_fRadiusRobot);
+	              Real fDistanceFromCenter = (c_point - m_cCoordCircleSpot).Length();
+	              if(cAcceptanceRange.WithinMinBoundIncludedMaxBoundIncluded(fDistanceFromCenter)){
+	                  return true;
+	              }
+	              return false;
+	          }
+	          
+	          /****************************************/
+	          /****************************************/
+	          
+	          CVector3 ChocolateSPCLoopFunction::GetRandomPosition() {
+	            Real temp;
+	            Real a = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
+	            Real  b = m_pcRng->Uniform(CRange<Real>(0.0f, 1.0f));
+	            // If b < a, swap them
+	            if (b < a) {
+	              temp = a;
+	              a = b;
+	              b = temp;
+	            }
+	            Real fPosX = b * m_fDistributionRadius * cos(2 * CRadians::PI.GetValue() * (a/b));
+	            Real fPosY = b * m_fDistributionRadius * sin(2 * CRadians::PI.GetValue() * (a/b));
+	          
+	            return CVector3(fPosX, fPosY, 0);
+	          }
+	          
+	          
+	          REGISTER_LOOP_FUNCTIONS(ChocolateSPCLoopFunction, "chocolate_spc_loop_functions");
+	          
+	          
+	          
+	          
+	          ''')
+	             // for (e : resource.allContents.toIterable.filter(Entity)) {
+	               //   fsa.generateFile(
+	                //      e.fullyQualifiedName.toString("/") + ".java",
+	                 //     e.compile)
+	                 
+	                 		//FOR Arena t : model.arenas»
+	      		 	//	t.compile»
+	      			//ENDFOR»
+	              //}
+	          }
+	          
+	      
+	          
+	           def compile(Arena A) 
+	           '''«IF A !== null»<arena size="«A.s.dimensions.compile»" center="«A.s.referencepoint.compile»">
+	           «compileWalls(4)»</arena>«ENDIF»'''
+	          
+	        def compile(Region d) '''«IF d !== null»«d.dimensions.compile»«ENDIF»'''
+	        
+	       def compile(Environment en) {
+	       	'''«FOR e: en.environment» 
+	       			«IF e instanceof ElementDescription»
+	       	        «(e as ElementDescription).compile»
+	       	        «ELSEIF e instanceof EnvironmentElement»
+	       	        «(e as EnvironmentElement).compile»«ENDIF»
+	       	        «ENDFOR»'''
+	       }
+	       
+	       	
+	       	//for (e: en.environment) 
+	       		//if (e instanceof EnvironmentElement)
+	             	//(e as EnvironmentElement).compile
+	          //   if (e instanceof ElementDescription)
+	            //    (e as ElementDescription).compile
+	             //else compileWalls(7);
+	      
+	          
+	        def compile(Swarmconf sw)''' <distribute>
+	             <position method="«sw.pr.dis»" «IF sw.pr.dis == "uniform"» min="0,0,0" max="«sw.pr.k.compile»" />«ELSEIF sw.pr.dis  == "gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
+	             <orientation method="«sw.pr.dis»" «IF sw.pr.dis == "uniform"» min="0,0,0" max="«sw.pr.k.compile»" />«ELSEIF sw.pr.dis  == "gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
+	             <entity quantity="«sw.x.n»" max_trials="100">
+	               <«sw.r» id="«sw.r.toString.substring(0,2)»">
+	                 <controller «IF sw.r == "foot-boot"» config="fdc"«ELSEIF sw.r  == "e-puck"» config="automode"«ENDIF» />
+	               </«sw.r» >
+	            </entity>
+	           </distribute>  
+	         '''
+	        
+	        
+	             
+	      def compile(Coordinate n) '''«IF n !== null»«n.x»,«n.y»«ENDIF»'''
+	       
+	       def compileWalls(Integer n){
+	       	'''«FOR i: 0..n»<box id="wall«n»" size="2,0.1,0.5" movable="false">
+	            <body position="0,1,0" orientation="0,0,0" />«ENDFOR»
+	          </box>
+	          '''
+	          } 
+	       
+	       
+	        def compile(ElementDescription ed)''' <distribute>
+	             <position method="«ed.r.dis»" «IF ed.r.dis == "uniform"» min="0,0,0" max="«ed.r.k.compile»" />«ELSEIF ed.r.dis  == "gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
+	             <orientation method="«ed.r.dis»" «IF ed.r.dis == "uniform"» min="0,0,0" max="«ed.r.k.compile»" />«ELSEIF ed.r.dis  == "gaussian"» mean="0,0,0" std_dev="360,0,0" />«ENDIF»
+	             <entity quantity="«ed.x.n»" max_trials="100">
+	                 <box id="b«Math.random() *100»" size="«Math.random() * 49 + 1»,«Math.random() * 49 + 1»,«Math.random() * 49 + 1»" movable="false" />
+	            </entity>
+	           </distribute>  
+	         '''
+	        
+	        
+	       def compile(EnvironmentElement en)
+	       	'''«IF en instanceof Obstacle»
+	       	        «(en as Obstacle).compile»
+	       	        «ELSEIF en instanceof Object»
+	       	        «(en as Object).compile»
+	       	         «ELSEIF en instanceof Light»
+	       	          «(en as Light).compile»
+	       	        «ENDIF»'''
+	       	  
+	        
+	      
+	      
+	      // if (en instanceof Obstacle)
+	        //      	(en as Obstacle).compile
+	          // else if (en instanceof Object)
+	            //    (en as Object).compile
+	           //else if(en instanceof Light)
+	           //	(en as Light).compile
+	           //'''<darko12/>'''
+	        
+	      def compile(Obstacle ob)
+	      	'''<box id="wall«Math.random() *100»" size="«ob.r.dimensions.compile»" movable="false">
+	            <body position="«ob.r.referencepoint.compile»" orientation="0,0,0" />
+	          </box>
+	          '''
+	      	
+	      
+	      
+	      def compile(Object ob)
+	      		'''<box id="wall«Math.random() *100»" size="«ob.r.dimensions.compile»" movable="true">
+	            <body position="«ob.r.referencepoint.compile»" orientation="0,0,0" />
+	          </box>
+	          '''
+	          
+	      def compile(Light l)
+	      	'''<light id="light«Math.random() *100»" position="«l.p.compile»" orientation="0,0,0" color="«l.c»" intensity="0.0" medium="leds"/>
+	          '''
+	       
+	         def compile(Dimension d){   
+	              if (d instanceof RectangleD)
+	              	(d as RectangleD).compile
+	             else if (d instanceof CircleD)
+	                (d as CircleD).compile
+	             }
+	             
+	         def compile(Position pt) '''«IF pt !== null»«pt.point.compile»«ENDIF»'''
+	                
+	             
+	      
+	       
+	       def compile(RectangleD k)'''«IF k !== null»«k.l», «k.w», «k.h»«ENDIF»'''
+	       def compile(CircleD k)'''«IF k !== null»«k.r» «ENDIF»'''
+	          
+	          
+	          
+	          
+	      //    def compile(Entity e) ''' 
+	      
+	      
+	      
+	          // «d.referencepoint.compile» 
+	          
+	          
+	          
+	          
+	      //        «IF e.eContainer.fullyQualifiedName !== null»
+	      //            package «e.eContainer.fullyQualifiedName»;
+	      //        «ENDIF»
+	      //        
+	      //        public class «e.name» «IF e.superType !== null
+	      //                »extends «e.superType.fullyQualifiedName» «ENDIF»{
+	      //            «FOR f : e.features»
+	      //                «f.compile»
+	      //            «ENDFOR»
+	      //        }
+	      //    '''
+	      // 
+	      //    def compile(Feature f) '''
+	      //        private «f.type.fullyQualifiedName» «f.name»;
+	      //        
+	      //        public «f.type.fullyQualifiedName» get«f.name.toFirstUpper»() {
+	      //            return «f.name»;
+	      //        }
+	      //        
+	      //        public void set«f.name.toFirstUpper»(«f.type.fullyQualifiedName» «f.name») {
+	      //            this.«f.name» = «f.name»;
+	      //        }
+	      //    '''
+	      }
+	      
+	      
+	      //    ;
+	      
+	        
+	       

@@ -3,10 +3,16 @@
  */
 package org.xtext.example.sml.sml.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.example.sml.sml.Region;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Task;
 
@@ -14,11 +20,27 @@ import org.xtext.example.sml.sml.Task;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Task</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.xtext.example.sml.sml.impl.TaskImpl#getR <em>R</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class TaskImpl extends MinimalEObjectImpl.Container implements Task
 {
+  /**
+   * The cached value of the '{@link #getR() <em>R</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getR()
+   * @generated
+   * @ordered
+   */
+  protected Region r;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -38,6 +60,138 @@ public class TaskImpl extends MinimalEObjectImpl.Container implements Task
   protected EClass eStaticClass()
   {
     return SmlPackage.Literals.TASK;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Region getR()
+  {
+    return r;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetR(Region newR, NotificationChain msgs)
+  {
+    Region oldR = r;
+    r = newR;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.TASK__R, oldR, newR);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setR(Region newR)
+  {
+    if (newR != r)
+    {
+      NotificationChain msgs = null;
+      if (r != null)
+        msgs = ((InternalEObject)r).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.TASK__R, null, msgs);
+      if (newR != null)
+        msgs = ((InternalEObject)newR).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.TASK__R, null, msgs);
+      msgs = basicSetR(newR, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.TASK__R, newR, newR));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.TASK__R:
+        return basicSetR(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.TASK__R:
+        return getR();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.TASK__R:
+        setR((Region)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.TASK__R:
+        setR((Region)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case SmlPackage.TASK__R:
+        return r != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //TaskImpl

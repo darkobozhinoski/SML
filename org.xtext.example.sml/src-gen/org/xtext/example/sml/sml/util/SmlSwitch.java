@@ -8,45 +8,40 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.ArithmeticExpression;
 import org.xtext.example.sml.sml.AtomicIndicator;
 import org.xtext.example.sml.sml.BoolLiteral;
+import org.xtext.example.sml.sml.Circle;
+import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
-import org.xtext.example.sml.sml.Coordinate2D;
-import org.xtext.example.sml.sml.Coordinate3D;
-import org.xtext.example.sml.sml.DefinitionOne;
-import org.xtext.example.sml.sml.DefinitionThree;
-import org.xtext.example.sml.sml.DefinitionTwo;
+import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Dimension;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
 import org.xtext.example.sml.sml.EnvironmentElement;
 import org.xtext.example.sml.sml.EnvironmentElements;
-import org.xtext.example.sml.sml.Foraging;
 import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
-import org.xtext.example.sml.sml.Migration;
 import org.xtext.example.sml.sml.Mission;
 import org.xtext.example.sml.sml.MissionObjective;
-import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
 import org.xtext.example.sml.sml.Occurence;
-import org.xtext.example.sml.sml.Patch;
-import org.xtext.example.sml.sml.Penalty;
+import org.xtext.example.sml.sml.Penatly;
+import org.xtext.example.sml.sml.PointD;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
 import org.xtext.example.sml.sml.Range;
+import org.xtext.example.sml.sml.Rectangle;
+import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
-import org.xtext.example.sml.sml.RegionDefinition;
 import org.xtext.example.sml.sml.Reward;
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
@@ -147,13 +142,6 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.MISSION_SPECIFICATION:
-      {
-        MissionSpecification missionSpecification = (MissionSpecification)theEObject;
-        T result = caseMissionSpecification(missionSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SmlPackage.MISSION_TIME:
       {
         MissionTime missionTime = (MissionTime)theEObject;
@@ -172,30 +160,6 @@ public class SmlSwitch<T> extends Switch<T>
       {
         Task task = (Task)theEObject;
         T result = caseTask(task);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.AGGREGATE:
-      {
-        Aggregate aggregate = (Aggregate)theEObject;
-        T result = caseAggregate(aggregate);
-        if (result == null) result = caseTask(aggregate);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.MIGRATION:
-      {
-        Migration migration = (Migration)theEObject;
-        T result = caseMigration(migration);
-        if (result == null) result = caseTask(migration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.FORAGING:
-      {
-        Foraging foraging = (Foraging)theEObject;
-        T result = caseForaging(foraging);
-        if (result == null) result = caseTask(foraging);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -241,11 +205,11 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.PENALTY:
+      case SmlPackage.PENATLY:
       {
-        Penalty penalty = (Penalty)theEObject;
-        T result = casePenalty(penalty);
-        if (result == null) result = caseOccurence(penalty);
+        Penatly penatly = (Penatly)theEObject;
+        T result = casePenatly(penatly);
+        if (result == null) result = caseOccurence(penatly);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,7 +225,6 @@ public class SmlSwitch<T> extends Switch<T>
       {
         Condition condition = (Condition)theEObject;
         T result = caseCondition(condition);
-        if (result == null) result = caseScope(condition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -313,15 +276,6 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.PATCH:
-      {
-        Patch patch = (Patch)theEObject;
-        T result = casePatch(patch);
-        if (result == null) result = caseEnvironmentElement(patch);
-        if (result == null) result = caseEnvironmentElements(patch);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case SmlPackage.LIGHT:
       {
         Light light = (Light)theEObject;
@@ -349,39 +303,6 @@ public class SmlSwitch<T> extends Switch<T>
       {
         Region region = (Region)theEObject;
         T result = caseRegion(region);
-        if (result == null) result = caseEnvironmentElement(region);
-        if (result == null) result = caseEnvironmentElements(region);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.REGION_DEFINITION:
-      {
-        RegionDefinition regionDefinition = (RegionDefinition)theEObject;
-        T result = caseRegionDefinition(regionDefinition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.DEFINITION_ONE:
-      {
-        DefinitionOne definitionOne = (DefinitionOne)theEObject;
-        T result = caseDefinitionOne(definitionOne);
-        if (result == null) result = caseRegionDefinition(definitionOne);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.DEFINITION_TWO:
-      {
-        DefinitionTwo definitionTwo = (DefinitionTwo)theEObject;
-        T result = caseDefinitionTwo(definitionTwo);
-        if (result == null) result = caseRegionDefinition(definitionTwo);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SmlPackage.DEFINITION_THREE:
-      {
-        DefinitionThree definitionThree = (DefinitionThree)theEObject;
-        T result = caseDefinitionThree(definitionThree);
-        if (result == null) result = caseRegionDefinition(definitionThree);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,17 +313,26 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.COORDINATE2_D:
+      case SmlPackage.CIRCLE_D:
       {
-        Coordinate2D coordinate2D = (Coordinate2D)theEObject;
-        T result = caseCoordinate2D(coordinate2D);
+        CircleD circleD = (CircleD)theEObject;
+        T result = caseCircleD(circleD);
+        if (result == null) result = caseDimension(circleD);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SmlPackage.COORDINATE3_D:
+      case SmlPackage.RECTANGLE_D:
       {
-        Coordinate3D coordinate3D = (Coordinate3D)theEObject;
-        T result = caseCoordinate3D(coordinate3D);
+        RectangleD rectangleD = (RectangleD)theEObject;
+        T result = caseRectangleD(rectangleD);
+        if (result == null) result = caseDimension(rectangleD);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.COORDINATE:
+      {
+        Coordinate coordinate = (Coordinate)theEObject;
+        T result = caseCoordinate(coordinate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -476,6 +406,30 @@ public class SmlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SmlPackage.CIRCLE:
+      {
+        Circle circle = (Circle)theEObject;
+        T result = caseCircle(circle);
+        if (result == null) result = casePosition(circle);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.RECTANGLE:
+      {
+        Rectangle rectangle = (Rectangle)theEObject;
+        T result = caseRectangle(rectangle);
+        if (result == null) result = casePosition(rectangle);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SmlPackage.POINT_D:
+      {
+        PointD pointD = (PointD)theEObject;
+        T result = casePointD(pointD);
+        if (result == null) result = casePosition(pointD);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -545,22 +499,6 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Mission Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Mission Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMissionSpecification(MissionSpecification object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Mission Time</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -604,54 +542,6 @@ public class SmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTask(Task object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Aggregate</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Aggregate</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAggregate(Aggregate object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Migration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Migration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMigration(Migration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Foraging</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Foraging</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseForaging(Foraging object)
   {
     return null;
   }
@@ -753,17 +643,17 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Penalty</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Penatly</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Penalty</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Penatly</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePenalty(Penalty object)
+  public T casePenatly(Penatly object)
   {
     return null;
   }
@@ -897,22 +787,6 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Patch</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Patch</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePatch(Patch object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Light</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -977,70 +851,6 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Region Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Region Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRegionDefinition(RegionDefinition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Definition One</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Definition One</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDefinitionOne(DefinitionOne object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Definition Two</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Definition Two</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDefinitionTwo(DefinitionTwo object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Definition Three</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Definition Three</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDefinitionThree(DefinitionThree object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Dimension</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1057,33 +867,49 @@ public class SmlSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Coordinate2 D</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Circle D</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Coordinate2 D</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Circle D</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCoordinate2D(Coordinate2D object)
+  public T caseCircleD(CircleD object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Coordinate3 D</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rectangle D</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Coordinate3 D</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rectangle D</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCoordinate3D(Coordinate3D object)
+  public T caseRectangleD(RectangleD object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Coordinate</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Coordinate</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCoordinate(Coordinate object)
   {
     return null;
   }
@@ -1228,6 +1054,54 @@ public class SmlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBoolLiteral(BoolLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Circle</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Circle</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCircle(Circle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Rectangle</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Rectangle</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRectangle(Rectangle object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Point D</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Point D</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePointD(PointD object)
   {
     return null;
   }

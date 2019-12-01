@@ -5,7 +5,6 @@ package org.xtext.example.sml.sml.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,7 +29,6 @@ import org.xtext.example.sml.sml.SmlPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.sml.sml.impl.MissionObjectiveImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.MissionObjectiveImpl#getIn <em>In</em>}</li>
  * </ul>
  *
@@ -39,26 +36,6 @@ import org.xtext.example.sml.sml.SmlPackage;
  */
 public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implements MissionObjective
 {
-  /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getIn() <em>In</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -88,31 +65,6 @@ public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implement
   protected EClass eStaticClass()
   {
     return SmlPackage.Literals.MISSION_OBJECTIVE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.MISSION_OBJECTIVE__TYPE, oldType, type));
   }
 
   /**
@@ -156,8 +108,6 @@ public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case SmlPackage.MISSION_OBJECTIVE__TYPE:
-        return getType();
       case SmlPackage.MISSION_OBJECTIVE__IN:
         return getIn();
     }
@@ -175,9 +125,6 @@ public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case SmlPackage.MISSION_OBJECTIVE__TYPE:
-        setType((String)newValue);
-        return;
       case SmlPackage.MISSION_OBJECTIVE__IN:
         getIn().clear();
         getIn().addAll((Collection<? extends Indicator>)newValue);
@@ -196,9 +143,6 @@ public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case SmlPackage.MISSION_OBJECTIVE__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
       case SmlPackage.MISSION_OBJECTIVE__IN:
         getIn().clear();
         return;
@@ -216,29 +160,10 @@ public class MissionObjectiveImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case SmlPackage.MISSION_OBJECTIVE__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case SmlPackage.MISSION_OBJECTIVE__IN:
         return in != null && !in.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (Type: ");
-    result.append(type);
-    result.append(')');
-    return result.toString();
   }
 
 } //MissionObjectiveImpl
