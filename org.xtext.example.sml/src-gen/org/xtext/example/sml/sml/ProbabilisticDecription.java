@@ -51,26 +51,26 @@ public interface ProbabilisticDecription extends EObject
   void setDis(String value);
 
   /**
-   * Returns the value of the '<em><b>K</b></em>' containment reference.
+   * Returns the value of the '<em><b>K</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>K</em>' containment reference isn't clear,
+   * If the meaning of the '<em>K</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>K</em>' containment reference.
+   * @return the value of the '<em>K</em>' reference.
    * @see #setK(Region)
    * @see org.xtext.example.sml.sml.SmlPackage#getProbabilisticDecription_K()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Region getK();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.ProbabilisticDecription#getK <em>K</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.ProbabilisticDecription#getK <em>K</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>K</em>' containment reference.
+   * @param value the new value of the '<em>K</em>' reference.
    * @see #getK()
    * @generated
    */
