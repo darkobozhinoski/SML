@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.example.sml.sml.Model#getArenas <em>Arenas</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.Model#getEnv <em>Env</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.Model#getSw <em>Sw</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Model#getOb <em>Ob</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Model#getMs <em>Ms</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getModel()
@@ -105,29 +105,29 @@ public interface Model extends EObject
   void setSw(Swarmconf value);
 
   /**
-   * Returns the value of the '<em><b>Ob</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ms</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ob</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ms</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ob</em>' containment reference.
-   * @see #setOb(MissionObjective)
-   * @see org.xtext.example.sml.sml.SmlPackage#getModel_Ob()
+   * @return the value of the '<em>Ms</em>' containment reference.
+   * @see #setMs(MissionSpecification)
+   * @see org.xtext.example.sml.sml.SmlPackage#getModel_Ms()
    * @model containment="true"
    * @generated
    */
-  MissionObjective getOb();
+  MissionSpecification getMs();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Model#getOb <em>Ob</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Model#getMs <em>Ms</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ob</em>' containment reference.
-   * @see #getOb()
+   * @param value the new value of the '<em>Ms</em>' containment reference.
+   * @see #getMs()
    * @generated
    */
-  void setOb(MissionObjective value);
+  void setMs(MissionSpecification value);
 
 } // Model

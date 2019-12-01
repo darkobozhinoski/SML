@@ -35,7 +35,7 @@ public class IntervalImpl extends RangeImpl implements Interval
    * @generated
    * @ordered
    */
-  protected static final int M_EDEFAULT = 0;
+  protected static final String M_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getM() <em>M</em>}' attribute.
@@ -45,7 +45,7 @@ public class IntervalImpl extends RangeImpl implements Interval
    * @generated
    * @ordered
    */
-  protected int m = M_EDEFAULT;
+  protected String m = M_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +74,7 @@ public class IntervalImpl extends RangeImpl implements Interval
    * @generated
    */
   @Override
-  public int getM()
+  public String getM()
   {
     return m;
   }
@@ -85,9 +85,9 @@ public class IntervalImpl extends RangeImpl implements Interval
    * @generated
    */
   @Override
-  public void setM(int newM)
+  public void setM(String newM)
   {
-    int oldM = m;
+    String oldM = m;
     m = newM;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.INTERVAL__M, oldM, m));
@@ -120,7 +120,7 @@ public class IntervalImpl extends RangeImpl implements Interval
     switch (featureID)
     {
       case SmlPackage.INTERVAL__M:
-        setM((Integer)newValue);
+        setM((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -154,7 +154,7 @@ public class IntervalImpl extends RangeImpl implements Interval
     switch (featureID)
     {
       case SmlPackage.INTERVAL__M:
-        return m != M_EDEFAULT;
+        return M_EDEFAULT == null ? m != null : !M_EDEFAULT.equals(m);
     }
     return super.eIsSet(featureID);
   }

@@ -3,7 +3,6 @@
  */
 package org.xtext.example.sml.sml;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,35 +15,36 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.Condition#getR <em>R</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.Condition#getN <em>N</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Condition#getNest <em>Nest</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getCondition()
  * @model
  * @generated
  */
-public interface Condition extends EObject
+public interface Condition extends Scope
 {
   /**
-   * Returns the value of the '<em><b>R</b></em>' containment reference.
+   * Returns the value of the '<em><b>R</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>R</em>' containment reference isn't clear,
+   * If the meaning of the '<em>R</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>R</em>' containment reference.
+   * @return the value of the '<em>R</em>' reference.
    * @see #setR(Region)
    * @see org.xtext.example.sml.sml.SmlPackage#getCondition_R()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Region getR();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Condition#getR <em>R</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Condition#getR <em>R</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>R</em>' containment reference.
+   * @param value the new value of the '<em>R</em>' reference.
    * @see #getR()
    * @generated
    */
@@ -75,5 +75,31 @@ public interface Condition extends EObject
    * @generated
    */
   void setN(int value);
+
+  /**
+   * Returns the value of the '<em><b>Nest</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Nest</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nest</em>' reference.
+   * @see #setNest(Region)
+   * @see org.xtext.example.sml.sml.SmlPackage#getCondition_Nest()
+   * @model
+   * @generated
+   */
+  Region getNest();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Condition#getNest <em>Nest</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nest</em>' reference.
+   * @see #getNest()
+   * @generated
+   */
+  void setNest(Region value);
 
 } // Condition

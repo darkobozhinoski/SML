@@ -4,7 +4,6 @@
 package org.xtext.example.sml.sml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -53,7 +52,7 @@ public class ProbabilisticDecriptionImpl extends MinimalEObjectImpl.Container im
   protected String dis = DIS_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getK() <em>K</em>}' containment reference.
+   * The cached value of the '{@link #getK() <em>K</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getK()
@@ -116,6 +115,16 @@ public class ProbabilisticDecriptionImpl extends MinimalEObjectImpl.Container im
   @Override
   public Region getK()
   {
+    if (k != null && k.eIsProxy())
+    {
+      InternalEObject oldK = (InternalEObject)k;
+      k = (Region)eResolveProxy(oldK);
+      if (k != oldK)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmlPackage.PROBABILISTIC_DECRIPTION__K, oldK, k));
+      }
+    }
     return k;
   }
 
@@ -124,16 +133,9 @@ public class ProbabilisticDecriptionImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetK(Region newK, NotificationChain msgs)
+  public Region basicGetK()
   {
-    Region oldK = k;
-    k = newK;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.PROBABILISTIC_DECRIPTION__K, oldK, newK);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return k;
   }
 
   /**
@@ -144,34 +146,10 @@ public class ProbabilisticDecriptionImpl extends MinimalEObjectImpl.Container im
   @Override
   public void setK(Region newK)
   {
-    if (newK != k)
-    {
-      NotificationChain msgs = null;
-      if (k != null)
-        msgs = ((InternalEObject)k).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.PROBABILISTIC_DECRIPTION__K, null, msgs);
-      if (newK != null)
-        msgs = ((InternalEObject)newK).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.PROBABILISTIC_DECRIPTION__K, null, msgs);
-      msgs = basicSetK(newK, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.PROBABILISTIC_DECRIPTION__K, newK, newK));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case SmlPackage.PROBABILISTIC_DECRIPTION__K:
-        return basicSetK(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    Region oldK = k;
+    k = newK;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.PROBABILISTIC_DECRIPTION__K, oldK, k));
   }
 
   /**
@@ -187,7 +165,8 @@ public class ProbabilisticDecriptionImpl extends MinimalEObjectImpl.Container im
       case SmlPackage.PROBABILISTIC_DECRIPTION__DIS:
         return getDis();
       case SmlPackage.PROBABILISTIC_DECRIPTION__K:
-        return getK();
+        if (resolve) return getK();
+        return basicGetK();
     }
     return super.eGet(featureID, resolve, coreType);
   }

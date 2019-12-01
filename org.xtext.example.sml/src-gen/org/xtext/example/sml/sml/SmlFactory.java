@@ -60,6 +60,15 @@ public interface SmlFactory extends EFactory
   Swarmconf createSwarmconf();
 
   /**
+   * Returns a new object of class '<em>Mission Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mission Specification</em>'.
+   * @generated
+   */
+  MissionSpecification createMissionSpecification();
+
+  /**
    * Returns a new object of class '<em>Mission Time</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +94,33 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Task createTask();
+
+  /**
+   * Returns a new object of class '<em>Aggregate</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aggregate</em>'.
+   * @generated
+   */
+  Aggregate createAggregate();
+
+  /**
+   * Returns a new object of class '<em>Migration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Migration</em>'.
+   * @generated
+   */
+  Migration createMigration();
+
+  /**
+   * Returns a new object of class '<em>Foraging</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foraging</em>'.
+   * @generated
+   */
+  Foraging createForaging();
 
   /**
    * Returns a new object of class '<em>Mission Objective</em>'.
@@ -141,13 +177,13 @@ public interface SmlFactory extends EFactory
   Occurence createOccurence();
 
   /**
-   * Returns a new object of class '<em>Penatly</em>'.
+   * Returns a new object of class '<em>Penalty</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Penatly</em>'.
+   * @return a new object of class '<em>Penalty</em>'.
    * @generated
    */
-  Penatly createPenatly();
+  Penalty createPenalty();
 
   /**
    * Returns a new object of class '<em>Reward</em>'.
@@ -204,6 +240,15 @@ public interface SmlFactory extends EFactory
   ElementDescription createElementDescription();
 
   /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
    * Returns a new object of class '<em>Object</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,6 +265,15 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Obstacle createObstacle();
+
+  /**
+   * Returns a new object of class '<em>Patch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Patch</em>'.
+   * @generated
+   */
+  Patch createPatch();
 
   /**
    * Returns a new object of class '<em>Light</em>'.
@@ -258,6 +312,42 @@ public interface SmlFactory extends EFactory
   Region createRegion();
 
   /**
+   * Returns a new object of class '<em>Region Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Region Definition</em>'.
+   * @generated
+   */
+  RegionDefinition createRegionDefinition();
+
+  /**
+   * Returns a new object of class '<em>Definition One</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition One</em>'.
+   * @generated
+   */
+  DefinitionOne createDefinitionOne();
+
+  /**
+   * Returns a new object of class '<em>Definition Two</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Two</em>'.
+   * @generated
+   */
+  DefinitionTwo createDefinitionTwo();
+
+  /**
+   * Returns a new object of class '<em>Definition Three</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Three</em>'.
+   * @generated
+   */
+  DefinitionThree createDefinitionThree();
+
+  /**
    * Returns a new object of class '<em>Dimension</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -267,31 +357,49 @@ public interface SmlFactory extends EFactory
   Dimension createDimension();
 
   /**
-   * Returns a new object of class '<em>Circle D</em>'.
+   * Returns a new object of class '<em>Dimension1</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Circle D</em>'.
+   * @return a new object of class '<em>Dimension1</em>'.
    * @generated
    */
-  CircleD createCircleD();
+  Dimension1 createDimension1();
 
   /**
-   * Returns a new object of class '<em>Rectangle D</em>'.
+   * Returns a new object of class '<em>Dimension2</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Rectangle D</em>'.
+   * @return a new object of class '<em>Dimension2</em>'.
    * @generated
    */
-  RectangleD createRectangleD();
+  Dimension2 createDimension2();
 
   /**
-   * Returns a new object of class '<em>Coordinate</em>'.
+   * Returns a new object of class '<em>Dimension3</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Coordinate</em>'.
+   * @return a new object of class '<em>Dimension3</em>'.
    * @generated
    */
-  Coordinate createCoordinate();
+  Dimension3 createDimension3();
+
+  /**
+   * Returns a new object of class '<em>Coordinate2 D</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Coordinate2 D</em>'.
+   * @generated
+   */
+  Coordinate2D createCoordinate2D();
+
+  /**
+   * Returns a new object of class '<em>Coordinate3 D</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Coordinate3 D</em>'.
+   * @generated
+   */
+  Coordinate3D createCoordinate3D();
 
   /**
    * Returns a new object of class '<em>Range</em>'.
@@ -355,51 +463,6 @@ public interface SmlFactory extends EFactory
    * @generated
    */
   Interval createInterval();
-
-  /**
-   * Returns a new object of class '<em>Arithmetic Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arithmetic Expression</em>'.
-   * @generated
-   */
-  ArithmeticExpression createArithmeticExpression();
-
-  /**
-   * Returns a new object of class '<em>Bool Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bool Literal</em>'.
-   * @generated
-   */
-  BoolLiteral createBoolLiteral();
-
-  /**
-   * Returns a new object of class '<em>Circle</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Circle</em>'.
-   * @generated
-   */
-  Circle createCircle();
-
-  /**
-   * Returns a new object of class '<em>Rectangle</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Rectangle</em>'.
-   * @generated
-   */
-  Rectangle createRectangle();
-
-  /**
-   * Returns a new object of class '<em>Point D</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Point D</em>'.
-   * @generated
-   */
-  PointD createPointD();
 
   /**
    * Returns the package supported by this factory.

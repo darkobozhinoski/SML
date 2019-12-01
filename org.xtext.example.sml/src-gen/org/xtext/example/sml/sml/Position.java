@@ -32,12 +32,12 @@ public interface Position extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Point</em>' containment reference.
-   * @see #setPoint(Coordinate)
+   * @see #setPoint(EObject)
    * @see org.xtext.example.sml.sml.SmlPackage#getPosition_Point()
    * @model containment="true"
    * @generated
    */
-  Coordinate getPoint();
+  EObject getPoint();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sml.sml.Position#getPoint <em>Point</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface Position extends EObject
    * @see #getPoint()
    * @generated
    */
-  void setPoint(Coordinate value);
+  void setPoint(EObject value);
 
 } // Position

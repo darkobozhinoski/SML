@@ -3,7 +3,6 @@
  */
 package org.xtext.example.sml.sml;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,17 +14,16 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.Region#getColors <em>Colors</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Region#getShape <em>Shape</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Region#getShape2d <em>Shape2d</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.Region#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Region#getReferencepoint <em>Referencepoint</em>}</li>
- *   <li>{@link org.xtext.example.sml.sml.Region#getDimensions <em>Dimensions</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.Region#getRegion <em>Region</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.sml.sml.SmlPackage#getRegion()
  * @model
  * @generated
  */
-public interface Region extends EObject
+public interface Region extends EnvironmentElement
 {
   /**
    * Returns the value of the '<em><b>Colors</b></em>' attribute.
@@ -54,30 +52,30 @@ public interface Region extends EObject
   void setColors(String value);
 
   /**
-   * Returns the value of the '<em><b>Shape</b></em>' attribute.
+   * Returns the value of the '<em><b>Shape2d</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Shape</em>' attribute isn't clear,
+   * If the meaning of the '<em>Shape2d</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Shape</em>' attribute.
-   * @see #setShape(String)
-   * @see org.xtext.example.sml.sml.SmlPackage#getRegion_Shape()
+   * @return the value of the '<em>Shape2d</em>' attribute.
+   * @see #setShape2d(String)
+   * @see org.xtext.example.sml.sml.SmlPackage#getRegion_Shape2d()
    * @model
    * @generated
    */
-  String getShape();
+  String getShape2d();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Region#getShape <em>Shape</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Region#getShape2d <em>Shape2d</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Shape</em>' attribute.
-   * @see #getShape()
+   * @param value the new value of the '<em>Shape2d</em>' attribute.
+   * @see #getShape2d()
    * @generated
    */
-  void setShape(String value);
+  void setShape2d(String value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -106,55 +104,29 @@ public interface Region extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Referencepoint</b></em>' containment reference.
+   * Returns the value of the '<em><b>Region</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Referencepoint</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Region</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Referencepoint</em>' containment reference.
-   * @see #setReferencepoint(Position)
-   * @see org.xtext.example.sml.sml.SmlPackage#getRegion_Referencepoint()
+   * @return the value of the '<em>Region</em>' containment reference.
+   * @see #setRegion(RegionDefinition)
+   * @see org.xtext.example.sml.sml.SmlPackage#getRegion_Region()
    * @model containment="true"
    * @generated
    */
-  Position getReferencepoint();
+  RegionDefinition getRegion();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Region#getReferencepoint <em>Referencepoint</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.sml.sml.Region#getRegion <em>Region</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Referencepoint</em>' containment reference.
-   * @see #getReferencepoint()
+   * @param value the new value of the '<em>Region</em>' containment reference.
+   * @see #getRegion()
    * @generated
    */
-  void setReferencepoint(Position value);
-
-  /**
-   * Returns the value of the '<em><b>Dimensions</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Dimensions</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Dimensions</em>' containment reference.
-   * @see #setDimensions(Dimension)
-   * @see org.xtext.example.sml.sml.SmlPackage#getRegion_Dimensions()
-   * @model containment="true"
-   * @generated
-   */
-  Dimension getDimensions();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.sml.sml.Region#getDimensions <em>Dimensions</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dimensions</em>' containment reference.
-   * @see #getDimensions()
-   * @generated
-   */
-  void setDimensions(Dimension value);
+  void setRegion(RegionDefinition value);
 
 } // Region

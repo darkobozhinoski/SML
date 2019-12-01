@@ -4,13 +4,11 @@
 package org.xtext.example.sml.sml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.Region;
@@ -26,14 +24,15 @@ import org.xtext.example.sml.sml.SmlPackage;
  * <ul>
  *   <li>{@link org.xtext.example.sml.sml.impl.ConditionImpl#getR <em>R</em>}</li>
  *   <li>{@link org.xtext.example.sml.sml.impl.ConditionImpl#getN <em>N</em>}</li>
+ *   <li>{@link org.xtext.example.sml.sml.impl.ConditionImpl#getNest <em>Nest</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
+public class ConditionImpl extends ScopeImpl implements Condition
 {
   /**
-   * The cached value of the '{@link #getR() <em>R</em>}' containment reference.
+   * The cached value of the '{@link #getR() <em>R</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getR()
@@ -61,6 +60,16 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @ordered
    */
   protected int n = N_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getNest() <em>Nest</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNest()
+   * @generated
+   * @ordered
+   */
+  protected Region nest;
 
   /**
    * <!-- begin-user-doc -->
@@ -91,6 +100,16 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   @Override
   public Region getR()
   {
+    if (r != null && r.eIsProxy())
+    {
+      InternalEObject oldR = (InternalEObject)r;
+      r = (Region)eResolveProxy(oldR);
+      if (r != oldR)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmlPackage.CONDITION__R, oldR, r));
+      }
+    }
     return r;
   }
 
@@ -99,16 +118,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetR(Region newR, NotificationChain msgs)
+  public Region basicGetR()
   {
-    Region oldR = r;
-    r = newR;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SmlPackage.CONDITION__R, oldR, newR);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return r;
   }
 
   /**
@@ -119,18 +131,10 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   @Override
   public void setR(Region newR)
   {
-    if (newR != r)
-    {
-      NotificationChain msgs = null;
-      if (r != null)
-        msgs = ((InternalEObject)r).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SmlPackage.CONDITION__R, null, msgs);
-      if (newR != null)
-        msgs = ((InternalEObject)newR).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SmlPackage.CONDITION__R, null, msgs);
-      msgs = basicSetR(newR, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.CONDITION__R, newR, newR));
+    Region oldR = r;
+    r = newR;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.CONDITION__R, oldR, r));
   }
 
   /**
@@ -164,14 +168,43 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public Region getNest()
   {
-    switch (featureID)
+    if (nest != null && nest.eIsProxy())
     {
-      case SmlPackage.CONDITION__R:
-        return basicSetR(null, msgs);
+      InternalEObject oldNest = (InternalEObject)nest;
+      nest = (Region)eResolveProxy(oldNest);
+      if (nest != oldNest)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SmlPackage.CONDITION__NEST, oldNest, nest));
+      }
     }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return nest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Region basicGetNest()
+  {
+    return nest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setNest(Region newNest)
+  {
+    Region oldNest = nest;
+    nest = newNest;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.CONDITION__NEST, oldNest, nest));
   }
 
   /**
@@ -185,9 +218,13 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     switch (featureID)
     {
       case SmlPackage.CONDITION__R:
-        return getR();
+        if (resolve) return getR();
+        return basicGetR();
       case SmlPackage.CONDITION__N:
         return getN();
+      case SmlPackage.CONDITION__NEST:
+        if (resolve) return getNest();
+        return basicGetNest();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -207,6 +244,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
         return;
       case SmlPackage.CONDITION__N:
         setN((Integer)newValue);
+        return;
+      case SmlPackage.CONDITION__NEST:
+        setNest((Region)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -228,6 +268,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
       case SmlPackage.CONDITION__N:
         setN(N_EDEFAULT);
         return;
+      case SmlPackage.CONDITION__NEST:
+        setNest((Region)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -246,6 +289,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
         return r != null;
       case SmlPackage.CONDITION__N:
         return n != N_EDEFAULT;
+      case SmlPackage.CONDITION__NEST:
+        return nest != null;
     }
     return super.eIsSet(featureID);
   }

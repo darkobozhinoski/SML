@@ -6,9 +6,9 @@ package org.xtext.example.sml.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -32,14 +32,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEnvEnvironmentParserRuleCall_1_0 = (RuleCall)cEnvAssignment_1.eContents().get(0);
 		private final Assignment cSwAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSwSwarmconfParserRuleCall_2_0 = (RuleCall)cSwAssignment_2.eContents().get(0);
-		private final Assignment cObAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cObMissionObjectiveParserRuleCall_3_0 = (RuleCall)cObAssignment_3.eContents().get(0);
+		private final Assignment cMsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMsMissionSpecificationParserRuleCall_3_0 = (RuleCall)cMsAssignment_3.eContents().get(0);
 		
 		//Model:
-		//	arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective;
+		//	arenas=Arena env=Environment sw=Swarmconf* ms=MissionSpecification*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective
+		//arenas=Arena env=Environment sw=Swarmconf* ms=MissionSpecification*
 		public Group getGroup() { return cGroup; }
 		
 		//arenas=Arena
@@ -54,17 +54,17 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Environment
 		public RuleCall getEnvEnvironmentParserRuleCall_1_0() { return cEnvEnvironmentParserRuleCall_1_0; }
 		
-		//sw=Swarmconf
+		//sw=Swarmconf*
 		public Assignment getSwAssignment_2() { return cSwAssignment_2; }
 		
 		//Swarmconf
 		public RuleCall getSwSwarmconfParserRuleCall_2_0() { return cSwSwarmconfParserRuleCall_2_0; }
 		
-		//ob=MissionObjective
-		public Assignment getObAssignment_3() { return cObAssignment_3; }
+		//ms=MissionSpecification*
+		public Assignment getMsAssignment_3() { return cMsAssignment_3; }
 		
-		//MissionObjective
-		public RuleCall getObMissionObjectiveParserRuleCall_3_0() { return cObMissionObjectiveParserRuleCall_3_0; }
+		//MissionSpecification
+		public RuleCall getMsMissionSpecificationParserRuleCall_3_0() { return cMsMissionSpecificationParserRuleCall_3_0; }
 	}
 	public class EnvironmentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Environment");
@@ -127,15 +127,15 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDisDistributionParserRuleCall_3_0 = (RuleCall)cDisAssignment_3.eContents().get(0);
 		private final Keyword cDistributionKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cInKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cAKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cKAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cKRegionParserRuleCall_7_0 = (RuleCall)cKAssignment_7.eContents().get(0);
+		private final Assignment cKAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cKRegionCrossReference_6_0 = (CrossReference)cKAssignment_6.eContents().get(0);
+		private final RuleCall cKRegionIDTerminalRuleCall_6_0_1 = (RuleCall)cKRegionCrossReference_6_0.eContents().get(1);
 		
 		//ProbabilisticDecription:
-		//	'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' 'a' k=Region;
+		//	'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k=[Region];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' 'a' k=Region
+		//'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k=[Region]
 		public Group getGroup() { return cGroup; }
 		
 		//'distributed'
@@ -159,14 +159,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'in'
 		public Keyword getInKeyword_5() { return cInKeyword_5; }
 		
-		//'a'
-		public Keyword getAKeyword_6() { return cAKeyword_6; }
+		//k=[Region]
+		public Assignment getKAssignment_6() { return cKAssignment_6; }
 		
-		//k=Region
-		public Assignment getKAssignment_7() { return cKAssignment_7; }
+		//[Region]
+		public CrossReference getKRegionCrossReference_6_0() { return cKRegionCrossReference_6_0; }
 		
-		//Region
-		public RuleCall getKRegionParserRuleCall_7_0() { return cKRegionParserRuleCall_7_0; }
+		//ID
+		public RuleCall getKRegionIDTerminalRuleCall_6_0_1() { return cKRegionIDTerminalRuleCall_6_0_1; }
 	}
 	public class SwarmconfElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Swarmconf");
@@ -225,6 +225,41 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//ProbabilisticDecription
 		public RuleCall getPrProbabilisticDecriptionParserRuleCall_7_0() { return cPrProbabilisticDecriptionParserRuleCall_7_0; }
 	}
+	public class MissionSpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionSpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cMAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cMMissionParserRuleCall_0_0 = (RuleCall)cMAssignment_0.eContents().get(0);
+		private final Assignment cMtAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMtMissionTimeParserRuleCall_1_0 = (RuleCall)cMtAssignment_1.eContents().get(0);
+		private final Assignment cObAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cObMissionObjectiveParserRuleCall_2_0 = (RuleCall)cObAssignment_2.eContents().get(0);
+		
+		//MissionSpecification:
+		//	m=Mission mt=MissionTime ob=MissionObjective;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//m=Mission mt=MissionTime ob=MissionObjective
+		public Group getGroup() { return cGroup; }
+		
+		//m=Mission
+		public Assignment getMAssignment_0() { return cMAssignment_0; }
+		
+		//Mission
+		public RuleCall getMMissionParserRuleCall_0_0() { return cMMissionParserRuleCall_0_0; }
+		
+		//mt=MissionTime
+		public Assignment getMtAssignment_1() { return cMtAssignment_1; }
+		
+		//MissionTime
+		public RuleCall getMtMissionTimeParserRuleCall_1_0() { return cMtMissionTimeParserRuleCall_1_0; }
+		
+		//ob=MissionObjective
+		public Assignment getObAssignment_2() { return cObAssignment_2; }
+		
+		//MissionObjective
+		public RuleCall getObMissionObjectiveParserRuleCall_2_0() { return cObMissionObjectiveParserRuleCall_2_0; }
+	}
 	public class MissionTimeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionTime");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -237,12 +272,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIsKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cTAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cTRangeParserRuleCall_7_0 = (RuleCall)cTAssignment_7.eContents().get(0);
+		private final Assignment cMAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cMMetricParserRuleCall_8_0 = (RuleCall)cMAssignment_8.eContents().get(0);
 		
 		//MissionTime:
-		//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range;
+		//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range
+		//'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric
 		public Group getGroup() { return cGroup; }
 		
 		//'The'
@@ -266,11 +303,17 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'is'
 		public Keyword getIsKeyword_6() { return cIsKeyword_6; }
 		
-		//T=Range
+		//t=Range
 		public Assignment getTAssignment_7() { return cTAssignment_7; }
 		
 		//Range
 		public RuleCall getTRangeParserRuleCall_7_0() { return cTRangeParserRuleCall_7_0; }
+		
+		//m=Metric
+		public Assignment getMAssignment_8() { return cMAssignment_8; }
+		
+		//Metric
+		public RuleCall getMMetricParserRuleCall_8_0() { return cMMetricParserRuleCall_8_0; }
 	}
 	public class MissionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Mission");
@@ -284,14 +327,12 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cToKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cTAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cTTaskParserRuleCall_7_0 = (RuleCall)cTAssignment_7.eContents().get(0);
-		private final Assignment cMAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cMMetricParserRuleCall_8_0 = (RuleCall)cMAssignment_8.eContents().get(0);
 		
 		//Mission:
-		//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric;
+		//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric
+		//'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task
 		public Group getGroup() { return cGroup; }
 		
 		//'The'
@@ -320,26 +361,49 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Task
 		public RuleCall getTTaskParserRuleCall_7_0() { return cTTaskParserRuleCall_7_0; }
-		
-		//m=Metric
-		public Assignment getMAssignment_8() { return cMAssignment_8; }
-		
-		//Metric
-		public RuleCall getMMetricParserRuleCall_8_0() { return cMMetricParserRuleCall_8_0; }
 	}
 	public class TaskElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Task");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAggregateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMigrationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cForagingParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//Task:
+		//	Aggregate | Migration | Foraging;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Aggregate | Migration | Foraging
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Aggregate
+		public RuleCall getAggregateParserRuleCall_0() { return cAggregateParserRuleCall_0; }
+		
+		//Migration
+		public RuleCall getMigrationParserRuleCall_1() { return cMigrationParserRuleCall_1; }
+		
+		//Foraging
+		public RuleCall getForagingParserRuleCall_2() { return cForagingParserRuleCall_2; }
+	}
+	public class AggregateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Aggregate");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAggregateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cRAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cRRegionParserRuleCall_2_0 = (RuleCall)cRAssignment_2.eContents().get(0);
+		private final CrossReference cRRegionCrossReference_2_0 = (CrossReference)cRAssignment_2.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_2_0_1 = (RuleCall)cRRegionCrossReference_2_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cRRegionCrossReference_3_1_0 = (CrossReference)cRAssignment_3_1.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRRegionCrossReference_3_1_0.eContents().get(1);
 		
-		//Task:
-		//	'aggregate' 'on' r=Region;
+		//Aggregate:
+		//	'aggregate' 'on' r+=[Region] (',' r+=[Region])*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'aggregate' 'on' r=Region
+		//'aggregate' 'on' r+=[Region] (',' r+=[Region])*
 		public Group getGroup() { return cGroup; }
 		
 		//'aggregate'
@@ -348,23 +412,242 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'on'
 		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
 		
-		//r=Region
+		//r+=[Region]
 		public Assignment getRAssignment_2() { return cRAssignment_2; }
 		
-		//Region
-		public RuleCall getRRegionParserRuleCall_2_0() { return cRRegionParserRuleCall_2_0; }
+		//[Region]
+		public CrossReference getRRegionCrossReference_2_0() { return cRRegionCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_2_0_1() { return cRRegionIDTerminalRuleCall_2_0_1; }
+		
+		//(',' r+=[Region])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//r+=[Region]
+		public Assignment getRAssignment_3_1() { return cRAssignment_3_1; }
+		
+		//[Region]
+		public CrossReference getRRegionCrossReference_3_1_0() { return cRRegionCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_3_1_0_1() { return cRRegionIDTerminalRuleCall_3_1_0_1; }
+	}
+	public class MigrationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Migration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAggregateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cOnKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cRRegionCrossReference_2_0 = (CrossReference)cRAssignment_2.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_2_0_1 = (RuleCall)cRRegionCrossReference_2_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cRAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cRRegionCrossReference_3_1_0 = (CrossReference)cRAssignment_3_1.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_3_1_0_1 = (RuleCall)cRRegionCrossReference_3_1_0.eContents().get(1);
+		private final Keyword cWhileKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cAvoidingKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cTRegionCrossReference_6_0 = (CrossReference)cTAssignment_6.eContents().get(0);
+		private final RuleCall cTRegionIDTerminalRuleCall_6_0_1 = (RuleCall)cTRegionCrossReference_6_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cTRegionCrossReference_7_1_0 = (CrossReference)cTAssignment_7_1.eContents().get(0);
+		private final RuleCall cTRegionIDTerminalRuleCall_7_1_0_1 = (RuleCall)cTRegionCrossReference_7_1_0.eContents().get(1);
+		
+		//Migration:
+		//	'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*
+		public Group getGroup() { return cGroup; }
+		
+		//'aggregate'
+		public Keyword getAggregateKeyword_0() { return cAggregateKeyword_0; }
+		
+		//'on'
+		public Keyword getOnKeyword_1() { return cOnKeyword_1; }
+		
+		//r+=[Region]
+		public Assignment getRAssignment_2() { return cRAssignment_2; }
+		
+		//[Region]
+		public CrossReference getRRegionCrossReference_2_0() { return cRRegionCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_2_0_1() { return cRRegionIDTerminalRuleCall_2_0_1; }
+		
+		//(',' r+=[Region])*
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//','
+		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		
+		//r+=[Region]
+		public Assignment getRAssignment_3_1() { return cRAssignment_3_1; }
+		
+		//[Region]
+		public CrossReference getRRegionCrossReference_3_1_0() { return cRRegionCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_3_1_0_1() { return cRRegionIDTerminalRuleCall_3_1_0_1; }
+		
+		//'while'
+		public Keyword getWhileKeyword_4() { return cWhileKeyword_4; }
+		
+		//'avoiding'
+		public Keyword getAvoidingKeyword_5() { return cAvoidingKeyword_5; }
+		
+		//t+=[Region]
+		public Assignment getTAssignment_6() { return cTAssignment_6; }
+		
+		//[Region]
+		public CrossReference getTRegionCrossReference_6_0() { return cTRegionCrossReference_6_0; }
+		
+		//ID
+		public RuleCall getTRegionIDTerminalRuleCall_6_0_1() { return cTRegionIDTerminalRuleCall_6_0_1; }
+		
+		//(',' t+=[Region])*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//','
+		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+		
+		//t+=[Region]
+		public Assignment getTAssignment_7_1() { return cTAssignment_7_1; }
+		
+		//[Region]
+		public CrossReference getTRegionCrossReference_7_1_0() { return cTRegionCrossReference_7_1_0; }
+		
+		//ID
+		public RuleCall getTRegionIDTerminalRuleCall_7_1_0_1() { return cTRegionIDTerminalRuleCall_7_1_0_1; }
+	}
+	public class ForagingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Foraging");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCollectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFoodKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cFromKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSourceAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cSourceRegionCrossReference_3_0 = (CrossReference)cSourceAssignment_3.eContents().get(0);
+		private final RuleCall cSourceRegionIDTerminalRuleCall_3_0_1 = (RuleCall)cSourceRegionCrossReference_3_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSourceAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSourceRegionCrossReference_4_1_0 = (CrossReference)cSourceAssignment_4_1.eContents().get(0);
+		private final RuleCall cSourceRegionIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSourceRegionCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cAndKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cBringKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cItKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cBackKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Keyword cToKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cNestAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final CrossReference cNestRegionCrossReference_10_0 = (CrossReference)cNestAssignment_10.eContents().get(0);
+		private final RuleCall cNestRegionIDTerminalRuleCall_10_0_1 = (RuleCall)cNestRegionCrossReference_10_0.eContents().get(1);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cSourceAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final CrossReference cSourceRegionCrossReference_11_1_0 = (CrossReference)cSourceAssignment_11_1.eContents().get(0);
+		private final RuleCall cSourceRegionIDTerminalRuleCall_11_1_0_1 = (RuleCall)cSourceRegionCrossReference_11_1_0.eContents().get(1);
+		
+		//Foraging:
+		//	'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region] (','
+		//	source+=[Region])*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region] (','
+		//source+=[Region])*
+		public Group getGroup() { return cGroup; }
+		
+		//'collect'
+		public Keyword getCollectKeyword_0() { return cCollectKeyword_0; }
+		
+		//'food'
+		public Keyword getFoodKeyword_1() { return cFoodKeyword_1; }
+		
+		//'from'
+		public Keyword getFromKeyword_2() { return cFromKeyword_2; }
+		
+		//source+=[Region]
+		public Assignment getSourceAssignment_3() { return cSourceAssignment_3; }
+		
+		//[Region]
+		public CrossReference getSourceRegionCrossReference_3_0() { return cSourceRegionCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getSourceRegionIDTerminalRuleCall_3_0_1() { return cSourceRegionIDTerminalRuleCall_3_0_1; }
+		
+		//(',' source+=[Region])*
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//','
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+		
+		//source+=[Region]
+		public Assignment getSourceAssignment_4_1() { return cSourceAssignment_4_1; }
+		
+		//[Region]
+		public CrossReference getSourceRegionCrossReference_4_1_0() { return cSourceRegionCrossReference_4_1_0; }
+		
+		//ID
+		public RuleCall getSourceRegionIDTerminalRuleCall_4_1_0_1() { return cSourceRegionIDTerminalRuleCall_4_1_0_1; }
+		
+		//'and'
+		public Keyword getAndKeyword_5() { return cAndKeyword_5; }
+		
+		//'bring'
+		public Keyword getBringKeyword_6() { return cBringKeyword_6; }
+		
+		//'it'
+		public Keyword getItKeyword_7() { return cItKeyword_7; }
+		
+		//'back'
+		public Keyword getBackKeyword_8() { return cBackKeyword_8; }
+		
+		//'to'
+		public Keyword getToKeyword_9() { return cToKeyword_9; }
+		
+		//nest=[Region]
+		public Assignment getNestAssignment_10() { return cNestAssignment_10; }
+		
+		//[Region]
+		public CrossReference getNestRegionCrossReference_10_0() { return cNestRegionCrossReference_10_0; }
+		
+		//ID
+		public RuleCall getNestRegionIDTerminalRuleCall_10_0_1() { return cNestRegionIDTerminalRuleCall_10_0_1; }
+		
+		//(',' source+=[Region])*
+		public Group getGroup_11() { return cGroup_11; }
+		
+		//','
+		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
+		
+		//source+=[Region]
+		public Assignment getSourceAssignment_11_1() { return cSourceAssignment_11_1; }
+		
+		//[Region]
+		public CrossReference getSourceRegionCrossReference_11_1_0() { return cSourceRegionCrossReference_11_1_0; }
+		
+		//ID
+		public RuleCall getSourceRegionIDTerminalRuleCall_11_1_0_1() { return cSourceRegionIDTerminalRuleCall_11_1_0_1; }
 	}
 	public class MetricElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Metric");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cSecondsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cStepsKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cMKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
 		//Metric:
-		//	'seconds' | 'steps';
+		//	'seconds' | 'steps' | 'm';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'seconds' | 'steps'
+		//'seconds' | 'steps' | 'm'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'seconds'
@@ -372,6 +655,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'steps'
 		public Keyword getStepsKeyword_1() { return cStepsKeyword_1; }
+		
+		//'m'
+		public Keyword getMKeyword_2() { return cMKeyword_2; }
 	}
 	public class MissionObjectiveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.MissionObjective");
@@ -387,22 +673,32 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Keyword cObjectiveKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Keyword cFunctionKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cThatKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cMaximizesKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Keyword cTheKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Keyword cFollowingKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cScoreKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Keyword cColonKeyword_16 = (Keyword)cGroup.eContents().get(16);
-		private final Assignment cInAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cInIndicatorParserRuleCall_17_0 = (RuleCall)cInAssignment_17.eContents().get(0);
+		private final Keyword cToKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cBeKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cTypeAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final Alternatives cTypeAlternatives_13_0 = (Alternatives)cTypeAssignment_13.eContents().get(0);
+		private final Keyword cTypeMaximizedKeyword_13_0_0 = (Keyword)cTypeAlternatives_13_0.eContents().get(0);
+		private final Keyword cTypeMinimizedKeyword_13_0_1 = (Keyword)cTypeAlternatives_13_0.eContents().get(1);
+		private final Keyword cTheKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cObjectiveKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cFunctionKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cIsKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Keyword cComputedKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Keyword cAsKeyword_19 = (Keyword)cGroup.eContents().get(19);
+		private final Keyword cFollowsKeyword_20 = (Keyword)cGroup.eContents().get(20);
+		private final Assignment cInAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cInIndicatorParserRuleCall_21_0 = (RuleCall)cInAssignment_21.eContents().get(0);
 		
 		//MissionObjective:
-		//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
-		//	'following' 'score' ':' in+=Indicator*;
+		//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'to' 'be'
+		//	Type=('maximized.' | 'minimized.')
+		//	'The' 'objective' 'function' 'is' 'computed' 'as' 'follows:' in+=Indicator*
+		//	//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the' 'following' 'score' ':' 
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
-		//'following' 'score' ':' in+=Indicator*
+		//'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'to' 'be' Type=('maximized.'
+		//| 'minimized.') 'The' 'objective' 'function' 'is' 'computed' 'as' 'follows:' in+=Indicator*
 		public Group getGroup() { return cGroup; }
 		
 		//'The'
@@ -438,29 +734,50 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'function'
 		public Keyword getFunctionKeyword_10() { return cFunctionKeyword_10; }
 		
-		//'that'
-		public Keyword getThatKeyword_11() { return cThatKeyword_11; }
+		//'to'
+		public Keyword getToKeyword_11() { return cToKeyword_11; }
 		
-		//'maximizes'
-		public Keyword getMaximizesKeyword_12() { return cMaximizesKeyword_12; }
+		//'be'
+		public Keyword getBeKeyword_12() { return cBeKeyword_12; }
 		
-		//'the'
-		public Keyword getTheKeyword_13() { return cTheKeyword_13; }
+		//Type=('maximized.' | 'minimized.')
+		public Assignment getTypeAssignment_13() { return cTypeAssignment_13; }
 		
-		//'following'
-		public Keyword getFollowingKeyword_14() { return cFollowingKeyword_14; }
+		//('maximized.' | 'minimized.')
+		public Alternatives getTypeAlternatives_13_0() { return cTypeAlternatives_13_0; }
 		
-		//'score'
-		public Keyword getScoreKeyword_15() { return cScoreKeyword_15; }
+		//'maximized.'
+		public Keyword getTypeMaximizedKeyword_13_0_0() { return cTypeMaximizedKeyword_13_0_0; }
 		
-		//':'
-		public Keyword getColonKeyword_16() { return cColonKeyword_16; }
+		//'minimized.'
+		public Keyword getTypeMinimizedKeyword_13_0_1() { return cTypeMinimizedKeyword_13_0_1; }
+		
+		//'The'
+		public Keyword getTheKeyword_14() { return cTheKeyword_14; }
+		
+		//'objective'
+		public Keyword getObjectiveKeyword_15() { return cObjectiveKeyword_15; }
+		
+		//'function'
+		public Keyword getFunctionKeyword_16() { return cFunctionKeyword_16; }
+		
+		//'is'
+		public Keyword getIsKeyword_17() { return cIsKeyword_17; }
+		
+		//'computed'
+		public Keyword getComputedKeyword_18() { return cComputedKeyword_18; }
+		
+		//'as'
+		public Keyword getAsKeyword_19() { return cAsKeyword_19; }
+		
+		//'follows:'
+		public Keyword getFollowsKeyword_20() { return cFollowsKeyword_20; }
 		
 		//in+=Indicator*
-		public Assignment getInAssignment_17() { return cInAssignment_17; }
+		public Assignment getInAssignment_21() { return cInAssignment_21; }
 		
 		//Indicator
-		public RuleCall getInIndicatorParserRuleCall_17_0() { return cInIndicatorParserRuleCall_17_0; }
+		public RuleCall getInIndicatorParserRuleCall_21_0() { return cInIndicatorParserRuleCall_21_0; }
 	}
 	public class IndicatorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Indicator");
@@ -554,147 +871,35 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ScopeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Scope");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cAtKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Keyword cAnyKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Keyword cPointKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cOfKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final Keyword cTimeKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cBeforeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cPAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_1_1_0 = (RuleCall)cPAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cAfterKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cPAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_2_1_0 = (RuleCall)cPAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cBetweenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cPAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_3_1_0 = (RuleCall)cPAssignment_3_1.eContents().get(0);
-		private final Keyword cAndKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cQAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cQAtomicEventParserRuleCall_3_3_0 = (RuleCall)cQAssignment_3_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cAfterKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cPAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cPAtomicEventParserRuleCall_4_1_0 = (RuleCall)cPAssignment_4_1.eContents().get(0);
-		private final Keyword cUntiiKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cQAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final RuleCall cQAtomicEventParserRuleCall_4_3_0 = (RuleCall)cQAssignment_4_3.eContents().get(0);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cAtKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cTimeKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cTAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cTTimeParserRuleCall_5_2_0 = (RuleCall)cTAssignment_5_2.eContents().get(0);
+		private final Assignment cSpAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Alternatives cSpAlternatives_0_0 = (Alternatives)cSpAssignment_0.eContents().get(0);
+		private final Keyword cSpAtAnyPointInTimeKeyword_0_0_0 = (Keyword)cSpAlternatives_0_0.eContents().get(0);
+		private final Keyword cSpAtTheEndOfTheMissionKeyword_0_0_1 = (Keyword)cSpAlternatives_0_0.eContents().get(1);
+		private final RuleCall cConditionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Scope:
-		//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-		//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+		//	sp=("At any point in time," | "At the end of the mission,") | Condition
+		//	//| 'Before' p=AtomicEvent| 'After' p=(AtomicEvent) | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-		//q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
+		//sp=("At any point in time," | "At the end of the mission,") | Condition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'At' 'any' 'point' 'of' 'time'
-		public Group getGroup_0() { return cGroup_0; }
+		//sp=("At any point in time," | "At the end of the mission,")
+		public Assignment getSpAssignment_0() { return cSpAssignment_0; }
 		
-		//'At'
-		public Keyword getAtKeyword_0_0() { return cAtKeyword_0_0; }
+		//("At any point in time," | "At the end of the mission,")
+		public Alternatives getSpAlternatives_0_0() { return cSpAlternatives_0_0; }
 		
-		//'any'
-		public Keyword getAnyKeyword_0_1() { return cAnyKeyword_0_1; }
+		//"At any point in time,"
+		public Keyword getSpAtAnyPointInTimeKeyword_0_0_0() { return cSpAtAnyPointInTimeKeyword_0_0_0; }
 		
-		//'point'
-		public Keyword getPointKeyword_0_2() { return cPointKeyword_0_2; }
+		//"At the end of the mission,"
+		public Keyword getSpAtTheEndOfTheMissionKeyword_0_0_1() { return cSpAtTheEndOfTheMissionKeyword_0_0_1; }
 		
-		//'of'
-		public Keyword getOfKeyword_0_3() { return cOfKeyword_0_3; }
-		
-		//'time'
-		public Keyword getTimeKeyword_0_4() { return cTimeKeyword_0_4; }
-		
-		//'Before' p=AtomicEvent
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'Before'
-		public Keyword getBeforeKeyword_1_0() { return cBeforeKeyword_1_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_1_1() { return cPAssignment_1_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_1_1_0() { return cPAtomicEventParserRuleCall_1_1_0; }
-		
-		//'After' p=AtomicEvent
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//'After'
-		public Keyword getAfterKeyword_2_0() { return cAfterKeyword_2_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_2_1() { return cPAssignment_2_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_2_1_0() { return cPAtomicEventParserRuleCall_2_1_0; }
-		
-		//'Between' p=AtomicEvent 'and' q=AtomicEvent
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'Between'
-		public Keyword getBetweenKeyword_3_0() { return cBetweenKeyword_3_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_3_1() { return cPAssignment_3_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_3_1_0() { return cPAtomicEventParserRuleCall_3_1_0; }
-		
-		//'and'
-		public Keyword getAndKeyword_3_2() { return cAndKeyword_3_2; }
-		
-		//q=AtomicEvent
-		public Assignment getQAssignment_3_3() { return cQAssignment_3_3; }
-		
-		//AtomicEvent
-		public RuleCall getQAtomicEventParserRuleCall_3_3_0() { return cQAtomicEventParserRuleCall_3_3_0; }
-		
-		//'After' p=AtomicEvent 'Untii' q=AtomicEvent
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'After'
-		public Keyword getAfterKeyword_4_0() { return cAfterKeyword_4_0; }
-		
-		//p=AtomicEvent
-		public Assignment getPAssignment_4_1() { return cPAssignment_4_1; }
-		
-		//AtomicEvent
-		public RuleCall getPAtomicEventParserRuleCall_4_1_0() { return cPAtomicEventParserRuleCall_4_1_0; }
-		
-		//'Untii'
-		public Keyword getUntiiKeyword_4_2() { return cUntiiKeyword_4_2; }
-		
-		//q=AtomicEvent
-		public Assignment getQAssignment_4_3() { return cQAssignment_4_3; }
-		
-		//AtomicEvent
-		public RuleCall getQAtomicEventParserRuleCall_4_3_0() { return cQAtomicEventParserRuleCall_4_3_0; }
-		
-		//'at' 'time' t=Time
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'at'
-		public Keyword getAtKeyword_5_0() { return cAtKeyword_5_0; }
-		
-		//'time'
-		public Keyword getTimeKeyword_5_1() { return cTimeKeyword_5_1; }
-		
-		//t=Time
-		public Assignment getTAssignment_5_2() { return cTAssignment_5_2; }
-		
-		//Time
-		public RuleCall getTTimeParserRuleCall_5_2_0() { return cTTimeParserRuleCall_5_2_0; }
+		//Condition
+		public RuleCall getConditionParserRuleCall_1() { return cConditionParserRuleCall_1; }
 	}
 	public class AtomicEventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.AtomicEvent");
@@ -711,23 +916,23 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Occurence");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cRewardParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cPenatlyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPenaltyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Occurence:
-		//	Reward | Penatly;
+		//	Reward | Penalty;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Reward | Penatly
+		//Reward | Penalty
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Reward
 		public RuleCall getRewardParserRuleCall_0() { return cRewardParserRuleCall_0; }
 		
-		//Penatly
-		public RuleCall getPenatlyParserRuleCall_1() { return cPenatlyParserRuleCall_1; }
+		//Penalty
+		public RuleCall getPenaltyParserRuleCall_1() { return cPenaltyParserRuleCall_1; }
 	}
-	public class PenatlyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Penatly");
+	public class PenaltyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Penalty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGetsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cAKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -737,7 +942,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cCConditionParserRuleCall_4_0 = (RuleCall)cCAssignment_4.eContents().get(0);
 		
-		//Penatly:
+		//Penalty:
 		//	'gets' 'a' 'penalty' k=Double c=Condition;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -808,15 +1013,21 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Condition");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Alternatives cAlternatives_0_0 = (Alternatives)cGroup_0.eContents().get(0);
+		private final Keyword cIfKeyword_0_0_0 = (Keyword)cAlternatives_0_0.eContents().get(0);
+		private final Keyword cIfKeyword_0_0_1 = (Keyword)cAlternatives_0_0.eContents().get(1);
 		private final Keyword cItKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Keyword cIsKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cOnKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
-		private final Keyword cTheKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
-		private final Assignment cRAssignment_0_5 = (Assignment)cGroup_0.eContents().get(5);
-		private final RuleCall cRRegionParserRuleCall_0_5_0 = (RuleCall)cRAssignment_0_5.eContents().get(0);
+		private final Alternatives cAlternatives_0_3 = (Alternatives)cGroup_0.eContents().get(3);
+		private final Keyword cOnKeyword_0_3_0 = (Keyword)cAlternatives_0_3.eContents().get(0);
+		private final Keyword cOutsideKeyword_0_3_1 = (Keyword)cAlternatives_0_3.eContents().get(1);
+		private final Assignment cRAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final CrossReference cRRegionCrossReference_0_4_0 = (CrossReference)cRAssignment_0_4.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_0_4_0_1 = (RuleCall)cRRegionCrossReference_0_4_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cIfKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Keyword cIfKeyword_1_0_0 = (Keyword)cAlternatives_1_0.eContents().get(0);
+		private final Keyword cIfKeyword_1_0_1 = (Keyword)cAlternatives_1_0.eContents().get(1);
 		private final Keyword cThereKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Keyword cAreKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		private final Keyword cMoreKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
@@ -824,24 +1035,48 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
 		private final RuleCall cNINTTerminalRuleCall_1_5_0 = (RuleCall)cNAssignment_1_5.eContents().get(0);
 		private final Keyword cRobotsKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
-		private final Keyword cOnKeyword_1_7 = (Keyword)cGroup_1.eContents().get(7);
-		private final Keyword cTheKeyword_1_8 = (Keyword)cGroup_1.eContents().get(8);
-		private final Assignment cRAssignment_1_9 = (Assignment)cGroup_1.eContents().get(9);
-		private final RuleCall cRRegionParserRuleCall_1_9_0 = (RuleCall)cRAssignment_1_9.eContents().get(0);
+		private final Alternatives cAlternatives_1_7 = (Alternatives)cGroup_1.eContents().get(7);
+		private final Keyword cOnKeyword_1_7_0 = (Keyword)cAlternatives_1_7.eContents().get(0);
+		private final Keyword cOutsideKeyword_1_7_1 = (Keyword)cAlternatives_1_7.eContents().get(1);
+		private final Assignment cRAssignment_1_8 = (Assignment)cGroup_1.eContents().get(8);
+		private final CrossReference cRRegionCrossReference_1_8_0 = (CrossReference)cRAssignment_1_8.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_1_8_0_1 = (RuleCall)cRRegionCrossReference_1_8_0.eContents().get(1);
+		private final Keyword cCommaKeyword_1_9 = (Keyword)cGroup_1.eContents().get(9);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final Keyword cIfKeyword_2_0_0 = (Keyword)cAlternatives_2_0.eContents().get(0);
+		private final Keyword cIfKeyword_2_0_1 = (Keyword)cAlternatives_2_0.eContents().get(1);
+		private final Keyword cItKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cGoesKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cFromKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cRAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final CrossReference cRRegionCrossReference_2_4_0 = (CrossReference)cRAssignment_2_4.eContents().get(0);
+		private final RuleCall cRRegionIDTerminalRuleCall_2_4_0_1 = (RuleCall)cRRegionCrossReference_2_4_0.eContents().get(1);
+		private final Keyword cIntoKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
+		private final Assignment cNestAssignment_2_6 = (Assignment)cGroup_2.eContents().get(6);
+		private final CrossReference cNestRegionCrossReference_2_6_0 = (CrossReference)cNestAssignment_2_6.eContents().get(0);
+		private final RuleCall cNestRegionIDTerminalRuleCall_2_6_0_1 = (RuleCall)cNestRegionCrossReference_2_6_0.eContents().get(1);
 		
 		//Condition:
-		//	'if' 'it' 'is' 'on' 'the' r=Region |
-		//	'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region;
+		//	('if' | 'If') 'it' 'is' ('on' | 'outside') r=[Region] | ('if' | 'If') 'there' 'are' 'more' 'than' n=INT 'robots'
+		//	('on' | 'outside') r=[Region] ","* | ('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' 'it' 'is' 'on' 'the' r=Region | 'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region
+		//('if' | 'If') 'it' 'is' ('on' | 'outside') r=[Region] | ('if' | 'If') 'there' 'are' 'more' 'than' n=INT 'robots' ('on' |
+		//'outside') r=[Region] ","* | ('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region]
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'if' 'it' 'is' 'on' 'the' r=Region
+		//('if' | 'If') 'it' 'is' ('on' | 'outside') r=[Region]
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//'if' | 'If'
+		public Alternatives getAlternatives_0_0() { return cAlternatives_0_0; }
+		
 		//'if'
-		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+		public Keyword getIfKeyword_0_0_0() { return cIfKeyword_0_0_0; }
+		
+		//'If'
+		public Keyword getIfKeyword_0_0_1() { return cIfKeyword_0_0_1; }
 		
 		//'it'
 		public Keyword getItKeyword_0_1() { return cItKeyword_0_1; }
@@ -849,23 +1084,35 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'is'
 		public Keyword getIsKeyword_0_2() { return cIsKeyword_0_2; }
 		
+		//'on' | 'outside'
+		public Alternatives getAlternatives_0_3() { return cAlternatives_0_3; }
+		
 		//'on'
-		public Keyword getOnKeyword_0_3() { return cOnKeyword_0_3; }
+		public Keyword getOnKeyword_0_3_0() { return cOnKeyword_0_3_0; }
 		
-		//'the'
-		public Keyword getTheKeyword_0_4() { return cTheKeyword_0_4; }
+		//'outside'
+		public Keyword getOutsideKeyword_0_3_1() { return cOutsideKeyword_0_3_1; }
 		
-		//r=Region
-		public Assignment getRAssignment_0_5() { return cRAssignment_0_5; }
+		//r=[Region]
+		public Assignment getRAssignment_0_4() { return cRAssignment_0_4; }
 		
-		//Region
-		public RuleCall getRRegionParserRuleCall_0_5_0() { return cRRegionParserRuleCall_0_5_0; }
+		//[Region]
+		public CrossReference getRRegionCrossReference_0_4_0() { return cRRegionCrossReference_0_4_0; }
 		
-		//'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_0_4_0_1() { return cRRegionIDTerminalRuleCall_0_4_0_1; }
+		
+		//('if' | 'If') 'there' 'are' 'more' 'than' n=INT 'robots' ('on' | 'outside') r=[Region] ","*
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//'if' | 'If'
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
 		//'if'
-		public Keyword getIfKeyword_1_0() { return cIfKeyword_1_0; }
+		public Keyword getIfKeyword_1_0_0() { return cIfKeyword_1_0_0; }
+		
+		//'If'
+		public Keyword getIfKeyword_1_0_1() { return cIfKeyword_1_0_1; }
 		
 		//'there'
 		public Keyword getThereKeyword_1_1() { return cThereKeyword_1_1; }
@@ -888,23 +1135,74 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'robots'
 		public Keyword getRobotsKeyword_1_6() { return cRobotsKeyword_1_6; }
 		
+		//'on' | 'outside'
+		public Alternatives getAlternatives_1_7() { return cAlternatives_1_7; }
+		
 		//'on'
-		public Keyword getOnKeyword_1_7() { return cOnKeyword_1_7; }
+		public Keyword getOnKeyword_1_7_0() { return cOnKeyword_1_7_0; }
 		
-		//'the'
-		public Keyword getTheKeyword_1_8() { return cTheKeyword_1_8; }
+		//'outside'
+		public Keyword getOutsideKeyword_1_7_1() { return cOutsideKeyword_1_7_1; }
 		
-		//r=Region
-		public Assignment getRAssignment_1_9() { return cRAssignment_1_9; }
+		//r=[Region]
+		public Assignment getRAssignment_1_8() { return cRAssignment_1_8; }
 		
-		//Region
-		public RuleCall getRRegionParserRuleCall_1_9_0() { return cRRegionParserRuleCall_1_9_0; }
+		//[Region]
+		public CrossReference getRRegionCrossReference_1_8_0() { return cRRegionCrossReference_1_8_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_1_8_0_1() { return cRRegionIDTerminalRuleCall_1_8_0_1; }
+		
+		//","*
+		public Keyword getCommaKeyword_1_9() { return cCommaKeyword_1_9; }
+		
+		//('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region]
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'if' | 'If'
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		
+		//'if'
+		public Keyword getIfKeyword_2_0_0() { return cIfKeyword_2_0_0; }
+		
+		//'If'
+		public Keyword getIfKeyword_2_0_1() { return cIfKeyword_2_0_1; }
+		
+		//'it'
+		public Keyword getItKeyword_2_1() { return cItKeyword_2_1; }
+		
+		//'goes'
+		public Keyword getGoesKeyword_2_2() { return cGoesKeyword_2_2; }
+		
+		//'from'
+		public Keyword getFromKeyword_2_3() { return cFromKeyword_2_3; }
+		
+		//r=[Region]
+		public Assignment getRAssignment_2_4() { return cRAssignment_2_4; }
+		
+		//[Region]
+		public CrossReference getRRegionCrossReference_2_4_0() { return cRRegionCrossReference_2_4_0; }
+		
+		//ID
+		public RuleCall getRRegionIDTerminalRuleCall_2_4_0_1() { return cRRegionIDTerminalRuleCall_2_4_0_1; }
+		
+		//'into'
+		public Keyword getIntoKeyword_2_5() { return cIntoKeyword_2_5; }
+		
+		//nest=[Region]
+		public Assignment getNestAssignment_2_6() { return cNestAssignment_2_6; }
+		
+		//[Region]
+		public CrossReference getNestRegionCrossReference_2_6_0() { return cNestRegionCrossReference_2_6_0; }
+		
+		//ID
+		public RuleCall getNestRegionIDTerminalRuleCall_2_6_0_1() { return cNestRegionIDTerminalRuleCall_2_6_0_1; }
 	}
 	public class TimeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Time");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cXAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cXLiteralParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
+		private final RuleCall cXRangeParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cBegginingKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cOfKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
@@ -917,17 +1215,17 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMissionKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		//Time:
-		//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+		//	x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission'
+		//x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//x=Literal
+		//x=Range
 		public Assignment getXAssignment_0() { return cXAssignment_0; }
 		
-		//Literal
-		public RuleCall getXLiteralParserRuleCall_0_0() { return cXLiteralParserRuleCall_0_0; }
+		//Range
+		public RuleCall getXRangeParserRuleCall_0_0() { return cXRangeParserRuleCall_0_0; }
 		
 		//'beggining' 'of' 'the' 'mission'
 		public Group getGroup_1() { return cGroup_1; }
@@ -986,19 +1284,19 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cConstantKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
 		//Distribution:
-		//	'uniform' | 'gaussian' | 'constant';
+		//	'Uniform' | 'Gaussian' | 'Constant';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'uniform' | 'gaussian' | 'constant'
+		//'Uniform' | 'Gaussian' | 'Constant'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'uniform'
+		//'Uniform'
 		public Keyword getUniformKeyword_0() { return cUniformKeyword_0; }
 		
-		//'gaussian'
+		//'Gaussian'
 		public Keyword getGaussianKeyword_1() { return cGaussianKeyword_1; }
 		
-		//'constant'
+		//'Constant'
 		public Keyword getConstantKeyword_2() { return cConstantKeyword_2; }
 	}
 	public class EnvironmentElementsElements extends AbstractParserRuleElementFinder {
@@ -1026,12 +1324,16 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObstacleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLightParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cObjectParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cPatchParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Keyword cAKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final RuleCall cRegionParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
 		
 		//EnvironmentElement:
-		//	Obstacle | Light | Object;
+		//	Obstacle | Light | Object | Patch | 'A' Region;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Obstacle | Light | Object
+		//Obstacle | Light | Object | Patch | 'A' Region
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Obstacle
@@ -1042,6 +1344,18 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Object
 		public RuleCall getObjectParserRuleCall_2() { return cObjectParserRuleCall_2; }
+		
+		//Patch
+		public RuleCall getPatchParserRuleCall_3() { return cPatchParserRuleCall_3; }
+		
+		//'A' Region
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'A'
+		public Keyword getAKeyword_4_0() { return cAKeyword_4_0; }
+		
+		//Region
+		public RuleCall getRegionParserRuleCall_4_1() { return cRegionParserRuleCall_4_1; }
 	}
 	public class ElementDescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.ElementDescription");
@@ -1092,18 +1406,58 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Element");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cObAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cObElParserRuleCall_0_0 = (RuleCall)cObAssignment_0.eContents().get(0);
+		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cDimensionsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cDAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDDimension2ParserRuleCall_4_0 = (RuleCall)cDAssignment_4.eContents().get(0);
+		
+		//Element:
+		//	ob=El 'with' 'dimensions' ':' d=Dimension2;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ob=El 'with' 'dimensions' ':' d=Dimension2
+		public Group getGroup() { return cGroup; }
+		
+		//ob=El
+		public Assignment getObAssignment_0() { return cObAssignment_0; }
+		
+		//El
+		public RuleCall getObElParserRuleCall_0_0() { return cObElParserRuleCall_0_0; }
+		
+		//'with'
+		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
+		
+		//'dimensions'
+		public Keyword getDimensionsKeyword_2() { return cDimensionsKeyword_2; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//d=Dimension2
+		public Assignment getDAssignment_4() { return cDAssignment_4; }
+		
+		//Dimension2
+		public RuleCall getDDimension2ParserRuleCall_4_0() { return cDDimension2ParserRuleCall_4_0; }
+	}
+	public class ElElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.El");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cObjectsKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cObstaclesKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Keyword cLightKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Keyword cSourcesKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Keyword cPatchKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
-		//Element:
-		//	'objects' | 'obstacles' | 'light' 'sources';
+		//El:
+		//	'objects' | 'obstacles' | 'light' 'sources' | 'patch';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'objects' | 'obstacles' | 'light' 'sources'
+		//'objects' | 'obstacles' | 'light' 'sources' | 'patch'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'objects'
@@ -1120,6 +1474,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'sources'
 		public Keyword getSourcesKeyword_2_1() { return cSourcesKeyword_2_1; }
+		
+		//'patch'
+		public Keyword getPatchKeyword_3() { return cPatchKeyword_3; }
 	}
 	public class ObjectElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Object");
@@ -1205,6 +1562,53 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Region
 		public RuleCall getRRegionParserRuleCall_4_0() { return cRRegionParserRuleCall_4_0; }
 	}
+	public class PatchElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Patch");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cPtAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cPtAKeyword_0_0 = (Keyword)cPtAssignment_0.eContents().get(0);
+		private final Assignment cCAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCColorParserRuleCall_1_0 = (RuleCall)cCAssignment_1.eContents().get(0);
+		private final Keyword cPatchKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cAsKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cAKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cRAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRRegionParserRuleCall_5_0 = (RuleCall)cRAssignment_5.eContents().get(0);
+		
+		//Patch:
+		//	pt='A' c=Color 'patch' 'as' 'a' r=Region;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//pt='A' c=Color 'patch' 'as' 'a' r=Region
+		public Group getGroup() { return cGroup; }
+		
+		//pt='A'
+		public Assignment getPtAssignment_0() { return cPtAssignment_0; }
+		
+		//'A'
+		public Keyword getPtAKeyword_0_0() { return cPtAKeyword_0_0; }
+		
+		//c=Color
+		public Assignment getCAssignment_1() { return cCAssignment_1; }
+		
+		//Color
+		public RuleCall getCColorParserRuleCall_1_0() { return cCColorParserRuleCall_1_0; }
+		
+		//'patch'
+		public Keyword getPatchKeyword_2() { return cPatchKeyword_2; }
+		
+		//'as'
+		public Keyword getAsKeyword_3() { return cAsKeyword_3; }
+		
+		//'a'
+		public Keyword getAKeyword_4() { return cAKeyword_4; }
+		
+		//r=Region
+		public Assignment getRAssignment_5() { return cRAssignment_5; }
+		
+		//Region
+		public RuleCall getRRegionParserRuleCall_5_0() { return cRRegionParserRuleCall_5_0; }
+	}
 	public class LightElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Light");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1219,16 +1623,15 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLightKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cIsKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cPlacedKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cInKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cAKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cPAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cPPositionParserRuleCall_11_0 = (RuleCall)cPAssignment_11.eContents().get(0);
+		private final Keyword cAtKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cPAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cPPositionParserRuleCall_10_0 = (RuleCall)cPAssignment_10.eContents().get(0);
 		
 		//Light:
-		//	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'in' 'a' p=Position;
+		//	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'at' p=Position;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'in' 'a' p=Position
+		//l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'at' p=Position
 		public Group getGroup() { return cGroup; }
 		
 		//l='A'
@@ -1264,103 +1667,83 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'placed'
 		public Keyword getPlacedKeyword_8() { return cPlacedKeyword_8; }
 		
-		//'in'
-		public Keyword getInKeyword_9() { return cInKeyword_9; }
-		
-		//'a'
-		public Keyword getAKeyword_10() { return cAKeyword_10; }
+		//'at'
+		public Keyword getAtKeyword_9() { return cAtKeyword_9; }
 		
 		//p=Position
-		public Assignment getPAssignment_11() { return cPAssignment_11; }
+		public Assignment getPAssignment_10() { return cPAssignment_10; }
 		
 		//Position
-		public RuleCall getPPositionParserRuleCall_11_0() { return cPPositionParserRuleCall_11_0; }
+		public RuleCall getPPositionParserRuleCall_10_0() { return cPPositionParserRuleCall_10_0; }
 	}
 	public class PositionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Position");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cCircleAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cCenterKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Assignment cPointAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cPointCoordinateParserRuleCall_0_2_0 = (RuleCall)cPointAssignment_0_2.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cRectangleAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cReferencePointKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cPointAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cPointCoordinateParserRuleCall_1_2_0 = (RuleCall)cPointAssignment_1_2.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cPointDAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cPointKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cPointAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cPointCoordinateParserRuleCall_2_2_0 = (RuleCall)cPointAssignment_2_2.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Group cGroup_0_0 = (Group)cAlternatives_0.eContents().get(0);
+		private final Keyword cCenterKeyword_0_0_0 = (Keyword)cGroup_0_0.eContents().get(0);
+		private final Keyword cAtKeyword_0_0_1 = (Keyword)cGroup_0_0.eContents().get(1);
+		private final Keyword cReferenceKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cPointKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cPointAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cPointAlternatives_2_0 = (Alternatives)cPointAssignment_2.eContents().get(0);
+		private final RuleCall cPointCoordinate2DParserRuleCall_2_0_0 = (RuleCall)cPointAlternatives_2_0.eContents().get(0);
+		private final RuleCall cPointCoordinate3DParserRuleCall_2_0_1 = (RuleCall)cPointAlternatives_2_0.eContents().get(1);
 		
 		//Position:
-		//	{Circle} 'center' point=Coordinate | {Rectangle} 'reference point' point=Coordinate | {PointD} 'point'
-		//	point=Coordinate;
+		//	('center' 'at' | 'reference')? 'point' point=(Coordinate2D | Coordinate3D);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Circle} 'center' point=Coordinate | {Rectangle} 'reference point' point=Coordinate | {PointD} 'point' point=Coordinate
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//('center' 'at' | 'reference')? 'point' point=(Coordinate2D | Coordinate3D)
+		public Group getGroup() { return cGroup; }
 		
-		//{Circle} 'center' point=Coordinate
-		public Group getGroup_0() { return cGroup_0; }
+		//('center' 'at' | 'reference')?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//{Circle}
-		public Action getCircleAction_0_0() { return cCircleAction_0_0; }
+		//'center' 'at'
+		public Group getGroup_0_0() { return cGroup_0_0; }
 		
 		//'center'
-		public Keyword getCenterKeyword_0_1() { return cCenterKeyword_0_1; }
+		public Keyword getCenterKeyword_0_0_0() { return cCenterKeyword_0_0_0; }
 		
-		//point=Coordinate
-		public Assignment getPointAssignment_0_2() { return cPointAssignment_0_2; }
+		//'at'
+		public Keyword getAtKeyword_0_0_1() { return cAtKeyword_0_0_1; }
 		
-		//Coordinate
-		public RuleCall getPointCoordinateParserRuleCall_0_2_0() { return cPointCoordinateParserRuleCall_0_2_0; }
-		
-		//{Rectangle} 'reference point' point=Coordinate
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{Rectangle}
-		public Action getRectangleAction_1_0() { return cRectangleAction_1_0; }
-		
-		//'reference point'
-		public Keyword getReferencePointKeyword_1_1() { return cReferencePointKeyword_1_1; }
-		
-		//point=Coordinate
-		public Assignment getPointAssignment_1_2() { return cPointAssignment_1_2; }
-		
-		//Coordinate
-		public RuleCall getPointCoordinateParserRuleCall_1_2_0() { return cPointCoordinateParserRuleCall_1_2_0; }
-		
-		//{PointD} 'point' point=Coordinate
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//{PointD}
-		public Action getPointDAction_2_0() { return cPointDAction_2_0; }
+		//'reference'
+		public Keyword getReferenceKeyword_0_1() { return cReferenceKeyword_0_1; }
 		
 		//'point'
-		public Keyword getPointKeyword_2_1() { return cPointKeyword_2_1; }
+		public Keyword getPointKeyword_1() { return cPointKeyword_1; }
 		
-		//point=Coordinate
-		public Assignment getPointAssignment_2_2() { return cPointAssignment_2_2; }
+		//point=(Coordinate2D | Coordinate3D)
+		public Assignment getPointAssignment_2() { return cPointAssignment_2; }
 		
-		//Coordinate
-		public RuleCall getPointCoordinateParserRuleCall_2_2_0() { return cPointCoordinateParserRuleCall_2_2_0; }
+		//(Coordinate2D | Coordinate3D)
+		public Alternatives getPointAlternatives_2_0() { return cPointAlternatives_2_0; }
+		
+		//Coordinate2D
+		public RuleCall getPointCoordinate2DParserRuleCall_2_0_0() { return cPointCoordinate2DParserRuleCall_2_0_0; }
+		
+		//Coordinate3D
+		public RuleCall getPointCoordinate3DParserRuleCall_2_0_1() { return cPointCoordinate3DParserRuleCall_2_0_1; }
 	}
-	public class ShapeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Shape");
+	public class Shape2DElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Shape2D");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cCircleKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cPolygonKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cTriangleKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cRectangleKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cDodecagonKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cHexagonKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cSquareKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cRegionKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		
-		//Shape:
-		//	'Circle' | 'Polygon' | 'Triangle' | 'Rectangle';
+		//Shape2D:
+		//	'Circle' | 'Polygon' | 'Triangle' | 'Rectangle' | 'Dodecagon' | 'Hexagon' | 'Square' | 'Region';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Circle' | 'Polygon' | 'Triangle' | 'Rectangle'
+		//'Circle' | 'Polygon' | 'Triangle' | 'Rectangle' | 'Dodecagon' | 'Hexagon' | 'Square' | 'Region'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'Circle'
@@ -1374,6 +1757,41 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'Rectangle'
 		public Keyword getRectangleKeyword_3() { return cRectangleKeyword_3; }
+		
+		//'Dodecagon'
+		public Keyword getDodecagonKeyword_4() { return cDodecagonKeyword_4; }
+		
+		//'Hexagon'
+		public Keyword getHexagonKeyword_5() { return cHexagonKeyword_5; }
+		
+		//'Square'
+		public Keyword getSquareKeyword_6() { return cSquareKeyword_6; }
+		
+		//'Region'
+		public Keyword getRegionKeyword_7() { return cRegionKeyword_7; }
+	}
+	public class Shape3DElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Shape3D");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cRectangularCuboidKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cCubeKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cCylinderKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//Shape3D:
+		//	'Rectangular cuboid' | 'Cube' | 'Cylinder';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Rectangular cuboid' | 'Cube' | 'Cylinder'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'Rectangular cuboid'
+		public Keyword getRectangularCuboidKeyword_0() { return cRectangularCuboidKeyword_0; }
+		
+		//'Cube'
+		public Keyword getCubeKeyword_1() { return cCubeKeyword_1; }
+		
+		//'Cylinder'
+		public Keyword getCylinderKeyword_2() { return cCylinderKeyword_2; }
 	}
 	public class ArenaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Arena");
@@ -1384,12 +1802,16 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cSAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cSRegionParserRuleCall_4_0 = (RuleCall)cSAssignment_4.eContents().get(0);
+		private final Keyword cSurroundedKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cByKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cWallsKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cFullStopKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Arena:
-		//	'The' 'arena' 'is' 'a' s=Region;
+		//	'The' 'arena' 'is' 'a' s=Region 'surrounded' 'by' 'walls' '.';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'The' 'arena' 'is' 'a' s=Region
+		//'The' 'arena' 'is' 'a' s=Region 'surrounded' 'by' 'walls' '.'
 		public Group getGroup() { return cGroup; }
 		
 		//'The'
@@ -1409,6 +1831,18 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Region
 		public RuleCall getSRegionParserRuleCall_4_0() { return cSRegionParserRuleCall_4_0; }
+		
+		//'surrounded'
+		public Keyword getSurroundedKeyword_5() { return cSurroundedKeyword_5; }
+		
+		//'by'
+		public Keyword getByKeyword_6() { return cByKeyword_6; }
+		
+		//'walls'
+		public Keyword getWallsKeyword_7() { return cWallsKeyword_7; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_8() { return cFullStopKeyword_8; }
 	}
 	public class ColorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Color");
@@ -1416,13 +1850,16 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRedKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cYellowKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cGreenKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cGrayKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cBlackKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cWhiteKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
 		////. 'with' dimensions=Dimension;
 		//Color:
-		//	'red' | 'yellow' | 'green';
+		//	'red' | 'yellow' | 'green' | 'gray' | 'black' | 'white';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'red' | 'yellow' | 'green'
+		//'red' | 'yellow' | 'green' | 'gray' | 'black' | 'white'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'red'
@@ -1433,32 +1870,35 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'green'
 		public Keyword getGreenKeyword_2() { return cGreenKeyword_2; }
+		
+		//'gray'
+		public Keyword getGrayKeyword_3() { return cGrayKeyword_3; }
+		
+		//'black'
+		public Keyword getBlackKeyword_4() { return cBlackKeyword_4; }
+		
+		//'white'
+		public Keyword getWhiteKeyword_5() { return cWhiteKeyword_5; }
 	}
 	public class RegionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Region");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cColorsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cColorsColorParserRuleCall_0_0 = (RuleCall)cColorsAssignment_0.eContents().get(0);
-		private final Assignment cShapeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cShapeShapeParserRuleCall_1_0 = (RuleCall)cShapeAssignment_1.eContents().get(0);
+		private final Assignment cShape2dAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cShape2dShape2DParserRuleCall_1_0 = (RuleCall)cShape2dAssignment_1.eContents().get(0);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cWithKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cReferencepointAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cReferencepointPositionParserRuleCall_3_1_0 = (RuleCall)cReferencepointAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cAndKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDimensionsAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cDimensionsDimensionParserRuleCall_4_1_0 = (RuleCall)cDimensionsAssignment_4_1.eContents().get(0);
+		private final Assignment cRegionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRegionRegionDefinitionParserRuleCall_3_0 = (RuleCall)cRegionAssignment_3.eContents().get(0);
 		
 		////Region:
 		//// 'Circle' | 'Polygon';
 		//Region:
-		//	colors=Color? shape=Shape? name=ID ('with' referencepoint=Position)? ('and' dimensions=Dimension)?;
+		//	colors=Color? shape2d=Shape2D name=ID region=RegionDefinition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//colors=Color? shape=Shape? name=ID ('with' referencepoint=Position)? ('and' dimensions=Dimension)?
+		//colors=Color? shape2d=Shape2D name=ID region=RegionDefinition
 		public Group getGroup() { return cGroup; }
 		
 		//colors=Color?
@@ -1467,11 +1907,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Color
 		public RuleCall getColorsColorParserRuleCall_0_0() { return cColorsColorParserRuleCall_0_0; }
 		
-		//shape=Shape?
-		public Assignment getShapeAssignment_1() { return cShapeAssignment_1; }
+		//shape2d=Shape2D
+		public Assignment getShape2dAssignment_1() { return cShape2dAssignment_1; }
 		
-		//Shape
-		public RuleCall getShapeShapeParserRuleCall_1_0() { return cShapeShapeParserRuleCall_1_0; }
+		//Shape2D
+		public RuleCall getShape2dShape2DParserRuleCall_1_0() { return cShape2dShape2DParserRuleCall_1_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
@@ -1479,68 +1919,238 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 		
+		//region=RegionDefinition
+		public Assignment getRegionAssignment_3() { return cRegionAssignment_3; }
+		
+		//RegionDefinition
+		public RuleCall getRegionRegionDefinitionParserRuleCall_3_0() { return cRegionRegionDefinitionParserRuleCall_3_0; }
+	}
+	public class RegionDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.RegionDefinition");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDefinitionOneParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDefinitionTwoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDefinitionThreeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//RegionDefinition:
+		//	DefinitionOne | DefinitionTwo | DefinitionThree;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DefinitionOne | DefinitionTwo | DefinitionThree
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DefinitionOne
+		public RuleCall getDefinitionOneParserRuleCall_0() { return cDefinitionOneParserRuleCall_0; }
+		
+		//DefinitionTwo
+		public RuleCall getDefinitionTwoParserRuleCall_1() { return cDefinitionTwoParserRuleCall_1; }
+		
+		//DefinitionThree
+		public RuleCall getDefinitionThreeParserRuleCall_2() { return cDefinitionThreeParserRuleCall_2; }
+	}
+	public class DefinitionOneElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.DefinitionOne");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cWithKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cReferencepointAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cReferencepointPositionParserRuleCall_0_1_0 = (RuleCall)cReferencepointAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAndKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cDimensionsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cDimensionsDimensionParserRuleCall_1_1_0 = (RuleCall)cDimensionsAssignment_1_1.eContents().get(0);
+		
+		//DefinitionOne:
+		//	('with' referencepoint=Position)? ('and' dimensions=Dimension)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//('with' referencepoint=Position)? ('and' dimensions=Dimension)?
+		public Group getGroup() { return cGroup; }
+		
 		//('with' referencepoint=Position)?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_0() { return cGroup_0; }
 		
 		//'with'
-		public Keyword getWithKeyword_3_0() { return cWithKeyword_3_0; }
+		public Keyword getWithKeyword_0_0() { return cWithKeyword_0_0; }
 		
 		//referencepoint=Position
-		public Assignment getReferencepointAssignment_3_1() { return cReferencepointAssignment_3_1; }
+		public Assignment getReferencepointAssignment_0_1() { return cReferencepointAssignment_0_1; }
 		
 		//Position
-		public RuleCall getReferencepointPositionParserRuleCall_3_1_0() { return cReferencepointPositionParserRuleCall_3_1_0; }
+		public RuleCall getReferencepointPositionParserRuleCall_0_1_0() { return cReferencepointPositionParserRuleCall_0_1_0; }
 		
 		//('and' dimensions=Dimension)?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//'and'
-		public Keyword getAndKeyword_4_0() { return cAndKeyword_4_0; }
+		public Keyword getAndKeyword_1_0() { return cAndKeyword_1_0; }
 		
 		//dimensions=Dimension
-		public Assignment getDimensionsAssignment_4_1() { return cDimensionsAssignment_4_1; }
+		public Assignment getDimensionsAssignment_1_1() { return cDimensionsAssignment_1_1; }
 		
 		//Dimension
-		public RuleCall getDimensionsDimensionParserRuleCall_4_1_0() { return cDimensionsDimensionParserRuleCall_4_1_0; }
+		public RuleCall getDimensionsDimensionParserRuleCall_1_1_0() { return cDimensionsDimensionParserRuleCall_1_1_0; }
+	}
+	public class DefinitionTwoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.DefinitionTwo");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDefinedKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cThroughKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cTheKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cFollowingKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cVerticesKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPointAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPointPositionParserRuleCall_6_0 = (RuleCall)cPointAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cSemicolonKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cPointAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cPointPositionParserRuleCall_7_1_0 = (RuleCall)cPointAssignment_7_1.eContents().get(0);
+		
+		//DefinitionTwo:
+		//	'defined' 'through' 'the' 'following' 'Vertices' ':' point+=Position (';' point+=Position)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'defined' 'through' 'the' 'following' 'Vertices' ':' point+=Position (';' point+=Position)*
+		public Group getGroup() { return cGroup; }
+		
+		//'defined'
+		public Keyword getDefinedKeyword_0() { return cDefinedKeyword_0; }
+		
+		//'through'
+		public Keyword getThroughKeyword_1() { return cThroughKeyword_1; }
+		
+		//'the'
+		public Keyword getTheKeyword_2() { return cTheKeyword_2; }
+		
+		//'following'
+		public Keyword getFollowingKeyword_3() { return cFollowingKeyword_3; }
+		
+		//'Vertices'
+		public Keyword getVerticesKeyword_4() { return cVerticesKeyword_4; }
+		
+		//':'
+		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
+		
+		//point+=Position
+		public Assignment getPointAssignment_6() { return cPointAssignment_6; }
+		
+		//Position
+		public RuleCall getPointPositionParserRuleCall_6_0() { return cPointPositionParserRuleCall_6_0; }
+		
+		//(';' point+=Position)*
+		public Group getGroup_7() { return cGroup_7; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_7_0() { return cSemicolonKeyword_7_0; }
+		
+		//point+=Position
+		public Assignment getPointAssignment_7_1() { return cPointAssignment_7_1; }
+		
+		//Position
+		public RuleCall getPointPositionParserRuleCall_7_1_0() { return cPointPositionParserRuleCall_7_1_0; }
+	}
+	public class DefinitionThreeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.DefinitionThree");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWhereKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cAxAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cAxAxisParserRuleCall_1_0 = (RuleCall)cAxAssignment_1.eContents().get(0);
+		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cRAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRRangeParserRuleCall_3_0 = (RuleCall)cRAssignment_3.eContents().get(0);
+		
+		//DefinitionThree:
+		//	'where' ax=Axis 'is' r=Range;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'where' ax=Axis 'is' r=Range
+		public Group getGroup() { return cGroup; }
+		
+		//'where'
+		public Keyword getWhereKeyword_0() { return cWhereKeyword_0; }
+		
+		//ax=Axis
+		public Assignment getAxAssignment_1() { return cAxAssignment_1; }
+		
+		//Axis
+		public RuleCall getAxAxisParserRuleCall_1_0() { return cAxAxisParserRuleCall_1_0; }
+		
+		//'is'
+		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
+		
+		//r=Range
+		public Assignment getRAssignment_3() { return cRAssignment_3; }
+		
+		//Range
+		public RuleCall getRRangeParserRuleCall_3_0() { return cRRangeParserRuleCall_3_0; }
+	}
+	public class AxisElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Axis");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cXKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cYKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//Axis:
+		//	'x' | 'y';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'x' | 'y'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'x'
+		public Keyword getXKeyword_0() { return cXKeyword_0; }
+		
+		//'y'
+		public Keyword getYKeyword_1() { return cYKeyword_1; }
 	}
 	public class DimensionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cCircleDParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRectangleDParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDimension1ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cDimension2ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDimension3ParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		////Type: 
 		////	CircleD | RectangleD	
 		////;
 		//Dimension:
-		//	CircleD | RectangleD;
+		//	Dimension1 | Dimension2 | Dimension3;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CircleD | RectangleD
+		//Dimension1 | Dimension2 | Dimension3
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//CircleD
-		public RuleCall getCircleDParserRuleCall_0() { return cCircleDParserRuleCall_0; }
+		//Dimension1
+		public RuleCall getDimension1ParserRuleCall_0() { return cDimension1ParserRuleCall_0; }
 		
-		//RectangleD
-		public RuleCall getRectangleDParserRuleCall_1() { return cRectangleDParserRuleCall_1; }
+		//Dimension2
+		public RuleCall getDimension2ParserRuleCall_1() { return cDimension2ParserRuleCall_1; }
+		
+		//Dimension3
+		public RuleCall getDimension3ParserRuleCall_2() { return cDimension3ParserRuleCall_2; }
 	}
-	public class CircleDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.CircleD");
+	public class Dimension1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension1");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRadiusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cRAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cRDoubleParserRuleCall_1_0 = (RuleCall)cRAssignment_1.eContents().get(0);
+		private final Assignment cM1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM1MetricParserRuleCall_2_0 = (RuleCall)cM1Assignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cAndKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cHeightKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cHAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cHDoubleParserRuleCall_3_2_0 = (RuleCall)cHAssignment_3_2.eContents().get(0);
+		private final Assignment cM2Assignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
+		private final RuleCall cM2MetricParserRuleCall_3_3_0 = (RuleCall)cM2Assignment_3_3.eContents().get(0);
 		
-		////{CircleD} 'radius' r=Double | 
-		////{RectangleD} 'length' l=Double ',width' w=Double 'and' 'height' h=Double ; //|
-		////types=[CircleD | ]
-		////{SquareD} 'side' a=Double;
-		//CircleD:
-		//	'radius' r=Double;
+		//Dimension1:
+		//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'radius' r=Double
+		//'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?
 		public Group getGroup() { return cGroup; }
 		
 		//'radius'
@@ -1551,26 +2161,60 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Double
 		public RuleCall getRDoubleParserRuleCall_1_0() { return cRDoubleParserRuleCall_1_0; }
+		
+		//m1=Metric
+		public Assignment getM1Assignment_2() { return cM1Assignment_2; }
+		
+		//Metric
+		public RuleCall getM1MetricParserRuleCall_2_0() { return cM1MetricParserRuleCall_2_0; }
+		
+		//('and' 'height' h=Double m2=Metric)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'and'
+		public Keyword getAndKeyword_3_0() { return cAndKeyword_3_0; }
+		
+		//'height'
+		public Keyword getHeightKeyword_3_1() { return cHeightKeyword_3_1; }
+		
+		//h=Double
+		public Assignment getHAssignment_3_2() { return cHAssignment_3_2; }
+		
+		//Double
+		public RuleCall getHDoubleParserRuleCall_3_2_0() { return cHDoubleParserRuleCall_3_2_0; }
+		
+		//m2=Metric
+		public Assignment getM2Assignment_3_3() { return cM2Assignment_3_3; }
+		
+		//Metric
+		public RuleCall getM2MetricParserRuleCall_3_3_0() { return cM2MetricParserRuleCall_3_3_0; }
 	}
-	public class RectangleDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.RectangleD");
+	public class Dimension2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension2");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLengthKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cLAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cLDoubleParserRuleCall_1_0 = (RuleCall)cLAssignment_1.eContents().get(0);
-		private final Keyword cWidthKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cWAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cWDoubleParserRuleCall_3_0 = (RuleCall)cWAssignment_3.eContents().get(0);
-		private final Keyword cAndKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cHeightKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cHAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cHDoubleParserRuleCall_6_0 = (RuleCall)cHAssignment_6.eContents().get(0);
+		private final Assignment cM3Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM3MetricParserRuleCall_2_0 = (RuleCall)cM3Assignment_2.eContents().get(0);
+		private final Keyword cWidthKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cWAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWDoubleParserRuleCall_4_0 = (RuleCall)cWAssignment_4.eContents().get(0);
+		private final Assignment cM4Assignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cM4MetricParserRuleCall_5_0 = (RuleCall)cM4Assignment_5.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cAndKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cHeightKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cHAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cHDoubleParserRuleCall_6_2_0 = (RuleCall)cHAssignment_6_2.eContents().get(0);
+		private final Assignment cM5Assignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
+		private final RuleCall cM5MetricParserRuleCall_6_3_0 = (RuleCall)cM5Assignment_6_3.eContents().get(0);
 		
-		//RectangleD:
-		//	'length' l=Double ',width' w=Double 'and' 'height' h=Double;
+		//Dimension2:
+		//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'length' l=Double ',width' w=Double 'and' 'height' h=Double
+		//'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?
 		public Group getGroup() { return cGroup; }
 		
 		//'length'
@@ -1582,40 +2226,109 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Double
 		public RuleCall getLDoubleParserRuleCall_1_0() { return cLDoubleParserRuleCall_1_0; }
 		
+		//m3=Metric
+		public Assignment getM3Assignment_2() { return cM3Assignment_2; }
+		
+		//Metric
+		public RuleCall getM3MetricParserRuleCall_2_0() { return cM3MetricParserRuleCall_2_0; }
+		
 		//',width'
-		public Keyword getWidthKeyword_2() { return cWidthKeyword_2; }
+		public Keyword getWidthKeyword_3() { return cWidthKeyword_3; }
 		
 		//w=Double
-		public Assignment getWAssignment_3() { return cWAssignment_3; }
+		public Assignment getWAssignment_4() { return cWAssignment_4; }
 		
 		//Double
-		public RuleCall getWDoubleParserRuleCall_3_0() { return cWDoubleParserRuleCall_3_0; }
+		public RuleCall getWDoubleParserRuleCall_4_0() { return cWDoubleParserRuleCall_4_0; }
+		
+		//m4=Metric
+		public Assignment getM4Assignment_5() { return cM4Assignment_5; }
+		
+		//Metric
+		public RuleCall getM4MetricParserRuleCall_5_0() { return cM4MetricParserRuleCall_5_0; }
+		
+		//('and' 'height' h=Double m5=Metric)?
+		public Group getGroup_6() { return cGroup_6; }
 		
 		//'and'
-		public Keyword getAndKeyword_4() { return cAndKeyword_4; }
+		public Keyword getAndKeyword_6_0() { return cAndKeyword_6_0; }
 		
 		//'height'
-		public Keyword getHeightKeyword_5() { return cHeightKeyword_5; }
+		public Keyword getHeightKeyword_6_1() { return cHeightKeyword_6_1; }
 		
 		//h=Double
-		public Assignment getHAssignment_6() { return cHAssignment_6; }
+		public Assignment getHAssignment_6_2() { return cHAssignment_6_2; }
 		
 		//Double
-		public RuleCall getHDoubleParserRuleCall_6_0() { return cHDoubleParserRuleCall_6_0; }
+		public RuleCall getHDoubleParserRuleCall_6_2_0() { return cHDoubleParserRuleCall_6_2_0; }
+		
+		//m5=Metric
+		public Assignment getM5Assignment_6_3() { return cM5Assignment_6_3; }
+		
+		//Metric
+		public RuleCall getM5MetricParserRuleCall_6_3_0() { return cM5MetricParserRuleCall_6_3_0; }
 	}
-	public class CoordinateElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Coordinate");
+	public class Dimension3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Dimension3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSideKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSDoubleParserRuleCall_1_0 = (RuleCall)cSAssignment_1.eContents().get(0);
+		private final Assignment cM6Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cM6MetricParserRuleCall_2_0 = (RuleCall)cM6Assignment_2.eContents().get(0);
+		
+		//Dimension3:
+		//	'side' s=Double m6=Metric;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'side' s=Double m6=Metric
+		public Group getGroup() { return cGroup; }
+		
+		//'side'
+		public Keyword getSideKeyword_0() { return cSideKeyword_0; }
+		
+		//s=Double
+		public Assignment getSAssignment_1() { return cSAssignment_1; }
+		
+		//Double
+		public RuleCall getSDoubleParserRuleCall_1_0() { return cSDoubleParserRuleCall_1_0; }
+		
+		//m6=Metric
+		public Assignment getM6Assignment_2() { return cM6Assignment_2; }
+		
+		//Metric
+		public RuleCall getM6MetricParserRuleCall_2_0() { return cM6MetricParserRuleCall_2_0; }
+	}
+	public class Coordinate2DElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Coordinate2D");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cXAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cXDoubleParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
-		private final Assignment cYAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cYDoubleParserRuleCall_1_0 = (RuleCall)cYAssignment_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cYAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cYDoubleParserRuleCall_2_0 = (RuleCall)cYAssignment_2.eContents().get(0);
 		
-		//Coordinate:
-		//	x=Double y=Double;
+		////Dimension:
+		////CircleD | RectangleD | SquareD
+		////;
+		////{CircleD} 'radius' r=Double | 
+		////{RectangleD} 'length' l=Double ',width' w=Double 'and' 'height' h=Double ; //|
+		////types=[CircleD | ]
+		////{SquareD} 'side' a=Double;
+		////CircleD:
+		////	'radius' r=Double
+		////;
+		////RectangleD:
+		////	'length' l=Double ',width' w=Double 'and' 'height' h=Double 
+		////;
+		//// SquareD:
+		//// 	'side' a=Double
+		//// ;
+		//Coordinate2D:
+		//	x=Double ',' y=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//x=Double y=Double
+		//x=Double ',' y=Double
 		public Group getGroup() { return cGroup; }
 		
 		//x=Double
@@ -1624,34 +2337,88 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//Double
 		public RuleCall getXDoubleParserRuleCall_0_0() { return cXDoubleParserRuleCall_0_0; }
 		
+		//','
+		public Keyword getCommaKeyword_1() { return cCommaKeyword_1; }
+		
 		//y=Double
-		public Assignment getYAssignment_1() { return cYAssignment_1; }
+		public Assignment getYAssignment_2() { return cYAssignment_2; }
 		
 		//Double
-		public RuleCall getYDoubleParserRuleCall_1_0() { return cYDoubleParserRuleCall_1_0; }
+		public RuleCall getYDoubleParserRuleCall_2_0() { return cYDoubleParserRuleCall_2_0; }
+	}
+	public class Coordinate3DElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Coordinate3D");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cXAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cXDoubleParserRuleCall_0_0 = (RuleCall)cXAssignment_0.eContents().get(0);
+		private final Keyword cCommaKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cYAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cYDoubleParserRuleCall_2_0 = (RuleCall)cYAssignment_2.eContents().get(0);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cZAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cZDoubleParserRuleCall_4_0 = (RuleCall)cZAssignment_4.eContents().get(0);
+		
+		//Coordinate3D:
+		//	x=Double ',' y=Double ',' z=Double;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//x=Double ',' y=Double ',' z=Double
+		public Group getGroup() { return cGroup; }
+		
+		//x=Double
+		public Assignment getXAssignment_0() { return cXAssignment_0; }
+		
+		//Double
+		public RuleCall getXDoubleParserRuleCall_0_0() { return cXDoubleParserRuleCall_0_0; }
+		
+		//','
+		public Keyword getCommaKeyword_1() { return cCommaKeyword_1; }
+		
+		//y=Double
+		public Assignment getYAssignment_2() { return cYAssignment_2; }
+		
+		//Double
+		public RuleCall getYDoubleParserRuleCall_2_0() { return cYDoubleParserRuleCall_2_0; }
+		
+		//','
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+		
+		//z=Double
+		public Assignment getZAssignment_4() { return cZAssignment_4; }
+		
+		//Double
+		public RuleCall getZDoubleParserRuleCall_4_0() { return cZDoubleParserRuleCall_4_0; }
 	}
 	public class DoubleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Double");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cFullStopKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
 		//Double:
-		//	INT '.' INT;
+		//	'-'? INT ('.' INT)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//INT '.' INT
+		//'-'? INT ('.' INT)?
 		public Group getGroup() { return cGroup; }
 		
+		//'-'?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
 		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+		
+		//('.' INT)?
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		public Keyword getFullStopKeyword_2_0() { return cFullStopKeyword_2_0; }
 		
 		//INT
-		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
+		public RuleCall getINTTerminalRuleCall_2_1() { return cINTTerminalRuleCall_2_1; }
 	}
 	public class RangeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Range");
@@ -1691,17 +2458,17 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	public class ConstantSizeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.ConstantSize");
 		private final Assignment cNAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNINTTerminalRuleCall_0 = (RuleCall)cNAssignment.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_0 = (RuleCall)cNAssignment.eContents().get(0);
 		
 		//ConstantSize:
-		//	n=INT;
+		//	n=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//n=INT
+		//n=Double
 		public Assignment getNAssignment() { return cNAssignment; }
 		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_0() { return cNINTTerminalRuleCall_0; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_0() { return cNDoubleParserRuleCall_0; }
 	}
 	public class LowerboundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Lowerbound");
@@ -1709,13 +2476,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLessKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cThanKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNINTTerminalRuleCall_2_0 = (RuleCall)cNAssignment_2.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_2_0 = (RuleCall)cNAssignment_2.eContents().get(0);
 		
 		//Lowerbound:
-		//	'less' 'than' n=INT;
+		//	'less' 'than' n=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'less' 'than' n=INT
+		//'less' 'than' n=Double
 		public Group getGroup() { return cGroup; }
 		
 		//'less'
@@ -1724,11 +2491,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'than'
 		public Keyword getThanKeyword_1() { return cThanKeyword_1; }
 		
-		//n=INT
+		//n=Double
 		public Assignment getNAssignment_2() { return cNAssignment_2; }
 		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_2_0() { return cNINTTerminalRuleCall_2_0; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_2_0() { return cNDoubleParserRuleCall_2_0; }
 	}
 	public class LowerorEqualboundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.LowerorEqualbound");
@@ -1738,13 +2505,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cThanKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNINTTerminalRuleCall_4_0 = (RuleCall)cNAssignment_4.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_4_0 = (RuleCall)cNAssignment_4.eContents().get(0);
 		
 		//LowerorEqualbound:
-		//	'less' 'or' 'equal' 'than' n=INT;
+		//	'less' 'or' 'equal' 'than' n=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'less' 'or' 'equal' 'than' n=INT
+		//'less' 'or' 'equal' 'than' n=Double
 		public Group getGroup() { return cGroup; }
 		
 		//'less'
@@ -1759,11 +2526,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'than'
 		public Keyword getThanKeyword_3() { return cThanKeyword_3; }
 		
-		//n=INT
+		//n=Double
 		public Assignment getNAssignment_4() { return cNAssignment_4; }
 		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_4_0() { return cNINTTerminalRuleCall_4_0; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_4_0() { return cNDoubleParserRuleCall_4_0; }
 	}
 	public class UpperboundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Upperbound");
@@ -1771,13 +2538,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMoreKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cThanKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNINTTerminalRuleCall_2_0 = (RuleCall)cNAssignment_2.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_2_0 = (RuleCall)cNAssignment_2.eContents().get(0);
 		
 		//Upperbound:
-		//	'more' 'than' n=INT;
+		//	'more' 'than' n=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'more' 'than' n=INT
+		//'more' 'than' n=Double
 		public Group getGroup() { return cGroup; }
 		
 		//'more'
@@ -1786,11 +2553,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'than'
 		public Keyword getThanKeyword_1() { return cThanKeyword_1; }
 		
-		//n=INT
+		//n=Double
 		public Assignment getNAssignment_2() { return cNAssignment_2; }
 		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_2_0() { return cNINTTerminalRuleCall_2_0; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_2_0() { return cNDoubleParserRuleCall_2_0; }
 	}
 	public class UpperorEqualboundElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.UpperorEqualbound");
@@ -1800,13 +2567,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cThanKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNINTTerminalRuleCall_4_0 = (RuleCall)cNAssignment_4.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_4_0 = (RuleCall)cNAssignment_4.eContents().get(0);
 		
 		//UpperorEqualbound:
-		//	'more' 'or' 'equal' 'than' n=INT;
+		//	'more' 'or' 'equal' 'than' n=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'more' 'or' 'equal' 'than' n=INT
+		//'more' 'or' 'equal' 'than' n=Double
 		public Group getGroup() { return cGroup; }
 		
 		//'more'
@@ -1821,97 +2588,43 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		//'than'
 		public Keyword getThanKeyword_3() { return cThanKeyword_3; }
 		
-		//n=INT
+		//n=Double
 		public Assignment getNAssignment_4() { return cNAssignment_4; }
 		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_4_0() { return cNINTTerminalRuleCall_4_0; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_4_0() { return cNDoubleParserRuleCall_4_0; }
 	}
 	public class IntervalElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Interval");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBetweenKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cMAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMINTTerminalRuleCall_1_0 = (RuleCall)cMAssignment_1.eContents().get(0);
-		private final Keyword cAndKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNINTTerminalRuleCall_3_0 = (RuleCall)cNAssignment_3.eContents().get(0);
+		private final Assignment cNAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNDoubleParserRuleCall_0_0 = (RuleCall)cNAssignment_0.eContents().get(0);
+		private final Keyword cToKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMDoubleParserRuleCall_2_0 = (RuleCall)cMAssignment_2.eContents().get(0);
 		
 		////
 		//Interval:
-		//	'between' m=INT 'and' n=INT;
+		//	n=Double 'to' m=Double;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'between' m=INT 'and' n=INT
+		//n=Double 'to' m=Double
 		public Group getGroup() { return cGroup; }
 		
-		//'between'
-		public Keyword getBetweenKeyword_0() { return cBetweenKeyword_0; }
+		//n=Double
+		public Assignment getNAssignment_0() { return cNAssignment_0; }
 		
-		//m=INT
-		public Assignment getMAssignment_1() { return cMAssignment_1; }
+		//Double
+		public RuleCall getNDoubleParserRuleCall_0_0() { return cNDoubleParserRuleCall_0_0; }
 		
-		//INT
-		public RuleCall getMINTTerminalRuleCall_1_0() { return cMINTTerminalRuleCall_1_0; }
+		//'to'
+		public Keyword getToKeyword_1() { return cToKeyword_1; }
 		
-		//'and'
-		public Keyword getAndKeyword_2() { return cAndKeyword_2; }
+		//m=Double
+		public Assignment getMAssignment_2() { return cMAssignment_2; }
 		
-		//n=INT
-		public Assignment getNAssignment_3() { return cNAssignment_3; }
-		
-		//INT
-		public RuleCall getNINTTerminalRuleCall_3_0() { return cNINTTerminalRuleCall_3_0; }
-	}
-	public class LiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.Literal");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cIntLiteralKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cRealLiteralKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final RuleCall cBoolLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		
-		//Literal ArithmeticExpression:
-		//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'IntLiteral' | 'RealLiteral' | BoolLiteral
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//'IntLiteral'
-		public Keyword getIntLiteralKeyword_0() { return cIntLiteralKeyword_0; }
-		
-		//'RealLiteral'
-		public Keyword getRealLiteralKeyword_1() { return cRealLiteralKeyword_1; }
-		
-		//BoolLiteral
-		public RuleCall getBoolLiteralParserRuleCall_2() { return cBoolLiteralParserRuleCall_2; }
-	}
-	public class BoolLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.sml.Sml.BoolLiteral");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
-		private final Keyword cValueTrueKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
-		private final Keyword cValueFalseKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
-		
-		////IntLiteral:
-		////value=SignedInt;
-		////RealLiteral:
-		////value=SignedReal;
-		//BoolLiteral:
-		//	value=('true' | 'false');
-		@Override public ParserRule getRule() { return rule; }
-		
-		//value=('true' | 'false')
-		public Assignment getValueAssignment() { return cValueAssignment; }
-		
-		//('true' | 'false')
-		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
-		
-		//'true'
-		public Keyword getValueTrueKeyword_0_0() { return cValueTrueKeyword_0_0; }
-		
-		//'false'
-		public Keyword getValueFalseKeyword_0_1() { return cValueFalseKeyword_0_1; }
+		//Double
+		public RuleCall getMDoubleParserRuleCall_2_0() { return cMDoubleParserRuleCall_2_0; }
 	}
 	
 	
@@ -1919,9 +2632,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final EnvironmentElements pEnvironment;
 	private final ProbabilisticDecriptionElements pProbabilisticDecription;
 	private final SwarmconfElements pSwarmconf;
+	private final MissionSpecificationElements pMissionSpecification;
 	private final MissionTimeElements pMissionTime;
 	private final MissionElements pMission;
 	private final TaskElements pTask;
+	private final AggregateElements pAggregate;
+	private final MigrationElements pMigration;
+	private final ForagingElements pForaging;
 	private final MetricElements pMetric;
 	private final MissionObjectiveElements pMissionObjective;
 	private final IndicatorElements pIndicator;
@@ -1930,7 +2647,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final ScopeElements pScope;
 	private final AtomicEventElements pAtomicEvent;
 	private final OccurenceElements pOccurence;
-	private final PenatlyElements pPenatly;
+	private final PenaltyElements pPenalty;
 	private final RewardElements pReward;
 	private final ConditionElements pCondition;
 	private final TimeElements pTime;
@@ -1940,18 +2657,28 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final EnvironmentElementElements pEnvironmentElement;
 	private final ElementDescriptionElements pElementDescription;
 	private final ElementElements pElement;
+	private final ElElements pEl;
 	private final ObjectElements pObject;
 	private final ObstacleElements pObstacle;
+	private final PatchElements pPatch;
 	private final LightElements pLight;
 	private final PositionElements pPosition;
-	private final ShapeElements pShape;
+	private final Shape2DElements pShape2D;
+	private final Shape3DElements pShape3D;
 	private final ArenaElements pArena;
 	private final ColorElements pColor;
 	private final RegionElements pRegion;
+	private final RegionDefinitionElements pRegionDefinition;
+	private final DefinitionOneElements pDefinitionOne;
+	private final DefinitionTwoElements pDefinitionTwo;
+	private final DefinitionThreeElements pDefinitionThree;
+	private final AxisElements pAxis;
 	private final DimensionElements pDimension;
-	private final CircleDElements pCircleD;
-	private final RectangleDElements pRectangleD;
-	private final CoordinateElements pCoordinate;
+	private final Dimension1Elements pDimension1;
+	private final Dimension2Elements pDimension2;
+	private final Dimension3Elements pDimension3;
+	private final Coordinate2DElements pCoordinate2D;
+	private final Coordinate3DElements pCoordinate3D;
 	private final DoubleElements pDouble;
 	private final RangeElements pRange;
 	private final ConstantSizeElements pConstantSize;
@@ -1960,8 +2687,6 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	private final UpperboundElements pUpperbound;
 	private final UpperorEqualboundElements pUpperorEqualbound;
 	private final IntervalElements pInterval;
-	private final LiteralElements pLiteral;
-	private final BoolLiteralElements pBoolLiteral;
 	
 	private final Grammar grammar;
 	
@@ -1976,9 +2701,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnvironment = new EnvironmentElements();
 		this.pProbabilisticDecription = new ProbabilisticDecriptionElements();
 		this.pSwarmconf = new SwarmconfElements();
+		this.pMissionSpecification = new MissionSpecificationElements();
 		this.pMissionTime = new MissionTimeElements();
 		this.pMission = new MissionElements();
 		this.pTask = new TaskElements();
+		this.pAggregate = new AggregateElements();
+		this.pMigration = new MigrationElements();
+		this.pForaging = new ForagingElements();
 		this.pMetric = new MetricElements();
 		this.pMissionObjective = new MissionObjectiveElements();
 		this.pIndicator = new IndicatorElements();
@@ -1987,7 +2716,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pScope = new ScopeElements();
 		this.pAtomicEvent = new AtomicEventElements();
 		this.pOccurence = new OccurenceElements();
-		this.pPenatly = new PenatlyElements();
+		this.pPenalty = new PenaltyElements();
 		this.pReward = new RewardElements();
 		this.pCondition = new ConditionElements();
 		this.pTime = new TimeElements();
@@ -1997,18 +2726,28 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEnvironmentElement = new EnvironmentElementElements();
 		this.pElementDescription = new ElementDescriptionElements();
 		this.pElement = new ElementElements();
+		this.pEl = new ElElements();
 		this.pObject = new ObjectElements();
 		this.pObstacle = new ObstacleElements();
+		this.pPatch = new PatchElements();
 		this.pLight = new LightElements();
 		this.pPosition = new PositionElements();
-		this.pShape = new ShapeElements();
+		this.pShape2D = new Shape2DElements();
+		this.pShape3D = new Shape3DElements();
 		this.pArena = new ArenaElements();
 		this.pColor = new ColorElements();
 		this.pRegion = new RegionElements();
+		this.pRegionDefinition = new RegionDefinitionElements();
+		this.pDefinitionOne = new DefinitionOneElements();
+		this.pDefinitionTwo = new DefinitionTwoElements();
+		this.pDefinitionThree = new DefinitionThreeElements();
+		this.pAxis = new AxisElements();
 		this.pDimension = new DimensionElements();
-		this.pCircleD = new CircleDElements();
-		this.pRectangleD = new RectangleDElements();
-		this.pCoordinate = new CoordinateElements();
+		this.pDimension1 = new Dimension1Elements();
+		this.pDimension2 = new Dimension2Elements();
+		this.pDimension3 = new Dimension3Elements();
+		this.pCoordinate2D = new Coordinate2DElements();
+		this.pCoordinate3D = new Coordinate3DElements();
 		this.pDouble = new DoubleElements();
 		this.pRange = new RangeElements();
 		this.pConstantSize = new ConstantSizeElements();
@@ -2017,8 +2756,6 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUpperbound = new UpperboundElements();
 		this.pUpperorEqualbound = new UpperorEqualboundElements();
 		this.pInterval = new IntervalElements();
-		this.pLiteral = new LiteralElements();
-		this.pBoolLiteral = new BoolLiteralElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2049,7 +2786,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective;
+	//	arenas=Arena env=Environment sw=Swarmconf* ms=MissionSpecification*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -2069,7 +2806,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ProbabilisticDecription:
-	//	'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' 'a' k=Region;
+	//	'distributed' 'with' 'a' dis=Distribution 'distribution' 'in' k=[Region];
 	public ProbabilisticDecriptionElements getProbabilisticDecriptionAccess() {
 		return pProbabilisticDecription;
 	}
@@ -2090,8 +2827,18 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getSwarmconfAccess().getRule();
 	}
 	
+	//MissionSpecification:
+	//	m=Mission mt=MissionTime ob=MissionObjective;
+	public MissionSpecificationElements getMissionSpecificationAccess() {
+		return pMissionSpecification;
+	}
+	
+	public ParserRule getMissionSpecificationRule() {
+		return getMissionSpecificationAccess().getRule();
+	}
+	
 	//MissionTime:
-	//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' T=Range;
+	//	'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
 	public MissionTimeElements getMissionTimeAccess() {
 		return pMissionTime;
 	}
@@ -2101,7 +2848,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Mission:
-	//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task m=Metric;
+	//	'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task;
 	public MissionElements getMissionAccess() {
 		return pMission;
 	}
@@ -2111,7 +2858,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Task:
-	//	'aggregate' 'on' r=Region;
+	//	Aggregate | Migration | Foraging;
 	public TaskElements getTaskAccess() {
 		return pTask;
 	}
@@ -2120,8 +2867,39 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getTaskAccess().getRule();
 	}
 	
+	//Aggregate:
+	//	'aggregate' 'on' r+=[Region] (',' r+=[Region])*;
+	public AggregateElements getAggregateAccess() {
+		return pAggregate;
+	}
+	
+	public ParserRule getAggregateRule() {
+		return getAggregateAccess().getRule();
+	}
+	
+	//Migration:
+	//	'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*;
+	public MigrationElements getMigrationAccess() {
+		return pMigration;
+	}
+	
+	public ParserRule getMigrationRule() {
+		return getMigrationAccess().getRule();
+	}
+	
+	//Foraging:
+	//	'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region] (','
+	//	source+=[Region])*;
+	public ForagingElements getForagingAccess() {
+		return pForaging;
+	}
+	
+	public ParserRule getForagingRule() {
+		return getForagingAccess().getRule();
+	}
+	
 	//Metric:
-	//	'seconds' | 'steps';
+	//	'seconds' | 'steps' | 'm';
 	public MetricElements getMetricAccess() {
 		return pMetric;
 	}
@@ -2131,8 +2909,11 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MissionObjective:
-	//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the'
-	//	'following' 'score' ':' in+=Indicator*;
+	//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'to' 'be'
+	//	Type=('maximized.' | 'minimized.')
+	//	'The' 'objective' 'function' 'is' 'computed' 'as' 'follows:' in+=Indicator*
+	//	//	'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'that' 'maximizes' 'the' 'following' 'score' ':' 
+	//;
 	public MissionObjectiveElements getMissionObjectiveAccess() {
 		return pMissionObjective;
 	}
@@ -2172,8 +2953,9 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Scope:
-	//	'At' 'any' 'point' 'of' 'time' | 'Before' p=AtomicEvent | 'After' p=AtomicEvent | 'Between' p=AtomicEvent 'and'
-	//	q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time;
+	//	sp=("At any point in time," | "At the end of the mission,") | Condition
+	//	//| 'Before' p=AtomicEvent| 'After' p=(AtomicEvent) | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
+	//;
 	public ScopeElements getScopeAccess() {
 		return pScope;
 	}
@@ -2193,7 +2975,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Occurence:
-	//	Reward | Penatly;
+	//	Reward | Penalty;
 	public OccurenceElements getOccurenceAccess() {
 		return pOccurence;
 	}
@@ -2202,14 +2984,14 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getOccurenceAccess().getRule();
 	}
 	
-	//Penatly:
+	//Penalty:
 	//	'gets' 'a' 'penalty' k=Double c=Condition;
-	public PenatlyElements getPenatlyAccess() {
-		return pPenatly;
+	public PenaltyElements getPenaltyAccess() {
+		return pPenalty;
 	}
 	
-	public ParserRule getPenatlyRule() {
-		return getPenatlyAccess().getRule();
+	public ParserRule getPenaltyRule() {
+		return getPenaltyAccess().getRule();
 	}
 	
 	//Reward:
@@ -2223,8 +3005,8 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Condition:
-	//	'if' 'it' 'is' 'on' 'the' r=Region |
-	//	'if' 'there' 'are' 'more' 'than' n=INT 'robots' 'on' 'the' r=Region;
+	//	('if' | 'If') 'it' 'is' ('on' | 'outside') r=[Region] | ('if' | 'If') 'there' 'are' 'more' 'than' n=INT 'robots'
+	//	('on' | 'outside') r=[Region] ","* | ('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region];
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -2234,7 +3016,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Time:
-	//	x=Literal | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
+	//	x=Range | 'beggining' 'of' 'the' 'mission' | 'end' 'of' 'the' 'mission';
 	public TimeElements getTimeAccess() {
 		return pTime;
 	}
@@ -2254,7 +3036,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Distribution:
-	//	'uniform' | 'gaussian' | 'constant';
+	//	'Uniform' | 'Gaussian' | 'Constant';
 	public DistributionElements getDistributionAccess() {
 		return pDistribution;
 	}
@@ -2274,7 +3056,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//EnvironmentElement:
-	//	Obstacle | Light | Object;
+	//	Obstacle | Light | Object | Patch | 'A' Region;
 	public EnvironmentElementElements getEnvironmentElementAccess() {
 		return pEnvironmentElement;
 	}
@@ -2294,13 +3076,23 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Element:
-	//	'objects' | 'obstacles' | 'light' 'sources';
+	//	ob=El 'with' 'dimensions' ':' d=Dimension2;
 	public ElementElements getElementAccess() {
 		return pElement;
 	}
 	
 	public ParserRule getElementRule() {
 		return getElementAccess().getRule();
+	}
+	
+	//El:
+	//	'objects' | 'obstacles' | 'light' 'sources' | 'patch';
+	public ElElements getElAccess() {
+		return pEl;
+	}
+	
+	public ParserRule getElRule() {
+		return getElAccess().getRule();
 	}
 	
 	//Object:
@@ -2323,8 +3115,18 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getObstacleAccess().getRule();
 	}
 	
+	//Patch:
+	//	pt='A' c=Color 'patch' 'as' 'a' r=Region;
+	public PatchElements getPatchAccess() {
+		return pPatch;
+	}
+	
+	public ParserRule getPatchRule() {
+		return getPatchAccess().getRule();
+	}
+	
 	//Light:
-	//	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'in' 'a' p=Position;
+	//	l='A' 'light' 'source' 'emitting' 'a' c=Color 'light' 'is' 'placed' 'at' p=Position;
 	public LightElements getLightAccess() {
 		return pLight;
 	}
@@ -2334,8 +3136,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Position:
-	//	{Circle} 'center' point=Coordinate | {Rectangle} 'reference point' point=Coordinate | {PointD} 'point'
-	//	point=Coordinate;
+	//	('center' 'at' | 'reference')? 'point' point=(Coordinate2D | Coordinate3D);
 	public PositionElements getPositionAccess() {
 		return pPosition;
 	}
@@ -2344,18 +3145,28 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getPositionAccess().getRule();
 	}
 	
-	//Shape:
-	//	'Circle' | 'Polygon' | 'Triangle' | 'Rectangle';
-	public ShapeElements getShapeAccess() {
-		return pShape;
+	//Shape2D:
+	//	'Circle' | 'Polygon' | 'Triangle' | 'Rectangle' | 'Dodecagon' | 'Hexagon' | 'Square' | 'Region';
+	public Shape2DElements getShape2DAccess() {
+		return pShape2D;
 	}
 	
-	public ParserRule getShapeRule() {
-		return getShapeAccess().getRule();
+	public ParserRule getShape2DRule() {
+		return getShape2DAccess().getRule();
+	}
+	
+	//Shape3D:
+	//	'Rectangular cuboid' | 'Cube' | 'Cylinder';
+	public Shape3DElements getShape3DAccess() {
+		return pShape3D;
+	}
+	
+	public ParserRule getShape3DRule() {
+		return getShape3DAccess().getRule();
 	}
 	
 	//Arena:
-	//	'The' 'arena' 'is' 'a' s=Region;
+	//	'The' 'arena' 'is' 'a' s=Region 'surrounded' 'by' 'walls' '.';
 	public ArenaElements getArenaAccess() {
 		return pArena;
 	}
@@ -2366,7 +3177,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////. 'with' dimensions=Dimension;
 	//Color:
-	//	'red' | 'yellow' | 'green';
+	//	'red' | 'yellow' | 'green' | 'gray' | 'black' | 'white';
 	public ColorElements getColorAccess() {
 		return pColor;
 	}
@@ -2378,7 +3189,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	////Region:
 	//// 'Circle' | 'Polygon';
 	//Region:
-	//	colors=Color? shape=Shape? name=ID ('with' referencepoint=Position)? ('and' dimensions=Dimension)?;
+	//	colors=Color? shape2d=Shape2D name=ID region=RegionDefinition;
 	public RegionElements getRegionAccess() {
 		return pRegion;
 	}
@@ -2387,11 +3198,61 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getRegionAccess().getRule();
 	}
 	
+	//RegionDefinition:
+	//	DefinitionOne | DefinitionTwo | DefinitionThree;
+	public RegionDefinitionElements getRegionDefinitionAccess() {
+		return pRegionDefinition;
+	}
+	
+	public ParserRule getRegionDefinitionRule() {
+		return getRegionDefinitionAccess().getRule();
+	}
+	
+	//DefinitionOne:
+	//	('with' referencepoint=Position)? ('and' dimensions=Dimension)?;
+	public DefinitionOneElements getDefinitionOneAccess() {
+		return pDefinitionOne;
+	}
+	
+	public ParserRule getDefinitionOneRule() {
+		return getDefinitionOneAccess().getRule();
+	}
+	
+	//DefinitionTwo:
+	//	'defined' 'through' 'the' 'following' 'Vertices' ':' point+=Position (';' point+=Position)*;
+	public DefinitionTwoElements getDefinitionTwoAccess() {
+		return pDefinitionTwo;
+	}
+	
+	public ParserRule getDefinitionTwoRule() {
+		return getDefinitionTwoAccess().getRule();
+	}
+	
+	//DefinitionThree:
+	//	'where' ax=Axis 'is' r=Range;
+	public DefinitionThreeElements getDefinitionThreeAccess() {
+		return pDefinitionThree;
+	}
+	
+	public ParserRule getDefinitionThreeRule() {
+		return getDefinitionThreeAccess().getRule();
+	}
+	
+	//Axis:
+	//	'x' | 'y';
+	public AxisElements getAxisAccess() {
+		return pAxis;
+	}
+	
+	public ParserRule getAxisRule() {
+		return getAxisAccess().getRule();
+	}
+	
 	////Type: 
 	////	CircleD | RectangleD	
 	////;
 	//Dimension:
-	//	CircleD | RectangleD;
+	//	Dimension1 | Dimension2 | Dimension3;
 	public DimensionElements getDimensionAccess() {
 		return pDimension;
 	}
@@ -2400,42 +3261,74 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 		return getDimensionAccess().getRule();
 	}
 	
+	//Dimension1:
+	//	'radius' r=Double m1=Metric ('and' 'height' h=Double m2=Metric)?;
+	public Dimension1Elements getDimension1Access() {
+		return pDimension1;
+	}
+	
+	public ParserRule getDimension1Rule() {
+		return getDimension1Access().getRule();
+	}
+	
+	//Dimension2:
+	//	'length' l=Double m3=Metric ',width' w=Double m4=Metric ('and' 'height' h=Double m5=Metric)?;
+	public Dimension2Elements getDimension2Access() {
+		return pDimension2;
+	}
+	
+	public ParserRule getDimension2Rule() {
+		return getDimension2Access().getRule();
+	}
+	
+	//Dimension3:
+	//	'side' s=Double m6=Metric;
+	public Dimension3Elements getDimension3Access() {
+		return pDimension3;
+	}
+	
+	public ParserRule getDimension3Rule() {
+		return getDimension3Access().getRule();
+	}
+	
+	////Dimension:
+	////CircleD | RectangleD | SquareD
+	////;
 	////{CircleD} 'radius' r=Double | 
 	////{RectangleD} 'length' l=Double ',width' w=Double 'and' 'height' h=Double ; //|
 	////types=[CircleD | ]
 	////{SquareD} 'side' a=Double;
-	//CircleD:
-	//	'radius' r=Double;
-	public CircleDElements getCircleDAccess() {
-		return pCircleD;
+	////CircleD:
+	////	'radius' r=Double
+	////;
+	////RectangleD:
+	////	'length' l=Double ',width' w=Double 'and' 'height' h=Double 
+	////;
+	//// SquareD:
+	//// 	'side' a=Double
+	//// ;
+	//Coordinate2D:
+	//	x=Double ',' y=Double;
+	public Coordinate2DElements getCoordinate2DAccess() {
+		return pCoordinate2D;
 	}
 	
-	public ParserRule getCircleDRule() {
-		return getCircleDAccess().getRule();
+	public ParserRule getCoordinate2DRule() {
+		return getCoordinate2DAccess().getRule();
 	}
 	
-	//RectangleD:
-	//	'length' l=Double ',width' w=Double 'and' 'height' h=Double;
-	public RectangleDElements getRectangleDAccess() {
-		return pRectangleD;
+	//Coordinate3D:
+	//	x=Double ',' y=Double ',' z=Double;
+	public Coordinate3DElements getCoordinate3DAccess() {
+		return pCoordinate3D;
 	}
 	
-	public ParserRule getRectangleDRule() {
-		return getRectangleDAccess().getRule();
-	}
-	
-	//Coordinate:
-	//	x=Double y=Double;
-	public CoordinateElements getCoordinateAccess() {
-		return pCoordinate;
-	}
-	
-	public ParserRule getCoordinateRule() {
-		return getCoordinateAccess().getRule();
+	public ParserRule getCoordinate3DRule() {
+		return getCoordinate3DAccess().getRule();
 	}
 	
 	//Double:
-	//	INT '.' INT;
+	//	'-'? INT ('.' INT)?;
 	public DoubleElements getDoubleAccess() {
 		return pDouble;
 	}
@@ -2455,7 +3348,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ConstantSize:
-	//	n=INT;
+	//	n=Double;
 	public ConstantSizeElements getConstantSizeAccess() {
 		return pConstantSize;
 	}
@@ -2465,7 +3358,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Lowerbound:
-	//	'less' 'than' n=INT;
+	//	'less' 'than' n=Double;
 	public LowerboundElements getLowerboundAccess() {
 		return pLowerbound;
 	}
@@ -2475,7 +3368,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LowerorEqualbound:
-	//	'less' 'or' 'equal' 'than' n=INT;
+	//	'less' 'or' 'equal' 'than' n=Double;
 	public LowerorEqualboundElements getLowerorEqualboundAccess() {
 		return pLowerorEqualbound;
 	}
@@ -2485,7 +3378,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Upperbound:
-	//	'more' 'than' n=INT;
+	//	'more' 'than' n=Double;
 	public UpperboundElements getUpperboundAccess() {
 		return pUpperbound;
 	}
@@ -2495,7 +3388,7 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UpperorEqualbound:
-	//	'more' 'or' 'equal' 'than' n=INT;
+	//	'more' 'or' 'equal' 'than' n=Double;
 	public UpperorEqualboundElements getUpperorEqualboundAccess() {
 		return pUpperorEqualbound;
 	}
@@ -2506,37 +3399,13 @@ public class SmlGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////
 	//Interval:
-	//	'between' m=INT 'and' n=INT;
+	//	n=Double 'to' m=Double;
 	public IntervalElements getIntervalAccess() {
 		return pInterval;
 	}
 	
 	public ParserRule getIntervalRule() {
 		return getIntervalAccess().getRule();
-	}
-	
-	//Literal ArithmeticExpression:
-	//	'IntLiteral' | 'RealLiteral' | BoolLiteral;
-	public LiteralElements getLiteralAccess() {
-		return pLiteral;
-	}
-	
-	public ParserRule getLiteralRule() {
-		return getLiteralAccess().getRule();
-	}
-	
-	////IntLiteral:
-	////value=SignedInt;
-	////RealLiteral:
-	////value=SignedReal;
-	//BoolLiteral:
-	//	value=('true' | 'false');
-	public BoolLiteralElements getBoolLiteralAccess() {
-		return pBoolLiteral;
-	}
-	
-	public ParserRule getBoolLiteralRule() {
-		return getBoolLiteralAccess().getRule();
 	}
 	
 	//terminal ID:

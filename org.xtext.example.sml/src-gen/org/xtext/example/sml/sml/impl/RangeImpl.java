@@ -36,7 +36,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
    * @generated
    * @ordered
    */
-  protected static final int N_EDEFAULT = 0;
+  protected static final String N_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getN() <em>N</em>}' attribute.
@@ -46,7 +46,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
    * @generated
    * @ordered
    */
-  protected int n = N_EDEFAULT;
+  protected String n = N_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
    * @generated
    */
   @Override
-  public int getN()
+  public String getN()
   {
     return n;
   }
@@ -86,9 +86,9 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
    * @generated
    */
   @Override
-  public void setN(int newN)
+  public void setN(String newN)
   {
-    int oldN = n;
+    String oldN = n;
     n = newN;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, SmlPackage.RANGE__N, oldN, n));
@@ -121,7 +121,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
     switch (featureID)
     {
       case SmlPackage.RANGE__N:
-        setN((Integer)newValue);
+        setN((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -155,7 +155,7 @@ public class RangeImpl extends MinimalEObjectImpl.Container implements Range
     switch (featureID)
     {
       case SmlPackage.RANGE__N:
-        return n != N_EDEFAULT;
+        return N_EDEFAULT == null ? n != null : !N_EDEFAULT.equals(n);
     }
     return super.eIsSet(featureID);
   }

@@ -7,12 +7,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.sml.sml.Coordinate;
 import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.SmlPackage;
 
@@ -39,7 +39,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
    * @generated
    * @ordered
    */
-  protected Coordinate point;
+  protected EObject point;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
    * @generated
    */
   @Override
-  public Coordinate getPoint()
+  public EObject getPoint()
   {
     return point;
   }
@@ -78,9 +78,9 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPoint(Coordinate newPoint, NotificationChain msgs)
+  public NotificationChain basicSetPoint(EObject newPoint, NotificationChain msgs)
   {
-    Coordinate oldPoint = point;
+    EObject oldPoint = point;
     point = newPoint;
     if (eNotificationRequired())
     {
@@ -96,7 +96,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
    * @generated
    */
   @Override
-  public void setPoint(Coordinate newPoint)
+  public void setPoint(EObject newPoint)
   {
     if (newPoint != point)
     {
@@ -155,7 +155,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
     switch (featureID)
     {
       case SmlPackage.POSITION__POINT:
-        setPoint((Coordinate)newValue);
+        setPoint((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +172,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
     switch (featureID)
     {
       case SmlPackage.POSITION__POINT:
-        setPoint((Coordinate)null);
+        setPoint((EObject)null);
         return;
     }
     super.eUnset(featureID);

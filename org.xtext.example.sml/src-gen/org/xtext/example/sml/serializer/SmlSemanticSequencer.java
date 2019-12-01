@@ -15,38 +15,45 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.sml.services.SmlGrammarAccess;
+import org.xtext.example.sml.sml.Aggregate;
 import org.xtext.example.sml.sml.Arena;
 import org.xtext.example.sml.sml.AtomicIndicator;
-import org.xtext.example.sml.sml.BoolLiteral;
-import org.xtext.example.sml.sml.Circle;
-import org.xtext.example.sml.sml.CircleD;
 import org.xtext.example.sml.sml.CompoundIndicator;
 import org.xtext.example.sml.sml.Condition;
 import org.xtext.example.sml.sml.ConstantSize;
-import org.xtext.example.sml.sml.Coordinate;
+import org.xtext.example.sml.sml.Coordinate2D;
+import org.xtext.example.sml.sml.Coordinate3D;
+import org.xtext.example.sml.sml.DefinitionOne;
+import org.xtext.example.sml.sml.DefinitionThree;
+import org.xtext.example.sml.sml.DefinitionTwo;
+import org.xtext.example.sml.sml.Dimension1;
+import org.xtext.example.sml.sml.Dimension2;
+import org.xtext.example.sml.sml.Dimension3;
+import org.xtext.example.sml.sml.Element;
 import org.xtext.example.sml.sml.ElementDescription;
 import org.xtext.example.sml.sml.Environment;
+import org.xtext.example.sml.sml.Foraging;
 import org.xtext.example.sml.sml.Indicator;
 import org.xtext.example.sml.sml.Interval;
 import org.xtext.example.sml.sml.Light;
 import org.xtext.example.sml.sml.Lowerbound;
 import org.xtext.example.sml.sml.LowerorEqualbound;
+import org.xtext.example.sml.sml.Migration;
 import org.xtext.example.sml.sml.Mission;
 import org.xtext.example.sml.sml.MissionObjective;
+import org.xtext.example.sml.sml.MissionSpecification;
 import org.xtext.example.sml.sml.MissionTime;
 import org.xtext.example.sml.sml.Model;
 import org.xtext.example.sml.sml.Obstacle;
-import org.xtext.example.sml.sml.Penatly;
-import org.xtext.example.sml.sml.PointD;
+import org.xtext.example.sml.sml.Patch;
+import org.xtext.example.sml.sml.Penalty;
+import org.xtext.example.sml.sml.Position;
 import org.xtext.example.sml.sml.ProbabilisticDecription;
-import org.xtext.example.sml.sml.Rectangle;
-import org.xtext.example.sml.sml.RectangleD;
 import org.xtext.example.sml.sml.Region;
 import org.xtext.example.sml.sml.Reward;
 import org.xtext.example.sml.sml.Scope;
 import org.xtext.example.sml.sml.SmlPackage;
 import org.xtext.example.sml.sml.Swarmconf;
-import org.xtext.example.sml.sml.Task;
 import org.xtext.example.sml.sml.Time;
 import org.xtext.example.sml.sml.Upperbound;
 import org.xtext.example.sml.sml.UpperorEqualbound;
@@ -65,20 +72,14 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SmlPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SmlPackage.AGGREGATE:
+				sequence_Aggregate(context, (Aggregate) semanticObject); 
+				return; 
 			case SmlPackage.ARENA:
 				sequence_Arena(context, (Arena) semanticObject); 
 				return; 
 			case SmlPackage.ATOMIC_INDICATOR:
 				sequence_AtomicIndicator(context, (AtomicIndicator) semanticObject); 
-				return; 
-			case SmlPackage.BOOL_LITERAL:
-				sequence_BoolLiteral(context, (BoolLiteral) semanticObject); 
-				return; 
-			case SmlPackage.CIRCLE:
-				sequence_Position(context, (Circle) semanticObject); 
-				return; 
-			case SmlPackage.CIRCLE_D:
-				sequence_CircleD(context, (CircleD) semanticObject); 
 				return; 
 			case SmlPackage.COMPOUND_INDICATOR:
 				sequence_CompoundIndicator(context, (CompoundIndicator) semanticObject); 
@@ -89,14 +90,41 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmlPackage.CONSTANT_SIZE:
 				sequence_ConstantSize(context, (ConstantSize) semanticObject); 
 				return; 
-			case SmlPackage.COORDINATE:
-				sequence_Coordinate(context, (Coordinate) semanticObject); 
+			case SmlPackage.COORDINATE2_D:
+				sequence_Coordinate2D(context, (Coordinate2D) semanticObject); 
+				return; 
+			case SmlPackage.COORDINATE3_D:
+				sequence_Coordinate3D(context, (Coordinate3D) semanticObject); 
+				return; 
+			case SmlPackage.DEFINITION_ONE:
+				sequence_DefinitionOne(context, (DefinitionOne) semanticObject); 
+				return; 
+			case SmlPackage.DEFINITION_THREE:
+				sequence_DefinitionThree(context, (DefinitionThree) semanticObject); 
+				return; 
+			case SmlPackage.DEFINITION_TWO:
+				sequence_DefinitionTwo(context, (DefinitionTwo) semanticObject); 
+				return; 
+			case SmlPackage.DIMENSION1:
+				sequence_Dimension1(context, (Dimension1) semanticObject); 
+				return; 
+			case SmlPackage.DIMENSION2:
+				sequence_Dimension2(context, (Dimension2) semanticObject); 
+				return; 
+			case SmlPackage.DIMENSION3:
+				sequence_Dimension3(context, (Dimension3) semanticObject); 
+				return; 
+			case SmlPackage.ELEMENT:
+				sequence_Element(context, (Element) semanticObject); 
 				return; 
 			case SmlPackage.ELEMENT_DESCRIPTION:
 				sequence_ElementDescription(context, (ElementDescription) semanticObject); 
 				return; 
 			case SmlPackage.ENVIRONMENT:
 				sequence_Environment(context, (Environment) semanticObject); 
+				return; 
+			case SmlPackage.FORAGING:
+				sequence_Foraging(context, (Foraging) semanticObject); 
 				return; 
 			case SmlPackage.INDICATOR:
 				sequence_Indicator(context, (Indicator) semanticObject); 
@@ -113,11 +141,17 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmlPackage.LOWEROR_EQUALBOUND:
 				sequence_LowerorEqualbound(context, (LowerorEqualbound) semanticObject); 
 				return; 
+			case SmlPackage.MIGRATION:
+				sequence_Migration(context, (Migration) semanticObject); 
+				return; 
 			case SmlPackage.MISSION:
 				sequence_Mission(context, (Mission) semanticObject); 
 				return; 
 			case SmlPackage.MISSION_OBJECTIVE:
 				sequence_MissionObjective(context, (MissionObjective) semanticObject); 
+				return; 
+			case SmlPackage.MISSION_SPECIFICATION:
+				sequence_MissionSpecification(context, (MissionSpecification) semanticObject); 
 				return; 
 			case SmlPackage.MISSION_TIME:
 				sequence_MissionTime(context, (MissionTime) semanticObject); 
@@ -131,20 +165,17 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SmlPackage.OBSTACLE:
 				sequence_Obstacle(context, (Obstacle) semanticObject); 
 				return; 
-			case SmlPackage.PENATLY:
-				sequence_Penatly(context, (Penatly) semanticObject); 
+			case SmlPackage.PATCH:
+				sequence_Patch(context, (Patch) semanticObject); 
 				return; 
-			case SmlPackage.POINT_D:
-				sequence_Position(context, (PointD) semanticObject); 
+			case SmlPackage.PENALTY:
+				sequence_Penalty(context, (Penalty) semanticObject); 
+				return; 
+			case SmlPackage.POSITION:
+				sequence_Position(context, (Position) semanticObject); 
 				return; 
 			case SmlPackage.PROBABILISTIC_DECRIPTION:
 				sequence_ProbabilisticDecription(context, (ProbabilisticDecription) semanticObject); 
-				return; 
-			case SmlPackage.RECTANGLE:
-				sequence_Position(context, (Rectangle) semanticObject); 
-				return; 
-			case SmlPackage.RECTANGLE_D:
-				sequence_RectangleD(context, (RectangleD) semanticObject); 
 				return; 
 			case SmlPackage.REGION:
 				sequence_Region(context, (Region) semanticObject); 
@@ -157,9 +188,6 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SmlPackage.SWARMCONF:
 				sequence_Swarmconf(context, (Swarmconf) semanticObject); 
-				return; 
-			case SmlPackage.TASK:
-				sequence_Task(context, (Task) semanticObject); 
 				return; 
 			case SmlPackage.TIME:
 				sequence_Time(context, (Time) semanticObject); 
@@ -174,6 +202,19 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Task returns Aggregate
+	 *     Aggregate returns Aggregate
+	 *
+	 * Constraint:
+	 *     (r+=[Region|ID] r+=[Region|ID]*)
+	 */
+	protected void sequence_Aggregate(ISerializationContext context, Aggregate semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -213,38 +254,6 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Literal returns BoolLiteral
-	 *     BoolLiteral returns BoolLiteral
-	 *
-	 * Constraint:
-	 *     (value='true' | value='false')
-	 */
-	protected void sequence_BoolLiteral(ISerializationContext context, BoolLiteral semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Dimension returns CircleD
-	 *     CircleD returns CircleD
-	 *
-	 * Constraint:
-	 *     r=Double
-	 */
-	protected void sequence_CircleD(ISerializationContext context, CircleD semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.CIRCLE_D__R) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.CIRCLE_D__R));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCircleDAccess().getRDoubleParserRuleCall_1_0(), semanticObject.getR());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     CompoundIndicator returns CompoundIndicator
 	 *
 	 * Constraint:
@@ -263,10 +272,11 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Scope returns Condition
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     (r=Region | (n=INT r=Region))
+	 *     (r=[Region|ID] | (n=INT r=[Region|ID]) | (r=[Region|ID] nest=[Region|ID]))
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -279,7 +289,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ConstantSize returns ConstantSize
 	 *
 	 * Constraint:
-	 *     n=INT
+	 *     n=Double
 	 */
 	protected void sequence_ConstantSize(ISerializationContext context, ConstantSize semanticObject) {
 		if (errorAcceptor != null) {
@@ -287,28 +297,148 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConstantSizeAccess().getNINTTerminalRuleCall_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getConstantSizeAccess().getNDoubleParserRuleCall_0(), semanticObject.getN());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Coordinate returns Coordinate
+	 *     Coordinate2D returns Coordinate2D
 	 *
 	 * Constraint:
 	 *     (x=Double y=Double)
 	 */
-	protected void sequence_Coordinate(ISerializationContext context, Coordinate semanticObject) {
+	protected void sequence_Coordinate2D(ISerializationContext context, Coordinate2D semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE__X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE__X));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE__Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE__Y));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE2_D__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE2_D__X));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE2_D__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE2_D__Y));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCoordinateAccess().getXDoubleParserRuleCall_0_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getCoordinateAccess().getYDoubleParserRuleCall_1_0(), semanticObject.getY());
+		feeder.accept(grammarAccess.getCoordinate2DAccess().getXDoubleParserRuleCall_0_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getCoordinate2DAccess().getYDoubleParserRuleCall_2_0(), semanticObject.getY());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Coordinate3D returns Coordinate3D
+	 *
+	 * Constraint:
+	 *     (x=Double y=Double z=Double)
+	 */
+	protected void sequence_Coordinate3D(ISerializationContext context, Coordinate3D semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE3_D__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE3_D__X));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE3_D__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE3_D__Y));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.COORDINATE3_D__Z) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.COORDINATE3_D__Z));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCoordinate3DAccess().getXDoubleParserRuleCall_0_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getCoordinate3DAccess().getYDoubleParserRuleCall_2_0(), semanticObject.getY());
+		feeder.accept(grammarAccess.getCoordinate3DAccess().getZDoubleParserRuleCall_4_0(), semanticObject.getZ());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RegionDefinition returns DefinitionOne
+	 *     DefinitionOne returns DefinitionOne
+	 *
+	 * Constraint:
+	 *     ((referencepoint=Position dimensions=Dimension) | dimensions=Dimension)?
+	 */
+	protected void sequence_DefinitionOne(ISerializationContext context, DefinitionOne semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RegionDefinition returns DefinitionThree
+	 *     DefinitionThree returns DefinitionThree
+	 *
+	 * Constraint:
+	 *     (ax=Axis r=Range)
+	 */
+	protected void sequence_DefinitionThree(ISerializationContext context, DefinitionThree semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.DEFINITION_THREE__AX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.DEFINITION_THREE__AX));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.DEFINITION_THREE__R) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.DEFINITION_THREE__R));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDefinitionThreeAccess().getAxAxisParserRuleCall_1_0(), semanticObject.getAx());
+		feeder.accept(grammarAccess.getDefinitionThreeAccess().getRRangeParserRuleCall_3_0(), semanticObject.getR());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     RegionDefinition returns DefinitionTwo
+	 *     DefinitionTwo returns DefinitionTwo
+	 *
+	 * Constraint:
+	 *     (point+=Position point+=Position*)
+	 */
+	protected void sequence_DefinitionTwo(ISerializationContext context, DefinitionTwo semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Dimension returns Dimension1
+	 *     Dimension1 returns Dimension1
+	 *
+	 * Constraint:
+	 *     (r=Double m1=Metric (h=Double m2=Metric)?)
+	 */
+	protected void sequence_Dimension1(ISerializationContext context, Dimension1 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Dimension returns Dimension2
+	 *     Dimension2 returns Dimension2
+	 *
+	 * Constraint:
+	 *     (l=Double m3=Metric w=Double m4=Metric (h=Double m5=Metric)?)
+	 */
+	protected void sequence_Dimension2(ISerializationContext context, Dimension2 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Dimension returns Dimension3
+	 *     Dimension3 returns Dimension3
+	 *
+	 * Constraint:
+	 *     (s=Double m6=Metric)
+	 */
+	protected void sequence_Dimension3(ISerializationContext context, Dimension3 semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.DIMENSION3__S) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.DIMENSION3__S));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.DIMENSION3__M6) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.DIMENSION3__M6));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDimension3Access().getSDoubleParserRuleCall_1_0(), semanticObject.getS());
+		feeder.accept(grammarAccess.getDimension3Access().getM6MetricParserRuleCall_2_0(), semanticObject.getM6());
 		feeder.finish();
 	}
 	
@@ -343,12 +473,46 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Element returns Element
+	 *
+	 * Constraint:
+	 *     (ob=El d=Dimension2)
+	 */
+	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT__OB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT__OB));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.ELEMENT__D) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.ELEMENT__D));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getElementAccess().getObElParserRuleCall_0_0(), semanticObject.getOb());
+		feeder.accept(grammarAccess.getElementAccess().getDDimension2ParserRuleCall_4_0(), semanticObject.getD());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Environment returns Environment
 	 *
 	 * Constraint:
 	 *     environment+=EnvironmentElements+
 	 */
 	protected void sequence_Environment(ISerializationContext context, Environment semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Task returns Foraging
+	 *     Foraging returns Foraging
+	 *
+	 * Constraint:
+	 *     (source+=[Region|ID] source+=[Region|ID]* nest=[Region|ID] source+=[Region|ID]*)
+	 */
+	protected void sequence_Foraging(ISerializationContext context, Foraging semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -371,18 +535,18 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Interval returns Interval
 	 *
 	 * Constraint:
-	 *     (m=INT n=INT)
+	 *     (n=Double m=Double)
 	 */
 	protected void sequence_Interval(ISerializationContext context, Interval semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.INTERVAL__M) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.INTERVAL__M));
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.RANGE__N) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.INTERVAL__M) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.INTERVAL__M));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntervalAccess().getMINTTerminalRuleCall_1_0(), semanticObject.getM());
-		feeder.accept(grammarAccess.getIntervalAccess().getNINTTerminalRuleCall_3_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getIntervalAccess().getNDoubleParserRuleCall_0_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getIntervalAccess().getMDoubleParserRuleCall_2_0(), semanticObject.getM());
 		feeder.finish();
 	}
 	
@@ -408,7 +572,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLightAccess().getLAKeyword_0_0(), semanticObject.getL());
 		feeder.accept(grammarAccess.getLightAccess().getCColorParserRuleCall_5_0(), semanticObject.getC());
-		feeder.accept(grammarAccess.getLightAccess().getPPositionParserRuleCall_11_0(), semanticObject.getP());
+		feeder.accept(grammarAccess.getLightAccess().getPPositionParserRuleCall_10_0(), semanticObject.getP());
 		feeder.finish();
 	}
 	
@@ -419,7 +583,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Lowerbound returns Lowerbound
 	 *
 	 * Constraint:
-	 *     n=INT
+	 *     n=Double
 	 */
 	protected void sequence_Lowerbound(ISerializationContext context, Lowerbound semanticObject) {
 		if (errorAcceptor != null) {
@@ -427,7 +591,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLowerboundAccess().getNINTTerminalRuleCall_2_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getLowerboundAccess().getNDoubleParserRuleCall_2_0(), semanticObject.getN());
 		feeder.finish();
 	}
 	
@@ -438,7 +602,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     LowerorEqualbound returns LowerorEqualbound
 	 *
 	 * Constraint:
-	 *     n=INT
+	 *     n=Double
 	 */
 	protected void sequence_LowerorEqualbound(ISerializationContext context, LowerorEqualbound semanticObject) {
 		if (errorAcceptor != null) {
@@ -446,8 +610,21 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLowerorEqualboundAccess().getNINTTerminalRuleCall_4_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getLowerorEqualboundAccess().getNDoubleParserRuleCall_4_0(), semanticObject.getN());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Task returns Migration
+	 *     Migration returns Migration
+	 *
+	 * Constraint:
+	 *     (r+=[Region|ID] r+=[Region|ID]* t+=[Region|ID] t+=[Region|ID]*)
+	 */
+	protected void sequence_Migration(ISerializationContext context, Migration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -456,7 +633,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MissionObjective returns MissionObjective
 	 *
 	 * Constraint:
-	 *     in+=Indicator+
+	 *     ((Type='maximized.' | Type='minimized.') in+=Indicator*)
 	 */
 	protected void sequence_MissionObjective(ISerializationContext context, MissionObjective semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -465,18 +642,45 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     MissionSpecification returns MissionSpecification
+	 *
+	 * Constraint:
+	 *     (m=Mission mt=MissionTime ob=MissionObjective)
+	 */
+	protected void sequence_MissionSpecification(ISerializationContext context, MissionSpecification semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__M) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__M));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__MT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__MT));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__OB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION_SPECIFICATION__OB));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMissionSpecificationAccess().getMMissionParserRuleCall_0_0(), semanticObject.getM());
+		feeder.accept(grammarAccess.getMissionSpecificationAccess().getMtMissionTimeParserRuleCall_1_0(), semanticObject.getMt());
+		feeder.accept(grammarAccess.getMissionSpecificationAccess().getObMissionObjectiveParserRuleCall_2_0(), semanticObject.getOb());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     MissionTime returns MissionTime
 	 *
 	 * Constraint:
-	 *     T=Range
+	 *     (t=Range m=Metric)
 	 */
 	protected void sequence_MissionTime(ISerializationContext context, MissionTime semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION_TIME__T) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION_TIME__T));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION_TIME__M) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION_TIME__M));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMissionTimeAccess().getTRangeParserRuleCall_7_0(), semanticObject.getT());
+		feeder.accept(grammarAccess.getMissionTimeAccess().getMMetricParserRuleCall_8_0(), semanticObject.getM());
 		feeder.finish();
 	}
 	
@@ -486,18 +690,15 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Mission returns Mission
 	 *
 	 * Constraint:
-	 *     (t=Task m=Metric)
+	 *     t=Task
 	 */
 	protected void sequence_Mission(ISerializationContext context, Mission semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION__T) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION__T));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MISSION__M) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MISSION__M));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getMissionAccess().getTTaskParserRuleCall_7_0(), semanticObject.getT());
-		feeder.accept(grammarAccess.getMissionAccess().getMMetricParserRuleCall_8_0(), semanticObject.getM());
 		feeder.finish();
 	}
 	
@@ -507,25 +708,10 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (arenas=Arena env=Environment sw=Swarmconf ob=MissionObjective)
+	 *     (arenas=Arena env=Environment sw=Swarmconf* ms=MissionSpecification*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MODEL__ARENAS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MODEL__ARENAS));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MODEL__ENV) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MODEL__ENV));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MODEL__SW) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MODEL__SW));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.MODEL__OB) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.MODEL__OB));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getModelAccess().getArenasArenaParserRuleCall_0_0(), semanticObject.getArenas());
-		feeder.accept(grammarAccess.getModelAccess().getEnvEnvironmentParserRuleCall_1_0(), semanticObject.getEnv());
-		feeder.accept(grammarAccess.getModelAccess().getSwSwarmconfParserRuleCall_2_0(), semanticObject.getSw());
-		feeder.accept(grammarAccess.getModelAccess().getObMissionObjectiveParserRuleCall_3_0(), semanticObject.getOb());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -577,13 +763,39 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Occurence returns Penatly
-	 *     Penatly returns Penatly
+	 *     EnvironmentElements returns Patch
+	 *     EnvironmentElement returns Patch
+	 *     Patch returns Patch
+	 *
+	 * Constraint:
+	 *     (pt='A' c=Color r=Region)
+	 */
+	protected void sequence_Patch(ISerializationContext context, Patch semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.PATCH__PT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.PATCH__PT));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.PATCH__C) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.PATCH__C));
+			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.PATCH__R) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.PATCH__R));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPatchAccess().getPtAKeyword_0_0(), semanticObject.getPt());
+		feeder.accept(grammarAccess.getPatchAccess().getCColorParserRuleCall_1_0(), semanticObject.getC());
+		feeder.accept(grammarAccess.getPatchAccess().getRRegionParserRuleCall_5_0(), semanticObject.getR());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Occurence returns Penalty
+	 *     Penalty returns Penalty
 	 *
 	 * Constraint:
 	 *     (k=Double c=Condition)
 	 */
-	protected void sequence_Penatly(ISerializationContext context, Penatly semanticObject) {
+	protected void sequence_Penalty(ISerializationContext context, Penalty semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.OCCURENCE__K) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.OCCURENCE__K));
@@ -591,63 +803,21 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.OCCURENCE__C));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPenatlyAccess().getKDoubleParserRuleCall_3_0(), semanticObject.getK());
-		feeder.accept(grammarAccess.getPenatlyAccess().getCConditionParserRuleCall_4_0(), semanticObject.getC());
+		feeder.accept(grammarAccess.getPenaltyAccess().getKDoubleParserRuleCall_3_0(), semanticObject.getK());
+		feeder.accept(grammarAccess.getPenaltyAccess().getCConditionParserRuleCall_4_0(), semanticObject.getC());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Position returns Circle
+	 *     Position returns Position
 	 *
 	 * Constraint:
-	 *     point=Coordinate
+	 *     (point=Coordinate2D | point=Coordinate3D)
 	 */
-	protected void sequence_Position(ISerializationContext context, Circle semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.POSITION__POINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.POSITION__POINT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPositionAccess().getPointCoordinateParserRuleCall_0_2_0(), semanticObject.getPoint());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Position returns PointD
-	 *
-	 * Constraint:
-	 *     point=Coordinate
-	 */
-	protected void sequence_Position(ISerializationContext context, PointD semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.POSITION__POINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.POSITION__POINT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPositionAccess().getPointCoordinateParserRuleCall_2_2_0(), semanticObject.getPoint());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Position returns Rectangle
-	 *
-	 * Constraint:
-	 *     point=Coordinate
-	 */
-	protected void sequence_Position(ISerializationContext context, Rectangle semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.POSITION__POINT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.POSITION__POINT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPositionAccess().getPointCoordinateParserRuleCall_1_2_0(), semanticObject.getPoint());
-		feeder.finish();
+	protected void sequence_Position(ISerializationContext context, Position semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -656,7 +826,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ProbabilisticDecription returns ProbabilisticDecription
 	 *
 	 * Constraint:
-	 *     (dis=Distribution k=Region)
+	 *     (dis=Distribution k=[Region|ID])
 	 */
 	protected void sequence_ProbabilisticDecription(ISerializationContext context, ProbabilisticDecription semanticObject) {
 		if (errorAcceptor != null) {
@@ -667,42 +837,19 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getProbabilisticDecriptionAccess().getDisDistributionParserRuleCall_3_0(), semanticObject.getDis());
-		feeder.accept(grammarAccess.getProbabilisticDecriptionAccess().getKRegionParserRuleCall_7_0(), semanticObject.getK());
+		feeder.accept(grammarAccess.getProbabilisticDecriptionAccess().getKRegionIDTerminalRuleCall_6_0_1(), semanticObject.eGet(SmlPackage.Literals.PROBABILISTIC_DECRIPTION__K, false));
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Dimension returns RectangleD
-	 *     RectangleD returns RectangleD
-	 *
-	 * Constraint:
-	 *     (l=Double w=Double h=Double)
-	 */
-	protected void sequence_RectangleD(ISerializationContext context, RectangleD semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.RECTANGLE_D__L) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RECTANGLE_D__L));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.RECTANGLE_D__W) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RECTANGLE_D__W));
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.RECTANGLE_D__H) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RECTANGLE_D__H));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRectangleDAccess().getLDoubleParserRuleCall_1_0(), semanticObject.getL());
-		feeder.accept(grammarAccess.getRectangleDAccess().getWDoubleParserRuleCall_3_0(), semanticObject.getW());
-		feeder.accept(grammarAccess.getRectangleDAccess().getHDoubleParserRuleCall_6_0(), semanticObject.getH());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     EnvironmentElements returns Region
+	 *     EnvironmentElement returns Region
 	 *     Region returns Region
 	 *
 	 * Constraint:
-	 *     (colors=Color? shape=Shape? name=ID referencepoint=Position? dimensions=Dimension?)
+	 *     (colors=Color? shape2d=Shape2D name=ID region=RegionDefinition)
 	 */
 	protected void sequence_Region(ISerializationContext context, Region semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -736,7 +883,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Scope returns Scope
 	 *
 	 * Constraint:
-	 *     (p=AtomicEvent | p=AtomicEvent | (p=AtomicEvent q=AtomicEvent) | (p=AtomicEvent q=AtomicEvent) | t=Time)
+	 *     (sp='At any point in time,' | sp='At the end of the mission,')
 	 */
 	protected void sequence_Scope(ISerializationContext context, Scope semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -769,28 +916,10 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Task returns Task
-	 *
-	 * Constraint:
-	 *     r=Region
-	 */
-	protected void sequence_Task(ISerializationContext context, Task semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SmlPackage.Literals.TASK__R) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.TASK__R));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTaskAccess().getRRegionParserRuleCall_2_0(), semanticObject.getR());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Time returns Time
 	 *
 	 * Constraint:
-	 *     x=Literal
+	 *     x=Range
 	 */
 	protected void sequence_Time(ISerializationContext context, Time semanticObject) {
 		if (errorAcceptor != null) {
@@ -798,7 +927,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.TIME__X));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTimeAccess().getXLiteralParserRuleCall_0_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getTimeAccess().getXRangeParserRuleCall_0_0(), semanticObject.getX());
 		feeder.finish();
 	}
 	
@@ -809,7 +938,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Upperbound returns Upperbound
 	 *
 	 * Constraint:
-	 *     n=INT
+	 *     n=Double
 	 */
 	protected void sequence_Upperbound(ISerializationContext context, Upperbound semanticObject) {
 		if (errorAcceptor != null) {
@@ -817,7 +946,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUpperboundAccess().getNINTTerminalRuleCall_2_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getUpperboundAccess().getNDoubleParserRuleCall_2_0(), semanticObject.getN());
 		feeder.finish();
 	}
 	
@@ -828,7 +957,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     UpperorEqualbound returns UpperorEqualbound
 	 *
 	 * Constraint:
-	 *     n=INT
+	 *     n=Double
 	 */
 	protected void sequence_UpperorEqualbound(ISerializationContext context, UpperorEqualbound semanticObject) {
 		if (errorAcceptor != null) {
@@ -836,7 +965,7 @@ public class SmlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SmlPackage.Literals.RANGE__N));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUpperorEqualboundAccess().getNINTTerminalRuleCall_4_0(), semanticObject.getN());
+		feeder.accept(grammarAccess.getUpperorEqualboundAccess().getNDoubleParserRuleCall_4_0(), semanticObject.getN());
 		feeder.finish();
 	}
 	

@@ -32,12 +32,12 @@ public interface Range extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>N</em>' attribute.
-   * @see #setN(int)
+   * @see #setN(String)
    * @see org.xtext.example.sml.sml.SmlPackage#getRange_N()
    * @model
    * @generated
    */
-  int getN();
+  String getN();
 
   /**
    * Sets the value of the '{@link org.xtext.example.sml.sml.Range#getN <em>N</em>}' attribute.
@@ -47,6 +47,6 @@ public interface Range extends EObject
    * @see #getN()
    * @generated
    */
-  void setN(int value);
+  void setN(String value);
 
 } // Range
