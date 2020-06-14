@@ -2106,1018 +2106,8 @@ Caused by: org.eclipse.jgit.errors.RemoteRepositoryException: git://github.com/d
 	at org.eclipse.jgit.transport.TransportGitAnon.openFetch(TransportGitAnon.java:127)
 	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
 	... 4 more
-!SESSION 2019-05-26 20:21:22.968 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-05-26 20:39:49.071
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-11 09:09:34.174 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-11 09:09:50.961
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-12 10:47:09.224 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-06-12 11:01:52.775
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-12 11:02:08.713
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-13 11:09:50.969 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-13 11:59:24.433
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-14 10:15:24.430 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-14 10:15:42.178
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-18 11:48:23.741 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-18 11:48:43.499
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-20 12:12:58.459 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-06-20 12:13:09.518
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-20 12:13:24.942
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-21 14:22:37.516 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-06-21 14:22:41.465
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-21 14:22:57.171
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-25 14:27:20.067 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-25 14:27:38.298
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-27 14:23:35.706 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-06-27 14:23:39.446
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-27 14:23:55.279
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-06-30 19:33:05.233 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-06-30 19:33:11.998
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-06-30 19:33:26.289
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.jface 2 0 2019-06-30 22:46:59.262
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for END:
-Binding(END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineEnd,Line End,
-		Go to the end of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6ce6e325,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineEnd,Line End,
-		Go to the end of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6ce6e325,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for INSERT:
-Binding(INSERT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleOverwrite,Toggle Overwrite,
-		Toggle overwrite mode,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@66549c00,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(INSERT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleOverwrite,Toggle Overwrite,
-		Toggle overwrite mode,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@66549c00,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for F2:
-Binding(F2,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
-		Rename the selected item,
-		Category(org.eclipse.ui.category.file,File,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33b286d4,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.window,,,system)
-Binding(F2,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showInformation,Show Tooltip Description,
-		Displays information for the current caret location in a focused hover,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4723e698,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(F2,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showInformation,Show Tooltip Description,
-		Displays information for the current caret location in a focused hover,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4723e698,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for HOME:
-Binding(HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineStart,Line Start,
-		Go to the start of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c87ca92,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.lineStart,Line Start,
-		Go to the start of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c87ca92,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for SHIFT+END:
-Binding(SHIFT+END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineEnd,Select Line End,
-		Select to the end of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ef1f19e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(SHIFT+END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineEnd,Select Line End,
-		Select to the end of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ef1f19e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for SHIFT+HOME:
-Binding(SHIFT+HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineStart,Select Line Start,
-		Select to the beginning of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@79d258b2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(SHIFT+HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.lineStart,Select Line Start,
-		Select to the beginning of the line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@79d258b2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+ARROW_UP:
-Binding(ALT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineUp,Move Lines Up,
-		Moves the selected lines up,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@211d7636,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineUp,Move Lines Up,
-		Moves the selected lines up,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@211d7636,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+ARROW_DOWN:
-Binding(ALT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineDown,Move Lines Down,
-		Moves the selected lines down,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36cfbdd,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.moveLineDown,Move Lines Down,
-		Moves the selected lines down,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36cfbdd,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+BS:
-Binding(CTRL+BS,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deletePreviousWord,Delete Previous Word,
-		Delete the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@52c0972f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+BS,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deletePreviousWord,Delete Previous Word,
-		Delete the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@52c0972f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+CR:
-Binding(CTRL+SHIFT+CR,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnterInverse,Insert Line Above Current Line,
-		Adds a new line above the current line,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@39bc420d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+CR,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnterInverse,Insert Line Above Current Line,
-		Adds a new line above the current line,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@39bc420d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+J:
-Binding(CTRL+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncremental,Incremental Find,
-		Incremental find,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@73da2fca,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncremental,Incremental Find,
-		Incremental find,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@73da2fca,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+K:
-Binding(CTRL+K,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findNext,Find Next,
-		Find next item,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@178c907f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+K,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findNext,Find Next,
-		Find next item,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@178c907f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+L:
-Binding(CTRL+L,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.line,Go to Line,
-		Go to a specified line of text,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41a3044e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+L,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.line,Go to Line,
-		Go to a specified line of text,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41a3044e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+D:
-Binding(CTRL+D,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
-		Delete a line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ad48a5d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+D,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
-		Delete a line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1ad48a5d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+X:
-Binding(CTRL+SHIFT+X,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.upperCase,To Upper Case,
-		Changes the selection to upper case,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@385242b2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+X,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.upperCase,To Upper Case,
-		Changes the selection to upper case,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@385242b2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+Y:
-Binding(CTRL+SHIFT+Y,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.lowerCase,To Lower Case,
-		Changes the selection to lower case,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4b2e32af,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+Y,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.lowerCase,To Lower Case,
-		Changes the selection to lower case,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4b2e32af,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+/:
-Binding(ALT+/,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.hippieCompletion,Word Completion,
-		Context insensitive completion,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12f6def0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+/,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.hippieCompletion,Word Completion,
-		Context insensitive completion,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12f6def0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+SHIFT+A:
-Binding(ALT+SHIFT+A,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleBlockSelectionMode,Toggle Block Selection,
-		Toggle block / column selection in the current text editor,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c4e2891,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+SHIFT+A,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleBlockSelectionMode,Toggle Block Selection,
-		Toggle block / column selection in the current text editor,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c4e2891,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+J:
-Binding(CTRL+SHIFT+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncrementalReverse,Incremental Find Reverse,
-		Incremental find reverse,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@623a878,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncrementalReverse,Incremental Find Reverse,
-		Incremental find reverse,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@623a878,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+K:
-Binding(CTRL+SHIFT+K,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findPrevious,Find Previous,
-		Find previous item,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3c224959,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+K,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.findPrevious,Find Previous,
-		Find previous item,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3c224959,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for SHIFT+CR:
-Binding(SHIFT+CR,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnter,Insert Line Below Current Line,
-		Adds a new line below the current line,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18071173,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(SHIFT+CR,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.smartEnter,Insert Line Below Current Line,
-		Adds a new line below the current line,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18071173,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+CTRL+J:
-Binding(ALT+CTRL+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.join.lines,Join Lines,
-		Join lines of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45d0b842,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+CTRL+J,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.join.lines,Join Lines,
-		Join lines of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@45d0b842,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+DEL:
-Binding(CTRL+DEL,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deleteNextWord,Delete Next Word,
-		Delete the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e2ba8e8,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+DEL,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.deleteNextWord,Delete Next Word,
-		Delete the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5e2ba8e8,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+DEL:
-Binding(CTRL+SHIFT+DEL,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line.to.end,Delete to End of Line,
-		Delete to the end of a line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@706d4af5,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+DEL,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line.to.end,Delete to End of Line,
-		Delete to the end of a line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@706d4af5,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+END:
-Binding(CTRL+END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textEnd,Text End,
-		Go to the end of the text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@50c14102,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+END,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textEnd,Text End,
-		Go to the end of the text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@50c14102,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+ARROW_UP:
-Binding(CTRL+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineUp,Scroll Line Up,
-		Scroll up one line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1093f1f0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineUp,Scroll Line Up,
-		Scroll up one line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1093f1f0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+ARROW_DOWN:
-Binding(CTRL+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineDown,Scroll Line Down,
-		Scroll down one line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13fc77e2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.scroll.lineDown,Scroll Line Down,
-		Scroll down one line of text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@13fc77e2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+ARROW_LEFT:
-Binding(CTRL+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordPrevious,Previous Word,
-		Go to the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@9dcad8a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordPrevious,Previous Word,
-		Go to the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@9dcad8a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+ARROW_RIGHT:
-Binding(CTRL+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordNext,Next Word,
-		Go to the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@534f34e2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.wordNext,Next Word,
-		Go to the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@534f34e2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+HOME:
-Binding(CTRL+HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textStart,Text Start,
-		Go to the beginning of the text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5cdc530a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+HOME,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.goto.textStart,Text Start,
-		Go to the beginning of the text,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5cdc530a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+INSERT:
-Binding(CTRL+SHIFT+INSERT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleInsertMode,Toggle Insert Mode,
-		Toggle insert mode,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c6f6c14,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+INSERT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.toggleInsertMode,Toggle Insert Mode,
-		Toggle insert mode,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c6f6c14,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_LEFT:
-Binding(CTRL+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordPrevious,Select Previous Word,
-		Select the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@403324ee,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordPrevious,Select Previous Word,
-		Select the previous word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@403324ee,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_RIGHT:
-Binding(CTRL+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordNext,Select Next Word,
-		Select the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6af1f02e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.select.wordNext,Select Next Word,
-		Select the next word,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6af1f02e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+CTRL+ARROW_UP:
-Binding(ALT+CTRL+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineUp,Duplicate Lines,
-		Duplicates the selected lines and leaves the selection unchanged,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@548baa79,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+CTRL+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineUp,Duplicate Lines,
-		Duplicates the selected lines and leaves the selection unchanged,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@548baa79,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for ALT+CTRL+ARROW_DOWN:
-Binding(ALT+CTRL+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineDown,Copy Lines,
-		Duplicates the selected lines and moves the selection to the copy,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3d37330,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(ALT+CTRL+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.copyLineDown,Copy Lines,
-		Duplicates the selected lines and moves the selection to the copy,
-		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3d37330,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2019-06-30 22:46:59.263
-!MESSAGE A conflict occurred for CTRL+F10:
-Binding(CTRL+F10,
-	ParameterizedCommand(Command(org.eclipse.ui.window.showViewMenu,Show View Menu,
-		Show the view menu,
-		Category(org.eclipse.ui.category.window,Window,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5a9e23f0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.contexts.dialogAndWindow,,,system)
-Binding(CTRL+F10,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showRulerContextMenu,Show Ruler Context Menu,
-		Show the context menu for the ruler,
-		Category(org.eclipse.ui.category.window,Window,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3f8bc80d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.ui.textEditorScope,,,system)
-Binding(CTRL+F10,
-	ParameterizedCommand(Command(org.eclipse.ui.edit.text.showRulerContextMenu,Show Ruler Context Menu,
-		Show the context menu for the ruler,
-		Category(org.eclipse.ui.category.window,Window,null,true),
-		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@3f8bc80d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.xtext.ui.embeddedTextEditorScope,,,system)
-!SESSION 2019-07-01 08:45:34.666 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-07-01 08:46:24.854
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-07-25 14:36:10.849 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-07-25 14:36:41.966
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-08-01 18:10:42.537 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-08-01 18:11:01.876
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-09-13 18:58:10.622 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_161
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-09-13 18:58:31.478
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-01 19:20:23.328 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-10-01 19:22:00.348
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-01 19:22:17.567
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-02 11:20:34.198 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-02 11:20:52.790
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-03 13:39:00.088 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.core.resources 2 10035 2019-10-03 13:39:04.043
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-03 13:39:19.522
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-07 16:12:17.825 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-07 16:12:42.687
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-08 10:37:59.023 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-08 10:38:49.736
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-09 14:15:01.556 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-09 14:15:24.994
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-17 14:40:20.906 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-17 14:41:00.018
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-10-18 17:01:42.905 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
-
-!ENTRY org.eclipse.egit.ui 2 0 2019-10-18 17:02:00.984
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-
-!ENTRY org.eclipse.egit.core 4 0 2019-10-18 17:51:14.276
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:01:37.101
 !MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
 !STACK 0
 org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
@@ -3140,10 +2130,10 @@ Caused by: com.jcraft.jsch.JSchException: Auth fail
 	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
 	... 10 more
 
-!ENTRY org.eclipse.egit.ui 4 0 2019-10-18 17:51:14.280
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:01:37.106
 !MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
 
-!ENTRY org.eclipse.egit.core 4 0 2019-10-18 21:16:00.574
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:08:49.415
 !MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
 !STACK 0
 org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
@@ -3166,10 +2156,10 @@ Caused by: com.jcraft.jsch.JSchException: Auth fail
 	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
 	... 10 more
 
-!ENTRY org.eclipse.egit.ui 4 0 2019-10-18 21:16:00.576
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:08:49.419
 !MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
 
-!ENTRY org.eclipse.egit.core 4 0 2019-10-18 21:22:12.350
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:09:21.612
 !MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
 !STACK 0
 org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
@@ -3192,9 +2182,115 @@ Caused by: com.jcraft.jsch.JSchException: Auth fail
 	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
 	... 10 more
 
-!ENTRY org.eclipse.egit.ui 4 0 2019-10-18 21:22:12.352
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:09:21.615
 !MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
-!SESSION 2019-11-12 18:56:13.987 -----------------------------------------------
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:20:59.765
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:20:59.769
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:24:14.780
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 5 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 9 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:24:39.747
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:25:56.181
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 5 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 9 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:26:06.172
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 8 more
+!SESSION 2019-12-01 15:30:43.205 -----------------------------------------------
 eclipse.buildId=4.10.0.I20181206-0815
 java.version=1.8.0_221
 java.vendor=Oracle Corporation
@@ -3202,13 +2298,285 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-11-12 18:56:35.818
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-01 15:31:02.457
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-11-27 11:33:39.036 -----------------------------------------------
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:31:31.147
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:31:31.150
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:31:44.987
+!MESSAGE Pulling 1 repositories
+!SUBENTRY 1 org.eclipse.egit.core 4 0 2019-12-01 15:31:44.987
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:254)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:290)
+	at org.eclipse.egit.core.op.PullOperation$PullJob.run(PullOperation.java:256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:138)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:124)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1271)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:243)
+	... 3 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:33:06.244
+!MESSAGE Pulling 1 repositories
+!SUBENTRY 1 org.eclipse.egit.core 4 0 2019-12-01 15:33:06.244
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:254)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:290)
+	at org.eclipse.egit.core.op.PullOperation$PullJob.run(PullOperation.java:256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:296)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:138)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:124)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1271)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:243)
+	... 3 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:33:39.578
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.RefContentAssistProvider$1.run(RefContentAssistProvider.java:102)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:296)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 4 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	... 6 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:33:53.879
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:296)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 5 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	... 7 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:35:05.123
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:363)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	... 6 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:35:34.077
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:363)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	... 6 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:35:42.869
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:363)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:35:42.870
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly)
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:40:43.851
+!MESSAGE Pulling 1 repositories
+!SUBENTRY 1 org.eclipse.egit.core 4 0 2019-12-01 15:40:43.851
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:254)
+	at org.eclipse.jgit.api.PullCommand.call(PullCommand.java:290)
+	at org.eclipse.egit.core.op.PullOperation$PullJob.run(PullOperation.java:256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:296)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.transport.FetchProcess.executeImp(FetchProcess.java:138)
+	at org.eclipse.jgit.transport.FetchProcess.execute(FetchProcess.java:124)
+	at org.eclipse.jgit.transport.Transport.fetch(Transport.java:1271)
+	at org.eclipse.jgit.api.FetchCommand.call(FetchCommand.java:243)
+	... 3 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	... 8 more
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:41:05.229
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:363)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: java.lang.IllegalStateException: Preference node "null" has been removed.
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.checkRemoved(SecurePreferences.java:356)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferences.nodeExists(SecurePreferences.java:104)
+	at org.eclipse.equinox.internal.security.storage.SecurePreferencesWrapper.nodeExists(SecurePreferencesWrapper.java:109)
+	at org.eclipse.egit.core.securestorage.EGitSecureStore.clearCredentials(EGitSecureStore.java:119)
+	at org.eclipse.egit.ui.internal.SecureStoreUtils.clearCredentials(SecureStoreUtils.java:85)
+	at org.eclipse.egit.ui.internal.credentials.EGitCredentialsProvider.reset(EGitCredentialsProvider.java:143)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:159)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:41:05.232
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: remote hung up unexpectedly)
+!SESSION 2019-12-01 15:41:42.463 -----------------------------------------------
 eclipse.buildId=4.10.0.I20181206-0815
 java.version=1.8.0_221
 java.vendor=Oracle Corporation
@@ -3216,37 +2584,324 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-11-27 11:33:56.806
+!ENTRY org.eclipse.egit.ui 2 0 2019-12-01 15:42:03.551
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-11-28 10:43:20.265 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-11-28 10:43:40.074
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
-!SESSION 2019-11-29 20:49:38.392 -----------------------------------------------
-eclipse.buildId=4.10.0.I20181206-0815
-java.version=1.8.0_221
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.java.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:43:02.301
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
 
-!ENTRY org.eclipse.egit.ui 2 0 2019-11-29 20:49:58.247
-!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
-user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
-not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
-EGit might behave differently since they see different configuration options.
-This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:43:02.308
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:48:14.410
+!MESSAGE ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.AsynchronousListOperation.run(AsynchronousListOperation.java:78)
+	at org.eclipse.egit.ui.internal.dialogs.CancelableFuture$1.run(CancelableFuture.java:280)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 5 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 9 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:51:26.714
+!MESSAGE Transport Error: Cannot get remote repository refs.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://darkobozhinoski@github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.RefSpecPage$3.run(RefSpecPage.java:260)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://darkobozhinoski@github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:52:55.918
+!MESSAGE Transport Error: Cannot get remote repository refs.
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://darkobozhinoski@github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:222)
+	at org.eclipse.jgit.api.LsRemoteCommand.call(LsRemoteCommand.java:161)
+	at org.eclipse.egit.core.op.ListRemoteOperation.run(ListRemoteOperation.java:116)
+	at org.eclipse.egit.ui.internal.components.RefSpecPage$3.run(RefSpecPage.java:260)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://darkobozhinoski@github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshFetchConnection.<init>(TransportGitSsh.java:280)
+	at org.eclipse.jgit.transport.TransportGitSsh.openFetch(TransportGitSsh.java:170)
+	at org.eclipse.jgit.api.LsRemoteCommand.execute(LsRemoteCommand.java:200)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:54:04.567
+!MESSAGE Error parsing commits from push result
+!STACK 0
+org.eclipse.jgit.errors.MissingObjectException: Missing unknown 62e2871b89751dbd7f37ff11f9eeb3e212f7b923
+	at org.eclipse.jgit.internal.storage.file.WindowCursor.open(WindowCursor.java:168)
+	at org.eclipse.jgit.lib.ObjectReader.open(ObjectReader.java:236)
+	at org.eclipse.jgit.revwalk.RevWalk.parseAny(RevWalk.java:890)
+	at org.eclipse.jgit.revwalk.RevWalk.parseCommit(RevWalk.java:800)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getCommits(RefUpdateElement.java:176)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getChildren(RefUpdateElement.java:197)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getStyledText(RefUpdateElement.java:272)
+	at org.eclipse.egit.ui.internal.push.PushResultTable$3.getStyledText(PushResultTable.java:143)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getStyledText(DelegatingStyledCellLabelProvider.java:209)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:109)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:144)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:946)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:120)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:176)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1025)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:478)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:176)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2161)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:840)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:818)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:604)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalInitializeTree(AbstractTreeViewer.java:1586)
+	at org.eclipse.jface.viewers.TreeViewer.internalInitializeTree(TreeViewer.java:780)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1571)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1449)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:363)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1410)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1565)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:289)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1687)
+	at org.eclipse.egit.ui.internal.push.PushResultTable.setData(PushResultTable.java:353)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage.revalidateImpl(ConfirmationPage.java:232)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage.access$0(ConfirmationPage.java:176)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$1.run(ConfirmationPage.java:171)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:822)
+	at org.eclipse.jface.window.Window.open(Window.java:798)
+	at org.eclipse.egit.ui.internal.actions.PushActionHandler.execute(PushActionHandler.java:54)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:294)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:96)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:320)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:254)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:164)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:497)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:490)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:438)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:449)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:475)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1055)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3944)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3547)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
+
+!ENTRY org.eclipse.equinox.security 1 0 2019-12-01 15:54:22.542
+!MESSAGE New keyring password generated. 
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:55:07.551
+!MESSAGE Error parsing commits from push result
+!STACK 0
+org.eclipse.jgit.errors.MissingObjectException: Missing unknown 62e2871b89751dbd7f37ff11f9eeb3e212f7b923
+	at org.eclipse.jgit.internal.storage.file.WindowCursor.open(WindowCursor.java:168)
+	at org.eclipse.jgit.lib.ObjectReader.open(ObjectReader.java:236)
+	at org.eclipse.jgit.revwalk.RevWalk.parseAny(RevWalk.java:890)
+	at org.eclipse.jgit.revwalk.RevWalk.parseCommit(RevWalk.java:800)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getCommits(RefUpdateElement.java:176)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getChildren(RefUpdateElement.java:197)
+	at org.eclipse.egit.ui.internal.push.RefUpdateElement.getStyledText(RefUpdateElement.java:272)
+	at org.eclipse.egit.ui.internal.push.PushResultTable$3.getStyledText(PushResultTable.java:143)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getStyledText(DelegatingStyledCellLabelProvider.java:209)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:109)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:144)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:946)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:120)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:176)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1025)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:478)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:176)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2161)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:840)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:818)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:604)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalInitializeTree(AbstractTreeViewer.java:1586)
+	at org.eclipse.jface.viewers.TreeViewer.internalInitializeTree(TreeViewer.java:780)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.lambda$1(AbstractTreeViewer.java:1571)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1449)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:363)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1410)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:1565)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:289)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1687)
+	at org.eclipse.egit.ui.internal.push.PushResultTable.setData(PushResultTable.java:353)
+	at org.eclipse.egit.ui.internal.push.PushResultDialog.createDialogArea(PushResultDialog.java:106)
+	at org.eclipse.jface.dialogs.TitleAreaDialog.createContents(TitleAreaDialog.java:161)
+	at org.eclipse.egit.ui.internal.components.TitleAndImageDialog.createContents(TitleAndImageDialog.java:54)
+	at org.eclipse.jface.window.Window.create(Window.java:430)
+	at org.eclipse.jface.dialogs.Dialog.create(Dialog.java:1099)
+	at org.eclipse.jface.window.Window.open(Window.java:787)
+	at org.eclipse.egit.ui.internal.push.ShowPushResultAction.showResult(ShowPushResultAction.java:73)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJobResultAction.run(RepositoryJobResultAction.java:78)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob$2.runInUIThread(RepositoryJob.java:174)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:98)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3919)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3550)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:339)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:563)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:151)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:595)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1501)
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 15:55:20.310
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 15:55:20.314
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
+
+!ENTRY org.eclipse.egit.core 4 0 2019-12-01 16:00:24.636
+!MESSAGE An exception occurred during push on URI ssh://github.com/darkobozhinoski/SML.git: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+!STACK 0
+org.eclipse.jgit.api.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:180)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:217)
+	at org.eclipse.egit.ui.internal.push.PushJob.performJob(PushJob.java:86)
+	at org.eclipse.egit.ui.internal.jobs.RepositoryJob.run(RepositoryJob.java:59)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.jgit.errors.TransportException: ssh://github.com/darkobozhinoski/SML.git: Auth fail
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:191)
+	at org.eclipse.jgit.transport.SshTransport.getSession(SshTransport.java:140)
+	at org.eclipse.jgit.transport.TransportGitSsh$SshPushConnection.<init>(TransportGitSsh.java:339)
+	at org.eclipse.jgit.transport.TransportGitSsh.openPush(TransportGitSsh.java:176)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:160)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1346)
+	at org.eclipse.jgit.api.PushCommand.call(PushCommand.java:170)
+	... 4 more
+Caused by: com.jcraft.jsch.JSchException: Auth fail
+	at com.jcraft.jsch.Session.connect(Session.java:519)
+	at org.eclipse.jgit.transport.JschConfigSessionFactory.getSession(JschConfigSessionFactory.java:145)
+	... 10 more
+
+!ENTRY org.eclipse.egit.ui 4 0 2019-12-01 16:00:24.637
+!MESSAGE Can't connect to any repository: ssh://github.com/darkobozhinoski/SML.git (ssh://github.com/darkobozhinoski/SML.git: Auth fail)
