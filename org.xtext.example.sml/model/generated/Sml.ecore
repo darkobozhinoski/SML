@@ -11,14 +11,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ms" eType="#//MissionSpecification"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Environment">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" upperBound="-1"
-        eType="#//EnvironmentElements" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticDecription">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="k" eType="#//Region"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Swarmconf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="x" eType="#//Range" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="r" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -54,6 +46,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" unique="false"
         upperBound="-1" eType="#//Region"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nest" eType="#//Region"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" upperBound="-1"
+        eType="#//EnvironmentElements" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticDecription">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="k" eType="#//Region"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MissionObjective">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -142,17 +142,17 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RegionDefinition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionOne" eSuperTypes="#//RegionDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="Definition1" eSuperTypes="#//RegionDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencepoint" eType="#//Position"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" eType="#//Dimension"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionTwo" eSuperTypes="#//RegionDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="Definition2" eSuperTypes="#//RegionDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="point" upperBound="-1"
         eType="#//Position" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionThree" eSuperTypes="#//RegionDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="Definition3" eSuperTypes="#//RegionDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//Range" containment="true"/>
   </eClassifiers>

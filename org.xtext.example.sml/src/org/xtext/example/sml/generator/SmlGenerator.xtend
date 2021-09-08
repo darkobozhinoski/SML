@@ -53,9 +53,9 @@ import org.xtext.example.sml.sml.Dimension2
 import org.xtext.example.sml.sml.Dimension3
 import org.xtext.example.sml.sml.Patch
 import org.xtext.example.sml.sml.RegionDefinition
-import org.xtext.example.sml.sml.DefinitionOne
-import org.xtext.example.sml.sml.DefinitionTwo
-import org.xtext.example.sml.sml.DefinitionThree
+import org.xtext.example.sml.sml.Definition1
+import org.xtext.example.sml.sml.Definition2
+import org.xtext.example.sml.sml.Definition3
 import java.util.Random;
 
 /**
@@ -193,7 +193,7 @@ def InitializeVariables(Model m)'''
  «IF TypeDefinition(patch.r.region)==1»  «ENDIF»
  «ENDFOR»
 m_unNumberEdges=«IF m.arenas.s.numSides()!=0»«m.arenas.s.numSides»«ENDIF»;
-sidesize=«(m.arenas.s.region as DefinitionOne).compile(false)» ;
+sidesize=«(m.arenas.s.region as Definition1).compile(false)» ;
 '''
 
 
@@ -219,9 +219,9 @@ def GetFloor(Arena a)
 
 def TypeDefinition(RegionDefinition df){
 	switch df{
-		case DefinitionOne: return 1
-		case DefinitionTwo: return 2
-		case DefinitionThree: return 3
+		//case Definition1: return 1
+		//case Definition2: return 2
+		//case Definition3: return 3
 	}
 	return -1;
 }
@@ -236,7 +236,7 @@ def TypeDefinition(RegionDefinition df){
 
 def GetIntializationArguments(RegionDefinition df, String shape){
 	'''«var i= CalculateFigureSequence(shape)»
-	«IF df instanceof DefinitionTwo»
+	«IF df instanceof Definition2»
 	«IF shape =="Triangle"»
 	m_TriangleCoord«3*i+1»=CVector2();
 	m_TriangleCoord«3*i+2»=CVector2();
@@ -255,11 +255,11 @@ def GetIntializationArguments(RegionDefinition df, String shape){
 	m_HexagonCoord«6*i+6»=CVector2();)
 	«ELSEIF shape =="Square"»m_SquareCoord«4*i+1», m_SquareCoord«4*i+2», m_SquareCoord«4*i+3», m_SquareCoord«4*i+4»)
 	«ELSEIF shape =="Dodecagon"»m_SquareCoord«i+1», m_SquareCoord«12*i+2», m_SquareCoord«12*i+3», m_SquareCoord«12*i+4», m_SquareCoord«12*i+5», m_SquareCoord«12*i+6», m_cCoordSpot«12*i+7», m_SquareCoord«12*i+8», m_SquareCoord«12*i+9», m_SquareCoord«12*i+10», m_SquareCoord«12*i+11»), m_SquareCoord«12*i+12»«ENDIF»
-	«ELSEIF df instanceof DefinitionOne»
+	«ELSEIF df instanceof Definition1»
 	«IF shape =="Circle"»m_CircleCoord«i+1», m_fRadius«i+1»)
 	«ELSEIF shape =="Rectangle"»m_RectangleCoord«i+1», m_Rectlength«i+1», m_Rectwidth«i+1»)
 	«ELSEIF shape =="Square"»m_SquareCoord«i+1», m_Squareside«i+1»)«ENDIF»
-	«ELSEIF df instanceof DefinitionThree»
+	«ELSEIF df instanceof Definition3»
 	«IF  df.ax=="y"»'y', m_LimitMin«i+1», m_LimitMax«i+1»)
 	«ELSEIF  df.ax=="x"»'x', m_LimitMin«i+1», m_LimitMax«i+1»)
 	«ENDIF»
@@ -277,17 +277,17 @@ def GetFigureArguments(RegionDefinition df, String shape)
 	'''«var i= CalculateFigureSequence(shape)»
 	«var j= CalculateFigureDimensionX(shape)»
 	«var v= CalculateFigureDimensionY(shape)»
-	«IF df instanceof DefinitionTwo»
+	«IF df instanceof Definition2»
 	«IF shape =="Triangle"»m_TriangleCoord«i+1», m_TriangleCoord«i+2», m_TriangleCoord«i+3»«i+3»)
 	«ELSEIF shape =="Rectangle"»m_RectangleCoord«4*i+1», m_RectangleCoord«4*i+2», m_RectangleCoord«4*i+3», m_RectangleCoord«4*i+4»«i+4»)
 	«ELSEIF shape =="Hexagon"»m_HexagonCoord«6*i+1», m_HexagonCoord«6*i+2», m_HexagonCoord«6*i+3», m_HexagonCoord«6*i+4», m_HexagonCoord«6*i+5», m_HexagonCoord«6*i+6»«i+6»)
 	«ELSEIF shape =="Square"»m_SquareCoord«4*i+1», m_SquareCoord«4*i+2», m_SquareCoord«4*i+3», m_SquareCoord«4*i+4»)
 	«ELSEIF shape =="Dodecagon"»m_SquareCoord«i+1», m_SquareCoord«12*i+2», m_SquareCoord«12*i+3», m_SquareCoord«12*i+4», m_SquareCoord«12*i+5», m_SquareCoord«12*i+6», m_cCoordSpot«12*i+7», m_SquareCoord«12*i+8», m_SquareCoord«12*i+9», m_SquareCoord«12*i+10», m_SquareCoord«12*i+11»), m_SquareCoord«12*i+12»«ENDIF»
-	«ELSEIF df instanceof DefinitionOne»
+	«ELSEIF df instanceof Definition1»
 	«IF shape =="Circle"»m_CircleCoord«i+1», m_fRadius«j+1»)
 	«ELSEIF shape =="Rectangle"»m_RectangleCoord«i+1», m_Rectlength«j+1», m_Rectwidth«v+1»)
 	«ELSEIF shape =="Square"»m_SquareCoord«i+1», m_Squareside«j+1»)«ENDIF»
-	«ELSEIF df instanceof DefinitionThree»
+	«ELSEIF df instanceof Definition3»
 	«IF  df.ax=="y"»'y', m_LimitMin«j+1», m_LimitMax«v+1»)
 	«ELSEIF  df.ax=="x"»'x', m_LimitMin«j+1», m_LimitMax«v+1»)
 	«ENDIF»
@@ -393,7 +393,7 @@ def GetFloorColor()
 
 
 
- //«IF patch.r.region instanceof DefinitionOne»«ENDIF»   
+ //«IF patch.r.region instanceof Definition1»«ENDIF»   
 
 
 
@@ -484,7 +484,7 @@ else if (rg instanceof Interval) {return Math.round(Double.parseDouble(rg.m));}
  
  
    
-def compile(DefinitionOne defone,boolean referencepoint)  
+def compile(Definition1 defone,boolean referencepoint)  
  '''«IF referencepoint==true»«defone.referencepoint.compile»«ELSE»«defone.dimensions.compile»«ENDIF»'''      
 
 
@@ -532,10 +532,10 @@ else if (r.shape2d=="Circle") 0;
 
 
   def compile(Obstacle ob)
-'''<box id="obstacle_«Math.round(Math.random()*100)»" size="«(ob.r.region as DefinitionOne).compile(false)»" movable="false"><body position="«(ob.r.region as DefinitionOne).compile(true)»" orientation="0,0,0" /></box>'''
+'''<box id="obstacle_«Math.round(Math.random()*100)»" size="«(ob.r.region as Definition1).compile(false)»" movable="false"><body position="«(ob.r.region as Definition1).compile(true)»" orientation="0,0,0" /></box>'''
 	      	      
 def compile(Object ob)
-'''<box id="object_«Math.round(Math.random()*100)»" size="«(ob.r.region as DefinitionOne).compile(false)»" movable="true"><body position="«(ob.r.region as DefinitionOne).compile(true)»" orientation="0,0,0" /></box>'''
+'''<box id="object_«Math.round(Math.random()*100)»" size="«(ob.r.region as Definition1).compile(false)»" movable="true"><body position="«(ob.r.region as Definition1).compile(true)»" orientation="0,0,0" /></box>'''
 
 //calculate the min X,Y coordinate in a Region (excluding regiondefinition3)
 def calculateMax(Double innerR){
@@ -549,7 +549,7 @@ return Math.round(innerR*Math.abs(Math.cos(Math.toRadians(Math.PI)))*100.0)/100.
 
 
 //calculate the max X coordinate in a Region with definition3 (representing regions through axis)
-def calculateMaxX(DefinitionThree dt3){
+def calculateMaxX(Definition3 dt3){
 if (dt3.ax=="x") {return calculatenumMax(dt3.r);}
 else return InnerRadious(model1.arenas.s);
 //if (dt3.ax=="y") return calculateMaxY(dt3.r);
@@ -557,20 +557,20 @@ else return InnerRadious(model1.arenas.s);
 
 
 //calculate the min X coordinate in a Region with definition3 (representing regions through axis)
-def calculateMinX(DefinitionThree dt3){
+def calculateMinX(Definition3 dt3){
 if (dt3.ax=="x") {return calculatenumMin(dt3.r);}
 else return -InnerRadious(model1.arenas.s);
 //if (dt3.ax=="y") return calculateMaxY(dt3.r);
 }
 
 
-def calculateMaxY(DefinitionThree dt3){
+def calculateMaxY(Definition3 dt3){
 if (dt3.ax=="y") {return calculatenumMax(dt3.r);}
 else return InnerRadious(model1.arenas.s);
 //if (dt3.ax=="y") return calculateMaxY(dt3.r);
 }
 
-def calculateMinY(DefinitionThree dt3){ 
+def calculateMinY(Definition3 dt3){ 
 if (dt3.ax=='y') {return  calculatenumMin(dt3.r);}
 else {return  -InnerRadious(model1.arenas.s);}
 //if (dt3.ax=="y") return calculateMaxY(dt3.r);
@@ -594,23 +594,23 @@ def returnRadius(Dimension1 d1){return d1.r;}
 
 
 
-//calculate innerradius for a Region represented through DefinitionOne
+//calculate innerradius for a Region represented through Definition1
 def InnerRadious(Region r) {
   //val fInnerRadious = 0.0;
   if (r.numSides>0){
-  return Math.round(Double.parseDouble(((r.region as DefinitionOne).dimensions as Dimension3).s)/(2.0 * Math.tan(Math.toRadians(180/r.numSides)))*100.0)/100.0;
+  return Math.round(Double.parseDouble(((r.region as Definition1).dimensions as Dimension3).s)/(2.0 * Math.tan(Math.toRadians(180/r.numSides)))*100.0)/100.0;
   }
-  else if (r.numSides==0) { return  Math.round(Double.parseDouble(((r.region as DefinitionOne).dimensions as Dimension1).r)*100.0)/100.0;}
-  //return ((r.region instanceof DefinitionOne)
-   //return (r.region instanceof DefinitionOne).compile(Dimension3);
-  else if(r.region instanceof DefinitionThree){
+  else if (r.numSides==0) { return  Math.round(Double.parseDouble(((r.region as Definition1).dimensions as Dimension1).r)*100.0)/100.0;}
+  //return ((r.region instanceof Definition1)
+   //return (r.region instanceof Definition1).compile(Dimension3);
+  else if(r.region instanceof Definition3){
   return -1;
  }
  
  }
 
 
-//DefinitionOne df=r.region instanceof DefinitionOne;
+//Definition1 df=r.region instanceof Definition1;
   // return (df.dimensions instanceof Dimension1).compile;}
 
   // (2 * Math.tan(CRadians::PI / 6))»;
@@ -674,7 +674,7 @@ def minPointY(Position a, Position b){
 }
 
 
-def calculateMinX(DefinitionTwo dt2){
+def calculateMinX(Definition2 dt2){
 	var element = 10.0;
 	var temp=0.0;
 	for (i : 0 ..< dt2.point.size-1) {
@@ -686,7 +686,7 @@ def calculateMinX(DefinitionTwo dt2){
 
 
 
-def calculateMaxX(DefinitionTwo dt2){
+def calculateMaxX(Definition2 dt2){
 	var element = -10.0;
 	var temp=0.0;
 	for (i : 0 ..< dt2.point.size-1) {
@@ -698,7 +698,7 @@ def calculateMaxX(DefinitionTwo dt2){
 
 
 
-def calculateMaxY(DefinitionTwo dt2){
+def calculateMaxY(Definition2 dt2){
 	var element = -10.0;
 	var temp=0.0;
 	for (i : 0 ..< dt2.point.size-1) {
@@ -709,7 +709,7 @@ def calculateMaxY(DefinitionTwo dt2){
 
 }
 
-def calculateMinY(DefinitionTwo dt2){ 
+def calculateMinY(Definition2 dt2){ 
 	var element = 10.0;
 	var temp=0.0;
 	for (i : 0 ..< dt2.point.size-1) {
@@ -722,18 +722,18 @@ def calculateMinY(DefinitionTwo dt2){
 
 
 def UniformRepresent(Region zt)
-'''«IF zt.region instanceof DefinitionThree»min="«(calculateMinX(zt.region as DefinitionThree))
-»,«calculateMinY(zt.region as DefinitionThree)»,0" max="«calculateMaxX(zt.region as DefinitionThree)
-»,«calculateMaxY(zt.region as DefinitionThree).toString()
+'''«IF zt.region instanceof Definition3»min="«(calculateMinX(zt.region as Definition3))
+»,«calculateMinY(zt.region as Definition3)»,0" max="«calculateMaxX(zt.region as Definition3)
+»,«calculateMaxY(zt.region as Definition3).toString()
 »,0" />
- «ELSEIF zt.region instanceof DefinitionTwo»min="«(calculateMinX(zt.region as DefinitionTwo))
- »,«calculateMinY(zt.region as DefinitionTwo)»,0" max="«calculateMaxX(zt.region as DefinitionTwo)
- »,«calculateMaxY(zt.region as DefinitionTwo).toString()
+ «ELSEIF zt.region instanceof Definition2»min="«(calculateMinX(zt.region as Definition2))
+ »,«calculateMinY(zt.region as Definition2)»,0" max="«calculateMaxX(zt.region as Definition2)
+ »,«calculateMaxY(zt.region as Definition2).toString()
  »,0" />
-«ELSE»min="«((-calculateMax(InnerRadious(zt)))+((zt.region as DefinitionOne).referencepoint.point as Coordinate2D).x).toString()
-»,«(-calculateMax(InnerRadious(zt))+((zt.region as DefinitionOne).referencepoint.point as Coordinate2D).y).toString()
-»,0" max="«(calculateMax(InnerRadious(zt))+((zt.region as DefinitionOne).referencepoint.point as Coordinate2D).x).toString()
-»,«(calculateMax(InnerRadious(zt))+((zt.region as DefinitionOne).referencepoint.point as Coordinate2D).y).toString()
+«ELSE»min="«((-calculateMax(InnerRadious(zt)))+((zt.region as Definition1).referencepoint.point as Coordinate2D).x).toString()
+»,«(-calculateMax(InnerRadious(zt))+((zt.region as Definition1).referencepoint.point as Coordinate2D).y).toString()
+»,0" max="«(calculateMax(InnerRadious(zt))+((zt.region as Definition1).referencepoint.point as Coordinate2D).x).toString()
+»,«(calculateMax(InnerRadious(zt))+((zt.region as Definition1).referencepoint.point as Coordinate2D).y).toString()
 »,0" />«ENDIF»
 '''
 

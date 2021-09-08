@@ -1,49 +1,25 @@
 grammar org.xtext.example.sml.Sml with org.eclipse.xtext.common.Terminals
-//import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-
 generate sml "http://www.xtext.org/example/sml/Sml"
-
 Model:
-arenas=Arena (env=Environment) (sw=Swarmconf)* (ms=MissionSpecification)*;
-
-Environment:
-('The' 'arena' 'contains' 'the' 'following' 'elements' ':')? (environment+=EnvironmentElements)*;
-
-
-ProbabilisticDecription:
-'distributed' 'with' 'a' dis=Distribution 'distribution' 'in'  k=[Region] 
-;
-Swarmconf: 'The' 'robot' 'swarm' 'consists' 'of' x=Range r=Robot pr=ProbabilisticDecription 
-//('distributed' 'in' dis=Distribution 'way' 'in' k=Region )*
-;
-
-
-MissionSpecification: m=Mission mt=MissionTime ob=MissionObjective ;
-
+(env=Environment) (sw=Swarmconf)* (ms=MissionSpecification)*;
+Swarmconf: 'The' 'robot' 'swarm' 'consists' 'of' x=Range r=Robot pr=ProbabilisticDecription;
+MissionSpecification: m=MissionDefinition mt=MissionTime ob=MissionObjective ;
 MissionTime: 'The' 'total' 'time' 'of' 'the' 'mission' 'is' t=Range m=Metric;
-Mission: 'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=Task;
-Task:
-    Aggregate | Migration | Foraging
-;
-
+MissionDefinition: 'The' 'mission' 'of' 'the' 'robots' 'is' 'to' t=MissionClass;
+MissionClass:
+    Aggregate | Migration | Foraging;
 Aggregate:
-'aggregate' 'on' r+=[Region] (',' r+=[Region])*
-;
-
+'aggregate' 'on' r+=[Region] (',' r+=[Region])*;
 Migration:
-'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*
-;
-
+'aggregate' 'on' r+=[Region] (',' r+=[Region])* 'while' 'avoiding' t+=[Region] (',' t+=[Region])*;
 Foraging:
-'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region]  (',' source+=[Region])*
-;
-
-
-
+'collect' 'food' 'from' source+=[Region] (',' source+=[Region])* 'and' 'bring' 'it' 'back' 'to' nest=[Region]  (',' source+=[Region])*;
 Metric:
-'seconds' | 'steps' | 'm' | 'kg'
-;
-
+'seconds' | 'steps' | 'm' | 'kg';
+Environment:
+a=Arena ('The' 'arena' 'contains' 'the' 'following' 'elements' ':')? (environment+=EnvironmentElements)*;
+ProbabilisticDecription:
+'distributed' 'with' 'a' dis=Distribution 'distribution' 'in'  k=[Region];
 
 MissionObjective:
 'The' 'performance' 'measure' 'is' 'defined' 'in' 'terms' 'of' 'an' 'objective' 'function' 'to' 'be' Type=('maximized.' | 'minimized.')
@@ -55,22 +31,23 @@ Indicator:
 sp=Scope  oc= (AtomicIndicator | CompoundIndicator)
 ;
 AtomicIndicator:
-'each' 'robot' oc=Occurence
+'each' 'robot' oc=Pattern
 ;
 CompoundIndicator:
-'the' 'swarm' oc=Occurence
+'the' 'swarm' oc=Pattern
 ;
 Scope:
-sp =("At any point in time," | "At the end of the mission,") | Condition
+sp = AnyTimePoint | EndMission | Condition;
 
 //| 'Before' p=AtomicEvent| 'After' p=(AtomicEvent) | 'Between'   p=AtomicEvent 'and' q=AtomicEvent | 'After' p=AtomicEvent 'Untii' q=AtomicEvent | 'at' 'time' t=Time
 
-;
+
+
 
 AtomicEvent:
-'Walls change color'
+'walls change color' | 'robot' 'at' r=[Region] | 'Collision'
 ;
-Occurence:
+Pattern:
 Reward | Penalty
 ;
 
@@ -85,15 +62,20 @@ Reward:
 ;
 
 
-Condition:
-('if' | 'If') 'it' 'is' ('on' | 'outside')  r=[Region] |
-('if' | 'If')'there' 'are' 'more' 'than' n=INT 'robots'('on' | 'outside')   r=[Region] (",")*  |
-('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region]
+Condition returns String:
+{existence_absence1}('if' | 'If') 'it' 'is' inside=('on' | 'outside')  r=[Region] |
+{existence_absence2} ('if' | 'If')'there' 'are' 'more' 'than' n=INT 'robots' inside=('on' | 'outside')   r=[Region] (",")*  |
+{transition} ('if' | 'If') 'it' 'goes' 'from' r=[Region] 'into' nest=[Region] |
+{universality} 'always'
 ;
 
 Time:
-x=Range | 'beggining' 'of' 'the' 'mission' |'end' 'of' 'the' 'mission'
+x=Range | StartMission | EndMission
 ;
+
+StartMission: ('Beginning'|'beginning') 'of' 'the' 'mission' (',')*;
+EndMission: ('at'|'At') 'the' 'end' 'of' 'the' 'mission' (',')*;
+AnyTimePoint: ('at'|'At') 'any' 'point' 'in' 'time' (',')*;
 
 
 Robot:
@@ -131,6 +113,13 @@ Obstacle:
 obs='An' 'obstacle' 'as' 'a' r=Region
 ;
 
+Box:
+//shape=Shape*
+//dimensions=Dimension
+//position=Position
+obs='A' 'box' 'as' 'a' r=Region
+;
+
 Patch:
    'A' c=Color 'patch' 'as' 'a' r=Region
 ;
@@ -165,19 +154,19 @@ Region:
 (colors=Color)? (shape2d=Shape2D) (name=ID)  region=RegionDefinition;
 
 RegionDefinition:
-DefinitionOne | DefinitionTwo | DefinitionThree
+Definition1 | Definition2 | Definition3
 ;
 
-DefinitionOne:
+Definition1:
 ('with' referencepoint=Position)? ('and' dimensions=Dimension)?
 ;
 
-DefinitionTwo:
+Definition2:
 'defined' 'through' 'the' 'following' 'Vertices' ':' (point+=Position) (';' point+=Position)*
 
 ;
 
-DefinitionThree:
+Definition3:
 'where' ax=Axis 'is' r=Range
 
 ;
